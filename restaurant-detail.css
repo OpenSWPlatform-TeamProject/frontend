@@ -349,4 +349,42 @@ textarea::placeholder {
   margin-top: 15px;
 }
 
+/* page-nav */
+.page-move-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.page-nav {
+  height: 100px;
+  width: 215px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+ul.page > li {
+  padding: 10px;
+}
+
+.page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.page li {
+  font-size: 19px;
+}
+
+.End {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.another-page {
+  color: rgba(0, 0, 0, 0.3);
+}
+
 
