@@ -106,4 +106,29 @@ body {
   left: 5%;
 }
 
+/* photo-container */
+.photo-container {
+  position: relative;
+}
+
+.restaurant-image {
+  width: 30vw;
+  height: 19vw;
+  border-radius: 25px;
+  background-color: lightgray;
+  object-fit: cover;
+}
+
+.vegan-badge {
+  width: 5vw;
+  height: 5vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+
+
 
