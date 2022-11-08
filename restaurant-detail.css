@@ -129,6 +129,51 @@ body {
   border-radius: 50%;
 }
 
+/* restaurant-info-section */
+.restaurant-info-section {
+  width: 50%;
+  margin-top: 8vw;
+}
 
+.section-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+}
 
+.restaurant-name-and-ratings {
+  display: flex;
+  gap: 15px;
+}
+
+.restaurant-name {
+  font-size: 25px;
+}
+
+.ratings {
+  height: 25px;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 15px;
+}
+
+.buttons-container button {
+  background-color: white;
+  box-shadow: none;
+  border: 0;
+  padding: 0;
+}
+
+.buttons-container img {
+  width: 30px;
+  height: 30px;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+.dividing-line {
+  margin: 20px 0;
+}
 
