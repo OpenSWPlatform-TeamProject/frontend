@@ -312,3 +312,41 @@ textarea::placeholder {
   border-radius: 7px;
   font-size: 15px;
 }
+
+
+/* comments-list */
+.comments-list {
+  width: 100%;
+}
+
+.comments-list > li {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #E7E6E6;
+  padding-top: 10px;
+}
+
+.profile-img-container {
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #E7E6E6;
+}
+
+.nickname-and-content {
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+
