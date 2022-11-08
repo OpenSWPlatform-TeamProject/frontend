@@ -1,0 +1,52 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .logo {
+    width: 150px;
+    height: 100px;
+  }
+  
+  .sign_up_form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .sign_up_form input, .sign_up_form button {
+    width: 300px;
+    height: 55px;
+    border-radius: 18px;
+    padding: 15px;
+    font-size: 18px;
+  }
+  
+  .sign_up_form button{
+    background-color: #FD5D5D;
+    color: white;
+  }
+  
+  .login_section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .already_signed_up {
+    color: #AFABAB;
+    font-size: 17px;
+  }
+  
+  .login_button {
+    border: 0;
+    box-shadow: none;
+    background-color: transparent;
+    text-decoration: underline;
+    color: #808080;
+    font-size: 17px;
+  }
