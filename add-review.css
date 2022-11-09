@@ -1,0 +1,306 @@
+body{
+    color: #3B3838;
+}
+
+.content{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.input{
+    border-radius: 15px;
+    width: 100%;
+    padding: 18px 18px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 18px; 
+}
+
+/* navigation bar */
+.navbar {
+    background-color: #ff8080;
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+  
+.nav1 {
+    float: left;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+  
+.nav2 {
+    float: left;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+  
+.search {
+    height: 50px;
+}
+  
+.search-box {
+    width: 550px;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+}
+  
+.search-box input#search {
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 550px;
+    height: 50px;
+    background: white;
+    border: none;
+    font-size: 10pt;
+    color: black;
+    padding-left: 45px;
+    border-radius: 15px;
+}
+  
+.search-box .icon {
+    position: absolute;
+    margin-top: 17px;
+    margin-left: 17px;
+    color: Grey;
+}
+  
+.nav3 {
+    float: left;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+  
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: lighter;
+    font-size: 15px;
+}
+  
+.navbar ul {
+    float: right;
+}
+  
+.navbar li {
+    margin-left: 15px;
+    list-style-type: none;
+    float: left;
+}
+
+ /* 상단바 */
+.topbar {
+    height: 240px;
+    background-color: #fff7bc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+  
+.back-icon {
+    color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
+  
+.title {
+    color: black;
+    font-size: 25px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+  
+.title-description {
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 19px;
+}
+
+/* 평점 입력 */
+.rating-flower-pic{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+.rating-flower-button{
+    box-shadow: none;
+    border: 0;
+    background-color: transparent;
+}
+.rating-flower-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.range-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*radio button custom*/
+input[type=radio]:checked, input[type=radio]:not(:checked){
+    position: absolute;
+    left: -9999px;
+}
+
+input[type=radio]:checked + label, input[type=radio]:not(:checked) + label{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    display: inline-block;
+    color: rgb(60, 56, 57);    
+}
+
+input[type="radio"]:checked + label:before, input[type="radio"]:not(:checked) + label:before{
+    content: ' ';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 13px;
+    height: 13px;
+    border: 3px solid rgb(230, 230, 230);
+    border-radius: 100%;
+    background: #fff;
+}
+
+input[type="radio"]:checked + label:after, input[type="radio"]:not(:checked) + label:after{
+    content: ' ';
+    width: 13px;
+    height: 13px;
+    background: rgb(110, 196, 43);
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+input[type="radio"]:not(:checked) + label:after{
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+input[type="radio"]:checked + label:after{
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.insert-title{
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+label{
+    font-size: 20px;
+}
+
+/* 방문 시간 */
+
+.time-period-wrapper, .wait-time-period-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 리뷰 내용 작성 */
+textarea{
+    width:100%; 
+    height: 100px;
+    resize: none;
+    border-radius: 15px;
+    padding: 18px 18px;
+    font-size: 18px; 
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    color: #767171;
+}
+
+/*Upload img file */
+
+.img-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.img-container input[type="file"]{
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+.img-container label{
+    padding: 10px 20px;
+    color: white;
+    background-color: #FD5D5D;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    height: 40px;
+    margin-left: 10px;
+}
+.img-preview{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding-left: 25%;
+    width: 60%;
+    height: 250px;
+    border: none;
+    background-color:  #e7e6e6;
+    border-radius: 13%;
+    font-size: 30px;
+    color: white;
+}
+
+/* 등록버튼 */
+.submit-button{
+    background-color: #FD5D5D;
+    color:white;
+    font-size: 18px; 
+    border-radius: 8px;   
+    border: none;
+    padding: 10px 40px;
+    margin-top: 60px;
+    margin-left: 30px;
+}
+
+.submit-button-container{
+    display: flex;
+    justify-content: center;
+}
+
+/* footer */
+footer {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E7E6E6;
+    margin-top: 100px;
+}
+  
+.copyright {
+    font-size: 16px;
+    color: #AFABAB;
+}
