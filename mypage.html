@@ -1,0 +1,200 @@
+<!DOCTYPE>
+<html lang="Korean">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="mypage.css" />
+  <script src="https://kit.fontawesome.com/0ed41516ec.js" crossorigin="anonymous"></script>
+  <title>mypage</title>
+</head>
+
+<body>
+  <!-- 네비게이션 바 -->
+  <nav class="navbar">
+    <div class="nav1">
+      <a href="home.html" class="logo">
+        <img src="logo_white.png" height="70px" />
+      </a>
+    </div>
+    <div class="nav2">
+      <div class="search">
+        <div class="search-box">
+          <a href="" class="icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+          <input type="search" id="search" name="이대 근처 맛집 찾기" placeholder="이대 근처 맛집 찾기" />
+        </div>
+      </div>
+    </div>
+    <div class="nav3">
+      <ul>
+        <li><a href="login.html">로그인</a></li>
+        <li><a href="mypage.html">마이페이지</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 상단바 -->
+  <section class="topbar">
+    <a href="home.html" class="back-icon">
+      <i class="fa solid fa-arrow-left fa-lg"></i>
+    </a>
+    <div class="title">마이페이지</div>
+  </section>
+
+
+  <section class="container">
+    <!-- 프로필-->
+    <div class="profile">
+
+      <div class="profileimg">
+        <img class="img" src="profile.png" alt="profile">
+      </div>
+      <div class="user">
+        <div class="username">
+          닉네임
+        </div>
+        <div class="userid">
+          아이디
+        </div>
+      </div>
+    </div>
+
+    <!-- 내가 쓴 리뷰 -->
+    <div class="myreview">
+      <div class="subtitle">
+        내가 쓴 리뷰
+      </div>
+
+      <ul class="reviews">
+        <li>
+          <a href="myreview-detail.html">
+            <button class="review">
+              <div class="review-pic">
+                <img class="pic" src="box.png" alt="review-pic1">
+              </div>
+              <div class="review-content">
+                <div class="food">찹쌀탕수육</div>
+                <div class="star">
+                  <img class="star-pic" src="ratings_3.png" alt="review-star">
+                </div>
+                <div class="hashtag">
+                  #저녁 #대기10분
+                </div>
+              </div>
+            </button>
+          </a>
+        </li>
+
+        <li>
+          <a href="myreview-detail.html">
+            <button class="review">
+              <div class="review-pic">
+                <img class="pic" src="box.png" alt="review-pic2">
+              </div>
+              <div class="review-content">
+                <div class="food">순대볶음</div>
+                <div class="star">
+                  <img src="ratings_4.png" class="star-pic" alt="review-star">
+                </div>
+                <div class="hashtag">
+                  #저녁 #대기10분
+                </div>
+              </div>
+            </button>
+          </a>
+        </li>
+
+        <li>
+          <a href="myreview-detail.html">
+            <button class="review">
+              <div class="review-pic">
+                <img class="pic" src="box.png" alt="review-pic3">
+              </div>
+              <div class="review-content">
+                <div class="food">참치김밥</div>
+                <div class="star">
+                  <img src="ratings_5.png" class="star-pic" alt="review-star">
+                </div>
+                <div class="hashtag">
+                  #야간 #대기없음
+                </div>
+              </div>
+            </button>
+          </a>
+        </li>
+      </ul>
+
+      <!-- 더보기 -->
+      <a href="myreview-list.html" class="boxMore">
+        <h7 class="more"> > 더보기 </h7>
+      </a>
+
+    </div>
+
+    <!-- 나의 찜 목록-->
+    <div class="mylike">
+      <div class="subtitle">
+        나의 찜 목록
+      </div>
+
+      <div class="card-container">
+
+        <a href="restaurant-detail.html">
+          <button class="card">
+            <img class="heart-button" src="heart_filled.png" alt="fav">
+            <div class="card-title">너스레</div>
+            <div class="card-hashtag">#치즈김치전 #만원대</div>
+            <div class="card-rating">
+              <img class="stars_pic" src="ratings_4.png" alt="card-rating1">
+            </div>
+          </button>
+        </a>
+
+        <a href="restaurant-detail.html">
+          <button class="card">
+            <img class="heart-button" src="heart_filled.png" alt="fav">
+            <div class="card-title">우리들의 공간</div>
+            <div class="card-hashtag">#대왕계란말이 #만원대</div>
+            <div class="card-rating">
+              <img class="stars_pic" src="ratings_4.png" alt="card-rating2">
+            </div>
+          </button>
+        </a>
+
+        <a href="restaurant-detail.html">
+          <button class="card">
+            <img class="heart-button" src="heart_filled.png" alt="fav">
+            <div class="card-title">카츠난반</div>
+            <div class="card-hashtag">#모듬카츠 #만원대</div>
+            <div class="card-rating">
+              <img class="stars_pic" src="ratings_5.png" alt="card-rating3">
+            </div>
+          </button>
+        </a>
+      </div>
+
+      <a href="my-fav-list.html" class="boxMore">
+        <h7 class="more"> > 더보기 </h7>
+      </a>
+
+    </div>
+
+
+    <!-- 탈퇴하기 -->
+    <div class="quit">
+      <a href="#" class="quitbtn"> 탈퇴하기 </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="copyright">
+      2022 &#169; 어?이게왜되조
+    </div>
+  </footer>>
+</body>
+
+</html>
