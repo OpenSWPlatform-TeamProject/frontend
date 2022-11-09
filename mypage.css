@@ -1,0 +1,318 @@
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: #ff8080;
+  height: 75px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nav1 {
+  float: left;
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.nav2 {
+  float: left;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.search {
+  height: 50px;
+}
+
+.search-box {
+  width: 550px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+.search-box input#search {
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  width: 550px;
+  height: 50px;
+  background: white;
+  border: none;
+  font-size: 10pt;
+  color: black;
+  padding-left: 45px;
+  border-radius: 15px;
+}
+
+.search-box .icon {
+  position: absolute;
+  margin-top: 17px;
+  margin-left: 17px;
+  color: Grey;
+}
+
+.nav3 {
+  float: left;
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: lighter;
+  font-size: 15px;
+}
+
+.navbar ul {
+  float: right;
+}
+
+.navbar li {
+  margin-left: 15px;
+  list-style-type: none;
+  float: left;
+}
+
+.topbar {
+  height: 240px;
+  background-color: #fff7bc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.back-icon {
+  color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 10%;
+  left: 5%;
+}
+
+.title {
+  color: black;
+  font-size: 25px;
+}
+
+.title-description {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile {
+  width: 735px;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.profileimg {
+  width: 100px;
+  border-radius: 70%;
+}
+
+.img {
+  width: 100%;
+}
+
+.user {
+  padding-left: 30px;
+  width: 100px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.username {
+  font-size: 19px;
+}
+
+.userid {
+  font-size: 18px;
+}
+
+.myreview {
+  height: 370px;
+}
+
+.subtitle {
+  height: 40px;
+  padding-top: 20px;
+  padding-left: 30px;
+  font-size: 18px;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+ul.reviews>li {
+  padding: 15px;
+}
+
+.review {
+  width: 215px;
+  height: 270px;
+  background-color: white;
+  border: none;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-pic {
+  width: 200px;
+  height: 140px;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.pic {
+  margin-top: 6px;
+  width: 192px;
+  height: 140px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.review-content {
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.food {
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.star-pic {
+  width: 115px;
+  padding-top: 5px;
+}
+
+.hashtag {
+  font-size: 17px;
+  padding-top: 10px;
+}
+
+.boxMore {
+  font-size: 14.5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 25px;
+  margin-top: 8px;
+}
+
+.mylike {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 735px;
+}
+
+
+button {
+  background-color: white;
+  height: 140px;
+}
+
+.card {
+  position: relative;
+  text-align: center;
+  border-radius: 15px;
+  padding: 35px 25px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  width: 220px;
+  color: #3B3838;
+}
+
+.card-title {
+  font-size: clamp(20px, 1.3vw, 70px);
+  margin-top: 0px;
+}
+
+.card-hashtag {
+  font-size: clamp(17px, 0.7vw, 70px);
+  padding-top: 5px;
+}
+
+.heart-button {
+  width: 70px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  transform: translate(65%, -10%);
+}
+
+.stars_pic {
+  width: 125px;
+  padding-top: 7px;
+}
+
+
+footer {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E7E6E6;
+  margin-top: 100px;
+}
+
+.copyright {
+  font-size: 16px;
+  color: #AFABAB;
+}
+
+.quit {
+  width: 735px;
+  height: 90px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 60px;
+  align-items: flex-end;
+}
+
+.quitbtn {
+  color: rgba(0, 0, 0, 0.3);
+}
