@@ -1,0 +1,381 @@
+body{
+    color:#3B3838;
+}
+
+.content{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+/* 네비게이션 바 */
+.navbar {
+    background-color: #ff8080;
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+  
+.nav1 {
+    float: left;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+  
+.nav2 {
+    float: left;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+  
+.search {
+    height: 50px;
+}
+  
+.search-box {
+    width: 550px;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+}
+  
+.search-box input#search {
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 550px;
+    height: 50px;
+    background: white;
+    border: none;
+    font-size: 10pt;
+    color: black;
+    padding-left: 45px;
+    border-radius: 15px;
+}
+  
+.search-box .icon {
+    position: absolute;
+    margin-top: 17px;
+    margin-left: 17px;
+    color: Grey;
+}
+  
+.nav3 {
+    float: left;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+  
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: lighter;
+    font-size: 15px;
+}
+  
+.navbar ul {
+    float: right;
+}
+  
+.navbar li {
+    margin-left: 15px;
+    list-style-type: none;
+    float: left;
+}
+
+/* 상단바 */
+.topbar {
+    height: 240px;
+    background-color: #fff7bc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+  
+.back-icon {
+    color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
+  
+.title {
+    color: black;
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+  
+.title-description {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+/* body 안에 소제목 */
+.insert-title{
+    margin-top: 30px;
+    margin-bottom: 40px;
+    font-size: 24px;
+}
+
+/* 지도 만들기 */
+.upper {
+    height: 350px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+  
+.mapbtn_hidden {
+    position:absolute;
+    top:65%;
+    left:7%;
+}
+  
+.map {
+    padding-top:40px;
+    position: relative;
+    height: 350px;
+    width: 575px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left:50px;
+}
+  
+.mapbtn_sch {
+    position: relative;
+}
+  
+.sch_img {
+    clip-path: polygon(65% 0, 91% 0, 98% 16%, 100% 88%, 5% 100%, 0 77%, 19% 53%, 24% 32%, 31% 34%);
+}
+  
+.mapbtn_sin {
+    position: absolute;
+    left: -75%;
+    top:30px
+}
+  
+.sin_img {
+    clip-path: polygon(67% 0, 72% 26%, 85% 36%, 76% 52%, 80% 100%, 10% 71%, 16% 60%, 0 50%, 16% 13%, 57% 6%);
+}
+  
+.mapbtn_idae {
+    position: absolute;
+    bottom: -50%;
+    left: 10px;
+}
+  
+.idae_img {
+    clip-path: polygon(71% 2%, 100% 1%, 89% 85%, 68% 100%, 0 55%, 0 23%);
+}
+  
+.mapbtn_back {
+    position:absolute;
+    top: -15%;
+    left: -10%;
+}
+  
+.back_img {
+    clip-path: polygon(24% 0, 43% 3%, 100% 17%, 16% 99%, 0 51%);
+}
+.mapbtn_ahyeon {
+    position:absolute;
+    top: 5%;
+    left: 90%
+}
+.ahyeon_img {
+    clip-path: polygon(67% 11%, 100% 29%, 100% 66%, 28% 100%, 0 11%, 17% 0);
+}
+
+/* checkbox custom */
+.food-type-container{
+    display: flex;
+    justify-content: space-evenly;    
+}
+
+.filter-container{
+    line-height: normal;
+}
+
+input[type=checkbox] + label {
+    display: inline-block;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    cursor: pointer;
+    padding: 0.2em;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox] + label:before {
+    content: "\2714";
+    border: 0.1em solid #E7E6E6;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    padding-left: 0.2em;
+    padding-bottom: 0.3em;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+}
+
+input[type=checkbox] + label:active:before {
+    transform: scale(0);
+}
+
+input[type=checkbox]:checked + label:before {
+    background-color: #6DC52B;
+    border-color: rgb(230, 230, 230);
+    color: white;
+}
+
+input[type=checkbox]:disabled + label:before {
+    transform: scale(1);
+    border-color: #aaa;
+}
+
+input[type=checkbox]:checked:disabled + label:before {
+    transform: scale(1);
+    background-color: #bfb;
+    border-color: #bfb;
+}
+
+label{
+    font-size: 20px;
+}
+
+/* 리스트 */
+.list-container{
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.order-category{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.order-category-button{
+    background-color: #FFF7BC;
+    border: none;
+    margin-left: 10px;
+    padding: 10px 25px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+button{
+    background-color: white;
+}
+
+.card{
+    position: relative;
+    text-align: center;
+    border-radius: 15px;
+    padding: 35px 25px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width:240px;
+    color: #3B3838;
+}
+
+.card-title{
+    font-size: clamp(20px, 1.7vw, 70px);
+    margin-top: 10px;
+}
+
+.card-hashtag{
+    font-size: clamp(20px, 1vw, 70px);
+    padding-top: 5px;
+}
+
+.heart-button{
+    width: 80px;
+    position: absolute;
+    top:0;
+    bottom:0;
+    transform: translate(70%, -15%);
+}
+
+.stars-pic{
+    width: 125px;
+    padding-top: 10px;
+}
+
+.vegan-pic{
+    width: 60px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    transform: translate(-240%, -50%);
+}
+
+
+/* 페이지 넘기기 */
+.page-move-wrap{
+    display: flex;
+    justify-content: center;
+}
+
+.page-nav {
+    height: 100px;
+    width: 215px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+  
+ul.page > li {
+    padding: 10px;
+}
+  
+.page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+  
+.page li {
+    font-size: 19px;
+}
+  
+.End {
+    color: rgba(0, 0, 0, 0.3);
+}
+  
+.another-page {
+    color: rgba(0, 0, 0, 0.3);
+}
+  
+/* footer */
+footer {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E7E6E6;
+    margin-top: 100px;
+}
+  
+.copyright {
+    font-size: 16px;
+    color: #AFABAB;
+}

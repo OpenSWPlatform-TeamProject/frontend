@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add-restaurant</title>
+    <link href="global.css" rel="stylesheet"> 
+    <link href="add-restaurant.css" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/0ed41516ec.js" crossorigin="anonymous">
+    </script>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="nav1">
+          <a href="home.html" class="logo">
+              <img src="logo_white.png" height="70px">
+          </a>
+        </div>
+        <div class="nav2">
+          <div class="search">
+            <div class="search-box">
+              <a href="" class="icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </a>
+              <input type="search" id="search" name="이대 근처 맛집 찾기" placeholder="이대 근처 맛집 찾기" />
+            </div>
+          </div>
+        </div>
+        <div class="nav3">
+          <ul>
+            <li><a href="login.html">로그인</a></li>
+            <li><a href="mypage.html">마이페이지</a></li>
+          </ul>
+        </div>
+    </div>
+
+    <section>
+        <div class="topbar">
+            <div class="topbar-upper">
+              <a href="home.html" class="back-icon">
+                <i class="fa solid fa-arrow-left fa-lg"></i> 
+              </a>
+            </div>
+            <div class="topbar-bottom">
+              <div class="title">맛집 등록하기</div>
+              <div class="title-description">이화의 자랑, 당신의 맛집을 알려주세요</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- 맛집 이름 입력 -->
+            <form>
+                <input type="text" class="input" name="맛집 이름" placeholder="맛집 이름"><br>
+            </form>
+    
+            <!-- 음식 분류 선택 -->
+            <form>
+                <div class="food-type-container">
+                    <input type="checkbox" id="food-type1" name="한식" value="한식">
+                    <label for="food-type1"> 한식</label>
+            
+                    <input type="checkbox" id="food-type2" name="중식" value="중식">
+                    <label for="food-type2"> 중식</label>
+            
+                    <input type="checkbox" id="food-type3" name="양식" value="양식">
+                    <label for="food-type3"> 양식</label>
+            
+                    <input type="checkbox" id="food-type4" name="일식" value="일식">
+                    <label for="food-type4"> 일식</label>
+            
+                    <input type="checkbox" id="food-type5" name="카페" value="카페">
+                    <label for="food-type5"> 카페</label>
+            
+                    <input type="checkbox" id="food-type6" name="술" value="술">
+                    <label for="food-type6"> 술</label>
+                </div>
+            </form>
+
+            <!-- 비건 메뉴 유무 -->
+            <form>
+                <h3 class="insert-title">비건 메뉴 유무</h3>
+                <div class="vegan-container">
+                    <input type="radio" id="yes-vegan" name="answer">
+                    <label for="yes-vegan">네</label>
+                    <input type="radio" id="no-vegan" name="answer">
+                    <label for="no-vegan">아니요</label>
+                </div>
+            </form>
+
+
+            <!-- 가격대 선택 -->
+            <form>
+                <h3 class="insert-title">가격대</h3>
+                <div class="price-container">
+                    <input type="radio" id="price1" name="price-range">
+                    <label for="price1">~ 5천 원</label>
+                    <input type="radio" id="price2" name="price-range">
+                    <label for="price2">5천 원 ~ 만 원</label>
+                    <input type="radio" id="price3" name="price-range">
+                    <label for="price3">만 원 ~ 3만 원</label>
+                    <input type="radio" id="price4" name="price-range">
+                    <label for="price4">3만 원 이상</label>
+                </div>
+            </form>
+        
+            <!-- 위치 선택 -->
+            <form>
+                <h3 class="insert-title">위치</h3>
+                <div class="location-container">
+                    <input type="radio" id="loca1" name="location">
+                    <label for="loca1">정문</label>
+                    <input type="radio" id="loca2" name="location">
+                    <label for="loca2">후문</label>
+                    <input type="radio" id="loca3" name="location">
+                    <label for="loca3">교내</label> 
+                    <input type="radio" id="loca4" name="location">
+                    <label for="loca4">신촌</label>
+                    <input type="radio" id="loca5" name="location">
+                    <label for="loca5">아현</label>
+                </div>
+            </form>
+        
+            <!-- 주소 입력 -->
+            <form>
+                <input type="text" id="address" class="input" placeholder="주소"><br>
+            </form>
+        
+            <!-- 전화번호 입력 -->
+            <form>
+                <input type="text" id="phone-num" class="input" placeholder="전화번호"><br>
+            </form>
+            <!-- 전화번호 양식에 숫자 아닌거 넣을 경우 -->
+
+            <!-- 주차 가능 여부 -->
+            <form>
+                <h3 class="insert-title">주차 가능 여부</h3>
+                <div class="parking-container">
+                    <input type="radio" id="yes-park" name="answer">
+                    <label for="yes-park">네</label>
+                    <input type="radio" id="no-park" name="answer">
+                    <label for="no-park">아니요</label><br>
+                </div>
+            </form>
+
+            <!-- 대표 이미지 넣기 -->
+            <h3 class="insert-title" >대표 사진</h3>
+            <form>
+                <div class="img-container">
+                    <input type="file" id="fileUpload" accept="image/*">
+                    <label for="fileUpload" >파일 선택</label>
+                    <div class="img-preview">사진</div>
+                </div>
+            </form>
+
+            <!-- 영업시간 입력 -->
+            <div class="restaurant-time-container">
+                
+                <div class="working-time-container">
+                    <div class="title-container">
+                        <h3 class="insert-title">영업시간</h3>
+                        <h3 class="insert-title">휴무</h3>
+                    </div>
+                    <form class="input-container">
+                        <input type="text" id="monday-time" class="input-date" placeholder="월">
+                        <input type="checkbox" id="monday-break" value="월휴무">
+                        <label for="monday-break"></label>
+                    </form>
+                    <form class="input-container">
+                        <input type="text" id="tuesday-time" class="input-date" placeholder="화">
+                        <input type="checkbox" id="tuesday-break" value="화휴무">
+                        <label for="tuesday-break"></label>
+            
+                    </form>
+                    <form class="input-container">
+                        <input type="text" id="wednesday-time" class="input-date" placeholder="수">
+                        <input type="checkbox" id="wednesday-break" value="수휴무">
+                        <label for="wednesday-break"></label>
+                    </form>
+                    <form class="input-container">
+                        <input type="text" id="thursday-time" class="input-date" placeholder="목">
+                        <input type="checkbox" id="thursday-break" value="목휴무">
+                        <label for="thursday-break"></label>
+                    </form>
+                    <form class="input-container">
+                        <input type="text" id="friday-time" class="input-date" placeholder="금">
+                        <input type="checkbox" id="friday-break" value="금휴무">
+                        <label for="friday-break"></label>
+                    </form>
+                    <form class="input-container">
+                        <input type="text" id="saturday-time" class="input-date" placeholder="토">
+                        <input type="checkbox" id="saturday-break" value="토휴무">
+                        <label for="saturday-break"></label>
+                    </form>
+                    <form class="input-container">
+                        <input type="text" id="sunday-time" class="input-date" placeholder="일">
+                        <input type="checkbox" id="sunday-break" value="일휴무">
+                        <label for="sunday-break"></label>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 브레이크 타임 유무 -->
+            <form>
+                <div class="breaktime-container">
+                    <h3 class="insert-title">브레이크 타임</h3>
+                    <div class="breaktime-answer-container">
+                        <input type="radio" id="yes-breakt" name="answer">
+                        <label for="yes-breakt">네</label>
+                        <input type="radio" id="no-breakt" name="answer">
+                        <label for="no-breakt">아니요</label><br>
+                    </div>
+                </div>
+                    <form>
+                        <input type="text" class="input-break" placeholder="00:00 ~ 00:00">
+                    </form>
+            </form>
+
+            <!-- 등록 버튼 & 다른 대표메뉴 추가 -->
+            <div class="submit-button-container">
+                <button class="submit-button">등록</button>
+                <button class="submit-button">대표 메뉴 등록하기</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="copyright">2022 copyright 어?이게왜되조</div>
+    </footer>
+
+</body>
+
+</html>
