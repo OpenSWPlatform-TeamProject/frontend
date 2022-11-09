@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>restaurant-list</title>
+    <link href="global.css" rel="stylesheet"> 
+    <link href="restaurant-list.css" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/0ed41516ec.js" crossorigin="anonymous">
+    </script>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="nav1">
+          <a href="home.html" class="logo">
+            <img src="logo_white.png" height="70px">
+          </a>
+        </div>
+        <div class="nav2">
+          <div class="search">
+            <div class="search-box">
+              <a href="" class="icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </a>
+              <input type="search" id="search" name="이대 근처 맛집 찾기" placeholder="이대 근처 맛집 찾기" />
+            </div>
+          </div>
+        </div>
+        <div class="nav3">
+          <ul>
+            <li><a href="login.html">로그인</a></li>
+            <li><a href="mypage.html">마이페이지</a></li>
+          </ul>
+        </div>
+    </div>
+
+    <section>
+        <div class="topbar">
+            <a hrec="home.html" class="back-icon">
+              <i class="fa solid fa-arrow-left fa-lg"></i> 
+            </a>
+            <div class="title">무엇을 잇 해볼화?</div>
+            <div class="title-description">이대의 명물, 맛집을 조회해보세요</div>
+        </div>
+
+        <div class="content">
+            <!-- 위치 선택 -->
+            <div class="select-location">
+                <h3 class="insert-title">위치</h3>
+                <form>
+                    <div class="filter-container">
+                        <input type="checkbox" id="all" name="전체" value="전체"> 
+                        <label for="all"> 전체</label>
+                        <!-- 지도가 들어갑니다 -->
+                        <div class="upper">
+                            <div class="map">
+                                <div class="mapbtn_sch">
+                                    <a href="restaurant-list.html" class="sch">
+                                        <img class="sch_img" src="교내.png" height="150px" />
+                                    </a>
+                        
+                                    <div class="mapbtn_sin">
+                                        <a href="restaurant-list.html" class="sin">
+                                            <img class="sin_img" src="신촌.png" height="150px">
+                                        </a>
+                                    </div>
+                                    <div class="mapbtn_idae">
+                                        <a href="restaurant-list.html" class="idae">
+                                            <img class="idae_img" src="이대.png" height="85px">
+                                        </a>
+                                    </div>
+                                    <div class="mapbtn_back">
+                                        <a href="restaurant-list.html" class="back">
+                                            <img class="back_img" src="후문.png" height="140px">
+                                        </a>
+                                    </div>
+                                    <div class="mapbtn_ahyeon">
+                                        <a href="restaurant-list.html" class="ahyeon">
+                                            <img class="ahyeon_img" src="아현.png" height="150px">
+                                        </a>
+                                    </div>
+                                    <div class="mapbtn_hidden">
+                                        <a href="restaurant-list.html">
+                                            <img class="hidden_img" src="hidden.png" height="50px">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 분류 -->
+            <h3 class="insert-title">분류</h3>
+            <div class="filter-container">
+                <form>
+                    <div class="food-type-container">
+                        <input type="checkbox" id="food-type1" name="한식" value="한식">
+                        <label for="food-type1"> 한식</label>
+                
+                        <input type="checkbox" id="food-type2" name="중식" value="중식">
+                        <label for="food-type2"> 중식</label>
+                
+                        <input type="checkbox" id="food-type3" name="양식" value="양식">
+                        <label for="food-type3"> 양식</label>
+                
+                        <input type="checkbox" id="food-type4" name="일식" value="일식">
+                        <label for="food-type4"> 일식</label>
+                
+                        <input type="checkbox" id="food-type5" name="카페" value="카페">
+                        <label for="food-type5"> 카페</label>
+                
+                        <input type="checkbox" id="food-type6" name="술" value="술">
+                        <label for="food-type6"> 술</label>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 리스트 -->
+            <section class="list-container">
+                <div class="order-category">
+                    <a href="restaurant-list.html">
+                        <button class="order-category-button">최신순</button>
+                    </a>
+                    <a href="restaurant-list.html">
+                        <button class="order-category-button">별점순</button>
+                    </a>
+                </div>
+        
+                <div class="card-container">
+                    <a href="restaurant-detail.html">
+                        <button class="card">
+                            <img class="heart-button" src="heart_empty.png">
+                            <div class="card-vegan">
+                                <img class="vegan-pic" src="vegan.png" alt="vegan-sticker1">
+                            </div>
+                            <div class="card-title">너스레</div>
+                            <div class="card-hashtag">#치즈김치전 #만원대</div>
+                            <div class="card-rating">
+                                <img class="stars-pic"src="ratings_4.png" alt="card-rating1">
+                            </div>
+                        </button>
+                    </a>
+
+                    <a href="restaurant-detail.html">
+                        <button class="card">
+                            <img class="heart-button" src="heart_filled.png">
+                            <div class="card-title">우리들의 공간</div>
+                            <div class="card-hashtag">#대왕계란말이 #만원대</div>
+                            <div class="card-rating">
+                                <img class="stars-pic"src="ratings_4.png" alt="card-rating2">
+                            </div>
+                        </button>
+                    </a>
+                    <a href="restaurant-detail.html">
+                        <button class="card">
+                                <img class="heart-button" src="heart_empty.png">
+                            </form>
+                            <div class="card-title">카츠난반</div>
+                            <div class="card-hashtag">#모듬카츠 #만원대</div>
+                            <div class="card-rating">
+                                <img class="stars-pic"src="ratings_5.png" alt="card-rating3">
+                            </div>
+                        </button>
+                    </a>
+                    <a href="restaurant-detail.html">
+                        <button class="card">
+                            <img class="heart-button" src="heart_filled.png">
+                            <div class="card-title">진돈부리</div>
+                            <div class="card-hashtag">#사케동 #만원대</div>
+                            <div class="card-rating">
+                                <img class="stars-pic"src="ratings_5.png" alt="card-rating4">
+                            </div>
+                        </button>
+                    </a>
+                    <a href="restaurant-detail.html">
+                        <button class="card">
+                            <img class="heart-button" src="heart_empty.png">
+                            <div class="card-title">소오밥집</div>
+                            <div class="card-hashtag">#치킨마요동 #5천원대</div>
+                            <div class="card-rating">
+                                <img class="stars-pic"src="ratings_3.png" alt="card-rating5">
+                            </div>
+                        </button>
+                    </a>
+                    <a href="restaurant-detail.html">
+                        <button class="card">
+                            <img class="heart-button" src="heart_empty.png">
+                            <div class="card-vegan">
+                                <img class="vegan-pic"src="vegan.png" alt="vegan-sticker6">
+                            </div>
+                            <div class="card-title">낮과밤</div>
+                            <div class="card-hashtag">#피맥 #만원대</div>
+                            <div class="card-rating">
+                                <img class="stars-pic"src="ratings_4.png" alt="card-rating6">
+                            </div>
+                        </button>
+                    </a>
+                    <a href="restaurant-detail.html">
+                        <button class="card">
+                            <img class="heart-button" src="heart_empty.png">
+                            <div class="card-vegan">
+                                <img class="vegan-pic" src="vegan.png" alt="vegan-sticker7">
+                            </div>
+                            <div class="card-title">여래여거</div>
+                            <div class="card-hashtag">#오마카세 #3만원이상</div>
+                            <div class="card-rating">
+                                <img class="stars-pic"src="ratings_4.png" alt="card-rating7">
+                            </div>
+                        </button>
+                    </a>    
+                    <a href="restaurant-detail.html">
+                        <button class="card">
+                            <img class="heart-button" src="heart_empty.png">
+                            <div class="card-title">오리지날</div>
+                            <div class="card-hashtag">#즉석떡볶이 #만원대</div>
+                            <div class="card-rating">
+                                <img class="stars-pic"src="ratings_4.png" alt="card-rating8">
+                            </div>
+                        </button>
+                    </a>
+                    <a href="restaurant-detail.html">
+                        <button class="card">
+                            <img class="heart-button" src="heart_filled.png">
+                            <div class="card-title">파파노다이닝</div>
+                            <div class="card-hashtag">#일본가정식 #만원대</div>
+                            <div class="card-rating">
+                                <img class="stars-pic"src="ratings_3.png" alt="card-rating9">
+                            </div>
+                        </button>
+                    </a>
+                </div>
+
+                <!-- 페이지 이동 버튼 -->
+                <div class="page-move-wrap">  
+                    <div class="page-nav">
+                        <ul class="page">
+                            <li>
+                                <a href="" class="End">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <strong>1</strong>
+                            </li>
+                            <li>
+                                <a class="another-page" href="">2</a>
+                            </li>
+                            <li>
+                                <a class="another-page" href="">3</a>
+                            </li>
+                            <li>
+                                <a class="another-page" href="">4</a>
+                            </li>
+                            <li>
+                                <a class="another-page" href="">5</a>
+                            </li>
+                            <li>
+                                <a href="" class="End">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div> 
+    </section>   
+
+    <footer>
+        <div class="copyright">2022 copyright 어?이게왜되조</div>
+    </footer>
+    
+</body>
+
+</html>
