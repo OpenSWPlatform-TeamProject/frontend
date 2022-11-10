@@ -67,52 +67,50 @@
             placeholder="메뉴 이름"
             required
           /><br />
-        </form>
 
-        <!-- 평점 입력 -->
-        <div class="range-container">
-          <h3 class="insert-title">평점</h3>
-          <form class="rating-flower-container">
-            <button class="rating-flower-button">
-              <img
-                src="/static/rating_empty.png"
-                alt="rating_empty"
-                class="rating-flower-pic"
-              />
-            </button>
-            <button class="rating-flower-button">
-              <img
-                src="/static/rating_empty.png"
-                alt="rating_empty"
-                class="rating-flower-pic"
-              />
-            </button>
-            <button class="rating-flower-button">
-              <img
-                src="/static/rating_empty.png"
-                alt="rating_empty"
-                class="rating-flower-pic"
-              />
-            </button>
-            <button class="rating-flower-button">
-              <img
-                src="/static/rating_empty.png"
-                alt="rating_empty"
-                class="rating-flower-pic"
-              />
-            </button>
-            <button class="rating-flower-button">
-              <img
-                src="/static/rating_empty.png"
-                alt="rating_empty"
-                class="rating-flower-pic"
-              />
-            </button>
-          </form>
-        </div>
+          <!-- 평점 입력 -->
+          <div class="range-container">
+            <h3 class="insert-title">평점</h3>
+            <div class="rating-flower-container">
+              <button class="rating-flower-button">
+                <img
+                  src="/static/rating_empty.png"
+                  alt="rating_empty"
+                  class="rating-flower-pic"
+                />
+              </button>
+              <button class="rating-flower-button">
+                <img
+                  src="/static/rating_empty.png"
+                  alt="rating_empty"
+                  class="rating-flower-pic"
+                />
+              </button>
+              <button class="rating-flower-button">
+                <img
+                  src="/static/rating_empty.png"
+                  alt="rating_empty"
+                  class="rating-flower-pic"
+                />
+              </button>
+              <button class="rating-flower-button">
+                <img
+                  src="/static/rating_empty.png"
+                  alt="rating_empty"
+                  class="rating-flower-pic"
+                />
+              </button>
+              <button class="rating-flower-button">
+                <img
+                  src="/static/rating_empty.png"
+                  alt="rating_empty"
+                  class="rating-flower-pic"
+                />
+              </button>
+            </div>
+          </div>
 
-        <!-- 방문 시간 선택  -->
-        <form>
+          <!-- 방문 시간 선택  -->
           <h3 class="insert-title">방문 시간</h3>
           <div class="time-period-wrapper">
             <div class="time-period-container">
@@ -132,10 +130,8 @@
               <label for="time4">야간</label>
             </div>
           </div>
-        </form>
 
-        <!-- 대기 시간 -->
-        <form>
+          <!-- 대기 시간 -->
           <h3 class="insert-title">대기 시간</h3>
           <div class="wait-time-period-container">
             <div class="wait-time-period">
@@ -155,31 +151,30 @@
               <label for="wait4">30분 이상</label>
             </div>
           </div>
-        </form>
 
-        <!-- 리뷰 내용 작성 -->
-        <h3 class="insert-title">리뷰 내용</h3>
-        <textarea
-          class="review-input"
-          maxlength="800"
-          name="리뷰작성내용"
-          placeholder="음식이 어땠는지 리뷰를 작성해주세요:)"
-        ></textarea
-        ><br />
+          <!-- 리뷰 내용 작성 -->
+          <h3 class="insert-title">리뷰 내용</h3>
+          <textarea
+            class="review-input"
+            maxlength="800"
+            name="리뷰작성내용"
+            placeholder="음식이 어땠는지 리뷰를 작성해주세요:)"
+          ></textarea
+          ><br />
 
-        <!-- 리뷰 이미지 넣기 -->
-        <h3 class="insert-title">대표 사진</h3>
-        <form>
+          <!-- 리뷰 이미지 넣기 -->
+          <h3 class="insert-title">대표 사진</h3>
           <div class="img-container">
             <input type="file" id="fileUpload" accept="image/*" />
             <label for="fileUpload">파일 선택</label>
             <div class="img-preview">사진</div>
           </div>
+
+          <!-- 등록 완료 버튼 -->
+          <div class="submit-button-container">
+            <button class="submit-button">등록</button>
+          </div>
         </form>
-        <!-- 등록 완료 버튼 -->
-        <div class="submit-button-container">
-          <button class="submit-button">등록</button>
-        </div>
       </div>
     </section>
 
