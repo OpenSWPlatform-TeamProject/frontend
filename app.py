@@ -13,6 +13,8 @@ def home():
 @application.route('/restaurant/add',methods=['POST', 'GET'])
 def add_restaurant():
     if request.method == 'POST':
+        image_file=request.files["rfile"]
+        image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
         return render_template("result.html", data=data)
@@ -40,6 +42,8 @@ def my_fav_list():
 @application.route('/review/add',methods=['POST', 'GET'])
 def add_review():
     if request.method == 'POST':
+        image_file=request.files["rvfile"]
+        image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
         return render_template("result.html", data=data)
@@ -62,6 +66,8 @@ def myreveiw_detail():
 @application.route('/menu/add',methods=['POST', 'GET'])
 def add_menu():
     if request.method == 'POST':
+        image_file=request.files["mfile"]
+        image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
         return render_template("result.html", data=data)
