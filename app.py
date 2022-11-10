@@ -1,11 +1,71 @@
-from flask import Flask
+from flask import Flask, render_template
 import sys
+application = Flask(__name__)
 
-app = Flask(__name__)
-
-@app.route('/')
+#홈 화면
+@application.route('/')
 def home():
-    return 'This is home!'
+    return render_template("home.html")
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+#맛집 화면
+@application.route('/restaurant/add')
+def add_restaurant():
+    return render_template("add-restaurant.html")
+
+@application.route('/restaurant/list')
+def restautrant_list():
+    return render_template("restaurant-list.html")
+
+@application.route('/restaurant/detail')
+def restautrant_detail():
+    return render_template("restaurant-detail.html")
+
+@application.route('/restaurant/my')
+def my_fav_list():
+    return render_template("my-fav-list.html")
+
+#리뷰 화면
+@application.route('/review/add')
+def add_review():
+    return render_template("add-review.html")
+
+@application.route('/review/list')
+def review_list():
+    return render_template("review-list.html")
+    
+@application.route('/review/detail')
+def review_detail():
+    return render_template("review-detail.html")
+
+@application.route('/review/my/detail')
+def myreveiw_detail():
+    return render_template("myreview-detail.html")
+
+#메뉴 화면
+@application.route('/menu/add')
+def add_menu():
+    return render_template("add-menu.html")
+
+@application.route('/menu/list')
+def menu_list():
+    return render_template("menu-list.html")
+
+#로그인 화면
+@application.route('/login')
+def login():
+    return render_template("login.html")
+
+#회원가입 화면
+@application.route('/signup')
+def sign_up():
+    return render_template("sign-up.html")
+
+#마이페이지
+@application.route('/mypage')
+def mypage():
+    return render_template("mypage.html")
+
+
+
+if __name__ == "__main__":
+    application.run(host='0.0.0.0')
