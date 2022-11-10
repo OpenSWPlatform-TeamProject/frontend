@@ -22,9 +22,13 @@ def add_restaurant():
 def restautrant_list():
     return render_template("restaurant-list.html")
 
-@application.route('/restaurant/detail')
+@application.route('/restaurant/detail',methods=['POST', 'GET'])
 def restautrant_detail():
-    return render_template("restaurant-detail.html")
+    if request.method == 'POST':
+        data=request.form
+        return render_template("result.html", data=data)
+    else :
+        return render_template("restaurant-detail.html")
 
 @application.route('/restaurant/my')
 def my_fav_list():
