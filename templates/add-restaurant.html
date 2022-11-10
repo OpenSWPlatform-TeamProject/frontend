@@ -68,10 +68,8 @@
             name="맛집 이름"
             placeholder="맛집 이름"
           /><br />
-        </form>
 
-        <!-- 음식 분류 선택 -->
-        <form>
+          <!-- 음식 분류 선택 -->
           <div class="food-type-container">
             <input type="checkbox" id="food-type1" name="한식" value="한식" />
             <label for="food-type1"> 한식</label>
@@ -91,10 +89,8 @@
             <input type="checkbox" id="food-type6" name="술" value="술" />
             <label for="food-type6"> 술</label>
           </div>
-        </form>
 
-        <!-- 비건 메뉴 유무 -->
-        <form>
+          <!-- 비건 메뉴 유무 -->
           <h3 class="insert-title">비건 메뉴 유무</h3>
           <div class="vegan-container">
             <input type="radio" id="yes-vegan" name="answer" />
@@ -102,10 +98,8 @@
             <input type="radio" id="no-vegan" name="answer" />
             <label for="no-vegan">아니요</label>
           </div>
-        </form>
 
-        <!-- 가격대 선택 -->
-        <form>
+          <!-- 가격대 선택 -->
           <h3 class="insert-title">가격대</h3>
           <div class="price-container">
             <input type="radio" id="price1" name="price-range" />
@@ -117,10 +111,8 @@
             <input type="radio" id="price4" name="price-range" />
             <label for="price4">3만 원 이상</label>
           </div>
-        </form>
 
-        <!-- 위치 선택 -->
-        <form>
+          <!-- 위치 선택 -->
           <h3 class="insert-title">위치</h3>
           <div class="location-container">
             <input type="radio" id="loca1" name="location" />
@@ -134,31 +126,25 @@
             <input type="radio" id="loca5" name="location" />
             <label for="loca5">아현</label>
           </div>
-        </form>
 
-        <!-- 주소 입력 -->
-        <form>
+          <!-- 주소 입력 -->
           <input
             type="text"
             id="address"
             class="input"
             placeholder="주소"
           /><br />
-        </form>
 
-        <!-- 전화번호 입력 -->
-        <form>
+          <!-- 전화번호 입력 -->
           <input
             type="text"
             id="phone-num"
             class="input"
             placeholder="전화번호"
           /><br />
-        </form>
-        <!-- 전화번호 양식에 숫자 아닌거 넣을 경우 -->
+          <!-- 전화번호 양식에 숫자 아닌거 넣을 경우 -->
 
-        <!-- 주차 가능 여부 -->
-        <form>
+          <!-- 주차 가능 여부 -->
           <h3 class="insert-title">주차 가능 여부</h3>
           <div class="parking-container">
             <input type="radio" id="yes-park" name="answer" />
@@ -166,100 +152,96 @@
             <input type="radio" id="no-park" name="answer" />
             <label for="no-park">아니요</label><br />
           </div>
-        </form>
 
-        <!-- 대표 이미지 넣기 -->
-        <h3 class="insert-title">대표 사진</h3>
-        <form>
+          <!-- 대표 이미지 넣기 -->
+          <h3 class="insert-title">대표 사진</h3>
           <div class="img-container">
             <input type="file" id="fileUpload" accept="image/*" />
             <label for="fileUpload">파일 선택</label>
             <div class="img-preview">사진</div>
           </div>
-        </form>
 
-        <!-- 영업시간 입력 -->
-        <div class="restaurant-time-container">
-          <div class="working-time-container">
-            <div class="title-container">
-              <h3 class="insert-title">영업시간</h3>
-              <h3 class="insert-title">휴무</h3>
+          <!-- 영업시간 입력 -->
+          <div class="restaurant-time-container">
+            <div class="working-time-container">
+              <div class="title-container">
+                <h3 class="insert-title">영업시간</h3>
+                <h3 class="insert-title">휴무</h3>
+              </div>
+              <div class="input-container">
+                <input
+                  type="text"
+                  id="monday-time"
+                  class="input-date"
+                  placeholder="월"
+                />
+                <input type="checkbox" id="monday-break" value="월휴무" />
+                <label for="monday-break"></label>
+              </div>
+              <div class="input-container">
+                <input
+                  type="text"
+                  id="tuesday-time"
+                  class="input-date"
+                  placeholder="화"
+                />
+                <input type="checkbox" id="tuesday-break" value="화휴무" />
+                <label for="tuesday-break"></label>
+              </div>
+              <div class="input-container">
+                <input
+                  type="text"
+                  id="wednesday-time"
+                  class="input-date"
+                  placeholder="수"
+                />
+                <input type="checkbox" id="wednesday-break" value="수휴무" />
+                <label for="wednesday-break"></label>
+              </div>
+              <div class="input-container">
+                <input
+                  type="text"
+                  id="thursday-time"
+                  class="input-date"
+                  placeholder="목"
+                />
+                <input type="checkbox" id="thursday-break" value="목휴무" />
+                <label for="thursday-break"></label>
+              </div>
+              <div class="input-container">
+                <input
+                  type="text"
+                  id="friday-time"
+                  class="input-date"
+                  placeholder="금"
+                />
+                <input type="checkbox" id="friday-break" value="금휴무" />
+                <label for="friday-break"></label>
+              </div>
+              <div class="input-container">
+                <input
+                  type="text"
+                  id="saturday-time"
+                  class="input-date"
+                  placeholder="토"
+                />
+                <input type="checkbox" id="saturday-break" value="토휴무" />
+                <label for="saturday-break"></label>
+              </div>
+              <div class="input-container">
+                <input
+                  type="text"
+                  id="sunday-time"
+                  class="input-date"
+                  placeholder="일"
+                />
+                <input type="checkbox" id="sunday-break" value="일휴무" />
+                <label for="sunday-break"></label>
+              </div>
             </div>
-            <form class="input-container">
-              <input
-                type="text"
-                id="monday-time"
-                class="input-date"
-                placeholder="월"
-              />
-              <input type="checkbox" id="monday-break" value="월휴무" />
-              <label for="monday-break"></label>
-            </form>
-            <form class="input-container">
-              <input
-                type="text"
-                id="tuesday-time"
-                class="input-date"
-                placeholder="화"
-              />
-              <input type="checkbox" id="tuesday-break" value="화휴무" />
-              <label for="tuesday-break"></label>
-            </form>
-            <form class="input-container">
-              <input
-                type="text"
-                id="wednesday-time"
-                class="input-date"
-                placeholder="수"
-              />
-              <input type="checkbox" id="wednesday-break" value="수휴무" />
-              <label for="wednesday-break"></label>
-            </form>
-            <form class="input-container">
-              <input
-                type="text"
-                id="thursday-time"
-                class="input-date"
-                placeholder="목"
-              />
-              <input type="checkbox" id="thursday-break" value="목휴무" />
-              <label for="thursday-break"></label>
-            </form>
-            <form class="input-container">
-              <input
-                type="text"
-                id="friday-time"
-                class="input-date"
-                placeholder="금"
-              />
-              <input type="checkbox" id="friday-break" value="금휴무" />
-              <label for="friday-break"></label>
-            </form>
-            <form class="input-container">
-              <input
-                type="text"
-                id="saturday-time"
-                class="input-date"
-                placeholder="토"
-              />
-              <input type="checkbox" id="saturday-break" value="토휴무" />
-              <label for="saturday-break"></label>
-            </form>
-            <form class="input-container">
-              <input
-                type="text"
-                id="sunday-time"
-                class="input-date"
-                placeholder="일"
-              />
-              <input type="checkbox" id="sunday-break" value="일휴무" />
-              <label for="sunday-break"></label>
-            </form>
           </div>
-        </div>
 
-        <!-- 브레이크 타임 유무 -->
-        <form>
+          <!-- 브레이크 타임 유무 -->
           <div class="breaktime-container">
             <h3 class="insert-title">브레이크 타임</h3>
             <div class="breaktime-answer-container">
@@ -269,20 +251,14 @@
               <label for="no-breakt">아니요</label><br />
             </div>
           </div>
-          <form>
-            <input
-              type="text"
-              class="input-break"
-              placeholder="00:00 ~ 00:00"
-            />
-          </form>
-        </form>
+          <input type="text" class="input-break" placeholder="00:00 ~ 00:00" />
 
-        <!-- 등록 버튼 & 다른 대표메뉴 추가 -->
-        <div class="submit-button-container">
-          <button class="submit-button">등록</button>
-          <button class="submit-button">대표 메뉴 등록하기</button>
-        </div>
+          <!-- 등록 버튼 & 다른 대표메뉴 추가 -->
+          <div class="submit-button-container">
+            <button class="submit-button">등록</button>
+            <button class="submit-button">대표 메뉴 등록하기</button>
+          </div>
+        </form>
       </div>
     </section>
 
