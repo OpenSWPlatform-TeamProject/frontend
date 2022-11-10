@@ -29,9 +29,13 @@ def my_fav_list():
     return render_template("my-fav-list.html")
 
 #리뷰 화면
-@application.route('/review/add')
+@application.route('/review/add',methods=['POST', 'GET'])
 def add_review():
-    return render_template("add-review.html")
+    if request.method == 'POST':
+        data=request.form
+        return render_template("result.html", data=data)
+    else :
+        return render_template("add-review.html")
 
 @application.route('/review/list')
 def review_list():
@@ -46,10 +50,13 @@ def myreveiw_detail():
     return render_template("myreview-detail.html")
 
 #메뉴 화면
-@application.route('/menu/add', methods=['POST'])
+@application.route('/menu/add',methods=['POST', 'GET'])
 def add_menu():
-    data=request.form
-    return render_template("add-menu.html",data=data)
+    if request.method == 'POST':
+        data=request.form
+        return render_template("result.html", data=data)
+    else :
+        return render_template("add-menu.html")
 
 @application.route('/menu/list')
 def menu_list():
