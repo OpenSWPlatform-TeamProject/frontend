@@ -1,5 +1,7 @@
-from flask import Flask, render_template, request
 import sys
+
+from flask import Flask, render_template, request
+
 application = Flask(__name__)
 
 #홈 화면
@@ -56,17 +58,25 @@ def menu_list():
     return render_template("menu-list.html")
 
 #로그인 화면
-@application.route('/login')
+@application.route('/login', methods=['POST', 'GET'])
 def login():
-    id=request.args.get("id")
-    pw=request.args.get("pw")
-    print (id,pw)
-    return render_template("login.html")
+    if request.method == 'POST':
+        data=request.form
+        print(data)
+        return render_template("home.html")
+    else :
+        return render_template("login.html")
+    
 
 #회원가입 화면
-@application.route('/signup')
+@application.route('/signup', methods=['POST', 'GET'])
 def sign_up():
-    return render_template("sign-up.html")
+    if request.method == 'POST':
+        data=request.form
+        print(data)
+        return render_template("home.html")
+    else :
+        return render_template("sign-up.html")
 
 #마이페이지
 @application.route('/mypage')
