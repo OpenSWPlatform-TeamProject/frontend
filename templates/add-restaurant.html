@@ -61,75 +61,76 @@
 
       <div class="content">
         <!-- 맛집 이름 입력 -->
-        <form>
+        <form action="/restaurant/add" method="post">
           <input
             type="text"
             class="input"
-            name="맛집 이름"
+            name="맛집이름"
             placeholder="맛집 이름"
           /><br />
 
           <!-- 음식 분류 선택 -->
           <div class="food-type-container">
-            <input type="checkbox" id="food-type1" name="한식" value="한식" />
+            <input type="checkbox" id="food-type1" name="음식종류" value="한식" />
             <label for="food-type1"> 한식</label>
 
-            <input type="checkbox" id="food-type2" name="중식" value="중식" />
+            <input type="checkbox" id="food-type2" name="음식종류" value="중식" />
             <label for="food-type2"> 중식</label>
 
-            <input type="checkbox" id="food-type3" name="양식" value="양식" />
+            <input type="checkbox" id="food-type3" name="음식종류" value="양식" />
             <label for="food-type3"> 양식</label>
 
-            <input type="checkbox" id="food-type4" name="일식" value="일식" />
+            <input type="checkbox" id="food-type4" name="음식종류" value="일식" />
             <label for="food-type4"> 일식</label>
 
-            <input type="checkbox" id="food-type5" name="카페" value="카페" />
+            <input type="checkbox" id="food-type5" name="음식종류" value="카페" />
             <label for="food-type5"> 카페</label>
 
-            <input type="checkbox" id="food-type6" name="술" value="술" />
+            <input type="checkbox" id="food-type6" name="음식종류" value="술" />
             <label for="food-type6"> 술</label>
           </div>
 
           <!-- 비건 메뉴 유무 -->
           <h3 class="insert-title">비건 메뉴 유무</h3>
           <div class="vegan-container">
-            <input type="radio" id="yes-vegan" name="answer" />
+            <input type="radio" id="yes-vegan" name="vegan" value="네"/>
             <label for="yes-vegan">네</label>
-            <input type="radio" id="no-vegan" name="answer" />
+            <input type="radio" id="no-vegan" name="vegan" value="아니요"/>
             <label for="no-vegan">아니요</label>
           </div>
 
           <!-- 가격대 선택 -->
           <h3 class="insert-title">가격대</h3>
           <div class="price-container">
-            <input type="radio" id="price1" name="price-range" />
+            <input type="radio" id="price1" name="pricerange" value="~ 5천 원"/>
             <label for="price1">~ 5천 원</label>
-            <input type="radio" id="price2" name="price-range" />
+            <input type="radio" id="price2" name="pricerange" value="5천 원 ~ 만 원"/>
             <label for="price2">5천 원 ~ 만 원</label>
-            <input type="radio" id="price3" name="price-range" />
+            <input type="radio" id="price3" name="pricerange" value="만 원 ~ 3만 원"/>
             <label for="price3">만 원 ~ 3만 원</label>
-            <input type="radio" id="price4" name="price-range" />
+            <input type="radio" id="price4" name="pricerange" value="3만 원 이상"/>
             <label for="price4">3만 원 이상</label>
           </div>
 
           <!-- 위치 선택 -->
           <h3 class="insert-title">위치</h3>
           <div class="location-container">
-            <input type="radio" id="loca1" name="location" />
+            <input type="radio" id="loca1" name="location" value="정문"/>
             <label for="loca1">정문</label>
-            <input type="radio" id="loca2" name="location" />
+            <input type="radio" id="loca2" name="location" value="후문"/>
             <label for="loca2">후문</label>
-            <input type="radio" id="loca3" name="location" />
+            <input type="radio" id="loca3" name="location" value="교내"/>
             <label for="loca3">교내</label>
-            <input type="radio" id="loca4" name="location" />
+            <input type="radio" id="loca4" name="location" value="신촌"/>
             <label for="loca4">신촌</label>
-            <input type="radio" id="loca5" name="location" />
+            <input type="radio" id="loca5" name="location" value="아현"/>
             <label for="loca5">아현</label>
           </div>
 
           <!-- 주소 입력 -->
           <input
             type="text"
+            name="address"
             id="address"
             class="input"
             placeholder="주소"
@@ -138,6 +139,7 @@
           <!-- 전화번호 입력 -->
           <input
             type="text"
+            name="phonenum"
             id="phone-num"
             class="input"
             placeholder="전화번호"
@@ -147,9 +149,9 @@
           <!-- 주차 가능 여부 -->
           <h3 class="insert-title">주차 가능 여부</h3>
           <div class="parking-container">
-            <input type="radio" id="yes-park" name="answer" />
+            <input type="radio" id="yes-park" name="parking" value="네"/>
             <label for="yes-park">네</label>
-            <input type="radio" id="no-park" name="answer" />
+            <input type="radio" id="no-park" name="parking" value="네"/>
             <label for="no-park">아니요</label><br />
           </div>
 

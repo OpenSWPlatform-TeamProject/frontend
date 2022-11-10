@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import sys
 application = Flask(__name__)
 
@@ -8,9 +8,13 @@ def home():
     return render_template("home.html")
 
 #맛집 화면
-@application.route('/restaurant/add')
+@application.route('/restaurant/add',methods=['POST', 'GET'])
 def add_restaurant():
-    return render_template("add-restaurant.html")
+    if request.method == 'POST':
+        data=request.form
+        return render_template("result.html", data=data)
+    else :
+        return render_template("add-restaurant.html")
 
 @application.route('/restaurant/list')
 def restautrant_list():
@@ -42,9 +46,10 @@ def myreveiw_detail():
     return render_template("myreview-detail.html")
 
 #메뉴 화면
-@application.route('/menu/add')
+@application.route('/menu/add', methods=['POST'])
 def add_menu():
-    return render_template("add-menu.html")
+    data=request.form
+    return render_template("add-menu.html",data=data)
 
 @application.route('/menu/list')
 def menu_list():
@@ -53,6 +58,9 @@ def menu_list():
 #로그인 화면
 @application.route('/login')
 def login():
+    id=request.args.get("id")
+    pw=request.args.get("pw")
+    print (id,pw)
     return render_template("login.html")
 
 #회원가입 화면
@@ -68,4 +76,4 @@ def mypage():
 
 
 if __name__ == "__main__":
-    application.run(host='0.0.0.0')
+    application.run(host='0.0.0.0') 
