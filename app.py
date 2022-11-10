@@ -14,6 +14,7 @@ def home():
 def add_restaurant():
     if request.method == 'POST':
         data=request.form
+        print(data)
         return render_template("result.html", data=data)
     else :
         return render_template("add-restaurant.html")
@@ -26,6 +27,7 @@ def restautrant_list():
 def restautrant_detail():
     if request.method == 'POST':
         data=request.form
+        print(data)
         return render_template("result.html", data=data)
     else :
         return render_template("restaurant-detail.html")
@@ -39,6 +41,7 @@ def my_fav_list():
 def add_review():
     if request.method == 'POST':
         data=request.form
+        print(data)
         return render_template("result.html", data=data)
     else :
         return render_template("add-review.html")
@@ -60,6 +63,7 @@ def myreveiw_detail():
 def add_menu():
     if request.method == 'POST':
         data=request.form
+        print(data)
         return render_template("result.html", data=data)
     else :
         return render_template("add-menu.html")
