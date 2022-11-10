@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add-menu</title>
+    <link href="/static/global.css" rel="stylesheet"> 
+    <link href="/static/add-menu.css" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/0ed41516ec.js" crossorigin="anonymous">
+    </script>
+</head>
+<body>
+
+    <nav class="navbar">
+      <div class="nav1">
+        <a href="home.html" class="logo">
+          <img src="/static/logo_white.png" height="70px">
+        </a>
+      </div>
+      <div class="nav2">
+        <div class="search">
+          <div class="search-box">
+            <a href="" class="icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+            <input type="search" id="search" name="이대 근처 맛집 찾기" placeholder="이대 근처 맛집 찾기" />
+          </div>
+        </div>
+      </div>
+      <div class="nav3">
+        <ul>
+          <li><a href="login.html">로그인</a></li>
+          <li><a href="mypage.html">마이페이지</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section>
+
+        <div class="topbar">
+            <div class="topbar-upper">
+              <a href="home.html" class="back-icon">
+                <i class="fa solid fa-arrow-left fa-lg"></i> 
+              </a>
+            </div>
+            <div class="topbar-bottom">
+              <div class="title">대표 메뉴 등록하기</div>
+              <div class="title-description">맛집의 자랑, 당신의 메뉴를 알려주세요!</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- 음식 이름 입력 -->
+            <form>
+                <input type="text" placeholder="메뉴 이름" name="메뉴 이름" class="input" required><br>
+            </form>
+
+            <!-- 대표 이미지 넣기 -->
+            <h3 class="insert-title" >메뉴 사진</h3>
+            <form>
+                <div class="img-container">
+                    <input type="file" id="fileUpload" accept="image/*">
+                    <label for="fileUpload" >파일 선택</label>
+                    <div class="img-preview">사진</div>
+                </div>
+            </form>
+
+            <!-- 가격 -->
+            <form>
+                <h3 class="insert-title" >가격</h3>
+                <input type="text" placeholder="0000원" name="가격" class="input" required><br>
+            </form>
+
+            <!-- 알레르기 정보(선택) -->
+            <form>
+                <h3 class="insert-title" >알레르기 정보 (선택)</h3>
+                <input type="text" name="allery-info" class="input"><br>
+            </form>
+
+            <!-- 비건 유무 -->
+            <form>
+                <h3 class="insert-title">비건 유무</h3>
+                <div class="vegan-container">
+                    <input type="radio" id="yes-vegan" name="answer">
+                    <label for="yes-vegan">비건</label>
+                  
+                    <input type="radio" id="no-vegan" name="answer">
+                    <label for="no-vegan">논비건</label>
+                </div>
+            </form>
+
+            <!-- 기타 정보 -->
+            <form>
+                <h3 class="insert-title">기타 정보 (선택)</h3>
+                <input type="text" id="add-info" class="input"><br>
+            </form>
+
+            <!-- 한 줄 소개(선택) -->
+            <form>
+                <h3 class="sentence-intro insert-title">한 줄 소개(선택)</h3>
+                <textarea class="review-input" maxlength="800"name="한줄소개"></textarea><br>
+                <!-- 나중에 css에서 height 지정하고, overflow hidden 지정하기 -->
+            </form>
+
+            <!-- 등록 버튼 & 다른 대표메뉴 추가 -->
+            <div class="submit-button-container">
+                <button class="submit-button">등록</button>
+                <button class="submit-button">다른 메뉴 등록하기</button>
+            </div>
+            
+        </div>
+    </section>
+    
+    <footer>
+      <div class="copyright">2022 copyright 어?이게왜되조</div>
+    </footer>
+</body>
+
+</html>

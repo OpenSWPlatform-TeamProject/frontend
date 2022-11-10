@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/0ed41516ec.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/static/global.css">
+  <link rel="stylesheet" href="/static/restaurant-detail.css">
+  <title>restaurant-detail</title>
+</head>
+<body>
+  <!-- navbar -->
+  <nav class="navbar">
+    <div class="nav1">
+      <a href="home.html" class="logo">
+        <img src="/static/logo_white.png" height="70px">
+      </a>
+    </div>
+    <div class="nav2">
+      <div class="search">
+        <div class="search-box">
+          <a href="" class="icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+          <input type="search" id="search" name="이대 근처 맛집 찾기" placeholder="이대 근처 맛집 찾기" />
+        </div>
+      </div>
+    </div>
+    <div class="nav3">
+      <ul>
+        <li><a href="login.html">로그인</a></li>
+        <li><a href="mypage.html">마이페이지</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- topbar -->
+  <section class="topbar">
+    <a hrec="home.html" class="back-icon">
+      <i class="fa solid fa-arrow-left fa-lg"></i> 
+    </a>
+    <div class="photo-container">
+      <img class="restaurant-image" src="/static/food.jpeg" alt="restaurant-image" />
+      <img class="vegan-badge" src="/static/vegan.png" alt="vegan-badge" />
+    </div>
+  </section>
+
+  <!-- restaurant-info-section -->
+  <section class="restaurant-info-section">
+    <div class="section-top">
+      <div class="restaurant-name-and-ratings">
+        <h3 class="restaurant-name">식당 이름</h3>
+        <img class="ratings" src="/static/ratings_4.png" />
+      </div>
+      <div class="buttons-container">
+        <button >
+          <img alt="favorites" src="/static/details.png" style="object-position: 0 0px;" />
+        </button>
+        <button >
+          <img alt="likes" src="/static/details.png" style="object-position: 0 -30px;" />
+        </button>
+        <button >
+          <img alt="see-reviews" src="/static/details.png" style="object-position: 0 -60px;" />
+        </button>
+        <button >
+          <img alt="add-review" src="/static/details.png" style="object-position: 0 -90px;" />
+        </button>
+        <button >
+          <img alt="share" src="/static/details.png" style="object-position: 0 -120px;" />
+        </button>
+      </div>
+    </div>
+    <hr class="dividing-line">
+
+    <!-- restaurant-details -->
+    <div class="restaurant-details">
+      <div class="hashtags">
+        <div class="hashtag">#음식 분류</div>
+        <div class="hashtag">#위치</div>
+        <div class="hashtag">#비건 유무</div>
+      </div>
+      <div>
+        <img alt="address" src="/static/details.png" style="object-position: 0 -175px;" />
+        <h5>식당 주소</h5>
+      </div>
+      <div>
+        <img alt="phone-number" src="/static/details.png" style="object-position: 0 -210px;" />
+        <h5>전화번호</h5>
+        <button class="reservation">예약하기</button>
+      </div>
+      <div>
+        <img alt="business-hours" src="/static/details.png" style="object-position: 0 -245px;" />
+        <h5>영업 시간</h5>
+      </div>
+      <div>
+        <img alt="price-range" src="/static/details.png" style="object-position: 0 -280px;" />
+        <h5>가격대</h5>
+      </div>
+      <div>
+        <img alt="parking-availability" src="/static/details.png" style="object-position: 0 -315px;" />
+        <h5>주차 가능 여부</h5>
+      </div>
+      <div>
+        <img alt="website" src="/static/details.png" style="object-position: 0 -350px;" />
+        <h5>외부 사이트 링크</h5>
+      </div>
+      <div>
+        <img alt="menu" src="/static/details.png" style="object-position: 0 -385px;" />
+        <h5>메뉴</h5>
+      </div>
+      <ul class="menu-list">
+        <li>
+          <div>메뉴 A</div>
+          <div>가격</div>
+        </li>
+        <li>
+          <div>메뉴 B</div>
+          <div>가격</div>
+        </li>
+        <li>
+          <div>메뉴 C</div>
+          <div>가격</div>
+        </li>
+        <li>
+          <div>메뉴 D</div>
+          <div>가격</div>
+        </li>
+        <div class="add-menu-container">
+          <button class="add-menu">+ 대표메뉴 추가하기</button>
+        </div>
+        <div class="see-menu-list-container">
+          <button class="see-menu-list">> 대표메뉴 더보기</button>
+        </div>
+      </ul>
+    </div>
+  </section>
+
+  <!-- comments-section -->
+  <section class="comments-section">
+    <form class="add-comment">
+      <h4>댓글</h4>
+      <textarea placeholder="댓글을 작성해주세요"></textarea>
+      <div class="submit-button-container">
+        <button type="submit" class="submit-button">댓글 작성</button>
+      </div>
+    </form>
+    <ul class="comments-list">
+      <li>
+        <div class="profile-img-container">
+          <img class="profile-img" src="/static/logo_black.png" alt="profile-img" />
+        </div>
+        <div class="nickname-and-content">
+          <div>닉네임</div>
+          <div>댓글 내용</div>
+        </div>
+      </li>
+      <li>
+        <div class="profile-img-container">
+          <img class="profile-img" src="/static/logo_black.png" alt="profile-img" />
+        </div>
+        <div class="nickname-and-content">
+          <div>닉네임</div>
+          <div>댓글 내용</div>
+        </div>
+      </li>
+      <li>
+        <div class="profile-img-container">
+          <img class="profile-img" src="/static/logo_black.png" alt="profile-img" />
+        </div>
+        <div class="nickname-and-content">
+          <div>닉네임</div>
+          <div>댓글 내용</div>
+        </div>
+      </li>
+      <li>
+        <div class="profile-img-container">
+          <img class="profile-img" src="/static/logo_black.png" alt="profile-img" />
+        </div>
+        <div class="nickname-and-content">
+          <div>닉네임</div>
+          <div>댓글 내용</div>
+        </div>
+      </li>
+    </ul>
+    
+    <!-- 페이지 이동 버튼 -->
+    <div class="page-move-wrap">  
+      <div class="page-nav">
+        <ul class="page">
+          <li>
+            <a href="" class="End">
+              <i class="fa-solid fa-chevron-left"></i>
+            </a>
+          </li>
+          <li>
+            <strong>1</strong>
+          </li>
+          <li>
+            <a class="another-page" href="">2</a>
+          </li>
+          <li>
+            <a class="another-page" href="">3</a>
+          </li>
+          <li>
+            <a class="another-page" href="">4</a>
+          </li>
+          <li>
+            <a class="another-page" href="">5</a>
+          </li>
+          <li>
+            <a href="" class="End">
+              <i class="fa-solid fa-chevron-right"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer>
+    <div class="copyright">2022 copyright 어?이게왜되조</div>
+  </footer>
+</body>
+</html>
