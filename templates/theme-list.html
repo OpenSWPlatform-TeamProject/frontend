@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>restaurant-list</title>
-    <link href="global.css" rel="stylesheet"> 
-    <link href="restaurant-list.css" rel="stylesheet"> 
+    <title>theme-list</title>
+    <link href="/static/global.css" rel="stylesheet"> 
+    <link href="/static/theme-list.css" rel="stylesheet"> 
     <script src="https://kit.fontawesome.com/0ed41516ec.js" crossorigin="anonymous">
     </script>
 </head>
@@ -16,7 +16,7 @@
     <div class="navbar">
         <div class="nav1">
           <a href="home.html" class="logo">
-            <img src="logo_white.png" height="70px">
+            <img src="/static/logo_white.png" height="70px">
           </a>
         </div>
         <div class="nav2">
@@ -42,8 +42,8 @@
             <a hrec="home.html" class="back-icon">
               <i class="fa solid fa-arrow-left fa-lg"></i> 
             </a>
-            <div class="title">무엇을 잇 해볼화?</div>
-            <div class="title-description">이대의 명물, 맛집을 조회해보세요</div>
+            <div class="title">테마별 맛집 추천</div>
+            <div class="title-description">벗들이 엄선한 테마별 맛집을 알아보세요</div>
         </div>
 
         <div class="content">
@@ -58,33 +58,33 @@
                         <div class="upper">
                             <div class="map">
                                 <div class="mapbtn_sch">
-                                    <a href="restaurant-list.html" class="sch">
-                                        <img class="sch_img" src="교내.png" height="150px" />
+                                    <a href="맛집리스트-교내.html" class="sch">
+                                        <img class="sch_img" src="/static/교내.png" height="150px" />
                                     </a>
                         
                                     <div class="mapbtn_sin">
-                                        <a href="restaurant-list.html" class="sin">
-                                            <img class="sin_img" src="신촌.png" height="150px">
+                                        <a href="맛집리스트-신촌.html" class="sin">
+                                            <img class="sin_img" src="/static/신촌.png" height="150px">
                                         </a>
                                     </div>
                                     <div class="mapbtn_idae">
-                                        <a href="restaurant-list.html" class="idae">
-                                            <img class="idae_img" src="이대.png" height="85px">
+                                        <a href="맛집리스트-이대.html" class="idae">
+                                            <img class="idae_img" src="/static/이대.png" height="85px">
                                         </a>
                                     </div>
                                     <div class="mapbtn_back">
-                                        <a href="restaurant-list.html" class="back">
-                                            <img class="back_img" src="후문.png" height="140px">
+                                        <a href="맛집리스트-후문.html" class="back">
+                                            <img class="back_img" src="/static/후문.png" height="140px">
                                         </a>
                                     </div>
                                     <div class="mapbtn_ahyeon">
-                                        <a href="restaurant-list.html" class="ahyeon">
-                                            <img class="ahyeon_img" src="아현.png" height="150px">
+                                        <a href="맛집리스트-아현.html" class="ahyeon">
+                                            <img class="ahyeon_img" src="/static/아현.png" height="150px">
                                         </a>
                                     </div>
                                     <div class="mapbtn_hidden">
-                                        <a href="restaurant-list.html">
-                                            <img class="hidden_img" src="hidden.png" height="50px">
+                                        <a href="맛집리스트-교내.html">
+                                            <img class="hidden_img" src="/static/hidden.png" height="50px">
                                         </a>
                                     </div>
                                 </div>
@@ -123,113 +123,114 @@
             <!-- 리스트 -->
             <section class="list-container">
                 <div class="order-category">
-                    <a href="restaurant-list.html">
+                    <a href="">
                         <button class="order-category-button">최신순</button>
                     </a>
-                    <a href="restaurant-list.html">
+                    <a href="">
                         <button class="order-category-button">별점순</button>
                     </a>
                 </div>
         
+                
                 <div class="card-container">
                     <a href="restaurant-detail.html">
                         <button class="card">
-                            <img class="heart-button" src="heart_empty.png">
+                            <img class="heart-button" src="/static/heart_empty.png">
                             <div class="card-vegan">
-                                <img class="vegan-pic" src="vegan.png" alt="vegan-sticker1">
+                                <img class="vegan-pic" src="/static/vegan.png" alt="vegan-sticker1">
                             </div>
                             <div class="card-title">너스레</div>
                             <div class="card-hashtag">#치즈김치전 #만원대</div>
                             <div class="card-rating">
-                                <img class="stars-pic"src="ratings_4.png" alt="card-rating1">
+                                <img class="stars-pic" src="/static/ratings_4.png" alt="card-rating1">
                             </div>
                         </button>
                     </a>
 
                     <a href="restaurant-detail.html">
                         <button class="card">
-                            <img class="heart-button" src="heart_filled.png">
+                            <img class="heart-button" src="/static/heart_filled.png">
                             <div class="card-title">우리들의 공간</div>
                             <div class="card-hashtag">#대왕계란말이 #만원대</div>
                             <div class="card-rating">
-                                <img class="stars-pic"src="ratings_4.png" alt="card-rating2">
+                                <img class="stars-pic" src="/static/ratings_4.png" alt="card-rating2">
                             </div>
                         </button>
                     </a>
                     <a href="restaurant-detail.html">
                         <button class="card">
-                                <img class="heart-button" src="heart_empty.png">
+                                <img class="heart-button" src="/static/heart_empty.png">
                             </form>
                             <div class="card-title">카츠난반</div>
                             <div class="card-hashtag">#모듬카츠 #만원대</div>
                             <div class="card-rating">
-                                <img class="stars-pic"src="ratings_5.png" alt="card-rating3">
+                                <img class="stars-pic" src="/static/ratings_5.png" alt="card-rating3">
                             </div>
                         </button>
                     </a>
                     <a href="restaurant-detail.html">
                         <button class="card">
-                            <img class="heart-button" src="heart_filled.png">
+                            <img class="heart-button" src="/static/heart_filled.png">
                             <div class="card-title">진돈부리</div>
                             <div class="card-hashtag">#사케동 #만원대</div>
                             <div class="card-rating">
-                                <img class="stars-pic"src="ratings_5.png" alt="card-rating4">
+                                <img class="stars-pic" src="/static/ratings_5.png" alt="card-rating4">
                             </div>
                         </button>
                     </a>
                     <a href="restaurant-detail.html">
                         <button class="card">
-                            <img class="heart-button" src="heart_empty.png">
+                            <img class="heart-button" src="/static/heart_empty.png">
                             <div class="card-title">소오밥집</div>
                             <div class="card-hashtag">#치킨마요동 #5천원대</div>
                             <div class="card-rating">
-                                <img class="stars-pic"src="ratings_3.png" alt="card-rating5">
+                                <img class="stars-pic" src="/static/ratings_3.png" alt="card-rating5">
                             </div>
                         </button>
                     </a>
                     <a href="restaurant-detail.html">
                         <button class="card">
-                            <img class="heart-button" src="heart_empty.png">
+                            <img class="heart-button" src="/static/heart_empty.png">
                             <div class="card-vegan">
-                                <img class="vegan-pic"src="vegan.png" alt="vegan-sticker6">
+                                <img class="vegan-pic" src="/static/vegan.png" alt="vegan-sticker6">
                             </div>
                             <div class="card-title">낮과밤</div>
                             <div class="card-hashtag">#피맥 #만원대</div>
                             <div class="card-rating">
-                                <img class="stars-pic"src="ratings_4.png" alt="card-rating6">
+                                <img class="stars-pic" src="/static/ratings_4.png" alt="card-rating6">
                             </div>
                         </button>
                     </a>
                     <a href="restaurant-detail.html">
                         <button class="card">
-                            <img class="heart-button" src="heart_empty.png">
+                            <img class="heart-button" src="/static/heart_empty.png">
                             <div class="card-vegan">
-                                <img class="vegan-pic" src="vegan.png" alt="vegan-sticker7">
+                                <img class="vegan-pic" src="/static/vegan.png" alt="vegan-sticker7">
                             </div>
                             <div class="card-title">여래여거</div>
                             <div class="card-hashtag">#오마카세 #3만원이상</div>
                             <div class="card-rating">
-                                <img class="stars-pic"src="ratings_4.png" alt="card-rating7">
+                                <img class="stars-pic" src="/static/ratings_4.png" alt="card-rating7">
                             </div>
                         </button>
                     </a>    
                     <a href="restaurant-detail.html">
                         <button class="card">
-                            <img class="heart-button" src="heart_empty.png">
+                            <img class="heart-button" src="/static/heart_empty.png">
                             <div class="card-title">오리지날</div>
                             <div class="card-hashtag">#즉석떡볶이 #만원대</div>
                             <div class="card-rating">
-                                <img class="stars-pic"src="ratings_4.png" alt="card-rating8">
+                                <img class="stars-pic" src="/static/ratings_4.png" alt="card-rating8">
                             </div>
                         </button>
                     </a>
                     <a href="restaurant-detail.html">
                         <button class="card">
-                            <img class="heart-button" src="heart_filled.png">
+                            <img class="heart-button" src="/static/heart_filled.png">
                             <div class="card-title">파파노다이닝</div>
                             <div class="card-hashtag">#일본가정식 #만원대</div>
                             <div class="card-rating">
-                                <img class="stars-pic"src="ratings_3.png" alt="card-rating9">
+                                <img class="stars-pic" src="/static/ratings_3.png" alt="card-rating9">
                             </div>
                         </button>
                     </a>
