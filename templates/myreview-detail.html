@@ -1,0 +1,119 @@
+<!DOCTYPE >
+<html lang="Korean">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/global.css" />
+    <link rel="stylesheet" href="/static/review-detail.css" />
+    <script
+      src="https://kit.fontawesome.com/0ed41516ec.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>myreview-detail</title>
+  </head>
+
+  <body>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar">
+      <div class="nav1">
+        <a href="/" class="logo">
+          <img src="/static/logo_white.png" height="70px" />
+        </a>
+      </div>
+      <div class="nav2">
+        <div class="search">
+          <div class="search-box">
+            <a href="" class="icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+            <input
+              type="search"
+              id="search"
+              name="이대 근처 맛집 찾기"
+              placeholder="이대 근처 맛집 찾기"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="nav3">
+        <ul>
+          <li><a href="/login">로그인</a></li>
+          <li><a href="/mypage">마이페이지</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- 상단바 -->
+    <section class="topbar">
+      <a href="/review/my" class="back-icon">
+        <i class="fa solid fa-arrow-left fa-lg"></i>
+      </a>
+    </section>
+
+    <box class="box">
+      <div class="reviewbox">
+        <!-- 앞뒤 버튼 -->
+        <a href="" class="prevEnd">
+          <i class="fa-solid fa-chevron-left fa-2x"></i>
+        </a>
+
+        <a href="" class="nextEnd">
+          <i class="fa-solid fa-chevron-right fa-2x"></i>
+        </a>
+        <!-- 리뷰 -->
+        <div class="box-top">
+          <div class="nickname">닉네임</div>
+        </div>
+
+        <div class="contents">
+          <div class="left">
+            <div class="review-pic">
+              <img
+                class="pic"
+                src="/static/치즈김치전.jpeg"
+                alt="review picture"
+              />
+            </div>
+            <div class="review-stars">
+              <img
+                class="stars"
+                src="/static/ratings_4.png"
+                alt="review stars"
+              />
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="food">치즈김치전</div>
+            <div class="information">
+              <div class="time">
+                <div class="ask">방문시간</div>
+                <div class="answer">저녁</div>
+              </div>
+              <div class="time">
+                <div class="ask">대기시간</div>
+                <div class="answer">10분</div>
+              </div>
+            </div>
+            <div class="detail">
+              <p class="description">
+                드디어 저도 치즈 김치전을 먹었습니다. 꺅! <br />
+                동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리 나라 만세
+                무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세 <br />
+                남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리
+                기상일세 무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세
+              </p>
+            </div>
+            <div class="date">
+              <p class="day">2022. 11. 05</p>
+            </div>
+          </div>
+        </div>
+        <div class="bottom">
+          <a href="#" class="erase">삭제하기</a>
+        </div>
+      </div>
+    </box>
+  </body>
+</html>
