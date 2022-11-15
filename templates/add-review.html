@@ -60,7 +60,7 @@
 
       <div class="content">
         <!-- 메뉴 이름 입력 -->
-        <form action="/review/add" method="post">
+        <form action="/review/add" method="post" enctype="multipart/form-data">
           <input
             type="text"
             class="input"
@@ -165,7 +165,7 @@
           <!-- 리뷰 이미지 넣기 -->
           <h3 class="insert-title">대표 사진</h3>
           <div class="img-container">
-            <input type="file" id="fileUpload" accept="image/*" />
+            <input type="file" name="rvfile" id="fileUpload" accept="image/*" />
             <label for="fileUpload">파일 선택</label>
             <div class="img-preview">사진</div>
           </div>
