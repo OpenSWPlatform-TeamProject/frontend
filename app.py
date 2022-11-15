@@ -22,11 +22,11 @@ def add_restaurant():
         return render_template("add-restaurant.html")
 
 @application.route('/restaurant/list')
-def restautrant_list():
+def restaurant_list():
     return render_template("restaurant-list.html")
 
 @application.route('/restaurant/detail',methods=['POST', 'GET'])
-def restautrant_detail():
+def restaurant_detail():
     if request.method == 'POST':
         data=request.form
         print(data)
