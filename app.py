@@ -17,7 +17,7 @@ def add_restaurant():
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
-        return render_template("result.html", data=data)
+        return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename)
     else :
         return render_template("add-restaurant.html")
 
@@ -46,7 +46,7 @@ def add_review():
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
-        return render_template("result.html", data=data)
+        return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename)
     else :
         return render_template("add-review.html")
 
@@ -70,7 +70,7 @@ def add_menu():
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
-        return render_template("result.html", data=data)
+        return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename)
     else :
         return render_template("add-menu.html")
 
