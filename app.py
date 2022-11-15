@@ -17,7 +17,7 @@ def add_restaurant():
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
-        return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename)
+        return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename, addmenu_path="/menu/add/"+data['맛집이름'])
     else :
         return render_template("add-restaurant.html")
 
@@ -63,8 +63,8 @@ def myreveiw_detail():
     return render_template("myreview-detail.html")
 
 #메뉴 화면
-@application.route('/menu/add',methods=['POST', 'GET'])
-def add_menu():
+@application.route('/menu/add/<string:restaurant>',methods=['POST', 'GET'])
+def add_menu(restaurant):
     if request.method == 'POST':
         image_file=request.files["mfile"]
         image_file.save("static/image/{}".format(image_file.filename))
@@ -72,7 +72,7 @@ def add_menu():
         print(data)
         return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename)
     else :
-        return render_template("add-menu.html")
+        return render_template("add-menu.html", 맛집이름=restaurant)
 
 @application.route('/menu/list')
 def menu_list():
