@@ -1,8 +1,11 @@
 import sys
 
 from flask import Flask, render_template, request
+from database import DBhandler
 
 application = Flask(__name__)
+
+DB = DBhandler()
 
 #홈 화면
 @application.route('/')
@@ -16,10 +19,11 @@ def add_restaurant():
         image_file=request.files["rfile"]
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
-        print(data)
-        return render_template("result.html", data=data)
-    else :
-        return render_template("add-restaurant.html")
+
+        if DB.add_restaurant(data['name'], data, image_file.filename):
+            return render_template("add-restaurant.html", data=data)
+        else:
+            return "Restautant name already exist!"
 
 @application.route('/restaurant/list')
 def restautrant_list():
