@@ -1,11 +1,9 @@
-
 from flask import Flask, render_template, request
 from database import DBhandler
 
 import sys
 
 application = Flask(__name__)
-
 DB = DBhandler()
 
 #홈 화면
@@ -21,7 +19,7 @@ def add_restaurant():
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
-        if DB.add_restaurant(data['name'], data, image_file.filename):
+        if DB.add_restaurant(data['맛집이름'], data, "/static/image/"+image_file.filename):
             return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename, addmenu_path="/menu/add/"+data['맛집이름'])
         else :
             return "Restaurant name already exist!"
@@ -55,7 +53,7 @@ def add_review():
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
-        if DB.add_review(data['name'], data, image_file.filename):
+        if DB.add_review(data['맛집이름'], data, "/static/image/"+image_file.filename):
             return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename, addreview_path="/review/add/"+data['맛집이름'])
         else :
             return "Error!"
@@ -83,7 +81,7 @@ def add_menu(restaurant):
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
-        if DB.add_menu(data['name'], data, image_file.filename):
+        if DB.add_menu(data['맛집이름'], data, "/static/image/"+image_file.filename):
             return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename, addmenu_path="/menu/add/"+data['맛집이름'])
         else :
             return "Error!"
