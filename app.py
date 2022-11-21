@@ -55,9 +55,13 @@ def add_review():
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
-        return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename)
+        if DB.add_review(data['name'], data, image_file.filename):
+            return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename, addreview_path="/review/add/"+data['맛집이름'])
+        else :
+            return "Error!"
     else :
         return render_template("add-review.html")
+
 
 @application.route('/review/list')
 def review_list():
@@ -79,9 +83,12 @@ def add_menu(restaurant):
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
-        return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename)
+        if DB.add_menu(data['name'], data, image_file.filename):
+            return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename, addmenu_path="/menu/add/"+data['맛집이름'])
+        else :
+            return "Error!"
     else :
-        return render_template("add-menu.html", 맛집이름=restaurant)
+        return render_template("add-menu.html")
 
 @application.route('/menu/list')
 def menu_list():

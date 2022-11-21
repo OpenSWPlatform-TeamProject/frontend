@@ -16,6 +16,7 @@ class DBhandler:
                 return False
             return True 
 
+    #맛집등록
     def add_restaurant(self, name, data, img_path):
         restaurant_info ={
             "음식종류":data['음식종류'],
@@ -57,3 +58,32 @@ class DBhandler:
             return True
         else : 
             return False
+
+    #리뷰등록
+    def add_review(self, name, data, img_path):
+        review_info ={
+            "메뉴이름":data['메뉴이름'],
+            # "평점?":data['평점?'],
+            "timeperiod":data['timeperiod'],
+            "waiting":data['waiting'],
+            "리뷰작성내용":data['리뷰작성내용'],
+            "img_path":img_path
+        }
+        self.db.child("restaurant").child(name).set(review_info)
+        print(data,img_path)
+        return True
+
+    #대표메뉴등록
+    def add_menu(self, name, data, img_path):
+        menu_info ={
+            "메뉴 이름":data['메뉴 이름'],
+            "img_path":img_path,
+            "가격":data['가격'],
+            "allergyinfo":data['allergyinfo'],
+            "vegan":data['vegan'],
+            "etcinfo":data['etcinfo'],
+            "한줄소개":data['한줄소개'],
+        }
+        self.db.child("restaurant").child(name).set(menu_info)
+        print(data,img_path)
+        return True
