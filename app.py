@@ -17,16 +17,16 @@ def add_restaurant():
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
-        return render_template("result.html", data=data)
+        return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename)
     else :
         return render_template("add-restaurant.html")
 
 @application.route('/restaurant/list')
-def restautrant_list():
+def restaurant_list():
     return render_template("restaurant-list.html")
 
 @application.route('/restaurant/detail',methods=['POST', 'GET'])
-def restautrant_detail():
+def restaurant_detail():
     if request.method == 'POST':
         data=request.form
         print(data)
@@ -46,7 +46,7 @@ def add_review():
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
-        return render_template("result.html", data=data)
+        return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename)
     else :
         return render_template("add-review.html")
 
@@ -70,7 +70,7 @@ def add_menu():
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
-        return render_template("result.html", data=data)
+        return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename)
     else :
         return render_template("add-menu.html")
 
