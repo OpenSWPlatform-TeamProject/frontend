@@ -1,8 +1,12 @@
-import sys
 
 from flask import Flask, render_template, request
+from database import DBhandler
+
+import sys
 
 application = Flask(__name__)
+
+DB = DBhandler()
 
 #홈 화면
 @application.route('/')
@@ -17,9 +21,14 @@ def add_restaurant():
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
-        return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename, addmenu_path="/menu/add/"+data['맛집이름'])
+        if DB.add_restaurant(data['name'], data, image_file.filename):
+            return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename, addmenu_path="/menu/add/"+data['맛집이름'])
+        else :
+            return "Restaurant name already exist!"
     else :
         return render_template("add-restaurant.html")
+
+        
 
 @application.route('/restaurant/list')
 def restaurant_list():
