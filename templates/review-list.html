@@ -1,43 +1,9 @@
-<!DOCTYPE>
-<html lang="Korean">
+{% extends "base.html" %} 
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/static/global.css">
-  <link rel="stylesheet" href="/static/review-list.css">
-  <script src="https://kit.fontawesome.com/0ed41516ec.js" crossorigin="anonymous"></script>
-  <title>review-list</title>
-</head>
+{% block title %}review-list{% endblock %}
+{% block css %} <link href="/static/review-list.css" rel="stylesheet" /> {% endblock %} 
 
-<body>
-  <!-- 네비게이션 바 -->
-  <div class="navbar">
-    <div class="nav1">
-      <a href="/" class="logo">
-        <img src="/static/logo_white.png" height="70px">
-      </a>
-    </div>
-    <div class="nav2">
-      <div class="search">
-        <div class="search-box">
-          <a href="" class="icon">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </a>
-          <input type="search" id="search" name="이대 근처 맛집 찾기" placeholder="이대 근처 맛집 찾기" />
-        </div>
-      </div>
-    </div>
-    <div class="nav3">
-      <ul>
-        <li><a href="/login">로그인</a></li>
-        <li><a href="/mypage">마이페이지</a></li>
-      </ul>
-    </div>
-
-  </div>
-
+{% block section %}
   <!-- 상단바 -->
   <section class="topbar">
     <a href="/restaurant/detail" class="back-icon">
@@ -152,7 +118,7 @@
           <a href="/review/detail">
             <button class="review">
               <div class="review-pic">
-                <img class="pic" src="/static/box.png" alt="review-pic6"">
+                <img class="pic" src="/static/box.png" alt="review-pic6">
             </div>
 
             <div class=" review-content">
@@ -207,12 +173,4 @@
       </ul>
     </div>
   </section>
-
-  <footer>
-    <div class="copyright">
-      2022 copyright 어?이게왜되조
-    </div>
-  </footer>>
-</body>
-
-</html>
+{% endblock %}
