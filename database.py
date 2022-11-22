@@ -51,7 +51,8 @@ class DBhandler:
             #"isBreaktime":data['isBreaktime'],
 
             "img_path":img_path
-        }
+        } 
+
         print(restaurant_info)
         print(name)
         if self.restaurant_duplicate_check(name):
