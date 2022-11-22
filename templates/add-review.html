@@ -9,14 +9,20 @@ block section %}
       </a>
     </div>
     <div class="topbar-bottom">
-      <div class="title">리뷰 등록하기</div>
-      <div class="title-description">벗들과 나눌 소중한 후기를 알려주세요!</div>
+      <div class="title">{{맛집이름}} 리뷰 등록하기</div>
+      <div class="title-description">
+        벗들과 나눌 {{맛집이름}}의 소중한 후기를 알려주세요!
+      </div>
     </div>
   </div>
 
   <div class="content">
     <!-- 메뉴 이름 입력 -->
-    <form action="/review/add" method="post" enctype="multipart/form-data">
+    <form
+      action="/review/add/{{맛집이름}}"
+      method="post"
+      enctype="multipart/form-data"
+    >
       <input
         type="text"
         class="input"
@@ -129,7 +135,7 @@ block section %}
 
       <!-- 등록 완료 버튼 -->
       <div class="submit-button-container">
-        <button class="submit-button">등록</button>
+        <button type="submit" class="submit-button">등록</button>
       </div>
     </form>
   </div>

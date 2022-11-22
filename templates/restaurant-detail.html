@@ -20,7 +20,7 @@ endblock %} {% block section %}
 <section class="restaurant-info-section">
   <div class="section-top">
     <div class="restaurant-name-and-ratings">
-      <h3 class="restaurant-name">식당 이름</h3>
+      <h3 class="restaurant-name">{{맛집이름}}</h3>
       <img class="ratings" src="/static/ratings_4.png" />
     </div>
     <div class="buttons-container">
@@ -45,13 +45,15 @@ endblock %} {% block section %}
           style="object-position: 0 -60px"
         />
       </button>
-      <button>
-        <img
-          alt="add-review"
-          src="/static/details.png"
-          style="object-position: 0 -90px"
-        />
-      </button>
+      <a href="{{addreview_path}}">
+        <button>
+          <img
+            alt="add-review"
+            src="/static/details.png"
+            style="object-position: 0 -90px"
+          />
+        </button>
+      </a>
       <button>
         <img
           alt="share"
@@ -156,7 +158,11 @@ endblock %} {% block section %}
 
 <!-- comments-section -->
 <section class="comments-section">
-  <form class="add-comment" action="/restaurant/detail" method="post">
+  <form
+    class="add-comment"
+    action="/restaurant/detail/{{맛집이름}}"
+    method="post"
+  >
     <h4>댓글</h4>
     <textarea placeholder="댓글을 작성해주세요" name="comment"></textarea>
     <div class="submit-button-container">
