@@ -1,143 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/0ed41516ec.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="/static/global.css" />
-    <link rel="stylesheet" href="/static/menu-list.css" />
-    <title>menu-list</title>
-  </head>
+{% extends "base.html" %} {% block title %}menu-list{% endblock %} {% block css
+%} <link href="/static/menu-list.css" rel="stylesheet" /> {% endblock %} {%
+block section %}
+<section class="topbar">
+  <a href="/restaurant/detail" class="back-icon">
+    <i class="fa solid fa-arrow-left fa-lg"></i>
+  </a>
+  <div class="title">대표 메뉴</div>
+  <div class="title-description">이거 안 먹으면 후횟</div>
+</section>
 
-  <body>
-    <nav class="navbar">
-      <div class="nav1">
-        <a href="/" class="logo">
-          <img src="/static/logo_white.png" height="70px" />
-        </a>
-      </div>
-      <div class="nav2">
-        <div class="search">
-          <div class="search-box">
-            <a href="" class="icon">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </a>
-            <input
-              type="search"
-              id="search"
-              name="이대 근처 맛집 찾기"
-              placeholder="이대 근처 맛집 찾기"
-            />
-          </div>
+<section class="container">
+  <div class="menu">
+    <div class="left">
+      <img class="menu-pic" src="/static/box.png" alt="menu picture" />
+
+      <img class="vegan-badge" src="/static/vegan.png" alt="vegan-badge" />
+    </div>
+
+    <div class="right">
+      <div class="information">
+        <div class="food">
+          <h3 class="name">메뉴 이름</h3>
+          <p class="subscription">한 줄 소개</p>
+        </div>
+        <div class="detail">
+          <p class="allergy">알레르기 정보</p>
+          <p class="etc">기타 정보</p>
         </div>
       </div>
-      <div class="nav3">
-        <ul>
-          <li><a href="/login">로그인</a></li>
-          <li><a href="/mypage">마이페이지</a></li>
-        </ul>
-      </div>
-    </nav>
+      <div class="price">가격</div>
+    </div>
+  </div>
+  <div class="menu">
+    <div class="left">
+      <img class="menu-pic" src="/static/box.png" alt="menu picture" />
+    </div>
 
-    <section class="topbar">
-      <a href="/restaurant/detail" class="back-icon">
-        <i class="fa solid fa-arrow-left fa-lg"></i>
-      </a>
-      <div class="title">대표 메뉴</div>
-      <div class="title-description">이거 안 먹으면 후횟</div>
-    </section>
-
-    <section class="container">
-      <div class="menu">
-        <div class="left">
-          <img class="menu-pic" src="/static/box.png" alt="menu picture" />
-
-          <img class="vegan-badge" src="/static/vegan.png" alt="vegan-badge" />
+    <div class="right">
+      <div class="information">
+        <div class="food">
+          <h3 class="name">치즈 김치전</h3>
+          <p class="subscription">손이 가요 손이 가~ 김치즈에 손이 가~</p>
         </div>
-
-        <div class="right">
-          <div class="information">
-            <div class="food">
-              <h3 class="name">메뉴 이름</h3>
-              <p class="subscription">한 줄 소개</p>
-            </div>
-            <div class="detail">
-              <p class="allergy">알레르기 정보</p>
-              <p class="etc">기타 정보</p>
-            </div>
-          </div>
-          <div class="price">가격</div>
+        <div class="detail">
+          <p class="allergy">알레르기 정보</p>
+          <p class="etc">기타 정보</p>
         </div>
       </div>
-      <div class="menu">
-        <div class="left">
-          <img class="menu-pic" src="/static/box.png" alt="menu picture" />
-        </div>
+      <div class="price">14,000원</div>
+    </div>
+  </div>
 
-        <div class="right">
-          <div class="information">
-            <div class="food">
-              <h3 class="name">치즈 김치전</h3>
-              <p class="subscription">손이 가요 손이 가~ 김치즈에 손이 가~</p>
-            </div>
-            <div class="detail">
-              <p class="allergy">알레르기 정보</p>
-              <p class="etc">기타 정보</p>
-            </div>
-          </div>
-          <div class="price">14,000원</div>
-        </div>
-      </div>
+  <div class="menu">
+    <div class="left">
+      <img class="menu-pic" src="/static/box.png" alt="menu picture" />
+    </div>
 
-      <div class="menu">
-        <div class="left">
-          <img class="menu-pic" src="/static/box.png" alt="menu picture" />
+    <div class="right">
+      <div class="information">
+        <div class="food">
+          <h3 class="name">해물순두부국수</h3>
+          <p class="subscription">레몬 소주와 어울리는 국물이 땡긴다면 필수!</p>
         </div>
-
-        <div class="right">
-          <div class="information">
-            <div class="food">
-              <h3 class="name">해물순두부국수</h3>
-              <p class="subscription">
-                레몬 소주와 어울리는 국물이 땡긴다면 필수!
-              </p>
-            </div>
-            <div class="detail">
-              <p class="allergy">알레르기 정보</p>
-              <p class="etc">기타 정보</p>
-            </div>
-          </div>
-          <div class="price">12,000원</div>
+        <div class="detail">
+          <p class="allergy">알레르기 정보</p>
+          <p class="etc">기타 정보</p>
         </div>
       </div>
+      <div class="price">12,000원</div>
+    </div>
+  </div>
 
-      <div class="menu">
-        <div class="left">
-          <img class="menu-pic" src="/static/box.png" alt="menu picture" />
+  <div class="menu">
+    <div class="left">
+      <img class="menu-pic" src="/static/box.png" alt="menu picture" />
+    </div>
+
+    <div class="right">
+      <div class="information">
+        <div class="food">
+          <h3 class="name">메뉴 이름</h3>
+          <p class="subscription">한 줄 소개</p>
         </div>
-
-        <div class="right">
-          <div class="information">
-            <div class="food">
-              <h3 class="name">메뉴 이름</h3>
-              <p class="subscription">한 줄 소개</p>
-            </div>
-            <div class="detail">
-              <p class="allergy">알레르기 정보</p>
-              <p class="etc">기타 정보</p>
-            </div>
-          </div>
-          <div class="price">가격</div>
+        <div class="detail">
+          <p class="allergy">알레르기 정보</p>
+          <p class="etc">기타 정보</p>
         </div>
       </div>
-    </section>
-
-    <footer>
-      <div class="copyright">2022 copyright 어?이게왜되조</div>
-    </footer>
-  </body>
-</html>
+      <div class="price">가격</div>
+    </div>
+  </div>
+</section>
+{% endblock %}
