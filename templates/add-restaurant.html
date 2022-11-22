@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block title %}add-restaurant{% endblock %} {% block
-css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> {% endblock
+css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/static/add-restaurant.js"> {% endblock
 %} {% block section %}
 <section>
   <div class="topbar">
@@ -26,23 +26,95 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> {% endblock
 
       <!-- 음식 분류 선택 -->
       <div class="food-type-container">
-        <input type="checkbox" id="food-type1" name="음식종류" value="한식" />
-        <label for="food-type1"> 한식</label>
+        <input
+          type="checkbox"
+          name="food-type-check-korean"
+          id="food-type-check-korean"
+          value='1'
+        />
+        <label for="food-type-check-korean">  한식</label>
+        <input
+          type="hidden"
+          name="food-type-check-korean-hidden"
+          id="food-type-check-korean-hidden"
+          value='0'
+        />
+        <label for="food-type-check-korean-hidden"></label>
 
-        <input type="checkbox" id="food-type2" name="음식종류" value="중식" />
-        <label for="food-type2"> 중식</label>
+        <input
+          type="checkbox"
+          name="food-type-check-chinese"
+          id="food-type-check-chinese"
+          value='1'
+        />
+        <label for="food-type-check-chinese">  중식</label>
+        <input
+          type="hidden"
+          name="food-type-check-chinese-hidden"
+          id="food-type-check-chinese-hidden"
+          value='0'
+        />
+        <label for="food-type-check-chinese-hidden"></label>
 
-        <input type="checkbox" id="food-type3" name="음식종류" value="양식" />
-        <label for="food-type3"> 양식</label>
+        <input
+          type="checkbox"
+          name="food-type-check-western"
+          id="food-type-check-western"
+          value='1'
+        />
+        <label for="food-type-check-western">  양식</label>
+        <input
+          type="hidden"
+          name="food-type-check-western-hidden"
+          id="food-type-check-western-hidden"
+          value='0'
+        />
+        <label for="food-type-check-western-hidden"></label>
 
-        <input type="checkbox" id="food-type4" name="음식종류" value="일식" />
-        <label for="food-type4"> 일식</label>
+        <input
+          type="checkbox"
+          name="food-type-check-japanese"
+          id="food-type-check-japanese"
+          value='1'
+        />
+        <label for="food-type-check-japanese">  일식</label>
+        <input
+          type="hidden"
+          name="food-type-check-japanese-hidden"
+          id="food-type-check-japanese-hidden"
+          value='0'
+        />
+        <label for="food-type-check-japanese-hidden"></label>
 
-        <input type="checkbox" id="food-type5" name="음식종류" value="카페" />
-        <label for="food-type5"> 카페</label>
+        <input
+          type="checkbox"
+          name="food-type-check-cafe"
+          id="food-type-check-cafe"
+          value='1'
+        />
+        <label for="food-type-check-cafe">  카페</label>
+        <input
+          type="hidden"
+          name="food-type-check-cafe-hidden"
+          id="food-type-check-cafe-hidden"
+          value='0'
+        />
+        <label for="food-type-check-cafe-hidden"></label>
 
-        <input type="checkbox" id="food-type6" name="음식종류" value="술" />
-        <label for="food-type6"> 술</label>
+        <input
+          type="checkbox"
+          name="food-type-check-alcohol"
+          id="food-type-check-alcohol"
+          value='1'
+        />
+        <label for="food-type-check-alcohol">  술</label>
+        <input
+          type="hidden"
+          name="food-type-check-alcohol-hidden"
+          id="food-type-check-alcohol-hidden"
+          value='0'
+        />
+        <label for="food-type-check-alcohol-hidden"></label>
       </div>
 
       <!-- 비건 메뉴 유무 -->
@@ -145,11 +217,18 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> {% endblock
             />
             <input
               type="checkbox"
-              name="mondaybreak"
-              id="monday-break"
-              value="월휴무"
+              name="input-check"
+              id="input-check-mon"
+              value='1'
             />
-            <label for="monday-break"></label>
+            <label for="input-check-mon"></label>
+            <input
+              type="hidden"
+              name="input-check-hidden"
+              id="input-check-hidden-mon"
+              value='0'
+            />
+            <label for="input-check-hidden-mon"></label>
           </div>
           <div class="input-container">
             <input
@@ -161,11 +240,18 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> {% endblock
             />
             <input
               type="checkbox"
-              name="tuesdaybreak"
-              id="tuesday-break"
-              value="화휴무"
+              name="input-check"
+              id="input-check-tues"
+              value='1'
             />
-            <label for="tuesday-break"></label>
+            <label for="input-check-tues"></label>
+            <input
+              type="hidden"
+              name="input-check-hidden"
+              id="input-check-hidden-tues"
+              value='0'
+            />
+            <label for="input-check-hidden-tues"></label>
           </div>
           <div class="input-container">
             <input
@@ -176,12 +262,19 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> {% endblock
               placeholder="수"
             />
             <input
-              type="checkbox"
-              name="wednesdaybreak"
-              id="wednesday-break"
-              value="수휴무"
-            />
-            <label for="wednesday-break"></label>
+            type="checkbox"
+            name="input-check"
+            id="input-check-wed"
+            value='1'
+          />
+          <label for="input-check-wed"></label>
+          <input
+            type="hidden"
+            name="input-check-hidden"
+            id="input-check-hidden-wed"
+            value='0'
+          />
+          <label for="input-check-hidden-wed"></label>
           </div>
           <div class="input-container">
             <input
@@ -193,11 +286,18 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> {% endblock
             />
             <input
               type="checkbox"
-              name="thursdaybreak"
-              id="thursday-break"
-              value="목휴무"
+              name="input-check"
+              id="input-check-thur"
+              value='1'
             />
-            <label for="thursday-break"></label>
+            <label for="input-check-thur"></label>
+            <input
+              type="hidden"
+              name="input-check-hidden"
+              id="input-check-hidden-thur"
+              value='0'
+            />
+            <label for="input-check-hidden-thur"></label>
           </div>
           <div class="input-container">
             <input
@@ -209,11 +309,18 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> {% endblock
             />
             <input
               type="checkbox"
-              name="fridaybreak"
-              id="friday-break"
-              value="금휴무"
+              name="input-check"
+              id="input-check-fri"
+              value='1'
             />
-            <label for="friday-break"></label>
+            <label for="input-check-fri"></label>
+            <input
+              type="hidden"
+              name="input-check-hidden"
+              id="input-check-hidden-fri"
+              value='0'
+            />
+            <label for="input-check-hidden-fri"></label>
           </div>
           <div class="input-container">
             <input
@@ -225,11 +332,18 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> {% endblock
             />
             <input
               type="checkbox"
-              name="saturdaybreak"
-              id="saturday-break"
-              value="토휴무"
+              name="input-check"
+              id="input-check-sat"
+              value='1'
             />
-            <label for="saturday-break"></label>
+            <label for="input-check-sat"></label>
+            <input
+              type="hidden"
+              name="input-check-hidden"
+              id="input-check-hidden-sat"
+              value='0'
+            />
+            <label for="input-check-hidden-sat"></label>
           </div>
           <div class="input-container">
             <input
@@ -241,11 +355,18 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> {% endblock
             />
             <input
               type="checkbox"
-              name="sundaybreak"
-              id="sunday-break"
-              value="일휴무"
+              name="input-check"
+              id="input-check-sun"
+              value='1'
             />
-            <label for="sunday-break"></label>
+            <label for="input-check-sun"></label>
+            <input
+              type="hidden"
+              name="input-check-hidden"
+              id="input-check-hidden-sun"
+              value='0'
+            />
+            <label for="input-check-hidden-sun"></label>
           </div>
         </div>
       </div>
