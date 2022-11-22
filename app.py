@@ -53,10 +53,10 @@ def add_review(restaurant):
         image_file.save("static/image/{}".format(image_file.filename)) 
         data=request.form
         print(data)
-        DB.add_review(restaurant, data, "/static/image/"+image_file.filename)
-        return redirect(url_for('myreview_detail'))
-        #else :
-        #    return "Error!"
+        if DB.add_review(restaurant, data, "/static/image/"+image_file.filename):
+            return redirect(url_for('myreview_detail'))
+        else :
+            return "Error!"
     else :
         return render_template("add-review.html", 맛집이름=restaurant)
 
