@@ -52,6 +52,7 @@ class DBhandler:
 
             "img_path":img_path
         } 
+        
         print(restaurant_info)
         if self.restaurant_duplicate_check(name):
             self.db.child("restaurant").child(name).set(restaurant_info)
