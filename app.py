@@ -86,8 +86,8 @@ def add_menu(restaurant):
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
-        if DB.add_menu(data['맛집이름'], data, "/static/image/"+image_file.filename):
-            return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename, addmenu_path="/menu/add/"+data['맛집이름'])
+        if DB.add_menu(restaurant, data, "/static/image/"+image_file.filename):
+            return redirect(url_for('restaurant_detail', restaurant=restaurant))
         else :
             return "Error!"
     else :

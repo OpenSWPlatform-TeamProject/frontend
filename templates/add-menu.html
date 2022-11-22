@@ -18,7 +18,11 @@ section %}
 
   <div class="content">
     <!-- 음식 이름 입력 -->
-    <form action="/menu/add" method="post" enctype="multipart/form-data">
+    <form
+      action="/menu/add/{{맛집이름}}"
+      method="post"
+      enctype="multipart/form-data"
+    >
       <input
         type="text"
         placeholder="메뉴 이름"

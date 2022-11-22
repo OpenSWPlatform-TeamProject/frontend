@@ -88,6 +88,9 @@ class DBhandler:
             "etcinfo":data['etcinfo'],
             "한줄소개":data['한줄소개'],
         }
-        self.db.child("menu").child(name).set(menu_info)
-        print(data,img_path)
-        return True
+        if self.restaurant_duplicate_check(name):
+            self.db.child("menu").child(name).set(menu_info)
+            print(data,img_path)
+            return True
+        else : 
+            return False
