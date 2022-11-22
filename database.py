@@ -27,31 +27,32 @@ class DBhandler:
             "phonenum":data['phonenum'],
             "parking":data['parking'],
             #월
-            "mondaytime":data['mondaytime'],
-            "mondaybreak":data['mondaybreak'],
+            #"mondaytime":data['mondaytime'],
+            #"mondaybreak":data['mondaybreak'],
             #화
-            "tuesdaytime":data['tuesdaytime'],
-            "tuesdaybreak":data['tuesdaybreak'],
+            #"tuesdaytime":data['tuesdaytime'],
+            #"tuesdaybreak":data['tuesdaybreak'],
             #수
-            "wednesdaytime":data['wednesdaytime'],
-            "wednesdaybreak":data['wednesdaybreak'],
+            #"wednesdaytime":data['wednesdaytime'],
+            #"wednesdaybreak":data['wednesdaybreak'],
             #목
-            "thursdaytime":data['thursdaytime'],
-            "thursdaybreak":data['thursdaybreak'],
+            #"thursdaytime":data['thursdaytime'],
+            #"thursdaybreak":data['thursdaybreak'],
             #금
-            "fridaytime":data['fridaytime'],
-            "fridaybreak":data['fridaybreak'],
+            #"fridaytime":data['fridaytime'],
+            #"fridaybreak":data['fridaybreak'],
             #토
-            "saturdaytime":data['saturdaytime'],
-            "saturdaybreak":data['saturdaybreak'],
+            #"saturdaytime":data['saturdaytime'],
+            #"saturdaybreak":data['saturdaybreak'],
             #일
-            "sundaytime":data['sundaytime'],
-            "sundaybreak":data['sundaybreak'],
+            #"sundaytime":data['sundaytime'],
+            #"sundaybreak":data['sundaybreak'],
 
-            "isBreaktime":data['isBreaktime'],
+            #"isBreaktime":data['isBreaktime'],
 
             "img_path":img_path
-        }
+        } 
+        print(restaurant_info)
         if self.restaurant_duplicate_check(name):
             self.db.child("restaurant").child(name).set(restaurant_info)
             print(data,img_path)
