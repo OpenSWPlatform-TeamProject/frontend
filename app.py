@@ -26,7 +26,6 @@ def add_restaurant():
     else :
         return render_template("add-restaurant.html")
 
-        
 
 @application.route('/restaurant/list')
 def restaurant_list():
@@ -44,6 +43,7 @@ def restaurant_detail():
 @application.route('/restaurant/my')
 def my_fav_list():
     return render_template("my-fav-list.html")
+
 
 #리뷰 화면
 @application.route('/review/add',methods=['POST', 'GET'])
@@ -73,6 +73,7 @@ def review_detail():
 def myreveiw_detail():
     return render_template("myreview-detail.html")
 
+
 #메뉴 화면
 @application.route('/menu/add/<string:restaurant>',methods=['POST', 'GET'])
 def add_menu(restaurant):
@@ -86,7 +87,7 @@ def add_menu(restaurant):
         else :
             return "Error!"
     else :
-        return render_template("add-menu.html")
+        return render_template("add-menu.html", 맛집이름=restaurant)
 
 @application.route('/menu/list')
 def menu_list():
