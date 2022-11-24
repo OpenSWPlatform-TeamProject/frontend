@@ -67,7 +67,6 @@ class DBhandler:
     #리뷰등록
     def add_review(self, name, data, img_path):
         review_info ={
-            "name":name,
             "메뉴이름":data['메뉴이름'],
             # "평점?":data['평점?'],
             "timePeriod":data['timePeriod'],
@@ -83,7 +82,6 @@ class DBhandler:
     #대표메뉴등록
     def add_menu(self, name, data, img_path):
         menu_info ={
-            "name":name,
             "메뉴 이름":data['메뉴 이름'],
             "img_path":img_path,
             "가격":data['가격'],
