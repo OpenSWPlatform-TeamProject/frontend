@@ -229,29 +229,31 @@ ul.categories>li {
 
 .theme {
   margin-top: 6vw;
+  width: 80vw;
   height: 20vw;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .themes {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  width: 60%;
+  justify-content: flex-start;
+  width: 70%;
   position: relative;
 }
 
 ul.themes>li {
   padding: 15px;
+  width:33%
 }
 
 .theme-restaurant {
   font-size: 16px;
-  width: 200px;
-  height: 110px;
+  width: 15vw;
+  height: 8vw;
   background-color: white;
   border: none;
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.19);
