@@ -28,21 +28,13 @@ class DBhandler:
             "address":data['address'],
             "phonenum":data['phonenum'],
             "parking":data['parking'],
-            #월
             "mondaytime":data['mondaytime'],
-            #화
             "tuesdaytime":data['tuesdaytime'],
-            #수
             "wednesdaytime":data['wednesdaytime'],
-            #목
             "thursdaytime":data['thursdaytime'],
-            #금
             "fridaytime":data['fridaytime'],
-            #토
             "saturdaytime":data['saturdaytime'],
-            #일
             "sundaytime":data['sundaytime'],
-
             "isBreaktime":data['isBreaktime'],
             "breakday":data.getlist('breakday'),
 
