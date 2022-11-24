@@ -30,27 +30,21 @@ class DBhandler:
             "parking":data['parking'],
             #월
             "mondaytime":data['mondaytime'],
-            "mondaybreak":data['mondaybreak'],
             #화
             "tuesdaytime":data['tuesdaytime'],
-            "tuesdaybreak":data['tuesdaybreak'],
             #수
             "wednesdaytime":data['wednesdaytime'],
-            "wednesdaybreak":data['wednesdaybreak'],
             #목
             "thursdaytime":data['thursdaytime'],
-            "thursdaybreak":data['thursdaybreak'],
             #금
             "fridaytime":data['fridaytime'],
-            "fridaybreak":data['fridaybreak'],
             #토
             "saturdaytime":data['saturdaytime'],
-            "saturdaybreak":data['saturdaybreak'],
             #일
             "sundaytime":data['sundaytime'],
-            "sundaybreak":data['sundaybreak'],
 
             "isBreaktime":data['isBreaktime'],
+            "breakday":data.getlist('breakday'),
 
             "img_path":img_path
         } 
