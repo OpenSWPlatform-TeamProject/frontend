@@ -85,7 +85,7 @@ def add_review(restaurant):
 
 @application.route('/review/list/<string:restaurant>')
 def review_list(restaurant):
-    data=DB.get_restaurants_byname(str(restaurant))
+    data=DB.get_restaurant_byname(str(restaurant))
     print(data)
     page = request.args.get("page", 0, type=int)
     limit = 9
