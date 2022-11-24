@@ -58,9 +58,9 @@ def restaurant_detail(restaurant):
     if request.method == 'POST':
         comment=request.form
         print(comment)
-        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
+        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
     else :
-        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
+        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
 
 @application.route('/restaurant/my')
 def my_fav_list():
@@ -124,9 +124,13 @@ def add_menu(restaurant):
     else :
         return render_template("add-menu.html", 맛집이름=restaurant)
 
-@application.route('/menu/list')
-def menu_list():
-    return render_template("menu-list.html")
+@application.route('/menu/list/<string:restaurant>')
+def menu_list(restaurant):
+    data=DB.get_restaurant_byname(str(restaurant))
+    print(data)
+    data = DB.get_menus()
+    return render_template("menu-list.html", data=data, 맛집이름=restaurant)
+    
 
 #로그인 화면
 @application.route('/login', methods=['POST', 'GET'])

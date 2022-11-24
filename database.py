@@ -100,3 +100,8 @@ class DBhandler:
     def get_reviews(self ):
         reviews = self.db.child("review").get().val()
         return reviews
+
+    #메뉴 테이블 가져오기
+    def get_menus(self ):
+        menus = self.db.child("menu").get().val()
+        return menus
