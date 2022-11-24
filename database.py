@@ -114,6 +114,13 @@ class DBhandler:
         return reviews
 
     #메뉴 테이블 가져오기
-    def get_menus(self ):
-        menus = self.db.child("menu").get().val()
-        return menus
+    def get_menus(self, name):
+        menus = self.db.child("menu").get()
+        target_value={}
+        for men in menus.each():
+            value = men.val()
+            if value['맛집이름'] == name:
+                menu=value['메뉴이름']
+                target_value[menu]=dict((list(value.items())))
+        print(target_value)
+        return target_value
