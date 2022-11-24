@@ -35,12 +35,14 @@ def restaurant_list():
 
 @application.route('/restaurant/detail/<string:restaurant>',methods=['POST', 'GET'])
 def restaurant_detail(restaurant):
+    data=DB.get_restaurant_byname(str(restaurant))
+    print(data)
     if request.method == 'POST':
-        data=request.form
-        print(data)
-        return render_template("restaurant-detail.html", 맛집이름=restaurant, addreview_path="/review/add/"+restaurant)
+        comment=request.form
+        print(comment)
+        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, addreview_path="/review/add/"+restaurant)
     else :
-        return render_template("restaurant-detail.html", 맛집이름=restaurant, addreview_path="/review/add/"+restaurant)
+        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, addreview_path="/review/add/"+restaurant)
 
 @application.route('/restaurant/my')
 def my_fav_list():
