@@ -52,4 +52,3 @@ if(document.getElementById("food-type-check-cafe").checked) {
 if(document.getElementById("food-type-check-alcohol").checked) {
     document.getElementById("food-type-check-alcohol").disabled = true;
 }
-

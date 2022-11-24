@@ -52,7 +52,13 @@ class DBhandler:
 
             "img_path":img_path
         } 
+<<<<<<< HEAD
         print(restaurant_info)
+=======
+
+        print(restaurant_info)
+        print(name)
+>>>>>>> week11
         if self.restaurant_duplicate_check(name):
             self.db.child("restaurant").child(name).set(restaurant_info)
             print(data,img_path)
@@ -65,12 +71,13 @@ class DBhandler:
         review_info ={
             "메뉴이름":data['메뉴이름'],
             # "평점?":data['평점?'],
-            "timeperiod":data['timeperiod'],
+            "timePeriod":data['timePeriod'],
             "waiting":data['waiting'],
             "리뷰작성내용":data['리뷰작성내용'],
             "img_path":img_path
         }
-        self.db.child("restaurant").child(name).set(review_info)
+        print(review_info)
+        self.db.child("review").child(name).set(review_info)
         print(data,img_path)
         return True
 
@@ -85,6 +92,9 @@ class DBhandler:
             "etcinfo":data['etcinfo'],
             "한줄소개":data['한줄소개'],
         }
-        self.db.child("restaurant").child(name).set(menu_info)
-        print(data,img_path)
-        return True
+        if self.restaurant_duplicate_check(name):
+            self.db.child("menu").child(name).set(menu_info)
+            print(data,img_path)
+            return True
+        else : 
+            return False
