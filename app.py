@@ -29,7 +29,9 @@ def add_restaurant():
 
 @application.route('/restaurant/list')
 def restaurant_list():
-    return render_template("restaurant-list.html")
+    data = DB.get_restaurants()
+    tot_count = len(data)
+    return render_template("restaurant-list.html", data=data.items(), total=tot_count)
 
 @application.route('/restaurant/detail/<string:restaurant>',methods=['POST', 'GET'])
 def restaurant_detail(restaurant):
