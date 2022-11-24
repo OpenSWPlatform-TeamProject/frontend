@@ -13,7 +13,7 @@ class DBhandler:
         restaurants = self.db.child("restaurant").get()
         for res in restaurants.each():
             value = res.val()
-            if value['name'] == name:
+            if value['맛집이름'] == name:
                 return False
             return True 
 
