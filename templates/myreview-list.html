@@ -1,0 +1,218 @@
+<!DOCTYPE>
+<html lang="Korean">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="review-list.css">
+  <script src="https://kit.fontawesome.com/0ed41516ec.js" crossorigin="anonymous"></script>
+  <title>myreview-list</title>
+</head>
+
+<body>
+  <!-- 네비게이션 바 -->
+  <div class="navbar">
+    <div class="nav1">
+      <a href="home.html" class="logo">
+        <img src="logo_white.png" height="70px">
+      </a>
+    </div>
+    <div class="nav2">
+      <div class="search">
+        <div class="search-box">
+          <a href="" class="icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+          <input type="search" id="search" name="이대 근처 맛집 찾기" placeholder="이대 근처 맛집 찾기" />
+        </div>
+      </div>
+    </div>
+    <div class="nav3">
+      <ul>
+        <li><a href="login.html">로그인</a></li>
+        <li><a href="mypage.html">마이페이지</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- 상단바 -->
+  <section class="topbar">
+    <a href="mypage.html" class="back-icon">
+      <i class="fa solid fa-arrow-left fa-lg"></i>
+    </a>
+    <div class="title">내 리뷰 조회하기</div>
+    <div class="title-description">내가 남겼던 소중한 후기를 살펴보세요!</div>
+  </section>
+
+
+
+  <!-- 리뷰 리스트 -->
+  <section class="container">
+    <div class="content">
+      <ul class="reviews">
+        <li>
+          <a href="myreview-detail.html">
+            <button class="review">
+              <div class="review-pic">
+                <img class="pic" src="치즈김치전.jpeg" alt="review-pic1">
+              </div>
+              <div class="review-content">
+                <div class="food">치즈김치전</div>
+                <div class="star">
+                  <img class="star-pic" src="ratings_3.png" alt="review-star">
+                </div>
+                <div class="hashtag">
+                  #저녁 #대기10분
+                </div>
+              </div>
+            </button>
+          </a>
+        </li>
+
+        <li>
+          <a href="myreview-detail.html">
+            <button class="review">
+              <div class="review-pic">
+                <img class="pic" src="box.png" alt="review-pic2">
+              </div>
+              <div class="review-content">
+                <div class="food">해물순두부국수</div>
+                <div class="star">
+                  <img src="ratings_4.png" class="star-pic" alt="review-star">
+                </div>
+                <div class="hashtag">
+                  #저녁 #대기10분
+                </div>
+              </div>
+            </button>
+          </a>
+        </li>
+
+        <li>
+          <a href="myreview-detail.html">
+            <button class="review">
+              <div class="review-pic">
+                <img class="pic" src="box.png" alt="review-pic3">
+              </div>
+              <div class="review-content">
+                <div class="food">치즈김치전</div>
+                <div class="star">
+                  <img src="ratings_5.png" class="star-pic" alt="review-star">
+                </div>
+                <div class="hashtag">
+                  #야간 #대기없음
+                </div>
+              </div>
+            </button>
+          </a>
+        </li>
+
+        <li>
+          <a href="myreview-detail.html">
+            <button class="review">
+              <div class="review-pic">
+                <img class="pic" src="box.png" alt="review-pic4">
+              </div>
+              <div class="review-content">
+                <div class="food">치즈김치전</div>
+                <div class="star">
+                  <img src="ratings_4.png" class="star-pic" alt="review-star">
+                </div>
+                <div class="hashtag">
+                  #저녁 #대기없음
+                </div>
+              </div>
+            </button>
+          </a>
+        </li>
+
+        <li>
+          <a href="myreview-detail.html">
+            <button class="review">
+              <div class="review-pic">
+                <img class="pic" src="box.png" alt="review-pic5">
+              </div>
+              <div class="review-content">
+                <div class="food">해물순두부국수</div>
+                <div class="star">
+                  <img src="ratings_5.png" class="star-pic" alt="review-star">
+                </div>
+                <div class="hashtag">
+                  #저녁 #대기10분
+                </div>
+              </div>
+            </button>
+          </a>
+        </li>
+
+        <li>
+          <a href="myreview-detail.html">
+            <button class="review">
+              <div class="review-pic">
+                <img class="pic" src="box.png" alt="review-pic6"">
+            </div>
+
+            <div class=" review-content">
+                <div class="food">치즈김치전</div>
+                <div class="star">
+                  <img src="ratings_3.png" class="star-pic" alt="review-star">
+                </div>
+                <div class="hashtag">
+                  #야간 #대기없음
+                </div>
+              </div>
+            </button>
+          </a>
+        </li>
+    </div>
+
+
+    <!-- 페이지 이동 버튼 -->
+    <div class="page-nav">
+      <ul class="page">
+        <li>
+          <a href="" class="End">
+            <i class="fa-solid fa-chevron-left"></i>
+          </a>
+        </li>
+
+        <li>
+          <strong>1</strong>
+        </li>
+
+        <li>
+          <a class="another-page" href="">2</a>
+        </li>
+
+        <li>
+          <a class="another-page" href="">3</a>
+        </li>
+
+        <li>
+          <a class="another-page" href="">4</a>
+        </li>
+
+        <li>
+          <a class="another-page" href="">5</a>
+        </li>
+
+        <li>
+          <a href="" class="End">
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="copyright">
+      2022 copyright 어?이게왜되조
+    </div>
+  </footer>>
+</body>
+
+</html>
