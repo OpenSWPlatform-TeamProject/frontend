@@ -31,14 +31,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
           type="checkbox"
           name="음식종류"
           id="food-type-check-korean"
-          value='한식'
+          value="한식"
         />
         <label for="food-type-check-korean"> 한식</label>
         <input
           type="hidden"
           name="음식종류"
           id="food-type-check-korean-hidden"
-          value='null'
+          value="null"
         />
         <label for="food-type-check-korean-hidden"></label>
 
@@ -46,14 +46,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
           type="checkbox"
           name="음식종류"
           id="food-type-check-chinese"
-          value='중식'
+          value="중식"
         />
         <label for="food-type-check-chinese"> 중식</label>
         <input
           type="hidden"
           name="음식종류"
           id="food-type-check-chinese-hidden"
-          value='null'
+          value="null"
         />
         <label for="food-type-check-chinese-hidden"></label>
 
@@ -61,14 +61,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
           type="checkbox"
           name="음식종류"
           id="food-type-check-western"
-          value='양식'
+          value="양식"
         />
         <label for="food-type-check-western"> 양식</label>
         <input
           type="hidden"
           name="음식종류"
           id="food-type-check-western-hidden"
-          value='null'
+          value="null"
         />
         <label for="food-type-check-western-hidden"></label>
 
@@ -76,14 +76,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
           type="checkbox"
           name="음식종류"
           id="food-type-check-japanese"
-          value='일식'
+          value="일식"
         />
         <label for="food-type-check-japanese"> 일식</label>
         <input
           type="hidden"
           name="음식종류"
           id="food-type-check-japanese-hidden"
-          value='null'
+          value="null"
         />
         <label for="food-type-check-japanese-hidden"></label>
 
@@ -91,14 +91,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
           type="checkbox"
           name="음식종류"
           id="food-type-check-cafe"
-          value='카페'
+          value="카페"
         />
         <label for="food-type-check-cafe"> 카페</label>
         <input
           type="hidden"
           name="음식종류"
           id="food-type-check-cafe-hidden"
-          value='null'
+          value="null"
         />
         <label for="food-type-check-cafe-hidden"></label>
 
@@ -106,14 +106,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
           type="checkbox"
           name="food-type-check-alcohol"
           id="food-type-check-alcohol"
-          value='술'
+          value="술"
         />
         <label for="food-type-check-alcohol"> 술</label>
         <input
           type="hidden"
           name="food-type-check-alcohol-hidden"
           id="food-type-check-alcohol-hidden"
-          value='null'
+          value="null"
         />
         <label for="food-type-check-alcohol-hidden"></label>
       </div>
@@ -196,7 +196,13 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
       <!-- 대표 이미지 넣기 -->
       <h3 class="insert-title">대표 사진</h3>
       <div class="img-container">
-        <input type="file" name="rfile" id="fileUpload" accept="image/*" />
+        <input
+          type="file"
+          name="rfile"
+          id="fileUpload"
+          accept="image/*"
+          onclick="setRfile()"
+        />
         <label for="fileUpload">파일 선택</label>
         <div class="img-preview">사진</div>
       </div>

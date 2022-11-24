@@ -52,3 +52,17 @@ if(document.getElementById("food-type-check-cafe").checked) {
 if(document.getElementById("food-type-check-alcohol").checked) {
     document.getElementById("food-type-check-alcohol").disabled = true;
 }
+
+
+//이미지 파일 첨부 미리보기
+function setRfile(event) {
+    var reader = new FileReader();
+
+    reader.onload = function(event) {
+      var img = document.createElement("img");
+      img.setAttribute("src", event.target.result);
+      document.querySelector("div#image-preview").appendChild(img);
+    };
+
+    reader.readAsDataURL(event.target.files[0]);
+  }
