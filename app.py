@@ -76,7 +76,7 @@ def add_review(restaurant):
         data=request.form
         print(data)
         if DB.add_review(restaurant, data, "/static/image/"+image_file.filename):
-            return redirect(url_for('myreview_detail'))
+            return redirect(url_for('review_list', restaurant=restaurant))
         else :
             return "Error!"
     else :
@@ -129,7 +129,9 @@ def menu_list(restaurant):
     data=DB.get_restaurant_byname(str(restaurant))
     print(data)
     data = DB.get_menus()
-    return render_template("menu-list.html", data=data, 맛집이름=restaurant)
+    tot_count = len(data)
+    data=dict(list(data.items()))
+    return render_template("menu-list.html", datas=data.item(), 맛집이름=restaurant, total=tot_count)
     
 
 #로그인 화면
