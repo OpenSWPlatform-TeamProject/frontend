@@ -217,19 +217,9 @@
                                 </a>
                             </li>
                             <li>
-                                <strong>1</strong>
-                            </li>
-                            <li>
-                                <a class="another-page" href="">2</a>
-                            </li>
-                            <li>
-                                <a class="another-page" href="">3</a>
-                            </li>
-                            <li>
-                                <a class="another-page" href="">4</a>
-                            </li>
-                            <li>
-                                <a class="another-page" href="">5</a>
+                                {% for i in range(page_count)%}
+                                <a href="{{url_for('restaurant-list', page=i)}}" color="black">{{i}}</a>
+                                {% endfor %}        
                             </li>
                             <li>
                                 <a href="" class="End">
