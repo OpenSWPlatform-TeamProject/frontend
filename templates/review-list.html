@@ -33,8 +33,6 @@
                 </div>
                 <div class="hashtag">
                   #{{datas[data]['timePeriod']}}
-                </div>
-                <div class="hashtag">
                   #{{datas[data]['waiting']}}
                 </div>
               </div>
@@ -42,9 +40,9 @@
           </a>
         </li>
         {% endfor %} {% else %}
+          <div class="menu">등록된 리뷰가 없습니다.</div>
+        {% endif %}
       </ul>
-      <div class="menu">등록된 리뷰가 없습니다.</div>
-      {% endif %}
     </div>
   </section>
 
