@@ -103,3 +103,13 @@ class DBhandler:
     def get_restaurants(self ):
         restaurants = self.db.child("restaurant").get().val()
         return restaurants
+
+    #맛집이름으로 맛집 정보 가져오기
+    def get_restaurant_byname(self, name):
+        restaurants = self.db.child("restaurant").get()
+        target_value=""
+        for res in restaurants.each():
+            value = res.val()
+            if value['name'] == name:
+                target_value=value
+        return target_value
