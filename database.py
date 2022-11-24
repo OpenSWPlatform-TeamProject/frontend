@@ -94,3 +94,8 @@ class DBhandler:
             return True
         else : 
             return False
+
+    #레스토랑 테이블 가져오기
+    def get_restaurants(self ):
+        restaurants = self.db.child("restaurant").get().val()
+        return restaurants
