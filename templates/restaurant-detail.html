@@ -12,7 +12,9 @@
         src="{{data.img_path}}"
         alt="restaurant-image"
       />
+      {% if data.vegan|length == 2 %}
       <img class="vegan-badge" src="/static/vegan.png" alt="vegan-badge" />
+      {% else %} {% endif %}
     </div>
   </section>
   
