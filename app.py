@@ -29,9 +29,16 @@ def add_restaurant():
 
 @application.route('/restaurant/list')
 def restaurant_list():
+    page = request.args.get("page", 0, type=int)
+    limit = 9
+    start_idx=limit*page
+    end_idx=limit*(page+1)
     data = DB.get_restaurants()
     tot_count = len(data)
-    return render_template("restaurant-list.html", data=data.items(), total=tot_count)
+    data=dict(list(data.items())[start_idx:end_idx])
+    return render_template("restaurant-list.html", data=data.items(), 
+    total=tot_count, limit=limit, page=page, page_count=int((tot_count/10)+1))
+
 
 @application.route('/restaurant/detail/<string:restaurant>',methods=['POST', 'GET'])
 def restaurant_detail(restaurant):
