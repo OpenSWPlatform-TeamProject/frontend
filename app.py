@@ -37,7 +37,7 @@ def restaurant_list():
     tot_count = len(data)
     data=dict(list(data.items())[start_idx:end_idx])
     return render_template("restaurant-list.html", data=data.items(), 
-    total=tot_count, limit=limit, page=page, page_count=int((tot_count/10)+1))
+    total=tot_count, limit=limit, page=page, page_count=int((tot_count/9)+1))
 
 
 @application.route('/restaurant/detail/<string:restaurant>',methods=['POST', 'GET'])
@@ -74,7 +74,15 @@ def add_review(restaurant):
 
 @application.route('/review/list')
 def review_list():
-    return render_template("review-list.html")
+    page = request.args.get("page", 0, type=int)
+    limit = 9
+    start_idx=limit*page
+    end_idx=limit*(page+1)
+    data = DB.get_reviews()
+    tot_count = len(data)
+    data=dict(list(data.items())[start_idx:end_idx])
+    return render_template("review-list.html", data=data.items(), 
+    total=tot_count, limit=limit, page=page, page_count=int((tot_count/9)+1))
     
 @application.route('/review/detail')
 def review_detail():
