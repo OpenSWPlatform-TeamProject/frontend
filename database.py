@@ -52,13 +52,9 @@ class DBhandler:
 
             "img_path":img_path
         } 
-<<<<<<< HEAD
-        print(restaurant_info)
-=======
 
         print(restaurant_info)
         print(name)
->>>>>>> week11
         if self.restaurant_duplicate_check(name):
             self.db.child("restaurant").child(name).set(restaurant_info)
             print(data,img_path)
