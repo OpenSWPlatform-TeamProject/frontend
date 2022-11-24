@@ -7,11 +7,7 @@ endblock %} {% block section %}
     <i class="fa solid fa-arrow-left fa-lg"></i>
   </a>
   <div class="photo-container">
-    <img
-      class="restaurant-image"
-      src="/static/food.jpeg"
-      alt="restaurant-image"
-    />
+    <img class="restaurant-image" src="/{{img_path}}" alt="restaurant-image" />
     <img class="vegan-badge" src="/static/vegan.png" alt="vegan-badge" />
   </div>
 </section>
@@ -20,7 +16,7 @@ endblock %} {% block section %}
 <section class="restaurant-info-section">
   <div class="section-top">
     <div class="restaurant-name-and-ratings">
-      <h3 class="restaurant-name">{{맛집이름}}</h3>
+      <h3 class="restaurant-name">{{data.맛집이름}}</h3>
       <img class="ratings" src="/static/ratings_4.png" />
     </div>
     <div class="buttons-container">
@@ -68,9 +64,9 @@ endblock %} {% block section %}
   <!-- restaurant-details -->
   <div class="restaurant-details">
     <div class="hashtags">
-      <div class="hashtag">#음식 분류</div>
-      <div class="hashtag">#위치</div>
-      <div class="hashtag">#비건 유무</div>
+      <div class="hashtag">#{{data.음식종류}}</div>
+      <div class="hashtag">#{{data.location}}</div>
+      <div class="hashtag">#{{data.vegan}}</div>
     </div>
     <div>
       <img
@@ -78,7 +74,7 @@ endblock %} {% block section %}
         src="/static/details.png"
         style="object-position: 0 -175px"
       />
-      <h5>식당 주소</h5>
+      <h5>{{data.address}}</h5>
     </div>
     <div>
       <img
@@ -86,7 +82,7 @@ endblock %} {% block section %}
         src="/static/details.png"
         style="object-position: 0 -210px"
       />
-      <h5>전화번호</h5>
+      <h5>{{data.phonenum}}</h5>
       <button class="reservation">예약하기</button>
     </div>
     <div>
@@ -103,7 +99,7 @@ endblock %} {% block section %}
         src="/static/details.png"
         style="object-position: 0 -280px"
       />
-      <h5>가격대</h5>
+      <h5>{{data.pricerange}}</h5>
     </div>
     <div>
       <img
@@ -111,7 +107,7 @@ endblock %} {% block section %}
         src="/static/details.png"
         style="object-position: 0 -315px"
       />
-      <h5>주차 가능 여부</h5>
+      <h5>{{data.parking}}</h5>
     </div>
     <div>
       <img
