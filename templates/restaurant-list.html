@@ -127,9 +127,16 @@ endblock %} {% block section %}
               />
             </div>
             <div class="card-title">{{datas[data]['맛집이름']}}</div>
+            {% if datas[data]['음식종류']|length <= 1 %}
             <div class="card-hashtag">
-              #치즈김치전 #{{datas[data]['pricerange']}}
+              #{{datas[data]['음식종류'][0]}} #{{datas[data]['pricerange']}}
             </div>
+            {% else %}
+            <div class="card-hashtag">
+              #{{datas[data]['음식종류'][0]}} #{{datas[data]['음식종류'][1]}}
+              #{{datas[data]['pricerange']}}
+            </div>
+            {% endif %}
             <div class="card-rating">
               <img
                 class="stars-pic"
