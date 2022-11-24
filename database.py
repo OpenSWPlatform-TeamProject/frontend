@@ -60,6 +60,7 @@ class DBhandler:
     #리뷰등록
     def add_review(self, name, data, img_path):
         review_info ={
+            "맛집이름":name,
             "메뉴이름":data['메뉴이름'],
             # "평점?":data['평점?'],
             "timePeriod":data['timePeriod'],
@@ -109,9 +110,16 @@ class DBhandler:
         return target_value
 
     #리뷰 테이블 가져오기
-    def get_reviews(self ):
-        reviews = self.db.child("review").get().val()
-        return reviews
+    def get_reviews(self, name):
+        reviews = self.db.child("review").get()
+        target_value={}
+        for rev in reviews.each():
+            value = rev.val()
+            if value['맛집이름'] == name:
+                writer=value['img_path']
+                target_value[writer]=dict((list(value.items())))
+        print(target_value)
+        return target_value
 
     #메뉴 테이블 가져오기
     def get_menus(self, name):

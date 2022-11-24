@@ -84,19 +84,17 @@ def add_review(restaurant):
     else :
         return render_template("add-review.html", 맛집이름=restaurant)
 
-
 @application.route('/review/list/<string:restaurant>')
 def review_list(restaurant):
-    data=DB.get_restaurant_byname(str(restaurant))
-    print(data)
     page = request.args.get("page", 0, type=int)
     limit = 9
     start_idx=limit*page
     end_idx=limit*(page+1)
-    data = DB.get_reviews()
-    tot_count = len(data)
-    data=dict(list(data.items())[start_idx:end_idx])
-    return render_template("review-list.html", data=data.items(), 맛집이름=restaurant, total=tot_count, limit=limit, page=page, page_count=int((tot_count/9)+1))
+    data = DB.get_reviews(restaurant)
+    total = len(data)
+    datas=dict(list(data.items())[start_idx:end_idx])
+    print(data)
+    return render_template("review-list.html", datas=datas, 맛집이름=restaurant, total=total, limit=limit, page=page, page_count=int((total/9)+1))   
     
 @application.route('/review/detail')
 def review_detail():
