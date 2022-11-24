@@ -7,7 +7,11 @@ endblock %} {% block section %}
     <i class="fa solid fa-arrow-left fa-lg"></i>
   </a>
   <div class="photo-container">
-    <img class="restaurant-image" src="/{{img_path}}" alt="restaurant-image" />
+    <img
+      class="restaurant-image"
+      src="{{data.img_path}}"
+      alt="restaurant-image"
+    />
     <img class="vegan-badge" src="/static/vegan.png" alt="vegan-badge" />
   </div>
 </section>
