@@ -309,8 +309,7 @@ button{
     width: 80px;
     position: absolute;
     top:0;
-    bottom:0;
-    transform: translate(70%, -15%);
+    right:0;
 }
 
 .stars-pic{
@@ -322,8 +321,8 @@ button{
     width: 60px;
     position: absolute;
     top: 0;
-    bottom: 0;
-    transform: translate(-240%, -50%);
+    left: 0;
+    transform: translate(-50%, -50%);
 }
 
 
