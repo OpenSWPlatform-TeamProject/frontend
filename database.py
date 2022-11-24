@@ -21,7 +21,7 @@ class DBhandler:
     def add_restaurant(self, name, data, img_path):
         restaurant_info ={
             "맛집이름":name,
-            "음식종류":data['음식종류'],
+            "음식종류":data.getlist('음식종류'),
             "vegan":data['vegan'],
             "pricerange":data['pricerange'],
             "location":data['location'],
@@ -29,34 +29,32 @@ class DBhandler:
             "phonenum":data['phonenum'],
             "parking":data['parking'],
             #월
-            #"mondaytime":data['mondaytime'],
-            #"mondaybreak":data['mondaybreak'],
+            "mondaytime":data['mondaytime'],
+            "mondaybreak":data['mondaybreak'],
             #화
-            #"tuesdaytime":data['tuesdaytime'],
-            #"tuesdaybreak":data['tuesdaybreak'],
+            "tuesdaytime":data['tuesdaytime'],
+            "tuesdaybreak":data['tuesdaybreak'],
             #수
-            #"wednesdaytime":data['wednesdaytime'],
-            #"wednesdaybreak":data['wednesdaybreak'],
+            "wednesdaytime":data['wednesdaytime'],
+            "wednesdaybreak":data['wednesdaybreak'],
             #목
-            #"thursdaytime":data['thursdaytime'],
-            #"thursdaybreak":data['thursdaybreak'],
+            "thursdaytime":data['thursdaytime'],
+            "thursdaybreak":data['thursdaybreak'],
             #금
-            #"fridaytime":data['fridaytime'],
-            #"fridaybreak":data['fridaybreak'],
+            "fridaytime":data['fridaytime'],
+            "fridaybreak":data['fridaybreak'],
             #토
-            #"saturdaytime":data['saturdaytime'],
-            #"saturdaybreak":data['saturdaybreak'],
+            "saturdaytime":data['saturdaytime'],
+            "saturdaybreak":data['saturdaybreak'],
             #일
-            #"sundaytime":data['sundaytime'],
-            #"sundaybreak":data['sundaybreak'],
+            "sundaytime":data['sundaytime'],
+            "sundaybreak":data['sundaybreak'],
 
-            #"isBreaktime":data['isBreaktime'],
+            "isBreaktime":data['isBreaktime'],
 
             "img_path":img_path
         } 
-
         print(restaurant_info)
-        print(name)
         if self.restaurant_duplicate_check(name):
             self.db.child("restaurant").push(restaurant_info)
             print(data,img_path)

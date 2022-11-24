@@ -19,6 +19,7 @@ def add_restaurant():
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
+        print(data.getlist('음식종류'))
         if DB.add_restaurant(data['맛집이름'], data, "/static/image/"+image_file.filename):
             return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename, addmenu_path="/menu/add/"+data['맛집이름'])
         else :

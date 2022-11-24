@@ -1,6 +1,5 @@
 {% extends "base.html" %} {% block title %}add-restaurant{% endblock %} {% block
 css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
-<script href="/static/add-restaurant.js" />
 {% endblock %} {% block section %}
 <section>
   <div class="topbar">
@@ -34,13 +33,6 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
           value="한식"
         />
         <label for="food-type-check-korean"> 한식</label>
-        <input
-          type="hidden"
-          name="음식종류"
-          id="food-type-check-korean-hidden"
-          value="null"
-        />
-        <label for="food-type-check-korean-hidden"></label>
 
         <input
           type="checkbox"
@@ -49,13 +41,6 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
           value="중식"
         />
         <label for="food-type-check-chinese"> 중식</label>
-        <input
-          type="hidden"
-          name="음식종류"
-          id="food-type-check-chinese-hidden"
-          value="null"
-        />
-        <label for="food-type-check-chinese-hidden"></label>
 
         <input
           type="checkbox"
@@ -64,13 +49,6 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
           value="양식"
         />
         <label for="food-type-check-western"> 양식</label>
-        <input
-          type="hidden"
-          name="음식종류"
-          id="food-type-check-western-hidden"
-          value="null"
-        />
-        <label for="food-type-check-western-hidden"></label>
 
         <input
           type="checkbox"
@@ -79,13 +57,6 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
           value="일식"
         />
         <label for="food-type-check-japanese"> 일식</label>
-        <input
-          type="hidden"
-          name="음식종류"
-          id="food-type-check-japanese-hidden"
-          value="null"
-        />
-        <label for="food-type-check-japanese-hidden"></label>
 
         <input
           type="checkbox"
@@ -94,28 +65,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
           value="카페"
         />
         <label for="food-type-check-cafe"> 카페</label>
-        <input
-          type="hidden"
-          name="음식종류"
-          id="food-type-check-cafe-hidden"
-          value="null"
-        />
-        <label for="food-type-check-cafe-hidden"></label>
 
         <input
           type="checkbox"
-          name="food-type-check-alcohol"
+          name="음식종류"
           id="food-type-check-alcohol"
           value="술"
         />
         <label for="food-type-check-alcohol"> 술</label>
-        <input
-          type="hidden"
-          name="food-type-check-alcohol-hidden"
-          id="food-type-check-alcohol-hidden"
-          value="null"
-        />
-        <label for="food-type-check-alcohol-hidden"></label>
       </div>
 
       <!-- 비건 메뉴 유무 -->
