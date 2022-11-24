@@ -120,6 +120,7 @@ endblock %} {% block section %}
         <a href="/restaurant/detail/{{datas[data]['맛집이름']}}">
           <button class="card">
             <img class="heart-button" src="/static/heart_empty.png" />
+            {% if datas[data]['vegan']|length == 2 %}
             <div class="card-vegan">
               <img
                 class="vegan-pic"
@@ -127,6 +128,8 @@ endblock %} {% block section %}
                 alt="vegan-sticker1"
               />
             </div>
+            {% else %} {% endif %}
+
             <div class="card-title">{{datas[data]['맛집이름']}}</div>
             {% if datas[data]['음식종류']|length <= 1 %}
             <div class="card-hashtag">
