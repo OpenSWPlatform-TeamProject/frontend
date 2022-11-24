@@ -126,13 +126,14 @@ def add_menu(restaurant):
 
 @application.route('/menu/list/<string:restaurant>')
 def menu_list(restaurant):
-    data=DB.get_restaurant_byname(str(restaurant))
-    print(data)
     data = DB.get_menus()
-    tot_count = len(data)
-    data=dict(list(data.items()))
-    return render_template("menu-list.html", datas=data.item(), 맛집이름=restaurant, total=tot_count)
-    
+    print(data)
+    if(data) :
+        tot_count = len(data)
+        datas=dict(list(data.items()))
+        return render_template("menu-list.html", datas=datas, 맛집이름=restaurant, total=tot_count)
+    else :
+        return "Error!"
 
 #로그인 화면
 @application.route('/login', methods=['POST', 'GET'])

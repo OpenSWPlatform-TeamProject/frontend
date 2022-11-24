@@ -13,8 +13,17 @@ class DBhandler:
         restaurants = self.db.child("restaurant").get()
         for res in restaurants.each():
             value = res.val()
-            if value['맛집이름'] == name:
+            if value['메뉴이름'] == name:
                 return False
+            return True 
+
+    def menu_duplicate_check(self, rest, name):
+        menus = self.db.child("menu").get()
+        for men in menus.each():
+            value = men.val()
+            if value['맛집이름'] == rest:
+                if value['메뉴이름'] == name:
+                    return False
             return True 
 
     #맛집등록
@@ -65,8 +74,10 @@ class DBhandler:
 
     #대표메뉴등록
     def add_menu(self, name, data, img_path):
+        print(name)
         menu_info ={
-            "메뉴 이름":data['메뉴 이름'],
+            "맛집이름":name,
+            "메뉴이름":data['메뉴이름'],
             "img_path":img_path,
             "가격":data['가격'],
             "allergyinfo":data['allergyinfo'],
@@ -74,12 +85,13 @@ class DBhandler:
             "etcinfo":data['etcinfo'],
             "한줄소개":data['한줄소개'],
         }
-        if self.restaurant_duplicate_check(name):
-            self.db.child("menu").push(menu_info)
-            print(data,img_path)
-            return True
-        else : 
-            return False
+        print(menu_info)
+        #if self.menu_duplicate_check(name, data['메뉴이름']):
+        self.db.child("menu").push(menu_info)
+        print(data,img_path)
+        #    return True
+        #else : 
+        #    return False
 
     #레스토랑 테이블 가져오기
     def get_restaurants(self ):
