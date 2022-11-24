@@ -38,6 +38,18 @@ def restaurant_list():
     datas=dict(list(data.items())[start_idx:end_idx])
     print(datas)
     return render_template("restaurant-list.html", datas=datas, total=total, limit=limit, page=page, page_count=int((total/9)+1))
+
+@application.route('/restaurant/themelist')
+def restaurant_themelist():
+    page = request.args.get("page", 0, type=int)
+    limit = 9
+    start_idx=limit*page
+    end_idx=limit*(page+1)
+    data = DB.get_restaurants()
+    total = len(data)
+    datas=dict(list(data.items())[start_idx:end_idx])
+    print(datas)
+    return render_template("theme-list.html", datas=datas, total=total, limit=limit, page=page, page_count=int((total/9)+1))
     
 @application.route('/restaurant/detail/<string:restaurant>',methods=['POST', 'GET'])
 def restaurant_detail(restaurant):
