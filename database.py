@@ -27,31 +27,34 @@ class DBhandler:
             "phonenum":data['phonenum'],
             "parking":data['parking'],
             #월
-            "mondaytime":data['mondaytime'],
-            "mondaybreak":data['mondaybreak'],
+            #"mondaytime":data['mondaytime'],
+            #"mondaybreak":data['mondaybreak'],
             #화
-            "tuesdaytime":data['tuesdaytime'],
-            "tuesdaybreak":data['tuesdaybreak'],
+            #"tuesdaytime":data['tuesdaytime'],
+            #"tuesdaybreak":data['tuesdaybreak'],
             #수
-            "wednesdaytime":data['wednesdaytime'],
-            "wednesdaybreak":data['wednesdaybreak'],
+            #"wednesdaytime":data['wednesdaytime'],
+            #"wednesdaybreak":data['wednesdaybreak'],
             #목
-            "thursdaytime":data['thursdaytime'],
-            "thursdaybreak":data['thursdaybreak'],
+            #"thursdaytime":data['thursdaytime'],
+            #"thursdaybreak":data['thursdaybreak'],
             #금
-            "fridaytime":data['fridaytime'],
-            "fridaybreak":data['fridaybreak'],
+            #"fridaytime":data['fridaytime'],
+            #"fridaybreak":data['fridaybreak'],
             #토
-            "saturdaytime":data['saturdaytime'],
-            "saturdaybreak":data['saturdaybreak'],
+            #"saturdaytime":data['saturdaytime'],
+            #"saturdaybreak":data['saturdaybreak'],
             #일
-            "sundaytime":data['sundaytime'],
-            "sundaybreak":data['sundaybreak'],
+            #"sundaytime":data['sundaytime'],
+            #"sundaybreak":data['sundaybreak'],
 
-            "isBreaktime":data['isBreaktime'],
+            #"isBreaktime":data['isBreaktime'],
 
             "img_path":img_path
-        }
+        } 
+
+        print(restaurant_info)
+        print(name)
         if self.restaurant_duplicate_check(name):
             self.db.child("restaurant").child(name).set(restaurant_info)
             print(data,img_path)
@@ -64,12 +67,13 @@ class DBhandler:
         review_info ={
             "메뉴이름":data['메뉴이름'],
             # "평점?":data['평점?'],
-            "timeperiod":data['timeperiod'],
+            "timePeriod":data['timePeriod'],
             "waiting":data['waiting'],
             "리뷰작성내용":data['리뷰작성내용'],
             "img_path":img_path
         }
-        self.db.child("restaurant").child(name).set(review_info)
+        print(review_info)
+        self.db.child("review").child(name).set(review_info)
         print(data,img_path)
         return True
 
@@ -84,6 +88,9 @@ class DBhandler:
             "etcinfo":data['etcinfo'],
             "한줄소개":data['한줄소개'],
         }
-        self.db.child("restaurant").child(name).set(menu_info)
-        print(data,img_path)
-        return True
+        if self.restaurant_duplicate_check(name):
+            self.db.child("menu").child(name).set(menu_info)
+            print(data,img_path)
+            return True
+        else : 
+            return False

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from database import DBhandler
 
 import sys
@@ -26,39 +26,39 @@ def add_restaurant():
     else :
         return render_template("add-restaurant.html")
 
-        
 
 @application.route('/restaurant/list')
 def restaurant_list():
     return render_template("restaurant-list.html")
 
-@application.route('/restaurant/detail',methods=['POST', 'GET'])
-def restaurant_detail():
+@application.route('/restaurant/detail/<string:restaurant>',methods=['POST', 'GET'])
+def restaurant_detail(restaurant):
     if request.method == 'POST':
         data=request.form
         print(data)
-        return render_template("result.html", data=data)
+        return render_template("restaurant-detail.html", 맛집이름=restaurant, addreview_path="/review/add/"+restaurant)
     else :
-        return render_template("restaurant-detail.html")
+        return render_template("restaurant-detail.html", 맛집이름=restaurant, addreview_path="/review/add/"+restaurant)
 
 @application.route('/restaurant/my')
 def my_fav_list():
     return render_template("my-fav-list.html")
 
+
 #리뷰 화면
-@application.route('/review/add',methods=['POST', 'GET'])
-def add_review():
+@application.route('/review/add/<string:restaurant>',methods=['POST', 'GET'])
+def add_review(restaurant):
     if request.method == 'POST':
         image_file=request.files["rvfile"]
-        image_file.save("static/image/{}".format(image_file.filename))
+        image_file.save("static/image/{}".format(image_file.filename)) 
         data=request.form
         print(data)
-        if DB.add_review(data['맛집이름'], data, "/static/image/"+image_file.filename):
-            return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename, addreview_path="/review/add/"+data['맛집이름'])
+        if DB.add_review(restaurant, data, "/static/image/"+image_file.filename):
+            return redirect(url_for('myreview_detail'))
         else :
             return "Error!"
     else :
-        return render_template("add-review.html")
+        return render_template("add-review.html", 맛집이름=restaurant)
 
 
 @application.route('/review/list')
@@ -69,9 +69,14 @@ def review_list():
 def review_detail():
     return render_template("review-detail.html")
 
+@application.route('/review/my')
+def myreview_list():
+    return render_template("review-list.html")
+
 @application.route('/review/my/detail')
-def myreveiw_detail():
+def myreview_detail():
     return render_template("myreview-detail.html")
+
 
 #메뉴 화면
 @application.route('/menu/add/<string:restaurant>',methods=['POST', 'GET'])
@@ -81,12 +86,12 @@ def add_menu(restaurant):
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
-        if DB.add_menu(data['맛집이름'], data, "/static/image/"+image_file.filename):
-            return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename, addmenu_path="/menu/add/"+data['맛집이름'])
+        if DB.add_menu(restaurant, data, "/static/image/"+image_file.filename):
+            return redirect(url_for('restaurant_detail', restaurant=restaurant))
         else :
             return "Error!"
     else :
-        return render_template("add-menu.html")
+        return render_template("add-menu.html", 맛집이름=restaurant)
 
 @application.route('/menu/list')
 def menu_list():
