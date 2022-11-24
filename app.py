@@ -55,12 +55,14 @@ def restaurant_themelist():
 def restaurant_detail(restaurant):
     data=DB.get_restaurant_byname(str(restaurant))
     print(data)
+    data2=DB.get_menus(restaurant)
+    leng=len(data2)
     if request.method == 'POST':
         comment=request.form
         print(comment)
-        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
+        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, data2=data2, leng=leng, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
     else :
-        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
+        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, data2=data2, leng=leng, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
 
 @application.route('/restaurant/my')
 def my_fav_list():

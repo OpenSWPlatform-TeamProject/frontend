@@ -221,9 +221,9 @@ ul.categories>li {
 
 .theme-title {
   position: absolute;
-  left: 120px;
+  left: 5%;
   top: -20px;
-  font-size: 17px;
+  font-size: 1.2vw;
   color: white;
 }
 
@@ -246,12 +246,12 @@ ul.categories>li {
 }
 
 ul.themes>li {
-  padding: 15px;
+  padding: 1.2vw;
   width:33%
 }
 
 .theme-restaurant {
-  font-size: 16px;
+  font-size: 1.2vw;
   width: 15vw;
   height: 8vw;
   background-color: white;
@@ -260,10 +260,10 @@ ul.themes>li {
   border-radius: 15px;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .theme-icon {
-  padding-left: 8px;
   border-radius: 70%;
 }
 
