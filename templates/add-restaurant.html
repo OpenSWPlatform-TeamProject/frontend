@@ -171,6 +171,7 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
             <h3 class="insert-title">영업시간</h3>
             <h3 class="insert-title">휴무</h3>
           </div>
+          <!-- 월 영업시간 -->
           <div class="input-container">
             <input
               type="text"
@@ -179,6 +180,7 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
               class="input-date"
               placeholder="월"
             />
+            <!-- 월 휴무 -->
             <input
               type="checkbox"
               name="breakday"
@@ -187,6 +189,8 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
             />
             <label for="input-check-mon"></label>
           </div>
+
+          <!-- 화 영업시간 -->
           <div class="input-container">
             <input
               type="text"
@@ -195,6 +199,7 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
               class="input-date"
               placeholder="화"
             />
+            <!-- 화 휴무 -->
             <input
               type="checkbox"
               name="breakday"
@@ -203,14 +208,17 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
             />
             <label for="input-check-tues"></label>
           </div>
+
+          <!-- 수 영업시간 -->
           <div class="input-container">
             <input
               type="text"
-              name="wendesdaytime"
+              name="wednesdaytime"
               id="wednesday-time"
               class="input-date"
               placeholder="수"
             />
+            <!-- 수 휴무 -->
             <input
               type="checkbox"
               name="breakday"
@@ -219,6 +227,8 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
             />
             <label for="input-check-wed"></label>
           </div>
+
+          <!-- 목 영업시간 -->
           <div class="input-container">
             <input
               type="text"
@@ -227,6 +237,7 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
               class="input-date"
               placeholder="목"
             />
+            <!-- 목 휴무 -->
             <input
               type="checkbox"
               name="breakday"
@@ -235,6 +246,7 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
             />
             <label for="input-check-thur"></label>
           </div>
+          <!-- 금 영업시간 -->
           <div class="input-container">
             <input
               type="text"
@@ -243,6 +255,7 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
               class="input-date"
               placeholder="금"
             />
+            <!-- 금 휴무 -->
             <input
               type="checkbox"
               name="breaktime"
@@ -251,6 +264,7 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
             />
             <label for="input-check-fri"></label>
           </div>
+          <!-- 토 영업시간 -->
           <div class="input-container">
             <input
               type="text"
@@ -259,6 +273,7 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
               class="input-date"
               placeholder="토"
             />
+            <!-- 토 휴무 -->
             <input
               type="checkbox"
               name="breakday"
@@ -267,6 +282,7 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
             />
             <label for="input-check-sat"></label>
           </div>
+          <!-- 일 영업시간 -->
           <div class="input-container">
             <input
               type="text"
@@ -275,6 +291,7 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
               class="input-date"
               placeholder="일"
             />
+            <!-- 일 휴무 -->
             <input
               type="checkbox"
               name="breakday"
@@ -290,9 +307,9 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
       <div class="breaktime-container">
         <h3 class="insert-title">브레이크 타임</h3>
         <div class="breaktime-answer-container">
-          <input type="radio" id="yes-breakt" name="isBreaktime" />
+          <input type="radio" id="yes-breakt" name="isBreaktime" value="YES"/>
           <label for="yes-breakt">네</label>
-          <input type="radio" id="no-breakt" name="isBreaktime" />
+          <input type="radio" id="no-breakt" name="isBreaktime" value="NO"/>
           <label for="no-breakt">아니요</label><br />
         </div>
       </div>
