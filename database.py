@@ -113,3 +113,8 @@ class DBhandler:
             if value['name'] == name:
                 target_value=value
         return target_value
+
+    #리뷰 테이블 가져오기
+    def get_reviews(self ):
+        reviews = self.db.child("review").get().val()
+        return reviews
