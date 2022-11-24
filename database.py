@@ -20,7 +20,7 @@ class DBhandler:
     #맛집등록
     def add_restaurant(self, name, data, img_path):
         restaurant_info ={
-            "name":name,
+            "맛집이름":name,
             "음식종류":data['음식종류'],
             "vegan":data['vegan'],
             "pricerange":data['pricerange'],
@@ -110,7 +110,7 @@ class DBhandler:
         target_value=""
         for res in restaurants.each():
             value = res.val()
-            if value['name'] == name:
+            if value['맛집이름'] == name:
                 target_value=value
         return target_value
 
