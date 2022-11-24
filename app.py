@@ -19,7 +19,6 @@ def add_restaurant():
         image_file.save("static/image/{}".format(image_file.filename))
         data=request.form
         print(data)
-        print(data.getlist('음식종류'))
         if DB.add_restaurant(data['맛집이름'], data, "/static/image/"+image_file.filename):
             return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename, addmenu_path="/menu/add/"+data['맛집이름'])
         else :
@@ -35,12 +34,11 @@ def restaurant_list():
     start_idx=limit*page
     end_idx=limit*(page+1)
     data = DB.get_restaurants()
-    tot_count = len(data)
-    data=dict(list(data.items())[start_idx:end_idx])
-    return render_template("restaurant-list.html", data=data.items(), 
-    total=tot_count, limit=limit, page=page, page_count=int((tot_count/9)+1))
-
-
+    total = len(data)
+    datas=dict(list(data.items())[start_idx:end_idx])
+    print(datas)
+    return render_template("restaurant-list.html", datas=datas, total=total, limit=limit, page=page, page_count=int((total/9)+1))
+    
 @application.route('/restaurant/detail/<string:restaurant>',methods=['POST', 'GET'])
 def restaurant_detail(restaurant):
     data=DB.get_restaurant_byname(str(restaurant))
