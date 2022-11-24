@@ -86,12 +86,12 @@ class DBhandler:
             "한줄소개":data['한줄소개'],
         }
         print(menu_info)
-        #if self.menu_duplicate_check(name, data['메뉴이름']):
-        self.db.child("menu").push(menu_info)
-        print(data,img_path)
-        #    return True
-        #else : 
-        #    return False
+        if self.menu_duplicate_check(name, data['메뉴이름']):
+            self.db.child("menu").push(menu_info)
+            print(data,img_path)
+            return True
+        else : 
+            return False
 
     #레스토랑 테이블 가져오기
     def get_restaurants(self ):
