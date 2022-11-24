@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% block title %}add-restaurant{% endblock %} {% block
-css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/static/add-restaurant.js"> {% endblock
-%} {% block section %}
+css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
+<script href="/static/add-restaurant.js" />
+{% endblock %} {% block section %}
 <section>
   <div class="topbar">
     <div class="topbar-upper">
@@ -30,14 +31,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/
           type="checkbox"
           name="food-type-check-korean"
           id="food-type-check-korean"
-          value='1'
+          value="1"
         />
-        <label for="food-type-check-korean">  한식</label>
+        <label for="food-type-check-korean"> 한식</label>
         <input
           type="hidden"
           name="food-type-check-korean-hidden"
           id="food-type-check-korean-hidden"
-          value='0'
+          value="0"
         />
         <label for="food-type-check-korean-hidden"></label>
 
@@ -45,14 +46,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/
           type="checkbox"
           name="food-type-check-chinese"
           id="food-type-check-chinese"
-          value='1'
+          value="1"
         />
-        <label for="food-type-check-chinese">  중식</label>
+        <label for="food-type-check-chinese"> 중식</label>
         <input
           type="hidden"
           name="food-type-check-chinese-hidden"
           id="food-type-check-chinese-hidden"
-          value='0'
+          value="0"
         />
         <label for="food-type-check-chinese-hidden"></label>
 
@@ -60,14 +61,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/
           type="checkbox"
           name="food-type-check-western"
           id="food-type-check-western"
-          value='1'
+          value="1"
         />
-        <label for="food-type-check-western">  양식</label>
+        <label for="food-type-check-western"> 양식</label>
         <input
           type="hidden"
           name="food-type-check-western-hidden"
           id="food-type-check-western-hidden"
-          value='0'
+          value="0"
         />
         <label for="food-type-check-western-hidden"></label>
 
@@ -75,14 +76,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/
           type="checkbox"
           name="food-type-check-japanese"
           id="food-type-check-japanese"
-          value='1'
+          value="1"
         />
-        <label for="food-type-check-japanese">  일식</label>
+        <label for="food-type-check-japanese"> 일식</label>
         <input
           type="hidden"
           name="food-type-check-japanese-hidden"
           id="food-type-check-japanese-hidden"
-          value='0'
+          value="0"
         />
         <label for="food-type-check-japanese-hidden"></label>
 
@@ -90,14 +91,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/
           type="checkbox"
           name="food-type-check-cafe"
           id="food-type-check-cafe"
-          value='1'
+          value="1"
         />
-        <label for="food-type-check-cafe">  카페</label>
+        <label for="food-type-check-cafe"> 카페</label>
         <input
           type="hidden"
           name="food-type-check-cafe-hidden"
           id="food-type-check-cafe-hidden"
-          value='0'
+          value="0"
         />
         <label for="food-type-check-cafe-hidden"></label>
 
@@ -105,14 +106,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/
           type="checkbox"
           name="food-type-check-alcohol"
           id="food-type-check-alcohol"
-          value='1'
+          value="1"
         />
-        <label for="food-type-check-alcohol">  술</label>
+        <label for="food-type-check-alcohol"> 술</label>
         <input
           type="hidden"
           name="food-type-check-alcohol-hidden"
           id="food-type-check-alcohol-hidden"
-          value='0'
+          value="0"
         />
         <label for="food-type-check-alcohol-hidden"></label>
       </div>
@@ -120,9 +121,9 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/
       <!-- 비건 메뉴 유무 -->
       <h3 class="insert-title">비건 메뉴 유무</h3>
       <div class="vegan-container">
-        <input type="radio" id="yes-vegan" name="vegan" value="네" />
+        <input type="radio" id="yes-vegan" name="vegan" value="비건" />
         <label for="yes-vegan">네</label>
-        <input type="radio" id="no-vegan" name="vegan" value="아니요" />
+        <input type="radio" id="no-vegan" name="vegan" value="논비건" />
         <label for="no-vegan">아니요</label>
       </div>
 
@@ -186,9 +187,9 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/
       <!-- 주차 가능 여부 -->
       <h3 class="insert-title">주차 가능 여부</h3>
       <div class="parking-container">
-        <input type="radio" id="yes-park" name="parking" value="네" />
+        <input type="radio" id="yes-park" name="parking" value="주차 가능" />
         <label for="yes-park">네</label>
-        <input type="radio" id="no-park" name="parking" value="네" />
+        <input type="radio" id="no-park" name="parking" value="주차 불가" />
         <label for="no-park">아니요</label><br />
       </div>
 
@@ -219,14 +220,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/
               type="checkbox"
               name="input-check"
               id="input-check-mon"
-              value='1'
+              value="1"
             />
             <label for="input-check-mon"></label>
             <input
               type="hidden"
               name="input-check-hidden"
               id="input-check-hidden-mon"
-              value='0'
+              value="0"
             />
             <label for="input-check-hidden-mon"></label>
           </div>
@@ -242,14 +243,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/
               type="checkbox"
               name="input-check"
               id="input-check-tues"
-              value='1'
+              value="1"
             />
             <label for="input-check-tues"></label>
             <input
               type="hidden"
               name="input-check-hidden"
               id="input-check-hidden-tues"
-              value='0'
+              value="0"
             />
             <label for="input-check-hidden-tues"></label>
           </div>
@@ -262,19 +263,19 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/
               placeholder="수"
             />
             <input
-            type="checkbox"
-            name="input-check"
-            id="input-check-wed"
-            value='1'
-          />
-          <label for="input-check-wed"></label>
-          <input
-            type="hidden"
-            name="input-check-hidden"
-            id="input-check-hidden-wed"
-            value='0'
-          />
-          <label for="input-check-hidden-wed"></label>
+              type="checkbox"
+              name="input-check"
+              id="input-check-wed"
+              value="1"
+            />
+            <label for="input-check-wed"></label>
+            <input
+              type="hidden"
+              name="input-check-hidden"
+              id="input-check-hidden-wed"
+              value="0"
+            />
+            <label for="input-check-hidden-wed"></label>
           </div>
           <div class="input-container">
             <input
@@ -288,14 +289,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/
               type="checkbox"
               name="input-check"
               id="input-check-thur"
-              value='1'
+              value="1"
             />
             <label for="input-check-thur"></label>
             <input
               type="hidden"
               name="input-check-hidden"
               id="input-check-hidden-thur"
-              value='0'
+              value="0"
             />
             <label for="input-check-hidden-thur"></label>
           </div>
@@ -311,14 +312,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/
               type="checkbox"
               name="input-check"
               id="input-check-fri"
-              value='1'
+              value="1"
             />
             <label for="input-check-fri"></label>
             <input
               type="hidden"
               name="input-check-hidden"
               id="input-check-hidden-fri"
-              value='0'
+              value="0"
             />
             <label for="input-check-hidden-fri"></label>
           </div>
@@ -334,14 +335,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/
               type="checkbox"
               name="input-check"
               id="input-check-sat"
-              value='1'
+              value="1"
             />
             <label for="input-check-sat"></label>
             <input
               type="hidden"
               name="input-check-hidden"
               id="input-check-hidden-sat"
-              value='0'
+              value="0"
             />
             <label for="input-check-hidden-sat"></label>
           </div>
@@ -357,14 +358,14 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <link href="/
               type="checkbox"
               name="input-check"
               id="input-check-sun"
-              value='1'
+              value="1"
             />
             <label for="input-check-sun"></label>
             <input
               type="hidden"
               name="input-check-hidden"
               id="input-check-hidden-sun"
-              value='0'
+              value="0"
             />
             <label for="input-check-hidden-sun"></label>
           </div>
