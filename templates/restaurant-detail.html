@@ -68,11 +68,11 @@ endblock %} {% block section %}
   <!-- restaurant-details -->
   <div class="restaurant-details">
     <div class="hashtags">
-      {% if 음식종류|length == 2 %}
-      <div class="hashtag">#{{data.음식종류[0]}}{{data.음식종류[1]}}</div>
+      {% if data.음식종류|length <= 1 %}
+      <div class="hashtag">#{{data.음식종류[0]}}</div>
       {% else %}
-      <div class="hashtag">#{{data.음식종류[0]}}{{data.음식종류[1]}}</div>
-      <div class="hashtag">#{{data.음식종류[2]}}{{data.음식종류[3]}}</div>
+      <div class="hashtag">#{{data.음식종류[0]}}</div>
+      <div class="hashtag">#{{data.음식종류[1]}}</div>
       {% endif %}
       <div class="hashtag">#{{data.location}}</div>
       <div class="hashtag">#{{data.vegan}}</div>
