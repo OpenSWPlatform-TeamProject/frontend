@@ -68,7 +68,12 @@ endblock %} {% block section %}
   <!-- restaurant-details -->
   <div class="restaurant-details">
     <div class="hashtags">
-      <div class="hashtag">#{{data.음식종류}}</div>
+      {% if 음식종류|length == 2 %}
+      <div class="hashtag">#{{data.음식종류[0]}}{{data.음식종류[1]}}</div>
+      {% else %}
+      <div class="hashtag">#{{data.음식종류[0]}}{{data.음식종류[1]}}</div>
+      <div class="hashtag">#{{data.음식종류[2]}}{{data.음식종류[3]}}</div>
+      {% endif %}
       <div class="hashtag">#{{data.location}}</div>
       <div class="hashtag">#{{data.vegan}}</div>
     </div>
@@ -147,10 +152,21 @@ endblock %} {% block section %}
         <div>가격</div>
       </li>
       <div class="add-menu-container">
-        <button class="add-menu">+ 대표메뉴 추가하기</button>
+        <button
+          class="add-menu"
+          type="button"
+          onclick="window.open('/add/restaurant/menu');"
+        >
+          + 대표메뉴 추가하기
+        </button>
       </div>
       <div class="see-menu-list-container">
-        <button class="see-menu-list">> 대표메뉴 더보기</button>
+        <button
+          class="see-menu-list"
+          onclick="window.open('/add/restaurant/menu');"
+        >
+          > 대표메뉴 더보기
+        </button>
       </div>
     </ul>
   </div>
