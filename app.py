@@ -58,9 +58,9 @@ def restaurant_detail(restaurant):
     if request.method == 'POST':
         comment=request.form
         print(comment)
-        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, addreview_path="/review/add/"+restaurant)
+        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
     else :
-        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, addreview_path="/review/add/"+restaurant)
+        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
 
 @application.route('/restaurant/my')
 def my_fav_list():
@@ -94,8 +94,7 @@ def review_list(restaurant):
     data = DB.get_reviews()
     tot_count = len(data)
     data=dict(list(data.items())[start_idx:end_idx])
-    return render_template("review-list.html", data=data.items(), 맛집이름=restaurant, reviewlist_path="/review/list/"+restaurant, 
-    total=tot_count, limit=limit, page=page, page_count=int((tot_count/9)+1))
+    return render_template("review-list.html", data=data.items(), 맛집이름=restaurant, total=tot_count, limit=limit, page=page, page_count=int((tot_count/9)+1))
     
 @application.route('/review/detail')
 def review_detail():
