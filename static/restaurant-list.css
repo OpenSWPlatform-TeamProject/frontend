@@ -267,7 +267,7 @@ label{
 .card-container{
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
@@ -292,6 +292,7 @@ button{
     margin-top: 20px;
     margin-bottom: 10px;
     width:240px;
+    height:180px;
     color: #3B3838;
 }
 

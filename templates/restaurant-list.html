@@ -114,8 +114,9 @@ endblock %} {% block section %}
           <button class="order-category-button">별점순</button>
         </a>
       </div>
-      {% if total > 0 %} {% for data in datas %}
+
       <div class="card-container">
+        {% if total > 0 %} {% for data in datas %}
         <a href="/restaurant/detail/{{datas[data]['맛집이름']}}">
           <button class="card">
             <img class="heart-button" src="/static/heart_empty.png" />
@@ -146,9 +147,10 @@ endblock %} {% block section %}
             </div>
           </button>
         </a>
+        {% endfor %}
       </div>
 
-      {% endfor %} {% else %}
+      {% else %}
       <div class="card-container">등록된 맛집이 없습니다.</div>
       {% endif %}
 
