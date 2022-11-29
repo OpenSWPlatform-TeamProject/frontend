@@ -18,7 +18,9 @@ block section %}
         src="{{datas[data]['img_path']}}"
         alt="menu picture"
       />
+      {% if datas[data]['vagan']|length == 2 %}
       <img class="vegan-badge" src="/static/vegan.png" alt="vegan-badge" />
+      {% else %} {% endif %}
     </div>
 
     <div class="right">
