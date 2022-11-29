@@ -109,31 +109,59 @@
       <ul class="menu-list">
         <li>
           <div>월요일</div>
-          <div>{{data.mondaytime}}</div>
+          {% if data.mondaytime %}
+            <div>{{data.mondaytime}}</div>
+          {% else %}
+            <div>휴무</div>
+          {% endif %}
         </li>
         <li>
           <div>화요일</div>
-          <div>{{data.tuesdaytime}}</div>
+          {% if data.tuesdaytime %}
+            <div>{{data.tuesdaytime}}</div>
+          {% else %}
+            <div>휴무</div>
+          {% endif %}
         </li>
         <li>
           <div>수요일</div>
-          <div>{{data.wednesdaytime}}</div>
+          {% if data.wednesdaytime %}
+            <div>{{data.wednesdaytime}}</div>
+          {% else %}
+            <div>휴무</div>
+          {% endif %}
         </li>
         <li>
           <div>목요일</div>
-          <div>{{data.thursdaytime}}</div>
+          {% if data.thursdaytime %}
+            <div>{{data.thursdaytime}}</div>
+          {% else %}
+            <div>휴무</div>
+          {% endif %}
         </li>
         <li>
           <div>금요일</div>
-          <div>{{data.fridaytime}}</div>
+          {% if data.fridaytime %}
+            <div>{{data.fridaytime}}</div>
+          {% else %}
+            <div>휴무</div>
+          {% endif %}
         </li>
         <li>
           <div>토요일</div>
-          <div>{{data.saturdaytime}}</div>
+          {% if data.saturdaytime %}
+            <div>{{data.saturdaytime}}</div>
+          {% else %}
+            <div>휴무</div>
+          {% endif %}
         </li>
         <li>
           <div>일요일</div>
-          <div>{{data.sundaytime}}</div>
+          {% if data.sundaytime %}
+            <div>{{data.sundaytime}}</div>
+          {% else %}
+            <div>휴무</div>
+          {% endif %}
         </li>
         </ul>
       <div>

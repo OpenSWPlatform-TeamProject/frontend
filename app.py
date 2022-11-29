@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask import Flask, render_template, request, flash, redirect, url_for, session
 from database import DBhandler
 import hashlib
 import sys
@@ -20,7 +20,7 @@ def add_restaurant():
         data=request.form
         print(data)
         if DB.add_restaurant(data['맛집이름'], data, "/static/image/"+image_file.filename):
-            return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename, addmenu_path="/menu/add/"+data['맛집이름'])
+            return redirect(url_for('restaurant_detail', restaurant=data['맛집이름']))
         else :
             return "Restaurant name already exist!"
     else :
@@ -158,14 +158,14 @@ def login():
 def sign_up():
     if request.method == 'POST':
         data=request.form
-        pw=request.form
-        pw_hash=hashlib.sna256(pw.encode('utf-8')).hexdigest()
+        pw=request.form['pw']
+        pw_hash=hashlib.sha256(pw.encode('utf-8')).hexdigest()
+        print(data)
         if DB.insert_user(data, pw_hash):
             return render_template("login.html")
         else:
-            flash("user id already exist!")
-        print(data)
-        return render_template("home.html")
+            flash("중복된 ID 입니다!")
+            return render_template("sign-up.html")
     else :
         return render_template("sign-up.html")
 
@@ -186,4 +186,6 @@ def mypage():
 
 
 if __name__ == "__main__":
+    application.secret_key = 'super secret key'
+    application.config['SESSION_TYPE'] = 'filesystem'
     application.run(host='0.0.0.0') 

@@ -160,3 +160,13 @@ class DBhandler:
             if value['id']==id_string:
                 return False
             return True
+
+    #로그인
+    def find_user(self, id, pw):
+        users = self.db.child("user").get()
+        target_value=[]
+        for res in users.each():
+            value = res.val()
+        if value['id'] == id and value['pw'] == pw:
+            return True
+        return False
