@@ -138,9 +138,17 @@ def menu_list(restaurant):
 @application.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
-        data=request.form
-        print(data)
-        return render_template("home.html")
+        id=request.form['id']
+        pw=request.form['pw']
+        pw_hash=hashlib.sha256(pw.encode('utf-8')).hexdigest()
+        print(id)
+        print(pw)
+        if DB.find_user(id, pw_hash):
+            session['id']=id
+            return render_template("home.html")
+        else :
+            flash("아이디 또는 비밀번호가 틀렸습니다")
+            return redirect(url_for('login'))
     else :
         return render_template("login.html")
     
