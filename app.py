@@ -20,7 +20,7 @@ def add_restaurant():
         data=request.form
         print(data)
         if DB.add_restaurant(data['맛집이름'], data, "/static/image/"+image_file.filename):
-            return render_template("result.html", data=data, image_path="/static/image/"+image_file.filename, addmenu_path="/menu/add/"+data['맛집이름'])
+            return redirect(url_for('restaurant_detail', restaurant=data['맛집이름']))
         else :
             return "Restaurant name already exist!"
     else :
