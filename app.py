@@ -29,16 +29,40 @@ def add_restaurant():
 
 @application.route('/restaurant/list')
 def restaurant_list():
-    return render_template("restaurant-list.html")
+    page = request.args.get("page", 0, type=int)
+    limit = 9
+    start_idx=limit*page
+    end_idx=limit*(page+1)
+    data = DB.get_restaurants()
+    total = len(data)
+    datas=dict(list(data.items())[start_idx:end_idx])
+    print(datas)
+    return render_template("restaurant-list.html", datas=datas, total=total, limit=limit, page=page, page_count=int((total/9)+1))
 
+@application.route('/restaurant/themelist')
+def restaurant_themelist():
+    page = request.args.get("page", 0, type=int)
+    limit = 9
+    start_idx=limit*page
+    end_idx=limit*(page+1)
+    data = DB.get_restaurants()
+    total = len(data)
+    datas=dict(list(data.items())[start_idx:end_idx])
+    print(datas)
+    return render_template("theme-list.html", datas=datas, total=total, limit=limit, page=page, page_count=int((total/9)+1))
+    
 @application.route('/restaurant/detail/<string:restaurant>',methods=['POST', 'GET'])
 def restaurant_detail(restaurant):
+    data=DB.get_restaurant_byname(str(restaurant))
+    print(data)
+    data2=DB.get_menus(restaurant)
+    leng=len(data2)
     if request.method == 'POST':
-        data=request.form
-        print(data)
-        return render_template("restaurant-detail.html", 맛집이름=restaurant, addreview_path="/review/add/"+restaurant)
+        comment=request.form
+        print(comment)
+        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, data2=data2, leng=leng, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
     else :
-        return render_template("restaurant-detail.html", 맛집이름=restaurant, addreview_path="/review/add/"+restaurant)
+        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, data2=data2, leng=leng, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
 
 @application.route('/restaurant/my')
 def my_fav_list():
@@ -54,16 +78,23 @@ def add_review(restaurant):
         data=request.form
         print(data)
         if DB.add_review(restaurant, data, "/static/image/"+image_file.filename):
-            return redirect(url_for('myreview_detail'))
+            return redirect(url_for('review_list', restaurant=restaurant))
         else :
             return "Error!"
     else :
         return render_template("add-review.html", 맛집이름=restaurant)
 
-
-@application.route('/review/list')
-def review_list():
-    return render_template("review-list.html")
+@application.route('/review/list/<string:restaurant>')
+def review_list(restaurant):
+    page = request.args.get("page", 0, type=int)
+    limit = 9
+    start_idx=limit*page
+    end_idx=limit*(page+1)
+    data = DB.get_reviews(restaurant)
+    total = len(data)
+    datas=dict(list(data.items())[start_idx:end_idx])
+    print(data)
+    return render_template("review-list.html", datas=datas, 맛집이름=restaurant, total=total, limit=limit, page=page, page_count=int((total/9)+1))   
     
 @application.route('/review/detail')
 def review_detail():
@@ -93,9 +124,15 @@ def add_menu(restaurant):
     else :
         return render_template("add-menu.html", 맛집이름=restaurant)
 
-@application.route('/menu/list')
-def menu_list():
-    return render_template("menu-list.html")
+@application.route('/menu/list/<string:restaurant>')
+def menu_list(restaurant):
+    datas = DB.get_menus(restaurant)
+    print(datas)
+    if(datas) :
+        tot_count = len(datas)
+        return render_template("menu-list.html", datas=datas, 맛집이름=restaurant, total=tot_count)
+    else :
+        return "Error!"
 
 #로그인 화면
 @application.route('/login', methods=['POST', 'GET'])
@@ -121,7 +158,16 @@ def sign_up():
 #마이페이지
 @application.route('/mypage')
 def mypage():
-    return render_template("mypage.html")
+    page = request.args.get("page", 0, type=int)
+    limit = 9
+    start_idx=limit*page
+    end_idx=limit*(page+1)
+    data = DB.get_restaurants()
+    total = len(data)
+    datas=dict(list(data.items())[start_idx:end_idx])
+    print(datas)
+    return render_template("mypage.html", datas=datas, total=total, limit=limit, page=page, page_count=int((total/9)+1))
+
 
 
 

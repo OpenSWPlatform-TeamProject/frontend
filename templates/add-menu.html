@@ -4,7 +4,7 @@ section %}
 <section>
   <div class="topbar">
     <div class="topbar-upper">
-      <a href="/" class="back-icon">
+      <a href="/restaurant/detail/{{맛집이름}}" class="back-icon">
         <i class="fa solid fa-arrow-left fa-lg"></i>
       </a>
     </div>
@@ -26,7 +26,7 @@ section %}
       <input
         type="text"
         placeholder="메뉴 이름"
-        name="메뉴 이름"
+        name="메뉴이름"
         class="input"
         required
       /><br />
@@ -75,8 +75,12 @@ section %}
 
       <!-- 등록 버튼 & 다른 대표메뉴 추가 -->
       <div class="submit-button-container">
-        <button class="submit-button">등록</button>
-        <button class="submit-button">다른 메뉴 등록하기</button>
+        <a href="restaurant-detail.html">
+          <button class="submit-button">등록</button>
+        </a>
+        <a href="add-menu.html">
+          <button class="submit-button">다른 메뉴 등록하기</button>
+        </a>
       </div>
     </form>
   </div>
