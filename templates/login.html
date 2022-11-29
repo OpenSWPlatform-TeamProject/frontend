@@ -17,7 +17,7 @@
       alert("{{ mesg[0] }}");
     </script>
     {% endif %} {% endwith %}
-    <form class="login_form" action="/login_confirm" method="post">
+    <form class="login_form" action="/login" method="post">
       <input type="text" name="id" id="id" placeholder="아이디" />
       <input type="text" name="pw" id="pw" placeholder="비밀번호" />
       <button type="submit" value="로그인">로그인</button>
@@ -25,7 +25,7 @@
     <section class="sign_up_section">
       <div class="has_not_signed_up">아직 회원이 아니신가요?</div>
       <a href="/signup">
-        <button class="sign_up_button" onclick="/signup">회원가입하기</button>
+        <button class="sign_up_button">회원가입하기</button>
       </a>
     </section>
   </body>
