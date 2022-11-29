@@ -13,7 +13,7 @@ class DBhandler:
         restaurants = self.db.child("restaurant").get()
         for res in restaurants.each():
             value = res.val()
-            if value['메뉴이름'] == name:
+            if value['맛집이름'] == name:
                 return False
             return True 
 
@@ -132,3 +132,31 @@ class DBhandler:
                 target_value[menu]=dict((list(value.items())))
         print(target_value)
         return target_value
+
+    #회원가입
+    def insert_user(self, data, pw):
+        user_info={
+            "id":data['id'],
+            "pw":pw,
+            "nickname":data['nickname']
+        }
+        if self.user_duplicate_check(str(data['id'])):
+            self.db.child("user").push(user_info)
+            print(data)
+            return True
+        else:
+            return False
+    
+    def user_duplicate_check(self, id_string):
+        users=self.db.child("user").get()
+
+        print("users###", users.val())
+        if str(users.val()) == "None":
+            return True
+        else:
+            for res in users.each():
+                value=res.val()
+            
+            if value['id']==id_string:
+                return False
+            return True
