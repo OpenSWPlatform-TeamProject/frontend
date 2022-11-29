@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 from database import DBhandler
-
+import hashlib
 import sys
 
 application = Flask(__name__)
@@ -158,6 +158,12 @@ def login():
 def sign_up():
     if request.method == 'POST':
         data=request.form
+        pw=request.form
+        pw_hash=hashlib.sna256(pw.encode('utf-8')).hexdigest()
+        if DB.insert_user(data, pw_hash):
+            return render_template("login.html")
+        else:
+            flash("user id already exist!")
         print(data)
         return render_template("home.html")
     else :
