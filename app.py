@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, session
 from database import DBhandler
-
+import hashlib
 import sys
 
 application = Flask(__name__)
@@ -138,9 +138,17 @@ def menu_list(restaurant):
 @application.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
-        data=request.form
-        print(data)
-        return render_template("home.html")
+        id=request.form['id']
+        pw=request.form['pw']
+        pw_hash=hashlib.sha256(pw.encode('utf-8')).hexdigest()
+        print(id)
+        print(pw)
+        if DB.find_user(id, pw_hash):
+            session['id']=id
+            return render_template("home.html")
+        else :
+            flash("아이디 또는 비밀번호가 틀렸습니다")
+            return redirect(url_for('login'))
     else :
         return render_template("login.html")
     
@@ -150,8 +158,14 @@ def login():
 def sign_up():
     if request.method == 'POST':
         data=request.form
+        pw=request.form['pw']
+        pw_hash=hashlib.sha256(pw.encode('utf-8')).hexdigest()
         print(data)
-        return render_template("home.html")
+        if DB.insert_user(data, pw_hash):
+            return render_template("login.html")
+        else:
+            flash("중복된 ID 입니다!")
+            return render_template("sign-up.html")
     else :
         return render_template("sign-up.html")
 
