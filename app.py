@@ -182,7 +182,11 @@ def mypage():
     print(datas)
     return render_template("mypage.html", datas=datas, total=total, limit=limit, page=page, page_count=int((total/9)+1))
 
-
+#로그아웃
+@application.route("/logout")
+def logout_user():
+    session.clear()
+    return redirect(url_for('home'))
 
 
 if __name__ == "__main__":
