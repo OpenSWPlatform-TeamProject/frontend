@@ -12,12 +12,17 @@
     <a href="/">
       <img class="logo" src="/static/logo_black.png" alt="logo" />
     </a>
-    <form class="sign_up_form" action="/signup" method="post">
-      <input type="text" name="nick" placeholder="닉네임" />
-      <input type="text" name="id" placeholder="아이디" />
-      <input type="text" name="pw" placeholder="비밀번호" />
-      <input type="text" name="pw2" placeholder="비밀번호 확인" />
-      <button type="submit">회원가입</button>
+    {% with mesg = get_flashed_messages() %} {% if mesg !=[] %}
+    <script>
+      alert("{{ mesg[0] }}");
+    </script>
+    {% endif %} {% endwith %}
+    <form class="sign_up_form" action="/signup_post" method="post">
+      <input type="text" name="nickname" placeholder="닉네임" />
+      <input type="text" name="id" required placeholder="아이디" />
+      <input type="text" name="pw" required placeholder="비밀번호" />
+      <input type="text" name="pw2" required placeholder="비밀번호 확인" />
+      <button type="submit" value="생성">회원가입</button>
     </form>
     <section class="login_section">
       <div class="already_signed_up">이미 회원이신가요?</div>
