@@ -1,42 +1,9 @@
-<!DOCTYPE html>
+{% extends "base.html" %} 
 
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>theme-list</title>
-    <link href="/static/global.css" rel="stylesheet"> 
-    <link href="/static/theme-list.css" rel="stylesheet"> 
-    <script src="https://kit.fontawesome.com/0ed41516ec.js" crossorigin="anonymous">
-    </script>
-</head>
-<body>
+{% block title %}theme-list{% endblock %}
+{% block css %} <link href="/static/theme-list.css" rel="stylesheet" /> {% endblock %} 
 
-    <div class="navbar">
-        <div class="nav1">
-          <a href="/" class="logo">
-            <img src="/static/logo_white.png" height="70px">
-          </a>
-        </div>
-        <div class="nav2">
-          <div class="search">
-            <div class="search-box">
-              <a href="" class="icon">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </a>
-              <input type="search" id="search" name="이대 근처 맛집 찾기" placeholder="이대 근처 맛집 찾기" />
-            </div>
-          </div>
-        </div>
-        <div class="nav3">
-          <ul>
-            <li><a href="/login">로그인</a></li>
-            <li><a href="/mypage">마이페이지</a></li>
-          </ul>
-        </div>
-    </div>
-
+{% block section %}
     <section>
         <div class="topbar">
             <a hrec="/" class="back-icon">
@@ -59,7 +26,7 @@
                             <div class="map">
                                 <div class="mapbtn_sch">
                                     <a href="맛집리스트-교내.html" class="sch">
-                                        <img class="sch_img" src="/static/교내.png" height="150px" />
+                                        <img class="sch_img" src="/static/교내.png" height="150px">
                                     </a>
                         
                                     <div class="mapbtn_sin">
@@ -271,11 +238,4 @@
             </section>
         </div> 
     </section>   
-
-    <footer>
-        <div class="copyright">2022 copyright 어?이게왜되조</div>
-    </footer>
-    
-</body>
-
-</html>
+{% endblock %}

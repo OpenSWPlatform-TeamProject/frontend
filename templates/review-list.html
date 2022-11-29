@@ -1,50 +1,16 @@
-<!DOCTYPE>
-<html lang="Korean">
+{% extends "base.html" %} 
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/static/global.css">
-  <link rel="stylesheet" href="/static/review-list.css">
-  <script src="https://kit.fontawesome.com/0ed41516ec.js" crossorigin="anonymous"></script>
-  <title>review-list</title>
-</head>
+{% block title %}review-list{% endblock %}
+{% block css %} <link href="/static/review-list.css" rel="stylesheet" /> {% endblock %} 
 
-<body>
-  <!-- 네비게이션 바 -->
-  <div class="navbar">
-    <div class="nav1">
-      <a href="/" class="logo">
-        <img src="/static/logo_white.png" height="70px">
-      </a>
-    </div>
-    <div class="nav2">
-      <div class="search">
-        <div class="search-box">
-          <a href="" class="icon">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </a>
-          <input type="search" id="search" name="이대 근처 맛집 찾기" placeholder="이대 근처 맛집 찾기" />
-        </div>
-      </div>
-    </div>
-    <div class="nav3">
-      <ul>
-        <li><a href="/login">로그인</a></li>
-        <li><a href="/mypage">마이페이지</a></li>
-      </ul>
-    </div>
-
-  </div>
-
+{% block section %}
   <!-- 상단바 -->
   <section class="topbar">
-    <a href="/restaurant/detail" class="back-icon">
+    <a href="/restaurant/detail/{{맛집이름}}" class="back-icon">
       <i class="fa solid fa-arrow-left fa-lg"></i>
     </a>
-    <div class="title">리뷰 조회하기</div>
-    <div class="title-description">벗들의 소중한 후기를 살펴보세요!</div>
+    <div class="title">{{맛집이름}} 리뷰 조회하기</div>
+    <div class="title-description">벗들의 소중한 {{맛집이름}} 후기를 살펴보세요!</div>
   </section>
 
 
@@ -53,121 +19,32 @@
   <section class="container">
     <div class="content">
       <ul class="reviews">
+        {% if total > 0 %} {% for data in datas %}
         <li>
           <a href="/review/detail">
             <button class="review">
               <div class="review-pic">
-                <img class="pic" src="/static/치즈김치전.jpeg" alt="review-pic1">
+                <img class="pic" src="{{datas[data]['img_path']}}" alt="review-pic1">
               </div>
               <div class="review-content">
-                <div class="food">치즈김치전</div>
+                <div class="food">{{datas[data]['메뉴이름']}}</div>
                 <div class="star">
                   <img class="star-pic" src="/static/ratings_3.png" alt="review-star">
                 </div>
                 <div class="hashtag">
-                  #저녁 #대기10분
+                  #{{datas[data]['timePeriod']}}
+                  #{{datas[data]['waiting']}}
                 </div>
               </div>
             </button>
           </a>
         </li>
-
-        <li>
-          <a href="/review/detail">
-            <button class="review">
-              <div class="review-pic">
-                <img class="pic" src="/static/box.png" alt="review-pic2">
-              </div>
-              <div class="review-content">
-                <div class="food">해물순두부국수</div>
-                <div class="star">
-                  <img src="/static/ratings_4.png" class="star-pic" alt="review-star">
-                </div>
-                <div class="hashtag">
-                  #저녁 #대기10분
-                </div>
-              </div>
-            </button>
-          </a>
-        </li>
-
-        <li>
-          <a href="/review/detail">
-            <button class="review">
-              <div class="review-pic">
-                <img class="pic" src="/static/box.png" alt="review-pic3">
-              </div>
-              <div class="review-content">
-                <div class="food">치즈김치전</div>
-                <div class="star">
-                  <img src="/static/ratings_5.png" class="star-pic" alt="review-star">
-                </div>
-                <div class="hashtag">
-                  #야간 #대기없음
-                </div>
-              </div>
-            </button>
-          </a>
-        </li>
-
-        <li>
-          <a href="/review/detail">
-            <button class="review">
-              <div class="review-pic">
-                <img class="pic" src="/static/box.png" alt="review-pic4">
-              </div>
-              <div class="review-content">
-                <div class="food">치즈김치전</div>
-                <div class="star">
-                  <img src="/static/ratings_4.png" class="star-pic" alt="review-star">
-                </div>
-                <div class="hashtag">
-                  #저녁 #대기없음
-                </div>
-              </div>
-            </button>
-          </a>
-        </li>
-
-        <li>
-          <a href="/review/detail">
-            <button class="review">
-              <div class="review-pic">
-                <img class="pic" src="/static/box.png" alt="review-pic5">
-              </div>
-              <div class="review-content">
-                <div class="food">해물순두부국수</div>
-                <div class="star">
-                  <img src="/static/ratings_5.png" class="star-pic" alt="review-star">
-                </div>
-                <div class="hashtag">
-                  #저녁 #대기10분
-                </div>
-              </div>
-            </button>
-          </a>
-        </li>
-
-        <li>
-          <a href="/review/detail">
-            <button class="review">
-              <div class="review-pic">
-                <img class="pic" src="/static/box.png" alt="review-pic6"">
-            </div>
-
-            <div class=" review-content">
-                <div class="food">치즈김치전</div>
-                <div class="star">
-                  <img src="/static/ratings_3.png" class="star-pic" alt="review-star">
-                </div>
-                <div class="hashtag">
-                  #야간 #대기없음
-                </div>
-              </div>
-            </button>
-          </a>
-        </li>
+        {% endfor %} {% else %}
+          <div class="menu">등록된 리뷰가 없습니다.</div>
+        {% endif %}
+      </ul>
     </div>
+  </section>
 
 
     <!-- 페이지 이동 버튼 -->
@@ -207,12 +84,4 @@
       </ul>
     </div>
   </section>
-
-  <footer>
-    <div class="copyright">
-      2022 copyright 어?이게왜되조
-    </div>
-  </footer>>
-</body>
-
-</html>
+{% endblock %}

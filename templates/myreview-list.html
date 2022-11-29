@@ -1,0 +1,174 @@
+{% extends "base.html" %} {% block title %}myreview-detail{% endblock %} {%
+  block css %} <link href="/static/review-list.css" rel="stylesheet" /> {%
+  endblock %}
+   {% block section %}
+  <!-- 상단바 -->
+  <section class="topbar">
+    <a href="mypage.html" class="back-icon">
+      <i class="fa solid fa-arrow-left fa-lg"></i>
+    </a>
+    <div class="title">내 리뷰 조회하기</div>
+    <div class="title-description">내가 남겼던 소중한 후기를 살펴보세요!</div>
+  </section>
+
+
+
+  <!-- 리뷰 리스트 -->
+  <section class="container">
+    <div class="content">
+      <ul class="reviews">
+        <li>
+          <a href="/review/detail">
+            <button class="review">
+              <div class="review-pic">
+                <img class="pic" src="치즈김치전.jpeg" alt="review-pic1">
+              </div>
+              <div class="review-content">
+                <div class="food">치즈김치전</div>
+                <div class="star">
+                  <img class="star-pic" src="ratings_3.png" alt="review-star">
+                </div>
+                <div class="hashtag">
+                  #저녁 #대기10분
+                </div>
+              </div>
+            </button>
+          </a>
+        </li>
+
+        <li>
+          <a href="/review/detail">
+            <button class="review">
+              <div class="review-pic">
+                <img class="pic" src="box.png" alt="review-pic2">
+              </div>
+              <div class="review-content">
+                <div class="food">해물순두부국수</div>
+                <div class="star">
+                  <img src="ratings_4.png" class="star-pic" alt="review-star">
+                </div>
+                <div class="hashtag">
+                  #저녁 #대기10분
+                </div>
+              </div>
+            </button>
+          </a>
+        </li>
+
+        <li>
+          <a href="/review/detail">
+            <button class="review">
+              <div class="review-pic">
+                <img class="pic" src="box.png" alt="review-pic3">
+              </div>
+              <div class="review-content">
+                <div class="food">치즈김치전</div>
+                <div class="star">
+                  <img src="ratings_5.png" class="star-pic" alt="review-star">
+                </div>
+                <div class="hashtag">
+                  #야간 #대기없음
+                </div>
+              </div>
+            </button>
+          </a>
+        </li>
+
+        <li>
+          <a href="/review/detail">
+            <button class="review">
+              <div class="review-pic">
+                <img class="pic" src="box.png" alt="review-pic4">
+              </div>
+              <div class="review-content">
+                <div class="food">치즈김치전</div>
+                <div class="star">
+                  <img src="ratings_4.png" class="star-pic" alt="review-star">
+                </div>
+                <div class="hashtag">
+                  #저녁 #대기없음
+                </div>
+              </div>
+            </button>
+          </a>
+        </li>
+
+        <li>
+          <a href="/review/detail">
+            <button class="review">
+              <div class="review-pic">
+                <img class="pic" src="box.png" alt="review-pic5">
+              </div>
+              <div class="review-content">
+                <div class="food">해물순두부국수</div>
+                <div class="star">
+                  <img src="ratings_5.png" class="star-pic" alt="review-star">
+                </div>
+                <div class="hashtag">
+                  #저녁 #대기10분
+                </div>
+              </div>
+            </button>
+          </a>
+        </li>
+
+        <li>
+          <a href="/review/detail">
+            <button class="review">
+              <div class="review-pic">
+                <img class="pic" src="box.png" alt="review-pic6">
+            </div>
+
+            <div class=" review-content">
+                <div class="food">치즈김치전</div>
+                <div class="star">
+                  <img src="ratings_3.png" class="star-pic" alt="review-star">
+                </div>
+                <div class="hashtag">
+                  #야간 #대기없음
+                </div>
+              </div>
+            </button>
+          </a>
+        </li>
+    </div>
+
+
+    <!-- 페이지 이동 버튼 -->
+    <div class="page-nav">
+      <ul class="page">
+        <li>
+          <a href="" class="End">
+            <i class="fa-solid fa-chevron-left"></i>
+          </a>
+        </li>
+
+        <li>
+          <strong>1</strong>
+        </li>
+
+        <li>
+          <a class="another-page" href="">2</a>
+        </li>
+
+        <li>
+          <a class="another-page" href="">3</a>
+        </li>
+
+        <li>
+          <a class="another-page" href="">4</a>
+        </li>
+
+        <li>
+          <a class="another-page" href="">5</a>
+        </li>
+
+        <li>
+          <a href="" class="End">
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+  {% endblock %}

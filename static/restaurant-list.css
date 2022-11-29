@@ -291,7 +291,8 @@ button{
     padding: 35px 25px;
     margin-top: 20px;
     margin-bottom: 10px;
-    width:240px;
+    width:15.5vw;
+    height:25vh;
     color: #3B3838;
 }
 
@@ -309,8 +310,7 @@ button{
     width: 80px;
     position: absolute;
     top:0;
-    bottom:0;
-    transform: translate(70%, -15%);
+    right:0;
 }
 
 .stars-pic{
@@ -322,8 +322,8 @@ button{
     width: 60px;
     position: absolute;
     top: 0;
-    bottom: 0;
-    transform: translate(-240%, -50%);
+    left: 0;
+    transform: translate(-50%, -50%);
 }
 
 

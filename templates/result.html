@@ -6,3 +6,9 @@
 <p>전화번호는 {{data.phonenum}}이에요</p>
 <p>주차가 가능한가요? {{data.parking}}</p>
 <img src="{{image_path}}" alt="My Image" />
+<form action="{{addmenu_path}}" method="get">
+  <input type="hidden" name="restaurant" value="{{data.맛집이름}}" />
+</form>
+<a href="{{addmenu_path}}">
+  <button type="button" class="register_menu">Register Menu</button>
+</a>
