@@ -164,9 +164,15 @@ class DBhandler:
     #로그인
     def find_user(self, id, pw):
         users = self.db.child("user").get()
-        target_value=[]
         for res in users.each():
             value = res.val()
         if value['id'] == id and value['pw'] == pw:
             return True
         return False
+
+    def get_nickname(self, id, pw):
+        users = self.db.child("user").get()
+        for res in users.each():
+            value = res.val()
+        if value['id'] == id and value['pw'] == pw:
+            return value['nickname']

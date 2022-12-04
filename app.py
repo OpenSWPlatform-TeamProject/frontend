@@ -143,8 +143,10 @@ def login():
         pw_hash=hashlib.sha256(pw.encode('utf-8')).hexdigest()
         print(id)
         print(pw)
+        print(pw_hash)
         if DB.find_user(id, pw_hash):
             session['id']=id
+            session['nickname']=DB.get_nickname(id, pw_hash)
             return render_template("home.html")
         else :
             flash("아이디 또는 비밀번호가 틀렸습니다")
