@@ -1,5 +1,6 @@
 {% extends "base.html" %} {% block title %}add-review{% endblock %} {% block css
-%} <link href="/static/add-review.css" rel="stylesheet" /> {% endblock %} {%
+%} <link href="/static/add-review.css" rel="stylesheet" /> 
+<script type="text/javascript" src="script.js"></script>{% endblock %} {%
 block section %}
 <section>
   <div class="topbar">
@@ -35,9 +36,9 @@ block section %}
       <form>
         <div class="range-container">
           <h3 class="insert-title">평점</h3>
-          <div class="rating-flower-container">
-            <input type="range" id="rating" name="rating" min="0" max="5" step="0.5">
-            <output name="rating-result" for="rating"></output>
+          <div class="rating-range-container">
+            <input type="range" id="rating" name="rating" min="0" max="5" step="0.5" oninput="document.getElementById('rating-value').innerHTML=this.value;">
+            <span id="rating-value"></span>
           </div>
         </div>
       </form>
