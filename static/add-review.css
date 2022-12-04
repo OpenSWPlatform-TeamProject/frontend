@@ -32,12 +32,7 @@ body{
     flex-direction: row;
     justify-content: center;
 }
-
-.logo img {
-    width: 100px;
-    height: 55px;
-}
-
+  
 .nav2 {
     float: left;
     width: 60%;
@@ -132,25 +127,41 @@ body{
 }
 
 /* 평점 입력 */
-.rating-flower-pic{
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-}
-.rating-flower-button{
-    box-shadow: none;
-    border: 0;
-    background-color: transparent;
-}
-.rating-flower-container{
+.rating-range-container{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
-
-.range-container{
+    
+.range-container{ 
     display: flex;
     justify-content: space-between;
     align-items: center;
+} 
+
+#rating-value{
+    margin-left: 30px;
+    width: 60px;
+    font-size: 25px;
+}
+
+input[type=range]{
+    -webkit-appearance: none;
+    height: 10px;
+    width: 200px;
+    border-radius: 10px;
+    background: rgb(232,232,232);
+}
+
+input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.1rem;
+    height: 1.1rem;
+    background-color: #FF8080;
+    cursor: pointer;
+    border-radius: 50%;
 }
 
 /*radio button custom*/
