@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block title %}add-restaurant{% endblock %} {% block
-css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
+css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <script src="/static/add-restaurant.js"></script>
 {% endblock %} {% block section %}
 <section>
   <div class="topbar">
@@ -161,7 +161,7 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
           name="rfile"
           id="fileUpload"
           accept="image/*"
-          onclick="setRfile()"
+          onchange="setThumbnail(event);"
         />
         <label for="fileUpload">파일 선택</label>
         <div class="img-preview">사진</div>
