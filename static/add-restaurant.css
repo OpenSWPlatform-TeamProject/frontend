@@ -154,6 +154,7 @@ body{
     display: flex;
     justify-content: space-evenly;
     line-height: normal;
+    align-items: center;
 }
 
 /* checkbox custom */
