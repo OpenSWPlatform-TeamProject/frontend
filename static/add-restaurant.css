@@ -24,6 +24,11 @@ body{
     justify-content: center;
 }
   
+.logo img {
+    width: 100px;
+    height: 55px;
+}
+
 .nav2 {
     float: left;
     width: 60%;
