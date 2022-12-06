@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block title %}restaurant-detail{% endblock %} {%
-  block css %} <link href="/static/restaurant-detail.css" rel="stylesheet" /> {%
+  block css %} <link href="/static/restaurant-detail.css" rel="stylesheet" /> <script src="/static/restaurant-detail.js"></script> {%
   endblock %} {% block section %}
   <!-- topbar -->
   <section class="topbar">
@@ -26,18 +26,20 @@
         <img class="ratings" src="/static/ratings_4.png" />
       </div>
       <div class="buttons-container">
-        <button>
+        <button onclick="toggleFavoritesImage()">
           <img
             alt="favorites"
             src="/static/details.png"
-            style="object-position: 0 0px"
+            style="object-position: 0 0"
+            class="favorites"
           />
         </button>
-        <button>
+        <button onclick="toggleLikesImage()">
           <img
             alt="likes"
             src="/static/details.png"
-            style="object-position: 0 -30px"
+            style="object-position: 0 -60px"
+            class="likes"
           />
         </button>
         <a href="{{reviewlist_path}}">
@@ -45,7 +47,7 @@
           <img
             alt="see-reviews"
             src="/static/details.png"
-            style="object-position: 0 -60px"
+            style="object-position: 0 -120px"
           />
         </a>
         </button>
@@ -54,7 +56,7 @@
             <img
               alt="add-review"
               src="/static/details.png"
-              style="object-position: 0 -90px"
+              style="object-position: 0 -150px"
             />
           </button>
         </a>
@@ -62,7 +64,7 @@
           <img
             alt="share"
             src="/static/details.png"
-            style="object-position: 0 -120px"
+            style="object-position: 0 -180px"
           />
         </button>
       </div>
@@ -85,7 +87,7 @@
         <img
           alt="address"
           src="/static/details.png"
-          style="object-position: 0 -175px"
+          style="object-position: 0 -245px"
         />
         <h5>{{data.address}}</h5>
       </div>
@@ -93,7 +95,7 @@
         <img
           alt="phone-number"
           src="/static/details.png"
-          style="object-position: 0 -210px"
+          style="object-position: 0 -280px"
         />
         <h5>{{data.phonenum}}</h5>
         <button class="reservation">예약하기</button>
@@ -102,7 +104,7 @@
         <img
           alt="business-hours"
           src="/static/details.png"
-          style="object-position: 0 -245px"
+          style="object-position: 0 -315px"
         />
         <h5>영업 시간</h5>
       </div>
@@ -168,7 +170,7 @@
         <img
           alt="price-range"
           src="/static/details.png"
-          style="object-position: 0 -280px"
+          style="object-position: 0 -350px"
         />
         <h5>{{data.pricerange}}</h5>
       </div>
@@ -176,7 +178,7 @@
         <img
           alt="parking-availability"
           src="/static/details.png"
-          style="object-position: 0 -315px"
+          style="object-position: 0 -385px"
         />
         <h5>{{data.parking}}</h5>
       </div>
@@ -184,7 +186,7 @@
         <img
           alt="website"
           src="/static/details.png"
-          style="object-position: 0 -350px"
+          style="object-position: 0 -420px"
         />
         <h5>외부 사이트 링크</h5>
       </div>
@@ -192,7 +194,7 @@
         <img
           alt="menu"
           src="/static/details.png"
-          style="object-position: 0 -385px"
+          style="object-position: 0 -455px"
         />
         <h5>메뉴</h5>
       </div>
