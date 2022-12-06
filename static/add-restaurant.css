@@ -24,6 +24,11 @@ body{
     justify-content: center;
 }
   
+.logo img {
+    width: 100px;
+    height: 55px;
+}
+
 .nav2 {
     float: left;
     width: 60%;
@@ -149,6 +154,7 @@ body{
     display: flex;
     justify-content: space-evenly;
     line-height: normal;
+    align-items: center;
 }
 
 /* checkbox custom */
