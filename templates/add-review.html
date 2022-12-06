@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title %}add-review{% endblock %} {% block css
-%} <link href="/static/add-review.css" rel="stylesheet" /> 
-<script type="text/javascript" src="script.js"></script>{% endblock %} {%
-block section %}
+%} <link href="/static/add-review.css" rel="stylesheet" />
+<script type="text/javascript" src="script.js"></script>
+{% endblock %} {% block section %}
 <section>
   <div class="topbar">
     <div class="topbar-upper">
@@ -33,15 +33,21 @@ block section %}
       /><br />
 
       <!-- 평점 입력 -->
-      <form>
-        <div class="range-container">
-          <h3 class="insert-title">평점</h3>
-          <div class="rating-range-container">
-            <input type="range" id="rating" name="rating" min="0" max="5" step="0.5" oninput="document.getElementById('rating-value').innerHTML=this.value;">
-            <span id="rating-value"></span>
-          </div>
+      <div class="range-container">
+        <h3 class="insert-title">평점</h3>
+        <div class="rating-range-container">
+          <input
+            type="range"
+            id="rating"
+            name="rating"
+            min="0"
+            max="5"
+            step="0.5"
+            oninput="document.getElementById('rating-value').innerHTML=this.value;"
+          />
+          <span id="rating-value"></span>
         </div>
-      </form>
+      </div>
 
       <!-- 방문 시간 선택  -->
       <h3 class="insert-title">방문 시간</h3>
