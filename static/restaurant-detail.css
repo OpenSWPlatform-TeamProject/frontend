@@ -161,7 +161,20 @@ body {
 
 .buttons-container {
   display: flex;
-  gap: 15px;
+  align-items: center;
+}
+
+.buttons-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.buttons-container a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttons-container button {
