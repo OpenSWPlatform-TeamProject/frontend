@@ -20,59 +20,26 @@ endblock %} {% block section %}
           <label for="all"> 전체</label>
           <!-- 지도가 들어갑니다 -->
           <div class="upper">
-            <div class="map">
-              <div class="mapbtn_sch">
-                <a href="/restaurant/list" class="sch">
-                  <img class="sch_img" src="/static/교내.png" height="150px" />
-                </a>
-
-                <div class="mapbtn_sin">
-                  <a href="/restaurant/list" class="sin">
-                    <img
-                      class="sin_img"
-                      src="/static/신촌.png"
-                      height="150px"
-                    />
-                  </a>
-                </div>
-                <div class="mapbtn_idae">
-                  <a href="/restaurant/list" class="idae">
-                    <img
-                      class="idae_img"
-                      src="/static/이대.png"
-                      height="85px"
-                    />
-                  </a>
-                </div>
-                <div class="mapbtn_back">
-                  <a href="/restaurant/list" class="back">
-                    <img
-                      class="back_img"
-                      src="/static/후문.png"
-                      height="140px"
-                    />
-                  </a>
-                </div>
-                <div class="mapbtn_ahyeon">
-                  <a href="/restaurant/list" class="ahyeon">
-                    <img
-                      class="ahyeon_img"
-                      src="/static/아현.png"
-                      height="150px"
-                    />
-                  </a>
-                </div>
-                <div class="mapbtn_hidden">
-                  <a href="/restaurant/list">
-                    <img
-                      class="hidden_img"
-                      src="/static/hidden.png"
-                      height="50px"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
+            <div class="criteria">
+              <a href="/restaurant/list" class="mapbtn_sch">
+                <img class="sch" height="150px" src="/static/교내.png" onmouseover="this.src='/static/교내호버.png'" onmouseout="this.src='/static/교내.png'">
+              </a>
+      
+              <a href="/restaurant/list" class="mapbtn_sin">
+                <img class="sin_img" height="150px" src="/static/신촌.png" onmouseover="this.src='/static/신촌호버.png'" onmouseout="this.src='/static/신촌.png'">
+              </a>
+      
+              <a href="/restaurant/list"  class="mapbtn_idae" />
+              <img class="idae_img" height="80px" src="/static/이대.png" onmouseover="this.src='/static/정문.png'" onmouseout="this.src='/static/이대.png'">
+            </a>
+      
+              <a href="/restaurant/list" class="mapbtn_back">
+                <img class="back_img" height="140px" src="/static/후문.png" onmouseover="this.src='/static/후문호버.png'" onmouseout="this.src='/static/후문.png'">
+              </a>
+      
+              <a href="/restaurant/list" class="mapbtn_ahyeon">
+                <img class="ahyeon_img" src="/static/아현.png" height="150px" onmouseover="this.src='/static/아현 호버.png'" onmouseout="this.src='/static/아현.png'">
+              </a>
           </div>
         </div>
       </form>
