@@ -201,7 +201,21 @@ ul.reviews>li {
   justify-content: center;
 }
 
-ul.page>li {
+.page-move-wrap{
+  display: flex;
+  justify-content: center;
+}
+
+.page-nav {
+  height: 100px;
+  width: 215px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+ul.page > li {
   padding: 10px;
 }
 
@@ -215,12 +229,18 @@ ul.page>li {
   font-size: 19px;
 }
 
-.End {
-  color: rgba(0, 0, 0, 0.3);
+.fa-solid{
+  font-size: 16px;
 }
 
-.another-page {
-  color: rgba(0, 0, 0, 0.3);
+.page-button{
+  background: inherit; 
+  border:none; 
+  box-shadow:none; 
+  border-radius:0; 
+  padding:0; 
+  overflow:visible; 
+  cursor:pointer;
 }
 
 footer {

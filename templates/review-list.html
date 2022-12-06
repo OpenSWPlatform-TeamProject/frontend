@@ -48,40 +48,28 @@
 
 
     <!-- 페이지 이동 버튼 -->
-    <div class="page-nav">
-      <ul class="page">
-        <li>
-          <a href="" class="End">
-            <i class="fa-solid fa-chevron-left"></i>
-          </a>
-        </li>
-
-        <li>
-          <strong>1</strong>
-        </li>
-
-        <li>
-          <a class="another-page" href="">2</a>
-        </li>
-
-        <li>
-          <a class="another-page" href="">3</a>
-        </li>
-
-        <li>
-          <a class="another-page" href="">4</a>
-        </li>
-
-        <li>
-          <a class="another-page" href="">5</a>
-        </li>
-
-        <li>
-          <a href="" class="End">
-            <i class="fa-solid fa-chevron-right"></i>
-          </a>
-        </li>
-      </ul>
+    <div class="page-move-wrap">
+      <div class="page-nav">
+        <ul class="page">
+          <li>
+            <button class="page-button">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+          </li>
+          <li style="display: flex; gap: 15px">
+            {% for i in range(page_count)%}
+            <a href="{{url_for('review_list', page=i)}}" color="black"
+              >{{i+1}}</a
+            >
+            {% endfor %}
+          </li>
+          <li>
+            <button class="page-button">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 {% endblock %}
