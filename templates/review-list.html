@@ -1,87 +1,77 @@
-{% extends "base.html" %} 
-
-{% block title %}review-list{% endblock %}
-{% block css %} <link href="/static/review-list.css" rel="stylesheet" /> {% endblock %} 
-
+{% extends "base.html" %} {% block title %}review-list{% endblock %} {% block
+css %} <link href="/static/review-list.css" rel="stylesheet" /> {% endblock %}
 {% block section %}
-  <!-- 상단바 -->
-  <section class="topbar">
-    <a href="/restaurant/detail/{{맛집이름}}" class="back-icon">
-      <i class="fa solid fa-arrow-left fa-lg"></i>
-    </a>
-    <div class="title">{{맛집이름}} 리뷰 조회하기</div>
-    <div class="title-description">벗들의 소중한 {{맛집이름}} 후기를 살펴보세요!</div>
-  </section>
+<!-- 상단바 -->
+<section class="topbar">
+  <a href="/restaurant/detail/{{맛집이름}}" class="back-icon">
+    <i class="fa solid fa-arrow-left fa-lg"></i>
+  </a>
+  <div class="title">{{맛집이름}} 리뷰 조회하기</div>
+  <div class="title-description">
+    벗들의 소중한 {{맛집이름}} 후기를 살펴보세요!
+  </div>
+</section>
 
-
-
-  <!-- 리뷰 리스트 -->
-  <section class="container">
-    <div class="content">
-      <ul class="reviews">
-        {% if total > 0 %} {% for data in datas %}
-        <li>
-          <a href="/review/detail">
-            <button class="review">
-              <div class="review-pic">
-                <img class="pic" src="{{datas[data]['img_path']}}" alt="review-pic1">
+<!-- 리뷰 리스트 -->
+<section class="container">
+  <div class="content">
+    <ul class="reviews">
+      {% if total > 0 %} {% for data in datas %}
+      <li>
+        <a href="/review/detail">
+          <button class="review">
+            <div class="review-pic">
+              <img
+                class="pic"
+                src="{{datas[data]['img_path']}}"
+                alt="review-pic1"
+              />
+            </div>
+            <div class="review-content">
+              <div class="food">{{datas[data]['메뉴이름']}}</div>
+              <div class="star">
+                <img
+                  class="star-pic"
+                  src="/static/ratings_3.png"
+                  alt="review-star"
+                />
               </div>
-              <div class="review-content">
-                <div class="food">{{datas[data]['메뉴이름']}}</div>
-                <div class="star">
-                  <img class="star-pic" src="/static/ratings_3.png" alt="review-star">
-                </div>
-                <div class="hashtag">
-                  #{{datas[data]['timePeriod']}}
-                  #{{datas[data]['waiting']}}
-                </div>
+              <div class="hashtag">
+                #{{datas[data]['timePeriod']}} #{{datas[data]['waiting']}}
               </div>
-            </button>
-          </a>
-        </li>
-        {% endfor %} {% else %}
-          <div class="menu">등록된 리뷰가 없습니다.</div>
-        {% endif %}
-      </ul>
-    </div>
-  </section>
+            </div>
+          </button>
+        </a>
+      </li>
+      {% endfor %} {% else %}
+      <div class="menu">등록된 리뷰가 없습니다.</div>
+      {% endif %}
+    </ul>
+  </div>
+</section>
 
-
-    <!-- 페이지 이동 버튼 -->
-    <div class="page-nav">
-      <ul class="page">
-        <li>
-          <a href="" class="End">
-            <i class="fa-solid fa-chevron-left"></i>
-          </a>
-        </li>
-
-        <li>
-          <strong>1</strong>
-        </li>
-
-        <li>
-          <a class="another-page" href="">2</a>
-        </li>
-
-        <li>
-          <a class="another-page" href="">3</a>
-        </li>
-
-        <li>
-          <a class="another-page" href="">4</a>
-        </li>
-
-        <li>
-          <a class="another-page" href="">5</a>
-        </li>
-
-        <li>
-          <a href="" class="End">
-            <i class="fa-solid fa-chevron-right"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </section>
+<!-- 페이지 이동 버튼 -->
+<div class="page-move-wrap">
+  <div class="page-nav">
+    <ul class="page">
+      <li>
+        <button class="page-button">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+      </li>
+      <li style="display: flex; gap: 15px">
+        {% for i in range(page_count)%}
+        <a href="{{url_for('restaurant_list', page=i)}}" color="black"
+          >{{i+1}}</a
+        >
+        {% endfor %}
+      </li>
+      <li>
+        <button class="page-button">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
 {% endblock %}

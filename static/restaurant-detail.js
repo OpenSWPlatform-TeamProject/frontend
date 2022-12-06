@@ -1,6 +1,6 @@
 function toggleFavoritesImage() {
   const objectPosition = document.getElementsByClassName("favorites")[0].style.objectPosition;
-  if(objectPosition === "0px")
+  if(objectPosition === "0px 0px")
     document.getElementsByClassName("favorites")[0].style.objectPosition = "0 -30px";
   else
     document.getElementsByClassName("favorites")[0].style.objectPosition = "0 0";
