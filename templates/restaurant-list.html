@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block title %}restaurant-list{% endblock %} {%
-block css %} <link href="/static/restaurant-list.css" rel="stylesheet" /> {%
+block css %} <link href="/static/restaurant-list.css" rel="stylesheet" /> <script src="/static/restaurant-list.js"></script> {%
 endblock %} {% block section %}
 <section>
   <div class="topbar">
@@ -162,9 +162,9 @@ endblock %} {% block section %}
         <div class="page-nav">
           <ul class="page">
             <li>
-              <a class="End" >
+              <button class="page-button">
                 <i class="fa-solid fa-chevron-left"></i>
-              </a>
+              </button>
             </li>
             <li style="display: flex; gap: 15px">
               {% for i in range(page_count)%}
@@ -174,9 +174,9 @@ endblock %} {% block section %}
               {% endfor %}
             </li>
             <li>
-              <a class="End" >
+              <button class="page-button">
                 <i class="fa-solid fa-chevron-right"></i>
-              </a>
+              </button>
             </li>
           </ul>
         </div>

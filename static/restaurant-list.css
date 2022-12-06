@@ -361,14 +361,20 @@ ul.page > li {
     font-size: 19px;
 }
   
-.End {
-    color: rgba(0, 0, 0, 0.3);
+.fa-solid{
+    font-size: 16px;
 }
-  
-.another-page {
-    color: rgba(0, 0, 0, 0.3);
+
+.page-button{
+    background: inherit; 
+    border:none; 
+    box-shadow:none; 
+    border-radius:0; 
+    padding:0; 
+    overflow:visible; 
+    cursor:pointer;
 }
-  
+
 /* footer */
 footer {
     width: 100%;
