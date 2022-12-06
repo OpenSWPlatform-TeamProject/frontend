@@ -62,7 +62,7 @@ class DBhandler:
         review_info ={
             "맛집이름":name,
             "메뉴이름":data['메뉴이름'],
-            # "평점?":data['평점?'],
+            "평점":data['평점'],
             "timePeriod":data['timePeriod'],
             "waiting":data['waiting'],
             "리뷰작성내용":data['리뷰작성내용'],
