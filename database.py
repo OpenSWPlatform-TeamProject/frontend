@@ -182,6 +182,9 @@ class DBhandler:
         users = self.db.child("user").get()
         for res in users.each():
             value = res.val()
-        if value['id'] == id and value['pw'] == pw:
-            return self.db.child("user").removeValue()
+            key = res.key()
+            if value['id'] == id and value['pw'] == pw:
+                print(key)
+                self.db.child("user").child(key).remove()
+            return True
         return False

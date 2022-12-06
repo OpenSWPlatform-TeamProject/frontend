@@ -194,14 +194,14 @@ def logout_user():
 @application.route('/withdrawl', methods=['POST', 'GET'])
 def withdrawl():
     if request.method == 'POST':
-        id=request.form['id']
+        id=session['id']
         pw=request.form['pw']
         pw_hash=hashlib.sha256(pw.encode('utf-8')).hexdigest()
         print(id)
         print(pw)
         print(pw_hash)
         if DB.withdrawl(id, pw_hash):
-            session['id']=id
+            session.clear()
             flash("지금까지 EatWha를 이용해주셔서 감사합니다. 언제든지 다시 돌아오세요.")
             return redirect(url_for('home')) 
         else :
