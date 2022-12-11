@@ -14,3 +14,9 @@ function toggleLikesImage() {
   else
     document.getElementsByClassName("likes")[0].style.objectPosition = "0px -60px";
 }
+
+function copyToClipboard() {
+  navigator.clipboard.writeText(window.location.href);
+  document.getElementsByClassName("copy-to-clipboard-alert")[0].style.display = "block";
+  setTimeout(() => document.getElementsByClassName("copy-to-clipboard-alert")[0].style.display = "none", 2000);
+}

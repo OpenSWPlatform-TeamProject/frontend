@@ -193,6 +193,21 @@ body {
   object-fit: cover;
 }
 
+.share-button {
+  position: relative;
+}
+
+.copy-to-clipboard-alert {
+  display: none;
+  width: 150px;
+  position: absolute;
+  transform: translate(0, -30px);
+  background-color: white;
+  padding: 5px;
+  font-size: 15px;
+  color: gray;
+}
+
 .dividing-line {
   margin: 20px 0;
 }
