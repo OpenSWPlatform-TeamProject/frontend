@@ -63,7 +63,7 @@ css %} <link href="/static/review-list.css" rel="stylesheet" /> {% endblock %}
                   src="/static/ratings_4.png"
                   alt="review-star"
                 />
-                {% else %}
+                {% elif datas[data]['평점'] == 5 %}
                 <img
                   class="star-pic"
                   src="/static/ratings_5.png"
