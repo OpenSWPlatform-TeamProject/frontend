@@ -152,6 +152,8 @@ body {
 }
 
 .restaurant-name {
+  display: flex;
+  flex-shrink: 0;
   font-size: 25px;
 }
 
