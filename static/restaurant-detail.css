@@ -152,6 +152,8 @@ body {
 }
 
 .restaurant-name {
+  display: flex;
+  flex-shrink: 0;
   font-size: 25px;
 }
 
@@ -189,6 +191,21 @@ body {
   height: 30px;
   box-shadow: none;
   object-fit: cover;
+}
+
+.share-button {
+  position: relative;
+}
+
+.copy-to-clipboard-alert {
+  display: none;
+  width: 150px;
+  position: absolute;
+  transform: translate(0, -30px);
+  background-color: white;
+  padding: 5px;
+  font-size: 15px;
+  color: gray;
 }
 
 .dividing-line {
