@@ -30,11 +30,46 @@ css %} <link href="/static/review-list.css" rel="stylesheet" /> {% endblock %}
             <div class="review-content">
               <div class="food">{{datas[data]['메뉴이름']}}</div>
               <div class="star">
+                {% if datas[data]['평점'] == 0 %}
+                <img
+                  class="star-pic"
+                  src="/static/ratings_empty.png"
+                  alt="review-star"
+                />
+                {% elif datas[data]['평점'] == 1 %}
+                <img
+                  class="star-pic"
+                  src="/static/ratings_1.png"
+                  alt="review-star"
+                />
+
+                {% elif datas[data]['평점'] == 2 %}
+                <img
+                  class="star-pic"
+                  src="/static/ratings_2.png"
+                  alt="review-star"
+                />
+
+                {% elif datas[data]['평점'] == 3 %}
                 <img
                   class="star-pic"
                   src="/static/ratings_3.png"
                   alt="review-star"
                 />
+
+                {% elif datas[data]['평점'] == 4 %}
+                <img
+                  class="star-pic"
+                  src="/static/ratings_4.png"
+                  alt="review-star"
+                />
+                {% elif datas[data]['평점'] == 5 %}
+                <img
+                  class="star-pic"
+                  src="/static/ratings_5.png"
+                  alt="review-star"
+                />
+                {% endif %}
               </div>
               <div class="hashtag">
                 #{{datas[data]['timePeriod']}} #{{datas[data]['waiting']}}
