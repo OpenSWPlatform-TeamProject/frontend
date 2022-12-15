@@ -109,6 +109,20 @@ class DBhandler:
                 target_value=value
         return target_value
 
+    #위치별 맛집 가져오기
+    def get_restaurants_bylocation(self, location):
+        restaurants = self.db.child("restaurant").get()
+        target_value=[]
+        for res in restaurants.each():
+            value = res.val()
+            if value['location'] == location:
+                target_value.append(value)
+            print("######target_value",target_value)
+            new_dict={}
+            for k,v in enumerate(target_value):
+                new_dict[k]=v
+        return new_dict
+
     #리뷰 테이블 가져오기
     def get_reviews(self, name):
         reviews = self.db.child("review").get()
