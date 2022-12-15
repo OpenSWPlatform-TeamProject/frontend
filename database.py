@@ -36,6 +36,7 @@ class DBhandler:
             "location":data['location'],
             "address":data['address'],
             "phonenum":data['phonenum'],
+            "othersite":data['othersite'],
             "parking":data['parking'],
             "mondaytime":data['mondaytime'],
             "tuesdaytime":data['tuesdaytime'],
