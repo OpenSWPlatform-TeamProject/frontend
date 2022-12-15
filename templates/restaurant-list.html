@@ -129,9 +129,11 @@ endblock %} {% block section %}
         <div class="page-nav">
           <ul class="page">
             <li>
-              <button class="page-button">
-                <i class="fa-solid fa-chevron-left"></i>
-              </button>
+              <a href="{{url_for('restaurant_list', page=page-1)}}">
+                <button class="page-button">
+                  <i class="fa-solid fa-chevron-left"></i>
+                </button>
+              </a>
             </li>
             <li style="display: flex; gap: 15px">
               {% for i in range(page_count)%}
@@ -141,9 +143,11 @@ endblock %} {% block section %}
               {% endfor %}
             </li>
             <li>
-              <button class="page-button">
-                <i class="fa-solid fa-chevron-right"></i>
-              </button>
+              <a href="{{url_for('restaurant_list', page=page+1)}}">
+                <button class="page-button">
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
+              </a>
             </li>
           </ul>
         </div>

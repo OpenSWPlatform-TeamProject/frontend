@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, flash, redirect, url_for, ses
 from database import DBhandler
 import hashlib
 import sys
+import math
 
 application = Flask(__name__)
 DB = DBhandler()
@@ -26,14 +27,35 @@ def add_restaurant():
     else :
         return render_template("add-restaurant.html")
 
-
 @application.route('/restaurant/list')
 def restaurant_list():
     page = request.args.get("page", 0, type=int)
+    #category = request.args.get("category", "all")
+
+    #if category=="all":
+    data = DB.get_restaurants()
+    #else:
+    #    data = DB.get_restaurants_bycategory(category)
+    total = len(data)
     limit = 9
+    if page<0:
+        return redirect(url_for('restaurant_list', page=0))
+    elif page>(math.ceil(total/limit)-1):
+        return redirect(url_for('restaurant_list', page=math.ceil(total/limit)-1))
     start_idx=limit*page
     end_idx=limit*(page+1)
-    data = DB.get_restaurants()
+
+    if total<=limit:
+        data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False)[:total])
+    else:
+        data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False))    #일단 이름 순으로 넣었음
+    #if request.method == 'POST':
+    #    usekey = request.form['key']
+
+    datas=dict(list(data.items())[start_idx:end_idx])
+    print(datas)
+    return render_template("restaurant-list.html", datas=datas, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))   #추후 category=category, 추가하기
+
 @application.route('/restaurant/list/<string:location>')
 def restaurant_list_bylocation(location):
     page = request.args.get("page", 0, type=int)
