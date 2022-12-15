@@ -124,6 +124,20 @@ class DBhandler:
                 new_dict[k]=v
         return new_dict
 
+    #카테고리별 맛집 가져오기
+    def get_restaurants_bycategory(self, category):
+        restaurants = self.db.child("restaurant").get()
+        target_value=[]
+        for res in restaurants.each():
+            value = res.val()
+            if value['음식종류'] == category:
+                target_value.append(value)
+            print("######target_value",target_value)
+            new_dict={}
+            for k,v in enumerate(target_value):
+                new_dict[k]=v
+        return new_dict
+
     #리뷰 테이블 가져오기
     def get_reviews(self, name):
         reviews = self.db.child("review").get()
