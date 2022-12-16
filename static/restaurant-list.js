@@ -10,14 +10,3 @@ function toggleFavoritesImage(event) {
   else
     event.target.style.objectPosition = "0 0";
 }
-
-
-
-
-/*
-  const objectPosition12 = document.getElementsByClassName("favorites")[i].style.objectPosition;
-  if(objectPosition === "0px 0px")
-    document.getElementsByClassName("favorites")[i].style.objectPosition = "0 -30px";
-  else
-    document.getElementsByClassName("favorites")[i].style.objectPosition = "0 0";
-*/
