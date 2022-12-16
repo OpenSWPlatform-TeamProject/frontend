@@ -50,22 +50,46 @@ endblock %} {% block section %}
     <div class="filter-container">
       <form>
         <div class="food-type-container">
+          {% if foodtype=='한식' %}
+          <input type="checkbox" id="food-type1" name="한식" value="한식" checked/>
+          {% else %}
           <input type="checkbox" id="food-type1" name="한식" value="한식" />
+          {% endif %}
           <label for="food-type1"> 한식</label>
 
+          {% if foodtype=='중식' %}
+          <input type="checkbox" id="food-type2" name="중식" value="중식" checked />
+          {% else %}
           <input type="checkbox" id="food-type2" name="중식" value="중식" />
+          {% endif %}
           <label for="food-type2"> 중식</label>
 
+          {% if foodtype=='양식' %}
+          <input type="checkbox" id="food-type3" name="양식" value="양식" checked/>
+          {% else %}
           <input type="checkbox" id="food-type3" name="양식" value="양식" />
+          {% endif %}
           <label for="food-type3"> 양식</label>
 
-          <input type="checkbox" id="food-type4" name="일식" value="일식" />
+          {% if foodtype=='일식' %}
+          <input type="checkbox" id="food-type4" name="일식" value="일식" checked/>
+          {% else %}
+          <input type="checkbox" id="food-type4" name="일식" value="일식"/>
+          {% endif %}
           <label for="food-type4"> 일식</label>
 
-          <input type="checkbox" id="food-type5" name="카페" value="카페" />
+          {% if foodtype=='카페' %}
+          <input type="checkbox" id="food-type5" name="카페" value="카페" checked/>
+          {% else %}
+          <input type="checkbox" id="food-type5" name="카페" value="카페"/>
+          {% endif %}
           <label for="food-type5"> 카페</label>
 
-          <input type="checkbox" id="food-type6" name="술" value="술" />
+          {% if foodtype=='술' %}
+          <input type="checkbox" id="food-type6" name="술" value="술" checked/>
+          {% else %}
+          <input type="checkbox" id="food-type6" name="술" value="술"/>
+          {% endif %}
           <label for="food-type6"> 술</label>
         </div>
       </form>
