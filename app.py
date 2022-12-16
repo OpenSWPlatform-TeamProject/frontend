@@ -55,13 +55,13 @@ def restaurant_list():
         if sort=="newest" :
             data = dict(sorted(data.items(), key=lambda x: x[1]['timestamp'], reverse=True)[:total])
         elif sort=="best" :
-            data = dict(sorted(data.items(), key=lambda x: x[1]['rating'], reverse=True)[:total])
+            data = dict(sorted(data.items(), key=lambda x: x[1]['평점'], reverse=True)[:total])
         else : data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False)[:total])
     else:
         if sort=="newest" :
             data = dict(sorted(data.items(), key=lambda x: x[1]['timestamp'], reverse=True))
         elif sort=="best" :
-            data = dict(sorted(data.items(), key=lambda x: x[1]['rating'], reverse=True))
+            data = dict(sorted(data.items(), key=lambda x: x[1]['평점'], reverse=True))
         else : data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False))
 
     datas=dict(list(data.items())[start_idx:end_idx])
