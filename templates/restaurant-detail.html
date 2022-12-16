@@ -51,6 +51,7 @@
           />
         </a>
         </button>
+        {% if session['id'] %}
         <a href="{{addreview_path}}">
           <button>
             <img
@@ -60,6 +61,17 @@
             />
           </button>
         </a>
+        {% else %}
+          <a href="/login">
+            <button>
+              <img
+                alt="add-review"
+                src="/static/details.png"
+                style="object-position: 0 -150px"
+              />
+            </button>
+          </a>
+          {% endif %}
         <button onclick="copyToClipboard()" class="share-button">
           <img
             alt="share"
