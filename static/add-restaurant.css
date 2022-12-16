@@ -4,7 +4,7 @@ body{
 
 @font-face {
     font-family: 'modu';
-    src: url('/static/강원교육모두-Bold.woff'); format: ('woff');
+    src: url("/static/강원교육모두-Bold.woff") format('woff');
 }
 
 .content{
