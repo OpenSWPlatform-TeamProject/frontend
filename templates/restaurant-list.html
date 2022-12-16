@@ -21,23 +21,23 @@ endblock %} {% block section %}
           <!-- 지도가 들어갑니다 -->
           <div class="upper">
             <div class="criteria">
-              <a href="/restaurant/list/교내" class="mapbtn_sch">
+              <a href="{{url_for('restaurant_list', location='교내')}}" class="mapbtn_sch">
                 <img class="sch" height="150px" src="/static/교내.png" onmouseover="this.src='/static/교내호버.png'" onmouseout="this.src='/static/교내.png'">
               </a>
       
-              <a href="/restaurant/list/신촌" class="mapbtn_sin">
+              <a href="{{url_for('restaurant_list', location='신촌')}}" class="mapbtn_sin">
                 <img class="sin_img" height="150px" src="/static/신촌.png" onmouseover="this.src='/static/신촌호버.png'" onmouseout="this.src='/static/신촌.png'">
               </a>
       
-              <a href="/restaurant/list/정문"  class="mapbtn_idae" />
+              <a href="{{url_for('restaurant_list', location='정문')}}"  class="mapbtn_idae" />
               <img class="idae_img" height="80px" src="/static/이대.png" onmouseover="this.src='/static/정문.png'" onmouseout="this.src='/static/이대.png'">
             </a>
       
-              <a href="/restaurant/list/후문" class="mapbtn_back">
+              <a href="{{url_for('restaurant_list', location='후문')}}" class="mapbtn_back">
                 <img class="back_img" height="140px" src="/static/후문.png" onmouseover="this.src='/static/후문호버.png'" onmouseout="this.src='/static/후문.png'">
               </a>
       
-              <a href="/restaurant/list/아현" class="mapbtn_ahyeon">
+              <a href="{{url_for('restaurant_list', location='아현')}}" class="mapbtn_ahyeon">
                 <img class="ahyeon_img" src="/static/아현.png" height="150px" onmouseover="this.src='/static/아현 호버.png'" onmouseout="this.src='/static/아현.png'">
               </a>
           </div>
@@ -74,10 +74,10 @@ endblock %} {% block section %}
     <!-- 리스트 -->
     <section class="list-container">
       <div class="order-category">
-        <a href="/restaurant/list">
+        <a href="{{url_for('restaurant_list', sort='newest')}}">
           <button class="order-category-button">최신순</button>
         </a>
-        <a href="/restaurant/list">
+        <a href="{{url_for('restaurant_list', location='best')}}">
           <button class="order-category-button">별점순</button>
         </a>
       </div>
@@ -129,7 +129,7 @@ endblock %} {% block section %}
         <div class="page-nav">
           <ul class="page">
             <li>
-              <a href="{{url_for('restaurant_list', page=page-1)}}">
+              <a href="{{url_for('restaurant_list', location=location, page=page-1)}}">
                 <button class="page-button">
                   <i class="fa-solid fa-chevron-left"></i>
                 </button>
@@ -137,13 +137,13 @@ endblock %} {% block section %}
             </li>
             <li style="display: flex; gap: 15px">
               {% for i in range(page_count)%}
-              <a href="{{url_for('restaurant_list', page=i)}}" color="black"
+              <a href="{{url_for('restaurant_list', location=location, page=i)}}" color="black"
                 >{{i+1}}</a
               >
               {% endfor %}
             </li>
             <li>
-              <a href="{{url_for('restaurant_list', page=page+1)}}">
+              <a href="{{url_for('restaurant_list', location=location, page=page+1)}}">
                 <button class="page-button">
                   <i class="fa-solid fa-chevron-right"></i>
                 </button>

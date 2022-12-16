@@ -29,13 +29,19 @@ def add_restaurant():
 
 @application.route('/restaurant/list')
 def restaurant_list():
+    location = request.args.get("location", "all", type=str)
+    foodtype = request.args.get("foodtype", "all", type=str)
+    sort = request.args.get("sort", "", type=str)
+    search = request.args.get("search", "", type=str)
     page = request.args.get("page", 0, type=int)
-    #category = request.args.get("category", "all")
 
-    #if category=="all":
-    data = DB.get_restaurants()
-    #else:
-    #    data = DB.get_restaurants_bycategory(category)
+    print(location)
+    print(foodtype)
+    print(sort)
+    print(search)
+
+    data = DB.get_restaurants_bycondition(location, foodtype, search)
+    
     total = len(data)
     limit = 9
     if page<0:
@@ -46,15 +52,21 @@ def restaurant_list():
     end_idx=limit*(page+1)
 
     if total<=limit:
-        data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False)[:total])
+        if sort=="newest" :
+            data = dict(sorted(data.items(), key=lambda x: x[1]['timestamp'], reverse=False)[:total])
+        elif sort=="best" :
+            data = dict(sorted(data.items(), key=lambda x: x[1]['rating'], reverse=False)[:total])
+        else : data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False)[:total])
     else:
-        data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False))    #일단 이름 순으로 넣었음
-    #if request.method == 'POST':
-    #    usekey = request.form['key']
+        if sort=="newest" :
+            data = dict(sorted(data.items(), key=lambda x: x[1]['timestamp'], reverse=False))
+        elif sort=="best" :
+            data = dict(sorted(data.items(), key=lambda x: x[1]['rating'], reverse=False))
+        else : data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False))
 
     datas=dict(list(data.items())[start_idx:end_idx])
     print(datas)
-    return render_template("restaurant-list.html", datas=datas, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))   #추후 category=category, 추가하기
+    return render_template("restaurant-list.html", datas=datas, location=location, foodtype=foodtype, sort=sort, search=search, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))
 
 @application.route('/restaurant/list/<string:location>')
 def restaurant_list_bylocation(location):

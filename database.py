@@ -111,32 +111,45 @@ class DBhandler:
         return target_value
 
     #위치별 맛집 가져오기
-    def get_restaurants_bylocation(self, location):
-        restaurants = self.db.child("restaurant").get()
-        target_value=[]
-        for res in restaurants.each():
-            value = res.val()
-            if value['location'] == location:
-                target_value.append(value)
-            print("######target_value",target_value)
-            new_dict={}
-            for k,v in enumerate(target_value):
-                new_dict[k]=v
-        return new_dict
+    def get_restaurants_bycondition(self, location, foodtype, search):
+        if search : #검색 기능
+            restaurants = self.db.child("restaurant").get()
+            target_value=[]
+            for res in restaurants.each():
+                value = res.val()
+                if value['맛집이름'] == search:
+                    target_value.append(value)
+                print("######target_value",target_value)
+                new_dict={}
+                for k,v in enumerate(target_value):
+                    new_dict[k]=v
+            return new_dict
+        
+        elif location=="all" and foodtype=="all" : #전체 조회
+            restaurants = self.db.child("restaurant").get().val()
+            return restaurants
+        
+        elif location or foodtype :
+            restaurants = self.db.child("restaurant").get()
+            target_value=[]
+            for res in restaurants.each():
+                value = res.val()
+                if value['location'] == location or location=="all" :
+                    if foodtype=="all":
+                        target_value.append(value)
+                    else :
+                        for food in value['음식종류']:
+                            if food == foodtype :
+                                target_value.append(value)
+                print("######target_value",target_value)
+                new_dict={}
+                for k,v in enumerate(target_value):
+                    new_dict[k]=v
+            return new_dict
 
-    #카테고리별 맛집 가져오기
-    def get_restaurants_bycategory(self, category):
-        restaurants = self.db.child("restaurant").get()
-        target_value=[]
-        for res in restaurants.each():
-            value = res.val()
-            if value['음식종류'] == category:
-                target_value.append(value)
-            print("######target_value",target_value)
-            new_dict={}
-            for k,v in enumerate(target_value):
-                new_dict[k]=v
-        return new_dict
+        else :
+            restaurants = self.db.child("restaurant").get().val()
+            return restaurants
 
     #리뷰 테이블 가져오기
     def get_reviews(self, name):
