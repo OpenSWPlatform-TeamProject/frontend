@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, flash, redirect, url_for, ses
 from database import DBhandler
 import hashlib
 import sys
+import math
 
 application = Flask(__name__)
 DB = DBhandler()
@@ -26,18 +27,46 @@ def add_restaurant():
     else :
         return render_template("add-restaurant.html")
 
-
 @application.route('/restaurant/list')
 def restaurant_list():
+    location = request.args.get("location", "all", type=str)
+    foodtype = request.args.get("foodtype", "all", type=str)
+    sort = request.args.get("sort", "", type=str)
+    search = request.args.get("search", "", type=str)
     page = request.args.get("page", 0, type=int)
+
+    print(location)
+    print(foodtype)
+    print(sort)
+    print(search)
+
+    data = DB.get_restaurants_bycondition(location, foodtype, search)
+    
+    total = len(data)
     limit = 9
+    if page<0:
+        return redirect(url_for('restaurant_list', page=0))
+    elif page>(math.ceil(total/limit)-1):
+        return redirect(url_for('restaurant_list', page=math.ceil(total/limit)-1))
     start_idx=limit*page
     end_idx=limit*(page+1)
-    data = DB.get_restaurants()
-    total = len(data)
+
+    if total<=limit:
+        if sort=="newest" :
+            data = dict(sorted(data.items(), key=lambda x: x[1]['timestamp'], reverse=True)[:total])
+        elif sort=="best" :
+            data = dict(sorted(data.items(), key=lambda x: x[1]['rating'], reverse=True)[:total])
+        else : data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False)[:total])
+    else:
+        if sort=="newest" :
+            data = dict(sorted(data.items(), key=lambda x: x[1]['timestamp'], reverse=True))
+        elif sort=="best" :
+            data = dict(sorted(data.items(), key=lambda x: x[1]['rating'], reverse=True))
+        else : data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False))
+
     datas=dict(list(data.items())[start_idx:end_idx])
     print(datas)
-    return render_template("restaurant-list.html", datas=datas, total=total, limit=limit, page=page, page_count=int((total/9)+1))
+    return render_template("restaurant-list.html", datas=datas, location=location, foodtype=foodtype, sort=sort, search=search, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))
 
 @application.route('/restaurant/themelist')
 def restaurant_themelist():
