@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="/static/global.css" />
+    <link rel="stylesheet" href="/static/withdrawl.css" />
+  </head>
+  <body>
+    <a href="/">
+      <img class="logo" src="/static/logo_black.png" alt="logo" />
+    </a>
+    {% with mesg = get_flashed_messages() %} {% if mesg !=[] %}
+    <script>
+      alert("{{ mesg[0] }}");
+    </script>
+    {% endif %} {% endwith %}
+    <form class="withdrawl_form" action="/withdrawl" method="post">
+      <div class="login_again">탈퇴하시려면 비밀번호를 다시 입력해주세요.</div>
+      <input type="password" name="pw" id="pw" placeholder="비밀번호" />
+      <button type="submit" value="탈퇴하기">탈퇴하기</button>
+    </form>
+
+  </body>
+</html>

@@ -55,13 +55,13 @@ def restaurant_list():
         if sort=="newest" :
             data = dict(sorted(data.items(), key=lambda x: x[1]['timestamp'], reverse=True)[:total])
         elif sort=="best" :
-            data = dict(sorted(data.items(), key=lambda x: x[1]['rating'], reverse=True)[:total])
+            data = dict(sorted(data.items(), key=lambda x: x[1]['평점'], reverse=True)[:total])
         else : data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False)[:total])
     else:
         if sort=="newest" :
             data = dict(sorted(data.items(), key=lambda x: x[1]['timestamp'], reverse=True))
         elif sort=="best" :
-            data = dict(sorted(data.items(), key=lambda x: x[1]['rating'], reverse=True))
+            data = dict(sorted(data.items(), key=lambda x: x[1]['평점'], reverse=True))
         else : data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False))
 
     datas=dict(list(data.items())[start_idx:end_idx])
@@ -202,7 +202,7 @@ def sign_up():
 
 #마이페이지
 @application.route('/mypage')
-def mypage():
+def mypage(): 
     page = request.args.get("page", 0, type=int)
     limit = 9
     start_idx=limit*page
@@ -211,14 +211,32 @@ def mypage():
     total = len(data)
     datas=dict(list(data.items())[start_idx:end_idx])
     print(datas)
-    return render_template("mypage.html", datas=datas, total=total, limit=limit, page=page, page_count=int((total/9)+1))
+    return render_template("mypage.html", datas=datas, total=total, limit=limit, page=page, page_count=int((total/9)+1)) 
 
-#로그아웃
-@application.route("/logout")
-def logout_user():
-    session.clear()
-    return redirect(url_for('home'))
+#로그아웃 
+@application.route("/logout") 
+def logout_user(): 
+    session.clear() 
+    return redirect(url_for('home')) 
 
+#탈퇴하기 화면 
+@application.route('/withdrawl', methods=['POST', 'GET'])
+def withdrawl():
+    if request.method == 'POST':
+        id=session['id']
+        pw=request.form['pw']
+        pw_hash=hashlib.sha256(pw.encode('utf-8')).hexdigest()
+        print(id)
+        print(pw)
+        print(pw_hash)
+        if DB.withdrawl(id, pw_hash):
+            session.clear()
+            return redirect(url_for('home'))
+        else :
+            flash("비밀번호가 틀렸습니다")
+            return redirect(url_for('withdrawl'))
+    else :
+        return render_template("withdrawl.html")
 
 if __name__ == "__main__":
     application.secret_key = 'super secret key'
