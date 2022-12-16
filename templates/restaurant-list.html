@@ -98,10 +98,10 @@ endblock %} {% block section %}
     <!-- 리스트 -->
     <section class="list-container">
       <div class="order-category">
-        <a href="{{url_for('restaurant_list', location=location, sort='newest')}}">
+        <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort='newest')}}">
           <button class="order-category-button">최신순</button>
         </a>
-        <a href="{{url_for('restaurant_list', location=location, sort='best')}}">
+        <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort='best')}}">
           <button class="order-category-button">별점순</button>
         </a>
       </div>
@@ -153,7 +153,7 @@ endblock %} {% block section %}
         <div class="page-nav">
           <ul class="page">
             <li>
-              <a href="{{url_for('restaurant_list', location=location, page=page-1)}}">
+              <a href="{{url_for('restaurant_list', location=location, sort=sort, page=page-1)}}">
                 <button class="page-button">
                   <i class="fa-solid fa-chevron-left"></i>
                 </button>
@@ -161,13 +161,13 @@ endblock %} {% block section %}
             </li>
             <li style="display: flex; gap: 15px">
               {% for i in range(page_count)%}
-              <a href="{{url_for('restaurant_list', location=location, page=i)}}" color="black"
+              <a href="{{url_for('restaurant_list', location=location, sort=sort, page=i)}}" color="black"
                 >{{i+1}}</a
               >
               {% endfor %}
             </li>
             <li>
-              <a href="{{url_for('restaurant_list', location=location, page=page+1)}}">
+              <a href="{{url_for('restaurant_list', location=location, sort=sort, page=page+1)}}">
                 <button class="page-button">
                   <i class="fa-solid fa-chevron-right"></i>
                 </button>
