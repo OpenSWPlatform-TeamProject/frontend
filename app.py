@@ -202,15 +202,12 @@ def withdrawl():
         print(pw_hash)
         if DB.withdrawl(id, pw_hash):
             session.clear()
-            flash("지금까지 EatWha를 이용해주셔서 감사합니다. 언제든지 다시 돌아오세요.")
-            return redirect(url_for('home')) 
+            return redirect(url_for('home'))
         else :
             flash("비밀번호가 틀렸습니다")
             return redirect(url_for('withdrawl'))
     else :
         return render_template("withdrawl.html")
-
-
 
 if __name__ == "__main__":
     application.secret_key = 'super secret key'

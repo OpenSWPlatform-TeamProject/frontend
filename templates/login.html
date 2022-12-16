@@ -10,22 +10,22 @@
   </head>
   <body>
     <a href="/">
-      <img class="logo" src="/static/logo_black.png" alt="logo" />
+      <img class="logo" src="/static/logo_black.png" alt="logo" /> <!--EatWha 로고-->
     </a>
     {% with mesg = get_flashed_messages() %} {% if mesg !=[] %}
     <script>
       alert("{{ mesg[0] }}");
     </script>
     {% endif %} {% endwith %}
-    <form class="login_form" action="/login" method="post">
-      <input type="text" name="id" id="id" placeholder="아이디" />
-      <input type="password" name="pw" id="pw" placeholder="비밀번호" />
+    <form class="login_form" action="/login" method="post"> 
+      <input type="text" name="id" id="id" placeholder="아이디" /> <!--ID 입력-->
+      <input type="password" name="pw" id="pw" placeholder="비밀번호" /> <!--비밀번호 입력-->
       <button type="submit" value="로그인">로그인</button>
     </form>
     <section class="sign_up_section">
       <div class="has_not_signed_up">아직 회원이 아니신가요?</div>
-      <a href="/signup">
-        <button class="sign_up_button">회원가입하기</button>
+      <a href="/signup"> <!--회원가입 페이지-->
+        <button class="sign_up_button">회원가입하기</button> 
       </a>
     </section>
   </body>
