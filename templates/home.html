@@ -48,9 +48,15 @@
 
         <!-- 맛집등록하기 버튼-->
         <div class="add-restaurant">
+          {% if session['id'] %}
           <a href="/restaurant/add">
             <button class="add-btn">맛집 등록</button>
           </a>
+          {% else %}
+          <a href="/login">
+          <button class="add-btn">맛집 등록</button>
+          </a>
+          {% endif %}
         </div>
       </div>
     </div>
