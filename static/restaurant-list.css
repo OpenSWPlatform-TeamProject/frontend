@@ -285,6 +285,7 @@ label{
 .card-container{
     display: flex;
     flex-direction: row;
+
     gap: 20px;
     flex-wrap: wrap;
 }
@@ -312,6 +313,8 @@ button{
     width:15.5vw;
     height:25vh;
     color: #3B3838;
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 30%);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .card-title{
@@ -325,10 +328,21 @@ button{
 }
 
 .heart-button{
-    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 10px;
+    box-shadow: none;
+    border: 0;
     position: absolute;
     top:0;
     right:0;
+}
+
+.favorites{
+    width: 30px;
+    height: 30px; 
+    object-fit: cover;
 }
 
 .stars-pic{

@@ -128,39 +128,46 @@ endblock %} {% block section %}
 
       <div class="card-container">
         {% if total > 0 %} {% for data in datas %}
-        <a href="/restaurant/detail/{{datas[data]['맛집이름']}}">
-          <button class="card">
-            <img class="heart-button" src="/static/heart_empty.png" />
-            {% if datas[data]['vegan']|length == 2 %}
-            <div class="card-vegan">
-              <img
-                class="vegan-pic"
-                src="/static/vegan.png"
-                alt="vegan-sticker1"
-              />
-            </div>
-            {% else %} {% endif %}
-
-            <div class="card-title">{{datas[data]['맛집이름']}}</div>
-            {% if datas[data]['음식종류']|length <= 1 %}
-            <div class="card-hashtag">
-              #{{datas[data]['음식종류'][0]}} #{{datas[data]['pricerange']}}
-            </div>
-            {% else %}
-            <div class="card-hashtag">
-              #{{datas[data]['음식종류'][0]}} #{{datas[data]['음식종류'][1]}}
-              #{{datas[data]['pricerange']}}
-            </div>
-            {% endif %}
-            <div class="card-rating">
-              <img
-                class="stars-pic"
-                src="/static/ratings_4.png"
-                alt="card-rating1"
-              />
-            </div>
+        <!-- 주소 "/restaurant/detail/{{datas[data]['맛집이름']}}" -->
+        <div class="card" onclick="handleCardClick()">
+          <button class="heart-button" onclick="toggleFavoritesImage(event)">
+            <img
+              alt="favorites"
+              src="/static/details.png"
+              style="object-position: 0 0"
+              class="favorites"
+            />
           </button>
-        </a>
+
+          {% if datas[data]['vegan']|length == 2 %}
+          <div class="card-vegan">
+            <img
+              class="vegan-pic"
+              src="/static/vegan.png"
+              alt="vegan-sticker1"
+            />
+          </div>
+          {% else %} {% endif %}
+
+          <div class="card-title">{{datas[data]['맛집이름']}}</div>
+          {% if datas[data]['음식종류']|length <= 1 %}
+          <div class="card-hashtag">
+            #{{datas[data]['음식종류'][0]}} #{{datas[data]['pricerange']}}
+          </div>
+          {% else %}
+          <div class="card-hashtag">
+            #{{datas[data]['음식종류'][0]}} #{{datas[data]['음식종류'][1]}}
+            #{{datas[data]['pricerange']}}
+          </div>
+          {% endif %}
+          <div class="card-rating">
+            <img
+              class="stars-pic"
+              src="/static/ratings_4.png"
+              alt="card-rating1"
+            />
+          </div>
+        </div>
         {% endfor %}
       </div>
 
