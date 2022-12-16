@@ -2,6 +2,11 @@ body{
     color: #3B3838;
 }
 
+@font-face {
+    font-family: 'modu';
+    src: url("/static/강원교육모두-Bold.woff") format('woff');
+}
+
 .content{
     margin-left: 25%;
     margin-right: 25%;
@@ -215,7 +220,7 @@ input[type="radio"]:checked + label:after{
 }
 
 .insert-title{
-    margin-top: 40px;
+    margin-top: 50px;
     margin-bottom: 30px;
     font-size: 24px;
 }
@@ -248,45 +253,29 @@ textarea{
 
 .img-container{
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.img-container input[type="file"]{
-    display: flex;
-    flex-direction: row;
-    align-content: stretch;
-    position: absolute;
-    width: 0;
-    height: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
+   flex-direction: row;
+    justify-content: flex-start;
+    font-size:18px;
 }
 
-.img-container label{
-    padding: 10px 20px;
+input[name=file]::file-selector-button {
     color: white;
-    background-color: #FD5D5D;
+    background: #FD5D5D;
     box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
     border: none;
-    cursor: pointer;
     border-radius: 8px;
-    height: 40px;
-    margin-left: 10px;
+    cursor: pointer;
+    height:40px;
+    width:85px;
+    margin-right:40px;
+    font-size:18px;
+    font-family:'modu';
 }
-.img-preview{
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    padding-left: 25%;
-    width: 60%;
-    height: 250px;
-    border: none;
-    background-color:  #e7e6e6;
-    border-radius: 13%;
-    font-size: 30px;
-    color: white;
+
+input[name=file] {
+    font-size:18px;
 }
+
 
 /* 등록버튼 */
 .submit-button{
