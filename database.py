@@ -1,5 +1,6 @@
 import pyrebase
 import json
+from datetime import datetime
 
 class DBhandler:
     def __init__(self) :
@@ -47,6 +48,9 @@ class DBhandler:
             "sundaytime":data['sundaytime'],
             "isBreaktime":data['isBreaktime'],
             "breakday":data.getlist('breakday'),
+
+            "평점":0,
+            "timestamp":datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
 
             "img_path":img_path
         } 

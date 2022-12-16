@@ -53,13 +53,13 @@ def restaurant_list():
 
     if total<=limit:
         if sort=="newest" :
-            data = dict(sorted(data.items(), key=lambda x: x[1]['timestamp'], reverse=False)[:total])
+            data = dict(sorted(data.items(), key=lambda x: x[1]['timestamp'], reverse=True)[:total])
         elif sort=="best" :
             data = dict(sorted(data.items(), key=lambda x: x[1]['rating'], reverse=False)[:total])
         else : data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False)[:total])
     else:
         if sort=="newest" :
-            data = dict(sorted(data.items(), key=lambda x: x[1]['timestamp'], reverse=False))
+            data = dict(sorted(data.items(), key=lambda x: x[1]['timestamp'], reverse=True))
         elif sort=="best" :
             data = dict(sorted(data.items(), key=lambda x: x[1]['rating'], reverse=False))
         else : data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False))

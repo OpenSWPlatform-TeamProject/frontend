@@ -74,10 +74,10 @@ endblock %} {% block section %}
     <!-- 리스트 -->
     <section class="list-container">
       <div class="order-category">
-        <a href="{{url_for('restaurant_list', sort='newest')}}">
+        <a href="{{url_for('restaurant_list', location=location, sort='newest')}}">
           <button class="order-category-button">최신순</button>
         </a>
-        <a href="{{url_for('restaurant_list', location='best')}}">
+        <a href="{{url_for('restaurant_list', location=location, sort='best')}}">
           <button class="order-category-button">별점순</button>
         </a>
       </div>
