@@ -67,13 +67,25 @@ class DBhandler:
         review_info ={
             "맛집이름":name,
             "메뉴이름":data['메뉴이름'],
-            "평점":data['평점'],
+            "평점":int(data['평점']),
             "timePeriod":data['timePeriod'],
             "waiting":data['waiting'],
             "리뷰작성내용":data['리뷰작성내용'],
             "img_path":img_path
         }
         print(review_info)
+        
+        restaurants = self.db.child("restaurant").get()
+        for res in restaurants.each():
+            value = res.val()
+            if value['맛집이름'] == name:
+                key = res.key()
+                reviews=DBhandler.get_reviews(self, name)
+                total=len(reviews)
+                num=float((int(data['평점'])+total*float(value['평점']))/(total+1))
+                print(num)
+                self.db.child("restaurant").child(key).update({"평점": float((int(data['평점'])+total*float(value['평점']))/(total+1))})
+
         self.db.child("review").push(review_info)
         print(data,img_path)
         return True
