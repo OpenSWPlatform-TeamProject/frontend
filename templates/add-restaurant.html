@@ -1,5 +1,6 @@
 {% extends "base.html" %} {% block title %}add-restaurant{% endblock %} {% block
-css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <script src="/static/add-restaurant.js"></script>
+css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
+<script src="/static/add-restaurant.js"></script>
 {% endblock %} {% block section %}
 <section>
   <div class="topbar">
@@ -146,11 +147,11 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <script src="
 
       <!-- 외부 사이트 입력 -->
       <input
-      type="text"
-      name="othersite"
-      id="other-site"
-      class="input"
-      placeholder="외부 사이트"
+        type="text"
+        name="othersite"
+        id="other-site"
+        class="input"
+        placeholder="외부 사이트"
       /><br />
 
       <!-- 주차 가능 여부 -->
@@ -165,15 +166,7 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <script src="
       <!-- 대표 이미지 넣기 -->
       <h3 class="insert-title">대표 사진</h3>
       <div class="img-container">
-        <input
-          type="file"
-          name="rfile"
-          id="fileUpload"
-          accept="image/*"
-          onchange="setThumbnail(event);"
-        />
-        <label for="fileUpload">파일 선택</label>
-        <div class="img-preview">사진</div>
+        <input type="file" name="file" accept="image/*" />
       </div>
 
       <!-- 영업시간 입력 -->
@@ -319,9 +312,9 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <script src="
       <div class="breaktime-container">
         <h3 class="insert-title">브레이크 타임</h3>
         <div class="breaktime-answer-container">
-          <input type="radio" id="yes-breakt" name="isBreaktime" value="YES"/>
+          <input type="radio" id="yes-breakt" name="isBreaktime" value="YES" />
           <label for="yes-breakt">네</label>
-          <input type="radio" id="no-breakt" name="isBreaktime" value="NO"/>
+          <input type="radio" id="no-breakt" name="isBreaktime" value="NO" />
           <label for="no-breakt">아니요</label><br />
         </div>
       </div>
@@ -330,9 +323,9 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" /> <script src="
       <!-- 등록 버튼 & 다른 대표메뉴 추가 -->
       <div class="submit-button-container">
         <button class="submit-button">등록</button>
-      <a href="add-menu.html">
-        <button class="submit-button">대표 메뉴 등록하기</button>
-      </a>
+        <a href="add-menu.html">
+          <button class="submit-button">대표 메뉴 등록하기</button>
+        </a>
       </div>
     </form>
   </div>
