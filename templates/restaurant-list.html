@@ -23,41 +23,41 @@ endblock %} {% block section %}
             <div class="criteria">
               <a href="{{url_for('restaurant_list', location='교내')}}" class="mapbtn_sch">
                 {% if location=='교내' %}
-                <img class="sch" height="150px" src="/static/교내.png">
+                <img height="160px" src="/static/교내.png">
                 {% else %}
-                <img class="sch" height="150px" src="/static/교내흑백.png" onmouseover="this.src='/static/교내호버.png'" onmouseout="this.src='/static/교내흑백.png'">
+                <img height="160px" src="/static/교내흑백.png" onmouseover="this.src='/static/교내호버.png'" onmouseout="this.src='/static/교내흑백.png'">
                 {% endif %}
               </a>
       
               <a href="{{url_for('restaurant_list', location='신촌')}}" class="mapbtn_sin">
                 {% if location=='신촌' %}
-                <img class="sch" height="150px" src="/static/신촌.png">
+                <img height="135px" src="/static/신촌.png">
                 {% else %}
-                <img class="sin_img" height="150px" src="/static/신촌흑백.png" onmouseover="this.src='/static/신촌호버.png'" onmouseout="this.src='/static/신촌흑백.png'">
+                <img height="135px" src="/static/신촌흑백.png" onmouseover="this.src='/static/신촌호버.png'" onmouseout="this.src='/static/신촌흑백.png'">
                 {% endif %}
               </a>
       
               <a href="{{url_for('restaurant_list', location='정문')}}"  class="mapbtn_idae" />
               {% if location=='정문' %}
-              <img class="sch" height="150px" src="/static/이대.png">
+              <img height="90px" src="/static/정문.png">
               {% else %}
-              <img class="idae_img" height="80px" src="/static/정문흑백.png" onmouseover="this.src='/static/정문.png'" onmouseout="this.src='/static/정문흑백.png'">
+              <img height="90px" src="/static/정문흑백.png" onmouseover="this.src='/static/정문호버.png'" onmouseout="this.src='/static/정문흑백.png'">
               {% endif %}
             </a>
       
               <a href="{{url_for('restaurant_list', location='후문')}}" class="mapbtn_back">
                 {% if location=='후문' %}
-                <img class="sch" height="150px" src="/static/후문.png">
+                <img height="150px" src="/static/후문.png">
                 {% else %}
-                <img class="back_img" height="140px" src="/static/후문흑백.png" onmouseover="this.src='/static/후문호버.png'" onmouseout="this.src='/static/후문흑백.png'">
+                <img height="150px" src="/static/후문흑백.png" onmouseover="this.src='/static/후문호버.png'" onmouseout="this.src='/static/후문흑백.png'">
                 {% endif %}
               </a>
       
               <a href="{{url_for('restaurant_list', location='아현')}}" class="mapbtn_ahyeon">
                 {%if location =='아현'%}
-                <img class="sch" height="150px" src="/static/아현.png">
+                <img height="150px" src="/static/아현.png">
                 {% else %}
-                <img class="ahyeon_img" src="/static/아현흑백.png" height="150px" onmouseover="this.src='/static/아현 호버.png'" onmouseout="this.src='/static/아현흑백.png'">
+                <img src="/static/아현흑백.png" height="150px" onmouseover="this.src='/static/아현호버.png'" onmouseout="this.src='/static/아현흑백.png'">
                 {% endif %}
               </a>
           </div>
@@ -152,11 +152,13 @@ endblock %} {% block section %}
           <div class="card-title">{{datas[data]['맛집이름']}}</div>
           {% if datas[data]['음식종류']|length <= 1 %}
           <div class="card-hashtag">
-            #{{datas[data]['음식종류'][0]}} #{{datas[data]['pricerange']}}
+            #{{datas[data]['음식종류'][0]}}
+            <br> #{{datas[data]['pricerange']}}
           </div>
           {% else %}
           <div class="card-hashtag">
             #{{datas[data]['음식종류'][0]}} #{{datas[data]['음식종류'][1]}}
+             <br>
             #{{datas[data]['pricerange']}}
           </div>
           {% endif %}
