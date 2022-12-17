@@ -27,23 +27,23 @@
     <div class="map">
       <div class="criteria">
         <a href="{{url_for('restaurant_list', location='교내')}}" class="mapbtn_sch">
-          <img class="sch" height="150px" src="/static/교내.png" onmouseover="this.src='/static/교내호버.png'" onmouseout="this.src='/static/교내.png'">
+          <img height="160px" src="/static/교내.png" onmouseover="this.src='/static/교내호버.png'" onmouseout="this.src='/static/교내.png'">
         </a>
 
         <a href="{{url_for('restaurant_list', location='신촌')}}" class="mapbtn_sin">
-          <img class="sin_img" height="150px" src="/static/신촌.png" onmouseover="this.src='/static/신촌호버.png'" onmouseout="this.src='/static/신촌.png'">
+          <img height="135px" src="/static/신촌.png" onmouseover="this.src='/static/신촌호버.png'" onmouseout="this.src='/static/신촌.png'">
         </a>
 
         <a href="{{url_for('restaurant_list', location='정문')}}"  class="mapbtn_idae" />
-        <img class="idae_img" height="80px" src="/static/이대.png" onmouseover="this.src='/static/정문.png'" onmouseout="this.src='/static/이대.png'">
+        <img height="90px" src="/static/정문.png" onmouseover="this.src='/static/정문호버.png'" onmouseout="this.src='/static/정문.png'">
       </a>
 
         <a href="{{url_for('restaurant_list', location='후문')}}" class="mapbtn_back">
-          <img class="back_img" height="140px" src="/static/후문.png" onmouseover="this.src='/static/후문호버.png'" onmouseout="this.src='/static/후문.png'">
+          <img height="150px" src="/static/후문.png" onmouseover="this.src='/static/후문호버.png'" onmouseout="this.src='/static/후문.png'">
         </a>
 
         <a href="{{url_for('restaurant_list', location='아현')}}" class="mapbtn_ahyeon">
-          <img class="ahyeon_img" src="/static/아현.png" height="150px" onmouseover="this.src='/static/아현 호버.png'" onmouseout="this.src='/static/아현.png'">
+          <img src="/static/아현.png" height="150px" onmouseover="this.src='/static/아현호버.png'" onmouseout="this.src='/static/아현.png'">
         </a>
 
         <!-- 맛집등록하기 버튼-->
@@ -177,9 +177,9 @@
   </div>
   <!-- 테마별 맛집 -->
   <div class="theme">
-    <ul class="themes">
-      <div class="theme-title">오늘의 맛집은 여깃화</div>
-      <li>
+    <div class="theme-title">오늘의 맛집은 여깃화</div>
+    <div class="cards">
+      <div class="card">
         <a href="/restaurant/themelist">
           <button class="theme-restaurant">
             <span class="theme-icon">
@@ -196,9 +196,9 @@
             >
           </button>
         </a>
-      </li>
+      </div>
 
-      <li>
+      <div class="card">
         <a href="/restaurant/themelist">
           <button class="theme-restaurant">
             <span class="theme-icon"
@@ -210,9 +210,9 @@
             <span class="theme-name">#카공하기_ <br />좋은_카페</span>
           </button>
         </a>
-      </li>
+      </div>
 
-      <li>
+      <div class="card">
         <a href="/restaurant/themelist">
           <button class="theme-restaurant">
             <span class="theme-icon"
@@ -224,9 +224,9 @@
             <span class="theme-name">#프로혼밥러_ <br />추천_맛집</span>
           </button>
         </a>
-      </li>
+      </div>
 
-      <li>
+      <div class="card">
         <a href="/restaurant/themelist">
           <button class="theme-restaurant">
             <span class="theme-icon"
@@ -238,9 +238,10 @@
             <span class="theme-name">#새내기_밥약은<br />_여기가_딱</span>
           </button>
         </a>
-      </li>
+        </div>
+      
 
-      <li>
+      <div class="card">
         <a href="/restaurant/themelist">
           <button class="theme-restaurant">
             <span class="theme-icon"
@@ -252,9 +253,9 @@
             <span class="theme-name">#이대_앞_<br />가성비_맛집</span>
           </button>
         </a>
-      </li>
+      </div>
 
-      <li>
+      <div class="card">
         <a href="/restaurant/themelist">
           <button class="theme-restaurant">
             <span class="theme-icon"
@@ -266,8 +267,8 @@
             <span class="theme-name">#회식_장소_<br />고민은_끝</span>
           </button>
         </a>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </section>
 {% endblock %}
