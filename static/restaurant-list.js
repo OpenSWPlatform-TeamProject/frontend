@@ -1,7 +1,3 @@
-function handleCardClick() {
-  console.log("화면 이동 했어요!");
-}
-
 function toggleFavoritesImage(event) {
   event.stopPropagation();
   const objectPosition = event.target.style.objectPosition;
