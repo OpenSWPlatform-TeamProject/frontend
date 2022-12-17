@@ -12,7 +12,7 @@ endblock %} {% block section %}
 
   <div class="content">
     <!-- 위치 선택 -->
-    <div class="select-location">
+    <div class="select-location" ㅡargin-top="530px">
       <h3 class="insert-title">위치</h3>
       <form>
         <div class="filter-container">
@@ -22,42 +22,52 @@ endblock %} {% block section %}
           <div class="upper">
             <div class="criteria">
               <a href="{{url_for('restaurant_list', location='교내')}}" class="mapbtn_sch">
-                {% if location=='교내' %}
+                {% if location=='신촌' or location=='정문' or location=='아현' or location=='후문' %}
+                <img height="160px" src="/static/교내흑백.png" onmouseover="this.src='/static/교내호버.png'" onmouseout="this.src='/static/교내흑백.png'">
+                {% elif location =="교내" %}
                 <img height="160px" src="/static/교내.png">
                 {% else %}
-                <img height="160px" src="/static/교내흑백.png" onmouseover="this.src='/static/교내호버.png'" onmouseout="this.src='/static/교내흑백.png'">
+                <img height="160px" src="/static/교내.png" onmouseover="this.src='/static/교내호버.png'" onmouseout="this.src='/static/교내.png'">
                 {% endif %}
               </a>
       
               <a href="{{url_for('restaurant_list', location='신촌')}}" class="mapbtn_sin">
-                {% if location=='신촌' %}
+                {% if location=='교내' or location=='정문' or location=='아현' or location=='후문' %}
+                <img height="135px" src="/static/신촌흑백.png" onmouseover="this.src='/static/신촌호버.png'" onmouseout="this.src='/static/신촌흑백.png'">
+                {% elif location =="신촌" %}
                 <img height="135px" src="/static/신촌.png">
                 {% else %}
-                <img height="135px" src="/static/신촌흑백.png" onmouseover="this.src='/static/신촌호버.png'" onmouseout="this.src='/static/신촌흑백.png'">
+                <img height="135px" src="/static/신촌.png" onmouseover="this.src='/static/신촌호버.png'" onmouseout="this.src='/static/신촌.png'">
                 {% endif %}
               </a>
       
               <a href="{{url_for('restaurant_list', location='정문')}}"  class="mapbtn_idae" />
-              {% if location=='정문' %}
+              {% if location=='신촌' or location=='교내' or location=='아현' or location=='후문' %}
+              <img height="90px" src="/static/정문흑백.png" onmouseover="this.src='/static/정문호버.png'" onmouseout="this.src='/static/정문흑백.png'">
+              {% elif location =="정문" %}
               <img height="90px" src="/static/정문.png">
               {% else %}
-              <img height="90px" src="/static/정문흑백.png" onmouseover="this.src='/static/정문호버.png'" onmouseout="this.src='/static/정문흑백.png'">
+              <img height="90px" src="/static/정문.png" onmouseover="this.src='/static/정문호버.png'" onmouseout="this.src='/static/정문.png'">
               {% endif %}
             </a>
       
               <a href="{{url_for('restaurant_list', location='후문')}}" class="mapbtn_back">
-                {% if location=='후문' %}
+                {% if location=='신촌' or location=='정문' or location=='아현' or location=='교내' %}
+                <img height="150px" src="/static/후문흑백.png" onmouseover="this.src='/static/후문호버.png'" onmouseout="this.src='/static/후문흑백.png'">
+                {% elif location =="후문" %}
                 <img height="150px" src="/static/후문.png">
                 {% else %}
-                <img height="150px" src="/static/후문흑백.png" onmouseover="this.src='/static/후문호버.png'" onmouseout="this.src='/static/후문흑백.png'">
+                <img height="150px" src="/static/후문.png" onmouseover="this.src='/static/후문호버.png'" onmouseout="this.src='/static/후문.png'">
                 {% endif %}
               </a>
       
               <a href="{{url_for('restaurant_list', location='아현')}}" class="mapbtn_ahyeon">
-                {%if location =='아현'%}
+                {% if location=='신촌' or location=='정문' or location=='교내' or location=='후문' %}
+                <img src="/static/아현흑백.png" height="150px" onmouseover="this.src='/static/아현호버.png'" onmouseout="this.src='/static/아현흑백.png'">
+                {% elif location =="아현" %}
                 <img height="150px" src="/static/아현.png">
                 {% else %}
-                <img src="/static/아현흑백.png" height="150px" onmouseover="this.src='/static/아현호버.png'" onmouseout="this.src='/static/아현흑백.png'">
+                <img src="/static/아현.png" height="150px" onmouseover="this.src='/static/아현호버.png'" onmouseout="this.src='/static/아현.png'">
                 {% endif %}
               </a>
           </div>
