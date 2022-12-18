@@ -27,6 +27,20 @@ def add_restaurant():
     else :
         return render_template("add-restaurant.html")
 
+@application.route('/restaurant/addmenu',methods=['POST', 'GET'])
+def add_restaurant():
+    if request.method == 'POST':
+        image_file=request.files["rfile"]
+        image_file.save("static/image/{}".format(image_file.filename))
+        data=request.form
+        print(data)
+        if DB.add_restaurant(data['맛집이름'], data, "/static/image/"+image_file.filename):
+            return redirect(url_for('add_menu', restaurant=data['맛집이름']))
+        else :
+            return "Restaurant name already exist!"
+    else :
+        return render_template("add-restaurant.html")
+
 @application.route('/restaurant/list')
 def restaurant_list():
     location = request.args.get("location", "all", type=str)
