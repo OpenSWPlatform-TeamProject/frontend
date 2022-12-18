@@ -19,7 +19,7 @@ section %}
   <div class="content">
     <!-- 음식 이름 입력 -->
     <form
-      action="/menu/add/{{맛집이름}}"
+      
       method="post"
       enctype="multipart/form-data"
     >
@@ -75,11 +75,11 @@ section %}
 
       <!-- 등록 버튼 & 다른 대표메뉴 추가 -->
       <div class="submit-button-container">
-        <a href="restaurant-detail.html">
-          <button class="submit-button">등록</button>
+        <a href="/restaurant/detail/{{맛집이름}}">
+          <button class="submit-button" onclick="javascript: form.action='/menu/add/{{맛집이름}}'">등록</button>
         </a>
-        <a href="add-menu.html">
-          <button class="submit-button">다른 메뉴 등록하기</button>
+        <a href="/menu/add/{{맛집이름}}">
+          <button class="submit-button" onclick="javascript: form.action='/menu/addanother/{{맛집이름}}'">다른 메뉴 등록하기</button>
         </a>
       </div>
     </form>
