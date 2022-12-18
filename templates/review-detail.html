@@ -11,13 +11,21 @@ css %} <link href="/static/review-detail.css" rel="stylesheet" /> {% endblock %}
 <box class="box">
   <div class="reviewbox">
     <!-- 앞뒤 버튼 -->
-    <a href="#" class="prevEnd">
+    {% if page == 0 %} {% else %}
+    <a
+      href="{{url_for('review_detail', restaurant=맛집이름, page=page-1)}}"
+      class="prevEnd"
+    >
       <i class="fa-solid fa-chevron-left fa-2x"></i>
     </a>
-
-    <a href="#" class="nextEnd">
+    {% endif %} {% if page+1 == total %} {% else %}
+    <a
+      href="{{url_for('review_detail', restaurant=맛집이름, page=page+1)}}"
+      class="nextEnd"
+    >
       <i class="fa-solid fa-chevron-right fa-2x"></i>
     </a>
+    {% endif %}
     <!-- 리뷰 -->
 
     <div class="box-top">
@@ -74,7 +82,9 @@ css %} <link href="/static/review-detail.css" rel="stylesheet" /> {% endblock %}
       </div>
     </div>
     <div class="bottom">
-      <a href="#" class="erase">삭제하기</a>
+      {% if session['id'] == data[1].writer %}
+      <a href="" class="erase">삭제하기</a>
+      {% else %} {% endif %}
     </div>
   </div>
 </box>

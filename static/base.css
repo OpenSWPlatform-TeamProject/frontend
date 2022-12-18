@@ -28,6 +28,11 @@
     justify-content: center;
 }
   
+.fa-solid{
+    box-shadow: none;
+    all: unset;
+}
+
 .search {
     height: 50px;
 }

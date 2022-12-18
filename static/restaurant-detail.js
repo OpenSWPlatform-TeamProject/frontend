@@ -1,17 +1,35 @@
-function toggleFavoritesImage() {
-  const objectPosition = document.getElementsByClassName("favorites")[0].style.objectPosition;
-  if(objectPosition === "0px 0px")
-    document.getElementsByClassName("favorites")[0].style.objectPosition = "0 -30px";
-  else
-    document.getElementsByClassName("favorites")[0].style.objectPosition = "0 0";
+function toggleFavoritesImage(event) {
+  const objectPosition = event.target.style.objectPosition;
+
+  if (objectPosition === "0px 0px") {
+    event.target.style.objectPosition = "0 -30px";
+    event.currentTarget.value = true;
+  }
+  else {
+    event.target.style.objectPosition = "0 0";
+    event.currentTarget.value = false;
+  }
 }
 
-function toggleLikesImage() {
-  const objectPosition = document.getElementsByClassName("likes")[0].style.objectPosition;
-  if(objectPosition === "0px -60px")
-    document.getElementsByClassName("likes")[0].style.objectPosition = "0 -90px";
-  else
-    document.getElementsByClassName("likes")[0].style.objectPosition = "0px -60px";
+function toggleLikesImage(event) {
+  const objectPosition = event.target.style.objectPosition;
+  const numberOfLikes = parseInt(document.getElementsByClassName("number-of-likes").innerText);
+
+  if (objectPosition === "0px -60px") {
+    event.target.style.objectPosition = "0 -90px";
+    event.currentTarget.value = true;
+    const newLikes = toString(numberOfLikes + 1);
+    document.getElementsByClassName("number-of-likes").innerText = newLikes;
+    document.getElementsByClassName("number-of-likes").value = newLikes;
+  }
+
+  else {
+    event.target.style.objectPosition = "0px -60px";
+    event.currentTarget.value = false;
+    const newLikes = toString(numberOfLikes - 1);
+    document.getElementsByClassName("number-of-likes").innerText = newLikes;
+    document.getElementsByClassName("number-of-likes").value = newLikes;
+  }
 }
 
 function copyToClipboard() {
