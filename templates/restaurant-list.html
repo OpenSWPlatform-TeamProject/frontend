@@ -16,7 +16,7 @@ endblock %} {% block section %}
 
   <div class="content">
     <!-- 위치 선택 -->
-    <div class="select-location" ㅡargin-top="530px">
+    <div class="select-location">
       <h3 class="insert-title">위치</h3>
       <form>
         <div class="filter-container">
@@ -195,26 +195,33 @@ endblock %} {% block section %}
       <div class="page-move-wrap">
         <div class="page-nav">
           <ul class="page">
+
             <li>
-              <a href="{{url_for('restaurant_list', location=location, sort=sort, page=page-1)}}">
+            {% if page == 0 %}
+            {% else %}
+              <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort=sort, page=page-1)}}">
                 <button class="page-button">
                   <i class="fa-solid fa-chevron-left"></i>
                 </button>
               </a>
             </li>
+            {%endif%}
             <li style="display: flex; gap: 15px">
               {% for i in range(page_count)%}
-              <a href="{{url_for('restaurant_list', location=location, sort=sort, page=i)}}" color="black"
+              <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort=sort, page=i)}}" color="black"
                 >{{i+1}}</a
               >
               {% endfor %}
             </li>
             <li>
-              <a href="{{url_for('restaurant_list', location=location, sort=sort, page=page+1)}}">
+              {% if page+1 == page_count %}
+              {% else %}
+              <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort=sort, page=page+1)}}">
                 <button class="page-button">
                   <i class="fa-solid fa-chevron-right"></i>
                 </button>
               </a>
+              {% endif %}
             </li>
           </ul>
         </div>

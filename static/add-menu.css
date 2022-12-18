@@ -2,6 +2,11 @@ body{
     font-family:'GangwonEdu_OTFBoldA';
 }
 
+@font-face {
+    font-family: 'modu';
+    src: url("/static/강원교육모두-Bold.woff") format('woff');
+}
+
 .content{
     margin-left: 25%;
     margin-right: 25%;
@@ -47,47 +52,32 @@ body{
 }
 
 /*Upload img file */
+
 .img-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-}
-.img-container input[type="file"]{
-    display: flex;
-    flex-direction: row;
-    align-content: stretch;
-    position: absolute;
-    width: 0;
-    height: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
+    justify-content: flex-start;
+    font-size:18px;
 }
 
-.img-container label{
-    padding: 10px 20px;
+input[type=file]::file-selector-button {
     color: white;
-    background-color: #FD5D5D;
+    background: #FD5D5D;
     box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
     border: none;
-    cursor: pointer;
     border-radius: 8px;
-    height: 40px;
-    margin-left: 10px;
+    cursor: pointer;
+    height:40px;
+    width:85px;
+    margin-right:40px;
+    font-size:18px;
+    font-family:'modu';
 }
-.img-preview{
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    padding-left: 25%;
-    width: 50%;
-    height: 250px;
-    border: none;
-    background-color: #e7e6e6;
-    border-radius: 13%;
-    font-size: 30px;
-    color: white;
+
+input[type=file] {
+    font-size:18px;
 }
+
 
 /* radio button customize */
 input[type=radio]:checked, input[type=radio]:not(:checked){
@@ -147,48 +137,6 @@ input[type="radio"]:checked + label:after{
 .price-container, .location-container{
     display: flex;
     justify-content: space-between;
-}
-
-/*Upload img file */
-
-.img-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.img-container input[type="file"]{
-    display: flex;
-    flex-direction: row;
-    align-content: stretch;
-    position: absolute;
-    width: 0;
-    height: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
-}
-
-.img-container label{
-    padding: 10px 20px;
-    color: white;
-    background-color: #FD5D5D;
-    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
-    border: none;
-    cursor: pointer;
-    border-radius: 8px;
-    height: 40px;
-    margin-left: 10px;
-}
-.img-preview{
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    width: 60%;
-    height: 200px;
-    border: none;
-    background-color: rgb(230, 230, 230);
-    border-radius: 10%;
-    font-size: 24px;
 }
 
 .insert-title{

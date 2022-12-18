@@ -138,14 +138,14 @@ def add_review(restaurant):
 @application.route('/review/list/<string:restaurant>')
 def review_list(restaurant):
     page = request.args.get("page", 0, type=int)
-    limit = 9
+    limit = 6
     start_idx=limit*page
     end_idx=limit*(page+1)
     data = DB.get_reviews(restaurant)
     total = len(data)
     datas=dict(list(data.items())[start_idx:end_idx])
     print(data)
-    return render_template("review-list.html", datas=datas, 맛집이름=restaurant, total=total, limit=limit, page=page, page_count=int((total/9)+1))   
+    return render_template("review-list.html", datas=datas, 맛집이름=restaurant, total=total, limit=limit, page=page, page_count=int((total/6)+1))   
     
 @application.route('/review/detail/<string:restaurant>')
 def review_detail(restaurant):
@@ -157,7 +157,7 @@ def review_detail(restaurant):
     review=list(data.items())[idx]
     print(review)
     print(review[1])
-    return render_template("review-detail.html", data=review, 맛집이름=restaurant, page=page)   
+    return render_template("review-detail.html", data=review, 맛집이름=restaurant, page=page, total=total)   
     
 @application.route('/review/my')
 def myreview_list():
