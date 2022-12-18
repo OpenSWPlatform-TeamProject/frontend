@@ -34,11 +34,11 @@ body{
 .title {
     color: black;
     font-size: 25px;
-    margin-bottom: 50px;
 }
   
 .title-description {
     color: rgba(0, 0, 0, 0.3);
+    margin-top: 25px;
 }
 
 /* body 안에 소제목 */

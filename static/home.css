@@ -141,6 +141,11 @@ body {
   font-size: 16px;
 }
 
+.fa-solid{
+  box-shadow: none;
+  all: unset;
+}
+
 .search {
   height: 50px;
   display: flex;
