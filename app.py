@@ -99,17 +99,17 @@ def restaurant_detail(restaurant):
     else :
         return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, data2=data2, leng=leng, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
 
-@application.route('/restaurant/my')
-def my_fav_list():
-    id=session['id']
-    isFavorite=session['isFavorite']
-    data = DB.get_users(id, isFavorite)
-    print(data)
-    if(data):
-        tot_count=len(data)
-        return render_template("my-fav-list.html", data=data, total=tot_count)
-    else:
-        return "Error!"
+#@application.route('/restaurant/my')
+#def my_fav_list():
+#    id=session['id']
+#    isFavorite=session['isFavorite']
+#    data = DB.get_users(id, isFavorite)
+#    print(data)
+#    if(data):
+#        tot_count=len(data)
+#        return render_template("my-fav-list.html", data=data, total=tot_count)
+#    else:
+#        return "Error!"
 
 #리뷰 화면
 @application.route('/review/add/<string:restaurant>',methods=['POST', 'GET'])
@@ -284,7 +284,7 @@ def like_num():
 
 #찜 기능 
 @application.route('/restaurant/my', methods=['POST', 'GET'])
-def my_fav_list():
+def my_favorite_list():
     id = session['id']
     if DB.my_fav_list():
         return redirect(url_for('my-fav-list'))
