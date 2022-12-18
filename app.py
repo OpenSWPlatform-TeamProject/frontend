@@ -105,8 +105,10 @@ def add_review(restaurant):
         image_file=request.files["rvfile"]
         image_file.save("static/image/{}".format(image_file.filename)) 
         data=request.form
+        id=session['id']
+        nickname=session['nickname']
         print(data)
-        if DB.add_review(restaurant, data, "/static/image/"+image_file.filename):
+        if DB.add_review(restaurant, data, id, nickname, "/static/image/"+image_file.filename):
             return redirect(url_for('review_list', restaurant=restaurant))
         else :
             return "Error!"

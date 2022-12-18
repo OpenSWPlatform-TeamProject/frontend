@@ -63,7 +63,7 @@ class DBhandler:
             return False
 
     #리뷰등록
-    def add_review(self, name, data, img_path):
+    def add_review(self, name, data, id, nickname, img_path):
         review_info ={
             "맛집이름":name,
             "메뉴이름":data['메뉴이름'],
@@ -71,7 +71,10 @@ class DBhandler:
             "timePeriod":data['timePeriod'],
             "waiting":data['waiting'],
             "리뷰작성내용":data['리뷰작성내용'],
-            "img_path":img_path
+            "img_path":img_path,
+            "writer":id,
+            "작성자":nickname,
+            "timestamp":datetime.now().strftime('%Y-%m-%d'),
         }
         print(review_info)
         
