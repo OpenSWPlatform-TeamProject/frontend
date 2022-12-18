@@ -3,7 +3,7 @@ css %} <link href="/static/review-detail.css" rel="stylesheet" /> {% endblock %}
 {% block section %}
 <!-- 상단바 -->
 <section class="topbar">
-  <a href="/review/list" class="back-icon">
+  <a href="/review/list/{{data[1].맛집이름}}" class="back-icon">
     <i class="fa solid fa-arrow-left fa-lg"></i>
   </a>
 </section>
@@ -21,31 +21,31 @@ css %} <link href="/static/review-detail.css" rel="stylesheet" /> {% endblock %}
     <!-- 리뷰 -->
 
     <div class="box-top">
-      <div class="nickname">{{data.nickname}}</div>
+      <div class="nickname">{{data[1].작성자}}</div>
     </div>
 
     <div class="contents">
       <div class="left">
         <div class="review-pic">
-          <img class="pic" src="{{data.img_path}}" alt="review picture" />
+          <img class="pic" src="{{data[1].img_path}}" alt="review picture" />
         </div>
         <div class="review-stars">
-          {% if data.평점 == 0 %}
+          {% if data[1].평점 == 0 %}
           <img
             class="star-pic"
             src="/static/ratings_empty.png"
             alt="review-star"
           />
-          {% elif data.평점 == 1 %}
+          {% elif data[1].평점 == 1 %}
           <img class="star-pic" src="/static/ratings_1.png" alt="review-star" />
 
-          {% elif data.평점 == 2 %}
+          {% elif data[1].평점 == 2 %}
           <img class="star-pic" src="/static/ratings_2.png" alt="review-star" />
 
-          {% elif data.평점 == 3 %}
+          {% elif data[1].평점 == 3 %}
           <img class="star-pic" src="/static/ratings_3.png" alt="review-star" />
 
-          {% elif data.평점 == 4 %}
+          {% elif data[1].평점 == 4 %}
           <img class="star-pic" src="/static/ratings_4.png" alt="review-star" />
           {% else %}
           <img class="star-pic" src="/static/ratings_5.png" alt="review-star" />
@@ -54,22 +54,22 @@ css %} <link href="/static/review-detail.css" rel="stylesheet" /> {% endblock %}
       </div>
 
       <div class="right">
-        <div class="food">{{data.메뉴이름]}}</div>
+        <div class="food">{{data[1].메뉴이름}}</div>
         <div class="information">
           <div class="time">
             <div class="ask">방문시간</div>
-            <div class="answer">{{data.timePeriod}}</div>
+            <div class="answer">{{data[1].timePeriod}}</div>
           </div>
           <div class="time">
             <div class="ask">대기시간</div>
-            <div class="answer">{{data.waiting}}</div>
+            <div class="answer">{{data[1].waiting}}</div>
           </div>
         </div>
         <div class="detail">
-          <p class="description">{{data.리뷰작성내용}}</p>
+          <p class="description">{{data[1].리뷰작성내용}}</p>
         </div>
         <div class="date">
-          <p class="day">2022. 11. 05</p>
+          <p class="day">{{data[1].timestamp}}</p>
         </div>
       </div>
     </div>

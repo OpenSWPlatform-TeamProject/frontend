@@ -105,8 +105,10 @@ def add_review(restaurant):
         image_file=request.files["rvfile"]
         image_file.save("static/image/{}".format(image_file.filename)) 
         data=request.form
+        id=session['id']
+        nickname=session['nickname']
         print(data)
-        if DB.add_review(restaurant, data, "/static/image/"+image_file.filename):
+        if DB.add_review(restaurant, data, id, nickname, "/static/image/"+image_file.filename):
             return redirect(url_for('review_list', restaurant=restaurant))
         else :
             return "Error!"
@@ -125,10 +127,18 @@ def review_list(restaurant):
     print(data)
     return render_template("review-list.html", datas=datas, 맛집이름=restaurant, total=total, limit=limit, page=page, page_count=int((total/9)+1))   
     
-@application.route('/review/detail')
-def review_detail():
-    return render_template("review-detail.html")
-
+@application.route('/review/detail/<string:restaurant>')
+def review_detail(restaurant):
+    page = request.args.get("page", 0, type=int)
+    limit = 1
+    idx=limit*page
+    data = DB.get_reviews(restaurant)
+    total = len(data)
+    review=list(data.items())[idx]
+    print(review)
+    print(review[1])
+    return render_template("review-detail.html", data=review, 맛집이름=restaurant, page=page)   
+    
 @application.route('/review/my')
 def myreview_list():
     return render_template("review-list.html")
