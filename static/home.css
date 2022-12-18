@@ -178,6 +178,13 @@ body {
   color: Grey;
 }
 
+.searchicon {
+  position: absolute;
+  margin-top: 17px;
+  margin-left: 15px;
+  color: Grey;
+}
+
 .category {
   display: flex;
   flex-direction: row;
