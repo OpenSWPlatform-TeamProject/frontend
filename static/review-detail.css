@@ -21,10 +21,10 @@
 
 .box {
   background-color: white;
-  width: 50vw;
-  height: 34vw;
+  width: 800px;
+  height: 470px;
   position: absolute;
-  top: -15vw;
+  top: -200px;
   left: 50vw;
   transform: translate(-50%, 70%);
   border-radius: 20px;
@@ -50,7 +50,7 @@
 .box-top {
   padding-left: 2.2vw;
   padding-top: 1vw;
-  height: 4.5vw;
+  height: 50px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -67,7 +67,7 @@
   flex-direction: row;
   justify-content: center;
   align-content: flex-start;
-  height: 26vw;
+  height: 375px;
 }
 
 .left {
@@ -79,8 +79,8 @@
 }
 
 .review-pic {
-  width: 85%;
-  height: 48%;
+  width: 350px;
+  height: 220px;
   border-radius: 15px;
   overflow: hidden;
 }
@@ -97,7 +97,7 @@
   padding-top: 2.5%;
 }
 
-.stars {
+.star-pic {
   width: 100%;
 }
 
@@ -110,12 +110,13 @@
 
 .food {
   padding-top: 3%;
-  font-size: 1.5vw;
+  font-size: 23px;
   height: 15%;
 }
 
 .information {
   height: 12%;
+  padding-top: 5px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -123,25 +124,25 @@
 }
 
 .time {
-  width: 150%;
-  padding-right: 20%;
+  width: 50%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
 }
 .ask {
-  padding-right: 15%;
-  font-size: 1.25vw;
+  width: 50%;
+  font-size: 18px;
   color: darkgrey;
 }
 
 .answer {
-  font-size: 1.25vw;
+  font-size: 18px;
   color: black;
 }
 
 .detail {
   height: 48%;
+  padding-top: 15px;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -149,7 +150,7 @@
 }
 
 .description {
-  font-size: 1.23vw;
+  font-size: 18px;
   line-height: 1.8vw;
 }
 .date {
@@ -161,7 +162,7 @@
 }
 
 .day {
-  font-size: 1.05vw;
+  font-size: 16px;
   color: lightgrey;
 }
 
