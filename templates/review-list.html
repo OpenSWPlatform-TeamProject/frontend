@@ -18,7 +18,9 @@ css %} <link href="/static/review-list.css" rel="stylesheet" /> {% endblock %}
     <ul class="reviews">
       {% if total > 0 %} {% for data in datas %}
       <li>
-        <a href="/review/detail">
+        <a
+          href="{{url_for('review_detail', restaurant=맛집이름, page=loop.index0)}}"
+        >
           <button class="review">
             <div class="review-pic">
               <img

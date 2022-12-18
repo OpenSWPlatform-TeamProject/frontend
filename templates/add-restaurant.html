@@ -17,7 +17,7 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
 
   <div class="content">
     <!-- 맛집 이름 입력 -->
-    <form action="/restaurant/add" method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
       <input
         type="text"
         class="input"
@@ -166,7 +166,7 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
       <!-- 대표 이미지 넣기 -->
       <h3 class="insert-title">대표 사진</h3>
       <div class="img-container">
-        <input type="file" name="file" id="rfile" accept="image/*" />
+        <input type="file" name="rfile" id="rfile" accept="image/*" />
       </div>
 
       <!-- 영업시간 입력 -->
@@ -322,9 +322,11 @@ css %} <link href="/static/add-restaurant.css" rel="stylesheet" />
 
       <!-- 등록 버튼 & 다른 대표메뉴 추가 -->
       <div class="submit-button-container">
-        <button class="submit-button">등록</button>
-        <a href="add-menu.html">
-          <button class="submit-button">대표 메뉴 등록하기</button>
+        <a href="/restaurant/detail/{{맛집이름}}">
+          <button class="submit-button" onclick="javascript: form.action='/restaurant/add'">등록</button>
+        </a>
+        <a href="/menu/add/{{맛집이름}}">
+          <button class="submit-button" onclick="javascript: form.action='/restaurant/addmenu'">대표 메뉴 등록하기</button>
         </a>
       </div>
     </form>
