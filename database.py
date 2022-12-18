@@ -129,7 +129,7 @@ class DBhandler:
                 target_value=value
         return target_value
 
-    #위치별 맛집 가져오기
+    #조건별 맛집 가져오기
     def get_restaurants_bycondition(self, location, foodtype, search):
         if search : #검색 기능
             restaurants = self.db.child("restaurant").get()
