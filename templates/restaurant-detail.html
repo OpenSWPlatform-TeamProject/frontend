@@ -23,10 +23,51 @@
     <div class="section-top">
       <div class="restaurant-name-and-ratings">
         <h3 class="restaurant-name">{{data.맛집이름}}</h3>
-        <img class="ratings" src="/static/ratings_4.png" />
+        {% if 0 <= data.평점 < 0.5 %}
+        <img
+          class="ratings"
+          src="/static/ratings_0.png"
+          alt="ratings"
+        />
+        {% elif 0.5 <= data.평점 < 1.5 %}
+        <img
+          class="ratings"
+          src="/static/ratings_1.png"
+          alt="ratings"
+        />
+
+        {% elif 1.5 <= data.평점 < 2.5 %}
+        <img
+          class="ratings"
+          src="/static/ratings_2.png"
+          alt="ratings"
+        />
+
+        {% elif 2.5 <= data.평점 < 3.5 %}
+        <img
+          class="ratings"
+          src="/static/ratings_3.png"
+          alt="ratings"
+        />
+
+        {% elif 3.5 <= data.평점 < 4.5 %}
+        <img
+          class="ratings"
+          src="/static/ratings_4.png"
+          alt="ratings"
+        />
+        {% elif 4.5 <= data.평점 <= 5 %}
+        <img
+          class="ratings"
+          src="/static/ratings_5.png"
+          alt="ratings"
+        />
+        {% elif 5 < data.평점 %}
+        <div>평점 오류가 발생했습니다. 다시 실행해 주세요.</div>
+        {% endif %}
       </div>
       <div class="buttons-container">
-        <button onclick="toggleFavoritesImage()">
+        <button onclick="toggleFavoritesImage(event)" name="isFavorite" value="false">
           <img
             alt="favorites"
             src="/static/details.png"
@@ -34,13 +75,14 @@
             class="favorites"
           />
         </button>
-        <button onclick="toggleLikesImage()">
+        <button onclick="toggleLikesImage(event)" name="isLiked" value="false">
           <img
             alt="likes"
             src="/static/details.png"
             style="object-position: 0 -60px"
             class="likes"
           />
+          <div class="number-of-likes" name="number_of_likes" value="0">{{data.likes}}</div>
         </button>
         <a href="{{reviewlist_path}}">
           <button>
