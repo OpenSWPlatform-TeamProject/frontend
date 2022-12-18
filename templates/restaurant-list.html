@@ -197,22 +197,28 @@ endblock %} {% block section %}
       <div class="page-move-wrap">
         <div class="page-nav">
           <ul class="page">
-
             <li>
-            {% if page == 0 %}
+              {% if page == 0 %}
             {% else %}
               <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort=sort, page=page-1)}}">
                 <button class="page-button">
                   <i class="fa-solid fa-chevron-left"></i>
                 </button>
               </a>
+              {%endif%}
             </li>
-            {%endif%}
+
             <li style="display: flex; gap: 15px">
               {% for i in range(page_count)%}
+              {% if page == i %}
               <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort=sort, page=i)}}" color="black"
-                >{{i+1}}</a
+               >{{i+1}}</a
               >
+              {% else %}
+              <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort=sort, page=i)}}" color="black"
+                style="color:lightgrey;">{{i+1}}</a
+              >
+              {% endif %}
               {% endfor %}
             </li>
             <li>
