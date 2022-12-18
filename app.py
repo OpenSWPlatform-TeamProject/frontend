@@ -277,7 +277,7 @@ def withdrawl():
         return render_template("withdrawl.html")
 
 #좋아요 수 
-@application.route('/restaurant/detail', methods=['POST', 'GET'])
+@application.route('/restaurant/likes', methods=['POST', 'GET'])
 def like_num(self, name):
     restaurant = self.db.child("restaurant").get()
     for res in restaurant.each():
