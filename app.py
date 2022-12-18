@@ -28,7 +28,7 @@ def add_restaurant():
         return render_template("add-restaurant.html")
 
 @application.route('/restaurant/addmenu',methods=['POST', 'GET'])
-def add_restaurant():
+def add_restaurant_menu():
     if request.method == 'POST':
         image_file=request.files["rfile"]
         image_file.save("static/image/{}".format(image_file.filename))
