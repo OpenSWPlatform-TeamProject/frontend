@@ -215,7 +215,7 @@ endblock %} {% block section %}
                >{{i+1}}</a
               >
               {% else %}
-              <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort=sort, page=i)}}" color="black"
+              <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort=sort, page=i)}}"
                 style="color:lightgrey;">{{i+1}}</a
               >
               {% endif %}
