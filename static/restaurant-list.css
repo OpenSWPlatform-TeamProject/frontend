@@ -61,44 +61,44 @@ body{
     width: 3px;
     height: 3px;}
   
-  .mapbtn_sch {
+.mapbtn_sch {
     position: absolute;
     top: -10px;
     left: -107px;
     z-index: 50;
     clip-path: polygon(6% 99%, 100% 86%, 91% 33%, 90% 24%, 91% 18%, 94% 10%, 91% 0, 76% 0, 68% 0, 62% 3%, 50% 18%, 44% 18%, 45% 27%, 34% 41%, 31% 34%, 24% 36%, 23% 43%, 25% 54%, 16% 63%, 8% 69%, 1% 72%, 0 80%, 3% 85%);
-  }
+}
   
-  .mapbtn_sin {
+.mapbtn_sin {
     position: absolute;
     right: 102px;
     top: 42px;
     clip-path: polygon(76% 0, 68% 8%, 55% 10%, 46% 13%, 37% 12%, 27% 13%, 27% 18%, 17% 23%, 9% 32%, 4% 44%, 2% 56%, 0 60%, 22% 59%, 13% 70%, 95% 99%, 100% 98%, 91% 53%, 95% 49%, 96% 39%, 87% 31%, 79% 0);
-  }
+}
   
-  .mapbtn_idae {
+.mapbtn_idae {
     position: absolute;
     top: 132px;
     z-index: 100;
     left: -95px;
     clip-path: polygon(0 23%, 2% 55%, 64% 96%, 69% 83%, 74% 90%, 78% 61%, 82% 61%, 84% 48%, 87% 42%, 100% 3%, 83% 7%, 84% 0, 69% 1%, 69% 9%);
-  }
+}
   
   
-  .mapbtn_back {
+.mapbtn_back {
     position: absolute;
     top: -34px;
     left: -117px;
     z-index: 1;
     clip-path: polygon(100% 19%, 14% 100%, 0% 43%, 22% 18%, 20% 16%, 17% 12%, 15% 8%, 17% 4%, 20% 0%, 27% 0, 32% 5%, 42% 0, 100% 17%);
-  }
+}
   
-  .mapbtn_ahyeon {
+.mapbtn_ahyeon {
     position: absolute;
     top: -15px;
     left: 40px;
     clip-path: polygon(28% 99%, 73% 53%, 75% 56%, 81% 56%, 85% 52%, 94% 51%, 92% 35%, 100% 25%, 60% 16%, 60% 8%, 37% 9%, 37% 13%, 29% 10%, 29% 5%, 24% 1%, 14% 0, 10% 4%, 9% 7%, 2% 7%, 19% 71%);
-  }
+}
 
   
 /* checkbox custom */
@@ -175,7 +175,6 @@ label{
 .card-container{
     display: flex;
     flex-direction: row;
-
     gap: 20px;
     flex-wrap: wrap;
 }

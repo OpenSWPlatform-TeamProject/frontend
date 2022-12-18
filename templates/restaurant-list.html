@@ -197,8 +197,8 @@ endblock %} {% block section %}
           <ul class="page">
 
             <li>
-              {% if page == 0 %}
-          {% else %}
+            {% if page == 0 %}
+            {% else %}
               <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort=sort, page=page-1)}}">
                 <button class="page-button">
                   <i class="fa-solid fa-chevron-left"></i>
@@ -215,7 +215,7 @@ endblock %} {% block section %}
             </li>
             <li>
               {% if page+1 == page_count %}
-          {% else %}
+              {% else %}
               <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort=sort, page=page+1)}}">
                 <button class="page-button">
                   <i class="fa-solid fa-chevron-right"></i>
