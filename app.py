@@ -141,6 +141,7 @@ def review_detail(restaurant):
     
 @application.route('/review/my')
 def myreview_list():
+    id=session['id']
     return render_template("review-list.html")
 
 @application.route('/review/my/detail')

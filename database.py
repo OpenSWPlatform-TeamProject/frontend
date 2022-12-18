@@ -182,6 +182,18 @@ class DBhandler:
         print(target_value)
         return target_value
 
+    #내가 쓴 리뷰 가져오기
+    def get_myreviews(self, id, nickname):
+        reviews = self.db.child("review").get()
+        target_value={}
+        for rev in reviews.each():
+            value = rev.val()
+            if value['id'] == id and value['nickname'] == nickname:
+                writer=value['img_path']
+                target_value[writer]=dict((list(value.items())))
+        print(target_value)
+        return target_value
+
     #메뉴 테이블 가져오기
     def get_menus(self, name):
         menus = self.db.child("menu").get()
@@ -200,7 +212,8 @@ class DBhandler:
             "id":data['id'],
             "pw":pw,
             "nickname":data['nickname'],
-            "fav":data['fav']
+            "favorite":data['favorite'],
+            "myreview":data['myreview']
         }
         if self.user_duplicate_check(str(data['id'])):
             self.db.child("user").push(user_info)
