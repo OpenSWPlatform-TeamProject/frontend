@@ -109,8 +109,14 @@ def restaurant_detail(restaurant):
 
 @application.route('/restaurant/my')
 def my_fav_list():
-    return render_template("my-fav-list.html")
-
+    #session['id']=id
+    data = DB.get_users(id)
+    print(data)
+    if(data):
+        tot_count=len(data)
+        return render_template("my-fav-list.html", data=data, total=tot_count)
+    else:
+        return "Error!"
 
 #리뷰 화면
 @application.route('/review/add/<string:restaurant>',methods=['POST', 'GET'])

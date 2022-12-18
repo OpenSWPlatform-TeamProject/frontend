@@ -206,13 +206,24 @@ class DBhandler:
         print(target_value)
         return target_value
 
+    #찜목록 가져오기
+    def get_users(self, id):
+        users = self.db.child("users").get()
+        target_value={}
+        for use in users.each():
+            value = use.val()
+            if value['id']==id and value['isFavorite'] == True:
+                target_value[users]=dict((list(value.items())))
+        print(target_value)
+        return target_value
+
     #회원가입
     def insert_user(self, data, pw):
         user_info={
             "id":data['id'],
             "pw":pw,
             "nickname":data['nickname'],
-            "favorite":data['favorite'],
+            "isFavorite":data['isFavorite'],
             "myreview":data['myreview']
         }
         if self.user_duplicate_check(str(data['id'])):
@@ -221,7 +232,7 @@ class DBhandler:
             return True
         else:
             return False
-    
+
     def user_duplicate_check(self, id_string):
         users=self.db.child("user").get()
 
