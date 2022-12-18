@@ -92,21 +92,31 @@ css %} <link href="/static/review-list.css" rel="stylesheet" /> {% endblock %}
   <div class="page-nav">
     <ul class="page">
       <li>
-        <button class="page-button">
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
+      {% if page == 0 %}
+      {% else %}
+        <a href="{{url_for('review_list', restaurant=맛집이름, page=page-1)}}">
+          <button class="page-button">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+        </a>
       </li>
+      {%endif%}
       <li style="display: flex; gap: 15px">
         {% for i in range(page_count)%}
-        <a href="{{url_for('restaurant_list', page=i)}}" color="black"
+        <a href="{{url_for('review_list', restaurant=맛집이름, page=i)}}"
           >{{i+1}}</a
         >
         {% endfor %}
       </li>
       <li>
-        <button class="page-button">
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
+        {% if page+1 == page_count %}
+        {% else %}
+        <a href="{{url_for('review_list', restaurant=맛집이름, page=page+1)}}">
+          <button class="page-button">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </a>
+        {% endif %}
       </li>
     </ul>
   </div>
