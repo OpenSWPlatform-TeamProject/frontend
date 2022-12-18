@@ -139,7 +139,7 @@ endblock %} {% block section %}
       <div class="card-container">
         {% if total > 0 %} {% for data in datas %}
         <!-- 주소 "/restaurant/detail/{{datas[data]['맛집이름']}}" -->
-        <div class="card" onclick="location.href='/restaurant/detail/{{datas[data]['맛집이름']}}';">
+        <div class="card" onclick="location.href='/restaurant/detail/{{datas[data]['맛집이름']}}'">
           <button class="heart-button" onclick="toggleFavoritesImage(event)">
             <img
               alt="favorites"
