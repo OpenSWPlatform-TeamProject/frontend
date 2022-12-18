@@ -20,12 +20,12 @@ endblock %} {% block section %}
         <h3 class="insert-title">위치</h3>
         <form>
         <div class="filter-container">
-            <input type="checkbox" id="all" name="전체" value="전체" OnClick="window.location.href='{{url_for('restaurant_list', location='all')}}';" />
+            <input type="checkbox" id="all" name="전체" value="전체" OnClick="window.location.href='{{url_for('restaurant_list', theme=theme, location='all')}}';" />
             <label for="all"> 전체</label>
             <!-- 지도가 들어갑니다 -->
             <div class="upper">
             <div class="criteria">
-                <a href="{{url_for('restaurant_list', location='교내', foodtype=foodtype)}}" class="mapbtn_sch">
+                <a href="{{url_for('restaurant_list', theme=theme, location='교내', foodtype=foodtype)}}" class="mapbtn_sch">
                 {% if location=='신촌' or location=='정문' or location=='아현' or location=='후문' %}
                 <img height="160px" src="/static/교내흑백.png" onmouseover="this.src='/static/교내호버.png'" onmouseout="this.src='/static/교내흑백.png'">
                 {% elif location =="교내" %}
@@ -35,7 +35,7 @@ endblock %} {% block section %}
                 {% endif %}
                 </a>
         
-                <a href="{{url_for('restaurant_list', location='신촌',  foodtype=foodtype)}}" class="mapbtn_sin">
+                <a href="{{url_for('restaurant_list', theme=theme, location='신촌',  foodtype=foodtype)}}" class="mapbtn_sin">
                 {% if location=='교내' or location=='정문' or location=='아현' or location=='후문' %}
                 <img height="135px" src="/static/신촌흑백.png" onmouseover="this.src='/static/신촌호버.png'" onmouseout="this.src='/static/신촌흑백.png'">
                 {% elif location =="신촌" %}
@@ -45,7 +45,7 @@ endblock %} {% block section %}
                 {% endif %}
                 </a>
         
-                <a href="{{url_for('restaurant_list', location='정문',  foodtype=foodtype)}}"  class="mapbtn_idae" />
+                <a href="{{url_for('restaurant_list', theme=theme, location='정문',  foodtype=foodtype)}}"  class="mapbtn_idae" />
                 {% if location=='신촌' or location=='교내' or location=='아현' or location=='후문' %}
                 <img height="90px" src="/static/정문흑백.png" onmouseover="this.src='/static/정문호버.png'" onmouseout="this.src='/static/정문흑백.png'">
                 {% elif location =="정문" %}
@@ -55,7 +55,7 @@ endblock %} {% block section %}
                 {% endif %}
             </a>
         
-                <a href="{{url_for('restaurant_list', location='후문', foodtype=foodtype)}}" class="mapbtn_back">
+                <a href="{{url_for('restaurant_list', theme=theme, location='후문', foodtype=foodtype)}}" class="mapbtn_back">
                 {% if location=='신촌' or location=='정문' or location=='아현' or location=='교내' %}
                 <img height="150px" src="/static/후문흑백.png" onmouseover="this.src='/static/후문호버.png'" onmouseout="this.src='/static/후문흑백.png'">
                 {% elif location =="후문" %}
@@ -65,7 +65,7 @@ endblock %} {% block section %}
                 {% endif %}
                 </a>
         
-                <a href="{{url_for('restaurant_list', location='아현',  foodtype=foodtype)}}" class="mapbtn_ahyeon">
+                <a href="{{url_for('restaurant_list', theme=theme, location='아현',  foodtype=foodtype)}}" class="mapbtn_ahyeon">
                 {% if location=='신촌' or location=='정문' or location=='교내' or location=='후문' %}
                 <img src="/static/아현흑백.png" height="150px" onmouseover="this.src='/static/아현호버.png'" onmouseout="this.src='/static/아현흑백.png'">
                 {% elif location =="아현" %}
