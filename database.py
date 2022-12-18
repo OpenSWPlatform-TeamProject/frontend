@@ -50,6 +50,7 @@ class DBhandler:
             "breakday":data.getlist('breakday'),
 
             "평점":0,
+            "likes":0,
             "timestamp":datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
 
             "img_path":img_path
@@ -200,6 +201,18 @@ class DBhandler:
         print(target_value)
         return target_value
 
+    #내가 쓴 리뷰 가져오기
+    def get_myreviews(self, id, nickname):
+        reviews = self.db.child("review").get()
+        target_value={}
+        for rev in reviews.each():
+            value = rev.val()
+            if value['id'] == id and value['nickname'] == nickname:
+                writer=value['img_path']
+                target_value[writer]=dict((list(value.items())))
+        print(target_value)
+        return target_value
+
     #메뉴 테이블 가져오기
     def get_menus(self, name):
         menus = self.db.child("menu").get()
@@ -212,12 +225,48 @@ class DBhandler:
         print(target_value)
         return target_value
 
+    #찜목록 가져오기
+    #def get_users(self, id, isFavorite):
+    #    users = self.db.child("user").get()
+    #    target_value={}
+    #    for use in users.each():
+    #        value = use.val()
+    #        if value['id']==id and value['isFavorite'] == True:
+    #            target_value[users]=dict((list(value.items())))
+    #    print(target_value)
+    #    return target_value
+
+    def my_fav_list(self, name, data):
+        users = self.db.child("user").get()
+        for use in users.each():
+            value=use.val()
+            if value['맛집이름'] == name:
+                key = use.key()
+                data=DBhandler.get_users(self, name)
+                self.db.child("user").child(key).update()
+                return data
+
+    #좋아요 수
+    def like_num(self, name):
+        restaurant = self.db.child("restaurant").get()
+        for res in restaurant.each():
+            value=res.val()
+            if value['맛집이름'] == name:
+                key = res.key()
+                data=DBhandler.get_restaurants(self, name)
+                num=int(data['likes'])+1
+                print(num)
+                self.db.child("restaurant").child(key).update({"likes": int(data['likes'])+1})
+            return num
+
     #회원가입
     def insert_user(self, data, pw):
         user_info={
             "id":data['id'],
             "pw":pw,
-            "nickname":data['nickname']
+            "nickname":data['nickname'],
+            "isFavorite":data['isFavorite'],
+            "myreview":data['myreview']
         }
         if self.user_duplicate_check(str(data['id'])):
             self.db.child("user").push(user_info)
@@ -225,7 +274,7 @@ class DBhandler:
             return True
         else:
             return False
-    
+
     def user_duplicate_check(self, id_string):
         users=self.db.child("user").get()
 
