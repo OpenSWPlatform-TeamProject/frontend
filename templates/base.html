@@ -6,8 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}——{% endblock %}</title>
-    <link rel="icon" href="/static/favicon.png" type="image/x-icon" sizes="16x16">
+    <link
+      rel="icon"
+      href="/static/favicon.png"
+      type="image/x-icon"
+      sizes="16x16"
+    />
     <link href="/static/global.css" rel="stylesheet" />
+    <link href="/static/base.css" rel="stylesheet" />
     {% block css %}
     <link href="" rel="stylesheet" />
     {% endblock %}
@@ -28,15 +34,21 @@
       <div class="nav2">
         <div class="search">
           <div class="search-box">
-            <a href="" class="icon">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </a>
-            <input
-              type="search"
-              id="search"
-              name="이대 근처 맛집 찾기"
-              placeholder="이대 근처 맛집 찾기"
-            />
+            <form
+              action="{{url_for('restaurant_list', search=search)}}"
+              method="get"
+            >
+              <button
+                type="submit"
+                class="fa-solid fa-magnifying-glass searchicon"
+              ></button>
+              <input
+                type="text"
+                id="search"
+                name="search"
+                placeholder="이대 근처 맛집 찾기"
+              />
+            </form>
           </div>
         </div>
       </div>
