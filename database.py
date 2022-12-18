@@ -50,6 +50,7 @@ class DBhandler:
             "breakday":data.getlist('breakday'),
 
             "평점":0,
+            "likes":0,
             "timestamp":datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
 
             "img_path":img_path
@@ -207,8 +208,8 @@ class DBhandler:
         return target_value
 
     #찜목록 가져오기
-    def get_users(self, id):
-        users = self.db.child("users").get()
+    def get_users(self, id, isFavorite):
+        users = self.db.child("user").get()
         target_value={}
         for use in users.each():
             value = use.val()

@@ -109,8 +109,9 @@ def restaurant_detail(restaurant):
 
 @application.route('/restaurant/my')
 def my_fav_list():
-    #session['id']=id
-    data = DB.get_users(id)
+    id=session['id']
+    isFavorite=session['isFavorite']
+    data = DB.get_users(id, isFavorite)
     print(data)
     if(data):
         tot_count=len(data)
@@ -282,6 +283,36 @@ def withdrawl():
             return redirect(url_for('withdrawl'))
     else :
         return render_template("withdrawl.html")
+
+#좋아요 수 
+@application.route('/restaurant/detail', methods=['POST', 'GET'])
+def like_num(self, name):
+    restaurant = self.db.child("restaurant").get()
+    for res in restaurant.each():
+        value=res.val()
+        if value['맛집이름'] == name:
+            key = res.key()
+            data=DBhandler.get_restaurants(self, name)
+            num=int(data['likes'])+1
+            print(num)
+            self.db.child("restaurant").child(key).update({"likes": int(data['likes'])+1})
+        else :
+            return redirect(url_for('restaurant_detail'))
+
+#찜 기능 
+#@application.route('/restaurant/my', methods=['POST', 'GET'])
+#def my_fav_list(self, name, data):
+ #   id = session['id']
+  #  restaurant = self.db.child("restaurant").get()
+   # for res in restaurant.each():
+    #    value=res.val()
+     #   if value['맛집이름'] == name:
+      #      key = res.key()
+       #     fav=DBhandler.get_users(self, name)
+        #    total=len(fav)
+         #   self.db.child("user").child(key).update()
+       # else :
+       #     return redirect(url_for('my-fav-list'))
 
 if __name__ == "__main__":
     application.secret_key = 'super secret key'
