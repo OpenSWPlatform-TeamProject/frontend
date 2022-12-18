@@ -163,6 +163,20 @@ def add_menu(restaurant):
     else :
         return render_template("add-menu.html", 맛집이름=restaurant)
 
+@application.route('/menu/addanother/<string:restaurant>',methods=['POST', 'GET'])
+def add_more_menu(restaurant):
+    if request.method == 'POST':
+        image_file=request.files["mfile"]
+        image_file.save("static/image/{}".format(image_file.filename))
+        data=request.form
+        print(data)
+        if DB.add_menu(restaurant, data, "/static/image/"+image_file.filename):
+            return redirect(url_for('add_menu', restaurant=restaurant))
+        else :
+            return "Error!"
+    else :
+        return render_template("add-menu.html", 맛집이름=restaurant)
+
 @application.route('/menu/list/<string:restaurant>')
 def menu_list(restaurant):
     datas = DB.get_menus(restaurant)
