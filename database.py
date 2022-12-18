@@ -50,6 +50,7 @@ class DBhandler:
             "breakday":data.getlist('breakday'),
 
             "평점":0,
+            "likes":0,
             "timestamp":datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
 
             "img_path":img_path
@@ -200,6 +201,18 @@ class DBhandler:
         print(target_value)
         return target_value
 
+    #내가 쓴 리뷰 가져오기
+    def get_myreviews(self, id, nickname):
+        reviews = self.db.child("review").get()
+        target_value={}
+        for rev in reviews.each():
+            value = rev.val()
+            if value['id'] == id and value['nickname'] == nickname:
+                writer=value['img_path']
+                target_value[writer]=dict((list(value.items())))
+        print(target_value)
+        return target_value
+
     #메뉴 테이블 가져오기
     def get_menus(self, name):
         menus = self.db.child("menu").get()
@@ -212,12 +225,25 @@ class DBhandler:
         print(target_value)
         return target_value
 
+    #찜목록 가져오기
+    def get_users(self, id, isFavorite):
+        users = self.db.child("user").get()
+        target_value={}
+        for use in users.each():
+            value = use.val()
+            if value['id']==id and value['isFavorite'] == True:
+                target_value[users]=dict((list(value.items())))
+        print(target_value)
+        return target_value
+
     #회원가입
     def insert_user(self, data, pw):
         user_info={
             "id":data['id'],
             "pw":pw,
-            "nickname":data['nickname']
+            "nickname":data['nickname'],
+            "isFavorite":data['isFavorite'],
+            "myreview":data['myreview']
         }
         if self.user_duplicate_check(str(data['id'])):
             self.db.child("user").push(user_info)
@@ -225,7 +251,7 @@ class DBhandler:
             return True
         else:
             return False
-    
+
     def user_duplicate_check(self, id_string):
         users=self.db.child("user").get()
 
