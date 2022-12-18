@@ -18,11 +18,7 @@ section %}
 
   <div class="content">
     <!-- 음식 이름 입력 -->
-    <form
-      
-      method="post"
-      enctype="multipart/form-data"
-    >
+    <form method="post" enctype="multipart/form-data">
       <input
         type="text"
         placeholder="메뉴 이름"
@@ -34,7 +30,7 @@ section %}
       <!-- 대표 이미지 넣기 -->
       <h3 class="insert-title">대표 사진</h3>
       <div class="img-container">
-        <input type="file" name="rfile" id="rfile" accept="image/*" />
+        <input type="file" name="mfile" id="mfile" accept="image/*" />
       </div>
 
       <!-- 가격 -->
@@ -54,10 +50,10 @@ section %}
       <!-- 비건 유무 -->
       <h3 class="insert-title">비건 유무</h3>
       <div class="vegan-container">
-        <input type="radio" id="yes-vegan" name="vegan" value="비건"/>
+        <input type="radio" id="yes-vegan" name="vegan" value="비건" />
         <label for="yes-vegan">비건</label>
 
-        <input type="radio" id="no-vegan" name="vegan" value="논비건"/>
+        <input type="radio" id="no-vegan" name="vegan" value="논비건" />
         <label for="no-vegan">논비건</label>
       </div>
 
@@ -74,10 +70,20 @@ section %}
       <!-- 등록 버튼 & 다른 대표메뉴 추가 -->
       <div class="submit-button-container">
         <a href="/restaurant/detail/{{맛집이름}}">
-          <button class="submit-button" onclick="javascript: form.action='/menu/add/{{맛집이름}}'">등록</button>
+          <button
+            class="submit-button"
+            onclick="javascript: form.action='/menu/add/{{맛집이름}}'"
+          >
+            등록
+          </button>
         </a>
         <a href="/menu/add/{{맛집이름}}">
-          <button class="submit-button" onclick="javascript: form.action='/menu/addanother/{{맛집이름}}'">다른 메뉴 등록하기</button>
+          <button
+            class="submit-button"
+            onclick="javascript: form.action='/menu/addanother/{{맛집이름}}'"
+          >
+            다른 메뉴 등록하기
+          </button>
         </a>
       </div>
     </form>

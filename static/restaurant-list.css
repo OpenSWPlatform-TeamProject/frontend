@@ -290,6 +290,7 @@ ul.page > li {
     padding:0; 
     overflow:visible; 
     cursor:pointer;
+    color:lightgrey;
 }
 
 /* footer */

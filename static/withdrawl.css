@@ -13,10 +13,10 @@ body {
   height: 100px;
 }
 
-.login_form {
+.container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  align-items: center;
 }
 
 .withdrawl_form input, .withdrawl_form button {
@@ -30,6 +30,16 @@ body {
 .withdrawl_form button{
   background-color: #FD5D5D;
   color: white;
+  margin-top:15px;
+}
+
+.withdrawl_form p{
+  margin-top:20px;
+  color:grey;
+}
+
+.withdrawl_form input{
+  margin-top:30px;
 }
 
 /* footer */
