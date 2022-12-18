@@ -151,7 +151,7 @@ def review_detail(restaurant):
     review=list(data.items())[idx]
     print(review)
     print(review[1])
-    return render_template("review-detail.html", data=review, 맛집이름=restaurant, page=page)   
+    return render_template("review-detail.html", data=review, 맛집이름=restaurant, page=page, total=total)   
     
 @application.route('/review/my')
 def myreview_list():
