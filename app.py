@@ -48,13 +48,15 @@ def restaurant_list():
     sort = request.args.get("sort", "", type=str)
     search = request.args.get("search", "", type=str)
     page = request.args.get("page", 0, type=int)
+    theme = request.args.get("theme", 0, type=int)
 
     print(location)
     print(foodtype)
     print(sort)
     print(search)
+    print(theme)
 
-    data = DB.get_restaurants_bycondition(location, foodtype, search)
+    data = DB.get_restaurants_bycondition(location, foodtype, search, theme)
     
     total = len(data)
     limit = 9
@@ -80,20 +82,10 @@ def restaurant_list():
 
     datas=dict(list(data.items())[start_idx:end_idx])
     print(datas)
+    if theme>0:
+        return render_template("theme-list.html", datas=datas, location=location, foodtype=foodtype, sort=sort, search=search, theme=theme, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))
     return render_template("restaurant-list.html", datas=datas, location=location, foodtype=foodtype, sort=sort, search=search, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))
 
-@application.route('/restaurant/themelist')
-def restaurant_themelist():
-    page = request.args.get("page", 0, type=int)
-    limit = 9
-    start_idx=limit*page
-    end_idx=limit*(page+1)
-    data = DB.get_restaurants()
-    total = len(data)
-    datas=dict(list(data.items())[start_idx:end_idx])
-    print(datas)
-    return render_template("theme-list.html", datas=datas, total=total, limit=limit, page=page, page_count=int((total/9)+1))
-    
 @application.route('/restaurant/detail/<string:restaurant>',methods=['POST', 'GET'])
 def restaurant_detail(restaurant):
     data=DB.get_restaurant_byname(str(restaurant))

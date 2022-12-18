@@ -130,7 +130,7 @@ class DBhandler:
         return target_value
 
     #조건별 맛집 가져오기
-    def get_restaurants_bycondition(self, location, foodtype, search):
+    def get_restaurants_bycondition(self, location, foodtype, search, theme):
         if search : #검색 기능
             restaurants = self.db.child("restaurant").get()
             target_value=[]
@@ -144,6 +144,25 @@ class DBhandler:
                     new_dict[k]=v
             return new_dict
         
+        elif theme>0:
+            restaurants = self.db.child("restaurant").get()
+            target_value=[]
+            for res in restaurants.each():
+                value = res.val()
+                if value['theme'] == theme:
+                    if value['location'] == location or location=="all" :
+                        if foodtype=="all":
+                            target_value.append(value)
+                        else :
+                            for food in value['음식종류']:
+                                if food == foodtype :
+                                    target_value.append(value)
+                print("######target_value",target_value)
+                new_dict={}
+                for k,v in enumerate(target_value):
+                    new_dict[k]=v
+            return new_dict
+
         elif location=="all" and foodtype=="all" : #전체 조회
             restaurants = self.db.child("restaurant").get().val()
             return restaurants
@@ -160,7 +179,6 @@ class DBhandler:
                         for food in value['음식종류']:
                             if food == foodtype :
                                 target_value.append(value)
-                print("######target_value",target_value)
                 new_dict={}
                 for k,v in enumerate(target_value):
                     new_dict[k]=v
