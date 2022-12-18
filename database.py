@@ -226,15 +226,38 @@ class DBhandler:
         return target_value
 
     #찜목록 가져오기
-    def get_users(self, id, isFavorite):
+    #def get_users(self, id, isFavorite):
+    #    users = self.db.child("user").get()
+    #    target_value={}
+    #    for use in users.each():
+    #        value = use.val()
+    #        if value['id']==id and value['isFavorite'] == True:
+    #            target_value[users]=dict((list(value.items())))
+    #    print(target_value)
+    #    return target_value
+
+    def my_fav_list(self, name, data):
         users = self.db.child("user").get()
-        target_value={}
         for use in users.each():
-            value = use.val()
-            if value['id']==id and value['isFavorite'] == True:
-                target_value[users]=dict((list(value.items())))
-        print(target_value)
-        return target_value
+            value=use.val()
+            if value['맛집이름'] == name:
+                key = use.key()
+                data=DBhandler.get_users(self, name)
+                self.db.child("user").child(key).update()
+                return data
+
+    #좋아요 수
+    def like_num(self, name):
+        restaurant = self.db.child("restaurant").get()
+        for res in restaurant.each():
+            value=res.val()
+            if value['맛집이름'] == name:
+                key = res.key()
+                data=DBhandler.get_restaurants(self, name)
+                num=int(data['likes'])+1
+                print(num)
+                self.db.child("restaurant").child(key).update({"likes": int(data['likes'])+1})
+            return num
 
     #회원가입
     def insert_user(self, data, pw):
