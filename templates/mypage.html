@@ -29,57 +29,57 @@ section %}
     <section class="container">
       <div class="content">
         <ul class="reviews">
-          {% if revtot > 0 %} {% for data in datas %}
+          {% if revtot > 0 %} {% for rev in revlist %}
           <li>
             <a
-              href="{{url_for('review_detail', restaurant=맛집이름, page=loop.index0)}}"
+              href="{{url_for('myreview_detail', restaurant=맛집이름, page=loop.index0)}}"
             >
             
             <button class="review">
               <div class="review-pic">
                 <img
                   class="pic"
-                  src="{{datas[data]['img_path']}}"
+                  src="{{revlist[rev]['img_path']}}"
                   alt="review-pic1"
                 />
               </div>
               <div class="review-content">
-                <div class="food">{{datas[data]['메뉴이름']}}</div>
+                <div class="food">{{revlist[rev]['메뉴이름']}}</div>
                 <div class="star">
-                  {% if datas[data]['평점'] == 0 %}
+                  {% if revlist[rev]['평점'] == 0 %}
                   <img
                     class="star-pic"
                     src="/static/ratings_empty.png"
                     alt="review-star"
                   />
-                  {% elif datas[data]['평점'] == 1 %}
+                  {% elif revlist[rev]['평점'] == 1 %}
                   <img
                     class="star-pic"
                     src="/static/ratings_1.png"
                     alt="review-star"
                   />
 
-                  {% elif datas[data]['평점'] == 2 %}
+                  {% elif revlist[rev]['평점'] == 2 %}
                   <img
                     class="star-pic"
                     src="/static/ratings_2.png"
                     alt="review-star"
                   />
 
-                  {% elif datas[data]['평점'] == 3 %}
+                  {% elif revlist[rev]['평점'] == 3 %}
                   <img
                     class="star-pic"
                     src="/static/ratings_3.png"
                     alt="review-star"
                   />
 
-                  {% elif datas[data]['평점'] == 4 %}
+                  {% elif revlist[rev]['평점'] == 4 %}
                   <img
                     class="star-pic"
                     src="/static/ratings_4.png"
                     alt="review-star"
                   />
-                  {% elif datas[data]['평점'] == 5 %}
+                  {% elif revlist[rev]['평점'] == 5 %}
                   <img
                     class="star-pic"
                     src="/static/ratings_5.png"
@@ -88,7 +88,7 @@ section %}
                   {% endif %}
                 </div>
                 <div class="hashtag">
-                #{{datas[data]['timePeriod']}} #{{datas[data]['waiting']}}
+                #{{revlist[rev]['timePeriod']}} #{{revlist[rev]['waiting']}}
                 </div>
               </div>
             </button>
@@ -113,8 +113,8 @@ section %}
     <div class="subtitle">나의 찜 목록</div>
 
     <div class="card-container">
-      {% if favtot > 0 %} {% for data in datas %}
-      <div class="card" onclick="location.href='/restaurant/detail/{{datas[data]['맛집이름']}}'">
+      {% if favtot > 0 %} {% for fav in favlist %}
+      <div class="card" onclick="location.href='/restaurant/detail/{{favlist[fav]['맛집이름']}}'">
         <button class="heart-button">
           <img
             alt="favorites"
@@ -124,7 +124,7 @@ section %}
           />
         </button>
 
-        {% if datas[data]['vegan']|length == 2 %}
+        {% if favlist[fav]['vegan']|length == 2 %}
         <div class="card-vegan">
           <img
             class="vegan-pic"
@@ -134,48 +134,48 @@ section %}
         </div>
         {% else %} {% endif %}
 
-        <div class="card-title">{{datas[data]['맛집이름']}}</div>
-        {% if datas[data]['음식종류']|length <= 1 %}
+        <div class="card-title">{{favlist[fav]['맛집이름']}}</div>
+        {% if favlist[fav]['음식종류']|length <= 1 %}
         <div class="card-hashtag">
-          #{{datas[data]['음식종류'][0]}}
-          <br> #{{datas[data]['pricerange']}}
+          #{{favlist[fav]['음식종류'][0]}}
+          <br> #{{favlist[fav]['pricerange']}}
         </div>
         {% else %}
         <div class="card-hashtag">
-          #{{datas[data]['음식종류'][0]}} #{{datas[data]['음식종류'][1]}}
+          #{{favlist[fav]['음식종류'][0]}} #{{favlist[fav]['음식종류'][1]}}
           <br>
-          #{{datas[data]['pricerange']}}
+          #{{favlist[fav]['pricerange']}}
         </div>
         {% endif %}
         <div class="card-rating">
-          {% if 0 <= datas[data]['평점'] < 0.5 %}
+          {% if 0 <= favlist[fav]['평점'] < 0.5 %}
           <img
             class="stars-pic"
             src="/static/ratings_0.png"
             alt="ratings"
           />
-          {% elif 0.5 <= datas[data]['평점'] < 1.5 %}
+          {% elif 0.5 <= favlist[fav]['평점'] < 1.5 %}
           <img
             class="stars-pic"
             src="/static/ratings_1.png"
             alt="ratings"
           />
 
-          {% elif 1.5 <= datas[data]['평점'] < 2.5 %}
+          {% elif 1.5 <= favlist[fav]['평점'] < 2.5 %}
           <img
             class="stars-pic"
             src="/static/ratings_2.png"
             alt="ratings"
           />
 
-          {% elif 2.5 <= datas[data]['평점']< 3.5 %}
+          {% elif 2.5 <= favlist[fav]['평점']< 3.5 %}
           <img
             class="stars-pic"
             src="/static/ratings_3.png"
             alt="ratings"
           />
 
-          {% elif 3.5 <= datas[data]['평점'] < 4.5 %}
+          {% elif 3.5 <= favlist[fav]['평점'] < 4.5 %}
           <img
             class="stars-pic"
             src="/static/ratings_4.png"
@@ -194,7 +194,7 @@ section %}
     </div>
 
     {% else %}
-    <div class="card-container">등록된 맛집이 없습니다.</div>
+    <div class="card-container">찜한 맛집이 없습니다.</div>
     {% endif %}
 
     <a href="/restaurant/my" class="boxMore">
