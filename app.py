@@ -341,7 +341,7 @@ def like_num(restaurant):
     else :
         return redirect(url_for('restaurant_detail', restaurant=restaurant))
 
-#찜 기능 
+#찜 기능  for 레스토랑 디테일
 @application.route('/restaurant/my/<string:restaurant>', methods=['POST', 'GET'])
 def my_favorite_list(restaurant):
     if 'id' in session:
@@ -353,6 +353,7 @@ def my_favorite_list(restaurant):
     else:
         return redirect(url_for('login'))
 
+#찜 기능 for 레스토랑 리스트
 @application.route('/restaurant/mylist/<string:restaurant>', methods=['POST', 'GET'])
 def my_favori_list(restaurant):
     id = session['id']
@@ -365,6 +366,34 @@ def my_favori_list(restaurant):
         return redirect(url_for('restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort, theme=theme))
     else:
         return redirect(url_for('restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort, theme=theme))
+
+#찜 기능 for 마이페이지
+@application.route('/restaurant/mypagelist/<string:restaurant>', methods=['POST', 'GET'])
+def my_favor_list(restaurant):
+    id = session['id']
+    location = request.args.get("location", "all", type=str)
+    foodtype = request.args.get("foodtype", "all", type=str)
+    theme = request.args.get("theme", 0, type=int)
+    sort = request.args.get("sort", "", type=str)
+
+    if DB.my_fav_list(restaurant, id):
+        return redirect(url_for('my_restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort, theme=theme))
+    else:
+        return redirect(url_for('my_restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort, theme=theme))
+
+#찜 기능 for 마이 페브 레스토랑
+@application.route('/restaurant/myfavlist/<string:restaurant>', methods=['POST', 'GET'])
+def my_favo_list(restaurant):
+    id = session['id']
+    location = request.args.get("location", "all", type=str)
+    foodtype = request.args.get("foodtype", "all", type=str)
+    theme = request.args.get("theme", 0, type=int)
+    sort = request.args.get("sort", "", type=str)
+
+    if DB.my_fav_list(restaurant, id):
+        return redirect(url_for('my_restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort, theme=theme))
+    else:
+        return redirect(url_for('my_restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort, theme=theme))
 
 #내가 쓴 리뷰 리스트
 @application.route('/review/my/list', methods=['POST', 'GET'])
