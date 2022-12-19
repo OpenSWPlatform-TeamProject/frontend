@@ -1,7 +1,5 @@
 function toggleFavoritesImage(event) {
   const objectPosition = event.target.style.objectPosition;
-  const form = document.getElementsByTagName("form")[0];
-  console.log(form);
 
   if (objectPosition === "0px 0px") {
     event.target.style.objectPosition = "0 -30px";
@@ -12,8 +10,8 @@ function toggleFavoritesImage(event) {
     event.currentTarget.value = false;
   }
 
-  form.action = "/restaurant/my/{{data.맛집이름}}"
-  form.submit();
+  document.getElementsByTagName("form")[0].action = "/restaurant/my/{{data.맛집이름}}"
+  document.getElementsByTagName("form")[0].submit();
 }
 
 function toggleLikesImage(event) {
@@ -37,8 +35,8 @@ function toggleLikesImage(event) {
     document.getElementsByClassName("number-of-likes").value = newLikes;
   }
 
-  form.action = "/restaurant/likes/{{data.맛집이름}}"
-  form.submit();
+  document.getElementsByTagName("form")[0].action = "/restaurant/likes/{{data.맛집이름}}"
+  document.getElementsByTagName("form")[0].submit();
 }
 
 function copyToClipboard() {
