@@ -258,6 +258,12 @@ class DBhandler:
         for use in users.each():
             value=use.val()
             if value['id'] == id:
+                for favs in value['isFavorite']:
+                    fav=value['isFavorite'][favs]
+                    key = use.key()
+                    if name==fav:
+                        self.db.child("user").child(key).child("isFavorite").child(favs).remove()
+                        return True
                 key = use.key()
                 self.db.child("user").child(key).child("isFavorite").push(name)
                 return True
@@ -271,10 +277,10 @@ class DBhandler:
             user = use.val()
             if user['id']==id:
                 for favs in user['isFavorite']:
-                    print(favs)
+                    fav=user['isFavorite'][favs]
                     for res in restaurants.each():
                         value = res.val()
-                        if value['맛집이름'] == favs:
+                        if value['맛집이름'] == fav:
                             if value['location'] == location or location=="all" :
                                 if foodtype=="all":
                                     target_value.append(value)

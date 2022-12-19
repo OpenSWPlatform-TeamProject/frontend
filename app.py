@@ -101,10 +101,12 @@ def my_restaurant_list():
     data = DB.get_my_fav_list(id, location, foodtype)
     
     total = len(data)
+    print(total)
     limit = 9
     if page<0:
         return redirect(url_for('my_restaurant_list', page=0))
     elif page>(math.ceil(total/limit)-1):
+        print(math.ceil(total/limit))
         return redirect(url_for('my_restaurant_list', page=math.ceil(total/limit)-1))
     start_idx=limit*page
     end_idx=limit*(page+1)
