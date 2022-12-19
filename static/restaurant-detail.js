@@ -11,7 +11,7 @@ function toggleFavoritesImage(event) {
     event.currentTarget.value = false;
   }
 
-  form.action = "/restaurant/my"
+  form.action = "/restaurant/my/{{data.맛집이름}}"
   form.submit();
 }
 
@@ -36,7 +36,7 @@ function toggleLikesImage(event) {
     document.getElementsByClassName("number-of-likes").value = newLikes;
   }
 
-  form.action = "/restaurant/likes"
+  form.action = "/restaurant/likes/{{data.맛집이름}}"
   form.submit();
 }
 
