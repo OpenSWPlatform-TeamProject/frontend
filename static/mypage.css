@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'modulight';
+  src: url("/static/강원교육모두-light.woff") format('woff');
+}
+
 .topbar {
   height: 240px;
   background-color: #fff7bc;
@@ -25,7 +30,6 @@
 }
 
 .container {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,26 +71,49 @@
   font-size: 18px;
 }
 
-.myreview {
-  height: 370px;
+/*여기서부터 수정 코드*/
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
-.subtitle {
-  height: 40px;
-  padding-top: 20px;
-  padding-left: 30px;
-  font-size: 18px;
+.myreview{
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.subtitle-review{
+  margin-left: 40px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width:800px;
 }
 
 .reviews {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  width: 100%;
   justify-content: center;
+  align-items: center;
 }
 
 ul.reviews>li {
   padding: 15px;
+  float:left;
 }
 
 .review {
@@ -94,6 +121,7 @@ ul.reviews>li {
   height: 270px;
   background-color: white;
   border: none;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -139,6 +167,23 @@ ul.reviews>li {
   padding-top: 10px;
 }
 
+/*여기까지*/
+
+.food {
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.star-pic {
+  width: 115px;
+  padding-top: 5px;
+}
+
+.hashtag {
+  font-size: 17px;
+  padding-top: 10px;
+}
+
 .boxMore {
   font-size: 14.5px;
   display: flex;
@@ -156,53 +201,84 @@ ul.reviews>li {
   justify-content: flex-start;
 }
 
-.card-container {
+.list-container{
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.order-category{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-container{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 735px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-
-button {
+button{
   background-color: white;
-  height: 140px;
 }
 
-.card {
+.card{
   position: relative;
   text-align: center;
   border-radius: 15px;
   padding: 35px 25px;
-  margin-top: 15px;
+  margin-top: 20px;
   margin-bottom: 10px;
-  width: 220px;
+  width:15.5vw;
+  height:25vh;
   color: #3B3838;
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 30%);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.card-title {
-  font-size: clamp(20px, 1.3vw, 70px);
-  margin-top: 0px;
+.card-title{
+  font-size: clamp(20px, 1.7vw, 70px);
+  margin-top: 10px;
 }
 
-.card-hashtag {
-  font-size: clamp(17px, 0.7vw, 70px);
+.card-hashtag{
+  font-size: clamp(20px, 1vw, 70px);
   padding-top: 5px;
+  font-family:'modulight';
 }
 
-.heart-button {
-  width: 70px;
+.heart-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 10px;
+  box-shadow: none;
+  border: 0;
+  position: absolute;
+  top:0;
+  right:0;
+}
+
+.favorites{
+  width: 30px;
+  height: 30px; 
+  object-fit: cover;
+}
+
+.stars-pic{
+  width: 125px;
+  padding-top: 10px;
+}
+
+.vegan-pic{
+  width: 60px;
   position: absolute;
   top: 0;
-  bottom: 0;
-  transform: translate(65%, -10%);
+  left: 0;
+  transform: translate(-50%, -50%);
 }
 
-.stars_pic {
-  width: 125px;
-  padding-top: 7px;
-}
+
 
 
 footer {
