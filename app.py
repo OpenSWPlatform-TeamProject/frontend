@@ -135,6 +135,15 @@ def my_restaurant_list():
         else : data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False))
 
     datas=dict(list(data.items())[start_idx:end_idx])
+    
+    if 'id' in session:
+        id=session['id']
+        heart=DB.check_my_fav_lists(datas, id)
+    else:
+        heart={}
+        for i in range(len(datas)):
+            heart.update({datas[i]['맛집이름']: False})
+            
     print(datas)
     return render_template("my-fav-list.html", datas=datas, location=location, foodtype=foodtype, sort=sort, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))
 
