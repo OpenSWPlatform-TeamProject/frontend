@@ -86,30 +86,79 @@ def restaurant_list():
         return render_template("theme-list.html", datas=datas, location=location, foodtype=foodtype, sort=sort, search=search, theme=theme, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))
     return render_template("restaurant-list.html", datas=datas, location=location, foodtype=foodtype, sort=sort, search=search, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))
 
+@application.route('/restaurant/my/list')
+def my_restaurant_list():
+    id=session['id']
+    location = request.args.get("location", "all", type=str)
+    foodtype = request.args.get("foodtype", "all", type=str)
+    sort = request.args.get("sort", "", type=str)
+    page = request.args.get("page", 0, type=int)
+
+    print(location)
+    print(foodtype)
+    print(sort)
+
+    data = DB.get_my_fav_list(id, location, foodtype)
+    
+    total = len(data)
+    print(total)
+    limit = 9
+    if page<0:
+        return redirect(url_for('my_restaurant_list', page=0))
+    elif page>(math.ceil(total/limit)-1):
+        print(math.ceil(total/limit))
+        return redirect(url_for('my_restaurant_list', page=math.ceil(total/limit)-1))
+    start_idx=limit*page
+    end_idx=limit*(page+1)
+
+    if total<=limit:
+        if sort=="newest" :
+            data = dict(sorted(data.items(), key=lambda x: x[1]['timestamp'], reverse=True)[:total])
+        elif sort=="best" :
+            data = dict(sorted(data.items(), key=lambda x: x[1]['평점'], reverse=True)[:total])
+        else : data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False)[:total])
+    else:
+        if sort=="newest" :
+            data = dict(sorted(data.items(), key=lambda x: x[1]['timestamp'], reverse=True))
+        elif sort=="best" :
+            data = dict(sorted(data.items(), key=lambda x: x[1]['평점'], reverse=True))
+        else : data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False))
+
+    datas=dict(list(data.items())[start_idx:end_idx])
+    print(datas)
+    return render_template("my-fav-list.html", datas=datas, location=location, foodtype=foodtype, sort=sort, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))
+
+
 @application.route('/restaurant/detail/<string:restaurant>',methods=['POST', 'GET'])
 def restaurant_detail(restaurant):
     data=DB.get_restaurant_byname(str(restaurant))
     print(data)
     data2=DB.get_menus(restaurant)
     leng=len(data2)
-    if request.method == 'POST':
-        comment=request.form
-        print(comment)
-        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, data2=data2, leng=leng, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
-    else :
-        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, data2=data2, leng=leng, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
-
-@application.route('/restaurant/my')
-def my_fav_list():
-    id=session['id']
-    isFavorite=session['isFavorite']
-    data = DB.get_users(id, isFavorite)
-    print(data)
-    if(data):
-        tot_count=len(data)
-        return render_template("my-fav-list.html", data=data, total=tot_count)
+    coms=DB.get_comments(restaurant)
+    comtot=len(coms)
+    
+    if session['id']:
+        id=session['id']
+        heart=DB.check_my_fav_list(restaurant, id)
     else:
-        return "Error!"
+        heart=False
+
+    return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, data2=data2, heart=heart, coms=coms, comtot=comtot, leng=leng, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
+
+@application.route('/restaurant/comment/<string:restaurant>',methods=['POST', 'GET'])
+def restaurant_comment(restaurant):
+    if request.method == 'POST':
+        data=request.form
+        id=session['id']
+        nickname=session['nickname']
+        print(data)
+        if DB.add_comment(restaurant, data, id, nickname):
+            return redirect(url_for('restaurant_detail', restaurant=restaurant))
+        else :
+            return "Error!"
+    else :
+        return redirect(url_for('restaurant_detail', restaurant=restaurant))
 
 #리뷰 화면
 @application.route('/review/add/<string:restaurant>',methods=['POST', 'GET'])
@@ -151,15 +200,6 @@ def review_detail(restaurant):
     print(review)
     print(review[1])
     return render_template("review-detail.html", data=review, 맛집이름=restaurant, page=page, total=total)   
-    
-@application.route('/review/my')
-def myreview_list():
-    id=session['id']
-    return render_template("review-list.html")
-
-@application.route('/review/my/detail')
-def myreview_detail():
-    return render_template("myreview-detail.html")
 
 
 #메뉴 화면
@@ -241,15 +281,15 @@ def sign_up():
 #마이페이지
 @application.route('/mypage')
 def mypage(): 
-    page = request.args.get("page", 0, type=int)
-    limit = 9
-    start_idx=limit*page
-    end_idx=limit*(page+1)
-    data = DB.get_restaurants()
-    total = len(data)
-    datas=dict(list(data.items())[start_idx:end_idx])
-    print(datas)
-    return render_template("mypage.html", datas=datas, total=total, limit=limit, page=page, page_count=int((total/9)+1)) 
+    id=session['id']
+    nickname=session['nickname']
+    location = request.args.get("location", "all", type=str)
+    foodtype = request.args.get("foodtype", "all", type=str)
+    favlist=DB.get_my_fav_list(id, location, foodtype)
+    revlist=DB.get_myreviews(id)
+    favtot=len(favlist)
+    revtot=len(revlist)
+    return render_template("mypage.html", favlist=favlist, favtot=favtot, revlist=revlist, revtot=revtot) 
 
 #로그아웃 
 @application.route("/logout") 
@@ -276,18 +316,61 @@ def withdrawl():
     else :
         return render_template("withdrawl.html")
 
+#마이페이지
 #좋아요 수 
-@application.route('/restaurant/likes', methods=['POST', 'GET'])
-def like_num():
-    if DB.like_num():
-        return redirect(url_for('restaurant_detail'))
+@application.route('/restaurant/likes/<string:restaurant>', methods=['POST', 'GET'])
+def like_num(restaurant):
+    if DB.like_num(restaurant):
+        return redirect(url_for('restaurant_detail', restaurant=restaurant))
+    else :
+        return redirect(url_for('restaurant_detail', restaurant=restaurant))
 
 #찜 기능 
-@application.route('/restaurant/my', methods=['POST', 'GET'])
-def my_fav_list():
+@application.route('/restaurant/my/<string:restaurant>', methods=['POST', 'GET'])
+def my_favorite_list(restaurant):
     id = session['id']
-    if DB.my_fav_list():
-        return redirect(url_for('my-fav-list'))
+    if DB.my_fav_list(restaurant, id):
+        return redirect(url_for('restaurant_detail', restaurant=restaurant))
+    else:
+        return redirect(url_for('restaurant_detail', restaurant=restaurant))
+
+@application.route('/restaurant/mylist/<string:restaurant>', methods=['POST', 'GET'])
+def my_favori_list(restaurant):
+    id = session['id']
+    location = request.args.get("location", "all", type=str)
+    foodtype = request.args.get("foodtype", "all", type=str)
+    sort = request.args.get("sort", "", type=str)
+    
+    if DB.my_fav_list(restaurant, id):
+        return redirect(url_for('restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort))
+    else:
+        return redirect(url_for('restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort))
+
+#내가 쓴 리뷰 리스트
+@application.route('/review/my/list', methods=['POST', 'GET'])
+def myreview_list():
+    id = session['id']
+    page = request.args.get("page", 0, type=int)
+    limit = 6
+    start_idx=limit*page
+    end_idx=limit*(page+1)
+    data = DB.get_myreviews(id)
+    total = len(data)
+    datas=dict(list(data.items())[start_idx:end_idx])
+    return render_template("myreview-list.html", datas=datas, total=total, limit=limit, page=page, page_count=int((total/6)+1))
+
+
+#내가 쓴 리뷰 디테일
+@application.route('/review/my/detail', methods=['POST', 'GET'])
+def myreview_detail():
+    id = session['id']
+    page = request.args.get("page", 0, type=int)
+    limit = 1
+    idx=limit*page
+    data = DB.get_myreviews(id)
+    total = len(data)
+    review=list(data.items())[idx]
+    return render_template("myreview-detail.html", data=review, page=page, total=total)
 
 if __name__ == "__main__":
     application.secret_key = 'super secret key'

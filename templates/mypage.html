@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block title %}mypage{% endblock %} {% block css %}
-<link href="/static/mypage.css" rel="stylesheet" /> {% endblock %} {% block
+<link href="/static/mypage.css" rel="stylesheet" /> <script src="/static/mypage.js"></script>{% endblock %} {% block
 section %}
 <!-- 상단바 -->
 <section class="topbar">
@@ -23,75 +23,86 @@ section %}
 
   <!-- 내가 쓴 리뷰 -->
   <div class="myreview">
-    <div class="subtitle">내가 쓴 리뷰</div>
+    <div class="subtitle-review">내가 쓴 리뷰</div>
 
-    <ul class="reviews">
-      <li>
-        <a href="/review/my/detail">
-          <button class="review">
-            <div class="review-pic">
-              <img class="pic" src="/static/box.png" alt="review-pic1" />
-            </div>
-            <div class="review-content">
-              <div class="food">찹쌀탕수육</div>
-              <div class="star">
+    <!-- 리뷰 리스트 -->
+    <section class="container">
+      <div class="content">
+        <ul class="reviews">
+          {% if revtot > 0 %} {% for rev in revlist %}
+          <li>
+            <a
+              href="{{url_for('myreview_detail', restaurant=맛집이름, page=loop.index0)}}"
+            >
+            
+            <button class="review">
+              <div class="review-pic">
                 <img
-                  class="star-pic"
-                  src="/static/ratings_3.png"
-                  alt="review-star"
+                  class="pic"
+                  src="{{revlist[rev]['img_path']}}"
+                  alt="review-pic1"
                 />
               </div>
-              <div class="hashtag">#저녁 #대기10분</div>
-            </div>
-          </button>
-        </a>
-      </li>
+              <div class="review-content">
+                <div class="food">{{revlist[rev]['메뉴이름']}}</div>
+                <div class="star">
+                  {% if revlist[rev]['평점'] == 0 %}
+                  <img
+                    class="star-pic"
+                    src="/static/ratings_empty.png"
+                    alt="review-star"
+                  />
+                  {% elif revlist[rev]['평점'] == 1 %}
+                  <img
+                    class="star-pic"
+                    src="/static/ratings_1.png"
+                    alt="review-star"
+                  />
 
-      <li>
-        <a href="/review/my/detail">
-          <button class="review">
-            <div class="review-pic">
-              <img class="pic" src="/static/box.png" alt="review-pic2" />
-            </div>
-            <div class="review-content">
-              <div class="food">순대볶음</div>
-              <div class="star">
-                <img
-                  src="/static/ratings_4.png"
-                  class="star-pic"
-                  alt="review-star"
-                />
-              </div>
-              <div class="hashtag">#저녁 #대기10분</div>
-            </div>
-          </button>
-        </a>
-      </li>
+                  {% elif revlist[rev]['평점'] == 2 %}
+                  <img
+                    class="star-pic"
+                    src="/static/ratings_2.png"
+                    alt="review-star"
+                  />
 
-      <li>
-        <a href="/review/my/detail">
-          <button class="review">
-            <div class="review-pic">
-              <img class="pic" src="/static/box.png" alt="review-pic3" />
-            </div>
-            <div class="review-content">
-              <div class="food">참치김밥</div>
-              <div class="star">
-                <img
-                  src="/static/ratings_5.png"
-                  class="star-pic"
-                  alt="review-star"
-                />
+                  {% elif revlist[rev]['평점'] == 3 %}
+                  <img
+                    class="star-pic"
+                    src="/static/ratings_3.png"
+                    alt="review-star"
+                  />
+
+                  {% elif revlist[rev]['평점'] == 4 %}
+                  <img
+                    class="star-pic"
+                    src="/static/ratings_4.png"
+                    alt="review-star"
+                  />
+                  {% elif revlist[rev]['평점'] == 5 %}
+                  <img
+                    class="star-pic"
+                    src="/static/ratings_5.png"
+                    alt="review-star"
+                  />
+                  {% endif %}
+                </div>
+                <div class="hashtag">
+                #{{revlist[rev]['timePeriod']}} #{{revlist[rev]['waiting']}}
+                </div>
               </div>
-              <div class="hashtag">#야간 #대기없음</div>
-            </div>
-          </button>
-        </a>
-      </li>
-    </ul>
+            </button>
+            </a>
+          </li>
+          {% endfor %} {% else %}
+          <div class="menu">등록한 리뷰가 없습니다.</div>
+          {% endif %}
+        </ul>
+      </div>
+    </section>
 
     <!-- 더보기 -->
-    <a href="/review/my/detail" class="boxMore">
+    <a href="/review/my/list" class="boxMore">
       <h7 class="more"> > 더보기 </h7>
     </a>
   </div>
@@ -101,53 +112,92 @@ section %}
     <div class="subtitle">나의 찜 목록</div>
 
     <div class="card-container">
-      <a href="/restaurant/detail">
-        <button class="card">
-          <img class="heart-button" src="/static/heart_filled.png" alt="fav" />
-          <div class="card-title">너스레</div>
-          <div class="card-hashtag">#치즈김치전 #만원대</div>
-          <div class="card-rating">
-            <img
-              class="stars_pic"
-              src="/static/ratings_4.png"
-              alt="card-rating1"
-            />
-          </div>
+      {% if favtot > 0 %} {% for fav in favlist %}
+      <div class="card" onclick="location.href='/restaurant/detail/{{favlist[fav]['맛집이름']}}'">
+        <button class="heart-button">
+          <img
+            alt="favorites"
+            src="/static/details.png"
+            style="object-position: 0 -30px"
+            class="favorites"
+            onclick="toggleFavoritesImage(event)"
+          />
         </button>
-      </a>
 
-      <a href="/restaurant/detail">
-        <button class="card">
-          <img class="heart-button" src="/static/heart_filled.png" alt="fav" />
-          <div class="card-title">우리들의 공간</div>
-          <div class="card-hashtag">#대왕계란말이 #만원대</div>
-          <div class="card-rating">
-            <img
-              class="stars_pic"
-              src="/static/ratings_4.png"
-              alt="card-rating2"
-            />
-          </div>
-        </button>
-      </a>
+        {% if favlist[fav]['vegan']|length == 2 %}
+        <div class="card-vegan">
+          <img
+            class="vegan-pic"
+            src="/static/vegan.png"
+            alt="vegan-sticker1"
+          />
+        </div>
+        {% else %} {% endif %}
 
-      <a href="/restaurant/detail">
-        <button class="card">
-          <img class="heart-button" src="/static/heart_filled.png" alt="fav" />
-          <div class="card-title">카츠난반</div>
-          <div class="card-hashtag">#모듬카츠 #만원대</div>
-          <div class="card-rating">
-            <img
-              class="stars_pic"
-              src="/static/ratings_5.png"
-              alt="card-rating3"
-            />
-          </div>
-        </button>
-      </a>
+        <div class="card-title">{{favlist[fav]['맛집이름']}}</div>
+        {% if favlist[fav]['음식종류']|length <= 1 %}
+        <div class="card-hashtag">
+          #{{favlist[fav]['음식종류'][0]}}
+          <br> #{{favlist[fav]['pricerange']}}
+        </div>
+        {% else %}
+        <div class="card-hashtag">
+          #{{favlist[fav]['음식종류'][0]}} #{{favlist[fav]['음식종류'][1]}}
+          <br>
+          #{{favlist[fav]['pricerange']}}
+        </div>
+        {% endif %}
+        <div class="card-rating">
+          {% if 0 <= favlist[fav]['평점'] < 0.5 %}
+          <img
+            class="stars-pic"
+            src="/static/ratings_0.png"
+            alt="ratings"
+          />
+          {% elif 0.5 <= favlist[fav]['평점'] < 1.5 %}
+          <img
+            class="stars-pic"
+            src="/static/ratings_1.png"
+            alt="ratings"
+          />
+
+          {% elif 1.5 <= favlist[fav]['평점'] < 2.5 %}
+          <img
+            class="stars-pic"
+            src="/static/ratings_2.png"
+            alt="ratings"
+          />
+
+          {% elif 2.5 <= favlist[fav]['평점']< 3.5 %}
+          <img
+            class="stars-pic"
+            src="/static/ratings_3.png"
+            alt="ratings"
+          />
+
+          {% elif 3.5 <= favlist[fav]['평점'] < 4.5 %}
+          <img
+            class="stars-pic"
+            src="/static/ratings_4.png"
+            alt="ratings"
+          />
+          {% else %}
+          <img
+            class="stars-pic"
+            src="/static/ratings_5.png"
+            alt="ratings"
+          />
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
     </div>
 
-    <a href="/restaurant/my" class="boxMore">
+    {% else %}
+    <div class="card-container">찜한 맛집이 없습니다.</div>
+    {% endif %}
+
+    <a href="/restaurant/my/list" class="boxMore">
       <h7 class="more"> > 더보기 </h7>
     </a>
   </div>

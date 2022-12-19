@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'modulight';
+    src: url("/static/강원교육모두-light.woff") format('woff');
+}
+
 body{
     color:#3B3838;
 }
@@ -5,6 +10,7 @@ body{
 .content{
     margin-left: 25%;
     margin-right: 25%;
+    margin-top:40px;
 }
 
 /* 상단바 */
@@ -28,91 +34,73 @@ body{
 .title {
     color: black;
     font-size: 25px;
-    margin-bottom: 50px;
 }
   
 .title-description {
     color: rgba(0, 0, 0, 0.3);
+    margin-top: 25px;
 }
 
 /* body 안에 소제목 */
 .insert-title{
-    margin-top: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-size: 24px;
 }
 
 /* 지도 만들기 */
 .upper {
-    height: 350px;
+    height: 250px;
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
   
-.mapbtn_hidden {
-    position:absolute;
-    top:65%;
-    left:7%;
-}
-  
-.map {
-    padding-top:40px;
+.criteria {
     position: relative;
-    height: 350px;
-    width: 575px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-left:50px;
-}
+    margin-left: 80px;
+    width: 3px;
+    height: 3px;}
   
 .mapbtn_sch {
-    position: relative;
-}
-  
-.sch_img {
-    clip-path: polygon(65% 0, 91% 0, 98% 16%, 100% 88%, 5% 100%, 0 77%, 19% 53%, 24% 32%, 31% 34%);
+    position: absolute;
+    top: -10px;
+    left: -107px;
+    z-index: 50;
+    clip-path: polygon(6% 99%, 100% 86%, 91% 33%, 90% 24%, 91% 18%, 94% 10%, 91% 0, 76% 0, 68% 0, 62% 3%, 50% 18%, 44% 18%, 45% 27%, 34% 41%, 31% 34%, 24% 36%, 23% 43%, 25% 54%, 16% 63%, 8% 69%, 1% 72%, 0 80%, 3% 85%);
 }
   
 .mapbtn_sin {
     position: absolute;
-    left: -75%;
-    top:30px
-}
-  
-.sin_img {
-    clip-path: polygon(67% 0, 72% 26%, 85% 36%, 76% 52%, 80% 100%, 10% 71%, 16% 60%, 0 50%, 16% 13%, 57% 6%);
+    right: 102px;
+    top: 42px;
+    clip-path: polygon(76% 0, 68% 8%, 55% 10%, 46% 13%, 37% 12%, 27% 13%, 27% 18%, 17% 23%, 9% 32%, 4% 44%, 2% 56%, 0 60%, 22% 59%, 13% 70%, 95% 99%, 100% 98%, 91% 53%, 95% 49%, 96% 39%, 87% 31%, 79% 0);
 }
   
 .mapbtn_idae {
     position: absolute;
-    bottom: -50%;
-    left: 10px;
+    top: 132px;
+    z-index: 100;
+    left: -95px;
+    clip-path: polygon(0 23%, 2% 55%, 64% 96%, 69% 83%, 74% 90%, 78% 61%, 82% 61%, 84% 48%, 87% 42%, 100% 3%, 83% 7%, 84% 0, 69% 1%, 69% 9%);
 }
   
-.idae_img {
-    clip-path: polygon(71% 2%, 100% 1%, 89% 85%, 68% 100%, 0 55%, 0 23%);
-}
   
 .mapbtn_back {
-    position:absolute;
-    top: -15%;
-    left: -10%;
+    position: absolute;
+    top: -34px;
+    left: -117px;
+    z-index: 1;
+    clip-path: polygon(100% 19%, 14% 100%, 0% 43%, 22% 18%, 20% 16%, 17% 12%, 15% 8%, 17% 4%, 20% 0%, 27% 0, 32% 5%, 42% 0, 100% 17%);
 }
   
-.back_img {
-    clip-path: polygon(24% 0, 43% 3%, 100% 17%, 16% 99%, 0 51%);
-}
 .mapbtn_ahyeon {
-    position:absolute;
-    top: 5%;
-    left: 90%
-}
-.ahyeon_img {
-    clip-path: polygon(67% 11%, 100% 29%, 100% 66%, 28% 100%, 0 11%, 17% 0);
+    position: absolute;
+    top: -15px;
+    left: 40px;
+    clip-path: polygon(28% 99%, 73% 53%, 75% 56%, 81% 56%, 85% 52%, 94% 51%, 92% 35%, 100% 25%, 60% 16%, 60% 8%, 37% 9%, 37% 13%, 29% 10%, 29% 5%, 24% 1%, 14% 0, 10% 4%, 9% 7%, 2% 7%, 19% 71%);
 }
 
+  
 /* checkbox custom */
 .food-type-container{
     display: flex;
@@ -191,9 +179,17 @@ label{
     flex-wrap: wrap;
 }
 
+.order-category-button-active{
+    background-color: #FFF7BC;
+    border: none;
+    margin-left: 10px;
+    padding: 10px 25px;
+    font-size: 16px;
+    border-radius: 10px;
+}
 
 .order-category-button{
-    background-color: #FFF7BC;
+    background-color: rgb(230, 230, 230);
     border: none;
     margin-left: 10px;
     padding: 10px 25px;
@@ -212,8 +208,11 @@ button{
     padding: 35px 25px;
     margin-top: 20px;
     margin-bottom: 10px;
-    width:240px;
+    width:15.5vw;
+    height:25vh;
     color: #3B3838;
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 30%);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .card-title{
@@ -224,14 +223,25 @@ button{
 .card-hashtag{
     font-size: clamp(20px, 1vw, 70px);
     padding-top: 5px;
+    font-family:'modulight';
 }
 
 .heart-button{
-    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 10px;
+    box-shadow: none;
+    border: 0;
     position: absolute;
     top:0;
-    bottom:0;
-    transform: translate(70%, -15%);
+    right:0;
+}
+
+.favorites{
+    width: 30px;
+    height: 30px; 
+    object-fit: cover;
 }
 
 .stars-pic{
@@ -243,8 +253,8 @@ button{
     width: 60px;
     position: absolute;
     top: 0;
-    bottom: 0;
-    transform: translate(-240%, -50%);
+    left: 0;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -277,14 +287,21 @@ ul.page > li {
     font-size: 19px;
 }
   
-.End {
-    color: rgba(0, 0, 0, 0.3);
+.fa-solid{
+    font-size: 16px;
 }
-  
-.another-page {
-    color: rgba(0, 0, 0, 0.3);
+
+.page-button{
+    background: inherit; 
+    border:none; 
+    box-shadow:none; 
+    border-radius:0; 
+    padding:0; 
+    overflow:visible; 
+    cursor:pointer;
+    color:lightgrey;
 }
-  
+
 /* footer */
 footer {
     width: 100%;

@@ -67,23 +67,30 @@
         {% endif %}
       </div>
       <div class="buttons-container">
-        <button onclick="toggleFavoritesImage(event)" name="isFavorite" value="false">
-          <img
-            alt="favorites"
-            src="/static/details.png"
-            style="object-position: 0 0"
-            class="favorites"
-          />
-        </button>
-        <button onclick="toggleLikesImage(event)" name="isLiked" value="false">
-          <img
-            alt="likes"
-            src="/static/details.png"
-            style="object-position: 0 -60px"
-            class="likes"
-          />
-          <div class="number-of-likes" name="number_of_likes" value="0">{{data.likes}}</div>
-        </button>
+        <form method="post" enctype="multipart/form-data">
+          <a href="/restaurant/my/{{data.맛집이름}}">
+            <button onclick="javascript: form.action='/restaurant/my/{{data.맛집이름}}'" name="isFavorite" >
+              <img
+                alt="favorites"
+                src="/static/details.png"
+                style="object-position: 0 0"
+                class="favorites"
+                onclick="toggleFavoritesImage(event)"
+              />
+            </button>
+          </a>
+          <a href="/restaurant/likes/{{data.맛집이름}}">
+            <button onclick="javascript: form.action='/restaurant/likes/{{data.맛집이름}}'" class="like-button" name="isLiked">
+              <img
+                alt="likes"
+                src="/static/details.png"
+                style="object-position: 0 -90px"
+                class="likes"
+              />
+              <div class="number-of-likes" name="number_of_likes">{{data.likes}}</div>
+            </button>
+          </a>
+        </form>
         <a href="{{reviewlist_path}}">
           <button>
           <img
@@ -286,8 +293,9 @@
   <section class="comments-section">
     <form
       class="add-comment"
-      action="/restaurant/detail/{{맛집이름}}"
+      action="/restaurant/comment/{{data.맛집이름}}"
       method="post"
+      enctype="multipart/form-data"
     >
       <h4>댓글</h4>
       <textarea placeholder="댓글을 작성해주세요" name="comment"></textarea>
@@ -296,92 +304,25 @@
       </div>
     </form>
     <ul class="comments-list">
+      {% if comtot > 0 %} {% for com in coms %}
       <li>
         <div class="profile-img-container">
           <img
             class="profile-img"
-            src="/static/logo_black.png"
+            src="/static/profile.png"
             alt="profile-img"
           />
         </div>
         <div class="nickname-and-content">
-          <div>닉네임</div>
-          <div>댓글 내용</div>
+          <div>{{coms[com]['작성자']}}</div>
+          <div>{{coms[com]['댓글내용']}}</div>
         </div>
       </li>
-      <li>
-        <div class="profile-img-container">
-          <img
-            class="profile-img"
-            src="/static/logo_black.png"
-            alt="profile-img"
-          />
-        </div>
-        <div class="nickname-and-content">
-          <div>닉네임</div>
-          <div>댓글 내용</div>
-        </div>
-      </li>
-      <li>
-        <div class="profile-img-container">
-          <img
-            class="profile-img"
-            src="/static/logo_black.png"
-            alt="profile-img"
-          />
-        </div>
-        <div class="nickname-and-content">
-          <div>닉네임</div>
-          <div>댓글 내용</div>
-        </div>
-      </li>
-      <li>
-        <div class="profile-img-container">
-          <img
-            class="profile-img"
-            src="/static/logo_black.png"
-            alt="profile-img"
-          />
-        </div>
-        <div class="nickname-and-content">
-          <div>닉네임</div>
-          <div>댓글 내용</div>
-        </div>
-      </li>
+      {% endfor %} {% else %}
+      <div class="no-review">등록된 댓글이 없습니다.</div>
+      {% endif %}
     </ul>
   
-    <!-- 페이지 이동 버튼 -->
-    <div class="page-move-wrap">
-      <div class="page-nav">
-        <ul class="page">
-          <li>
-            <a href="" class="End">
-              <i class="fa-solid fa-chevron-left"></i>
-            </a>
-          </li>
-          <li>
-            <strong>1</strong>
-          </li>
-          <li>
-            <a class="another-page" href="">2</a>
-          </li>
-          <li>
-            <a class="another-page" href="">3</a>
-          </li>
-          <li>
-            <a class="another-page" href="">4</a>
-          </li>
-          <li>
-            <a class="another-page" href="">5</a>
-          </li>
-          <li>
-            <a href="" class="End">
-              <i class="fa-solid fa-chevron-right"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
   </section>
   {% endblock %}
   

@@ -1,174 +1,130 @@
-{% extends "base.html" %} {% block title %}myreview-detail{% endblock %} {%
-  block css %} <link href="/static/review-list.css" rel="stylesheet" /> {%
-  endblock %}
-   {% block section %}
-  <!-- 상단바 -->
-  <section class="topbar">
-    <a href="mypage.html" class="back-icon">
-      <i class="fa solid fa-arrow-left fa-lg"></i>
-    </a>
-    <div class="title">내 리뷰 조회하기</div>
-    <div class="title-description">내가 남겼던 소중한 후기를 살펴보세요!</div>
-  </section>
+{% extends "base.html" %} {% block title %}review-list{% endblock %} {% block
+css %} <link href="/static/myreview-list.css" rel="stylesheet" /> {% endblock %}
+{% block section %}
+<!-- 상단바 -->
+<section class="topbar">
+  <a href="/restaurant/detail/{{맛집이름}}" class="back-icon">
+    <i class="fa solid fa-arrow-left fa-lg"></i>
+  </a>
+  <div class="title">내 리뷰 조회하기</div>
+  <div class="title-description">
+    내가 작성한 리뷰들을 모아보세요!
+  </div>
+</section>
 
-
-
-  <!-- 리뷰 리스트 -->
-  <section class="container">
-    <div class="content">
-      <ul class="reviews">
-        <li>
-          <a href="/review/detail">
-            <button class="review">
-              <div class="review-pic">
-                <img class="pic" src="치즈김치전.jpeg" alt="review-pic1">
-              </div>
-              <div class="review-content">
-                <div class="food">치즈김치전</div>
-                <div class="star">
-                  <img class="star-pic" src="ratings_3.png" alt="review-star">
-                </div>
-                <div class="hashtag">
-                  #저녁 #대기10분
-                </div>
-              </div>
-            </button>
-          </a>
-        </li>
-
-        <li>
-          <a href="/review/detail">
-            <button class="review">
-              <div class="review-pic">
-                <img class="pic" src="box.png" alt="review-pic2">
-              </div>
-              <div class="review-content">
-                <div class="food">해물순두부국수</div>
-                <div class="star">
-                  <img src="ratings_4.png" class="star-pic" alt="review-star">
-                </div>
-                <div class="hashtag">
-                  #저녁 #대기10분
-                </div>
-              </div>
-            </button>
-          </a>
-        </li>
-
-        <li>
-          <a href="/review/detail">
-            <button class="review">
-              <div class="review-pic">
-                <img class="pic" src="box.png" alt="review-pic3">
-              </div>
-              <div class="review-content">
-                <div class="food">치즈김치전</div>
-                <div class="star">
-                  <img src="ratings_5.png" class="star-pic" alt="review-star">
-                </div>
-                <div class="hashtag">
-                  #야간 #대기없음
-                </div>
-              </div>
-            </button>
-          </a>
-        </li>
-
-        <li>
-          <a href="/review/detail">
-            <button class="review">
-              <div class="review-pic">
-                <img class="pic" src="box.png" alt="review-pic4">
-              </div>
-              <div class="review-content">
-                <div class="food">치즈김치전</div>
-                <div class="star">
-                  <img src="ratings_4.png" class="star-pic" alt="review-star">
-                </div>
-                <div class="hashtag">
-                  #저녁 #대기없음
-                </div>
-              </div>
-            </button>
-          </a>
-        </li>
-
-        <li>
-          <a href="/review/detail">
-            <button class="review">
-              <div class="review-pic">
-                <img class="pic" src="box.png" alt="review-pic5">
-              </div>
-              <div class="review-content">
-                <div class="food">해물순두부국수</div>
-                <div class="star">
-                  <img src="ratings_5.png" class="star-pic" alt="review-star">
-                </div>
-                <div class="hashtag">
-                  #저녁 #대기10분
-                </div>
-              </div>
-            </button>
-          </a>
-        </li>
-
-        <li>
-          <a href="/review/detail">
-            <button class="review">
-              <div class="review-pic">
-                <img class="pic" src="box.png" alt="review-pic6">
+<!-- 리뷰 리스트 -->
+<section class="container">
+  <div class="content">
+    <ul class="reviews">
+      {% if total > 0 %} {% for data in datas %}
+      <li>
+        <a
+          href="{{url_for('myreview_detail', restaurant=맛집이름, page=loop.index0)}}"
+        >
+          <button class="review">
+            <div class="review-pic">
+              <img
+                class="pic"
+                src="{{datas[data]['img_path']}}"
+                alt="review-pic1"
+              />
             </div>
+            <div class="review-content">
+              <div class="food">{{datas[data]['메뉴이름']}}</div>
+              <div class="star">
+                {% if datas[data]['평점'] == 0 %}
+                <img
+                  class="star-pic"
+                  src="/static/ratings_empty.png"
+                  alt="review-star"
+                />
+                {% elif datas[data]['평점'] == 1 %}
+                <img
+                  class="star-pic"
+                  src="/static/ratings_1.png"
+                  alt="review-star"
+                />
 
-            <div class=" review-content">
-                <div class="food">치즈김치전</div>
-                <div class="star">
-                  <img src="ratings_3.png" class="star-pic" alt="review-star">
-                </div>
-                <div class="hashtag">
-                  #야간 #대기없음
-                </div>
+                {% elif datas[data]['평점'] == 2 %}
+                <img
+                  class="star-pic"
+                  src="/static/ratings_2.png"
+                  alt="review-star"
+                />
+
+                {% elif datas[data]['평점'] == 3 %}
+                <img
+                  class="star-pic"
+                  src="/static/ratings_3.png"
+                  alt="review-star"
+                />
+
+                {% elif datas[data]['평점'] == 4 %}
+                <img
+                  class="star-pic"
+                  src="/static/ratings_4.png"
+                  alt="review-star"
+                />
+                {% elif datas[data]['평점'] == 5 %}
+                <img
+                  class="star-pic"
+                  src="/static/ratings_5.png"
+                  alt="review-star"
+                />
+                {% endif %}
               </div>
-            </button>
-          </a>
-        </li>
-    </div>
+              <div class="hashtag">
+                #{{datas[data]['timePeriod']}} #{{datas[data]['waiting']}}
+              </div>
+            </div>
+          </button>
+        </a>
+      </li>
+      {% endfor %} {% else %}
+      <div class="menu">등록된 리뷰가 없습니다.</div>
+      {% endif %}
+    </ul>
+  </div>
+</section>
 
-
-    <!-- 페이지 이동 버튼 -->
-    <div class="page-nav">
-      <ul class="page">
-        <li>
-          <a href="" class="End">
+<!-- 페이지 이동 버튼 -->
+<div class="page-move-wrap">
+  <div class="page-nav">
+    <ul class="page">
+      <li>
+        {% if page == 0 %} {% else %}
+        <a href="{{url_for('myreview_list', restaurant=맛집이름, page=page-1)}}">
+          <button class="page-button" style="color: lightgrey">
             <i class="fa-solid fa-chevron-left"></i>
-          </a>
-        </li>
-
-        <li>
-          <strong>1</strong>
-        </li>
-
-        <li>
-          <a class="another-page" href="">2</a>
-        </li>
-
-        <li>
-          <a class="another-page" href="">3</a>
-        </li>
-
-        <li>
-          <a class="another-page" href="">4</a>
-        </li>
-
-        <li>
-          <a class="another-page" href="">5</a>
-        </li>
-
-        <li>
-          <a href="" class="End">
+          </button>
+        </a>
+        {%endif%}
+      </li>
+      <li style="display: flex; gap: 15px">
+        {% for i in range(page_count)%} {% if page ==i %}
+        <a
+          href="{{url_for('myreview_list', restaurant=맛집이름, page=i)}}"
+          style="color: black"
+          >{{i+1}}</a
+        >
+        {% else %}
+        <a
+          href="{{url_for('myreview_list', restaurant=맛집이름, page=i)}}"
+          style="color: lightgrey"
+          >{{i+1}}</a
+        >
+        {% endif %} {% endfor %}
+      </li>
+      <li>
+        {% if page+1 == page_count %} {% else %}
+        <a href="{{url_for('myreview_list', restaurant=맛집이름, page=page+1)}}">
+          <button class="page-button" style="color: lightgrey">
             <i class="fa-solid fa-chevron-right"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </section>
-  {% endblock %}
+          </button>
+        </a>
+        {% endif %}
+      </li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
