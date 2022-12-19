@@ -137,7 +137,14 @@ def restaurant_detail(restaurant):
     leng=len(data2)
     coms=DB.get_comments(restaurant)
     comtot=len(coms)
-    return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, data2=data2, coms=coms, comtot=comtot, leng=leng, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
+    
+    if session['id']:
+        id=session['id']
+        heart=DB.check_my_fav_list(restaurant, id)
+    else:
+        heart=False
+
+    return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, data2=data2, heart=heart, coms=coms, comtot=comtot, leng=leng, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
 
 @application.route('/restaurant/comment/<string:restaurant>',methods=['POST', 'GET'])
 def restaurant_comment(restaurant):
