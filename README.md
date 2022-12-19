@@ -1,5 +1,6 @@
 # Eat:WHA
 <img width="328" alt="image" src="https://user-images.githubusercontent.com/77625287/208465405-966d537b-c6ab-4a8b-b729-f5fe82c7a46d.png">
+
 ## 🍴 잇화 소개
 #### 바쁜 이화인들을 위한 이 시대의 이화 캠퍼스 맛집 웹 어플리케이션
 ### Eat:WHA, the future we crEATe !
