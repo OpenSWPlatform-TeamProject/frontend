@@ -67,23 +67,29 @@
         {% endif %}
       </div>
       <div class="buttons-container">
-        <button onclick="toggleFavoritesImage(event)" name="isFavorite" value="false">
-          <img
-            alt="favorites"
-            src="/static/details.png"
-            style="object-position: 0 0"
-            class="favorites"
-          />
-        </button>
-        <button onclick="toggleLikesImage(event)" name="isLiked" value="false">
-          <img
-            alt="likes"
-            src="/static/details.png"
-            style="object-position: 0 -60px"
-            class="likes"
-          />
-          <div class="number-of-likes" name="number_of_likes" value="0">{{data.likes}}</div>
-        </button>
+        <form method="post" enctype="multipart/form-data">
+          <a href="/restaurant/my">
+            <button onclick="toggleFavoritesImage(event)" name="isFavorite" value="false">
+              <img
+                alt="favorites"
+                src="/static/details.png"
+                style="object-position: 0 0"
+                class="favorites"
+              />
+            </button>
+          </a>
+          <a href="/restaurant/likes">
+            <button onclick="toggleLikesImage(event)" class="like-button" name="isLiked" value="false">
+              <img
+                alt="likes"
+                src="/static/details.png"
+                style="object-position: 0 -60px"
+                class="likes"
+              />
+              <div class="number-of-likes" name="number_of_likes" value="0">{{data.likes}}</div>
+            </button>
+          </a>
+        </form>
         <a href="{{reviewlist_path}}">
           <button>
           <img
