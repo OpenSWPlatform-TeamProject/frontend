@@ -62,6 +62,21 @@ class DBhandler:
             return True
         else : 
             return False
+    
+    #댓글등록
+    def add_comment(self, restaurant, data, id, nickname):
+        comment_info ={
+            "맛집이름":restaurant,
+            "댓글내용":data['comment'],
+            "writer":id,
+            "작성자":nickname,
+            "timestamp":datetime.now().strftime('%Y-%m-%d'),
+        } 
+        print(comment_info)
+        if self.db.child("comment").push(comment_info):
+            return True
+        else : 
+            return False
 
     #리뷰등록
     def add_review(self, name, data, id, nickname, img_path):
@@ -141,6 +156,18 @@ class DBhandler:
             value = res.val()
             if value['맛집이름'] == name:
                 target_value=value
+        return target_value
+
+    #댓글 테이블 가져오기
+    def get_comments(self, name):
+        comments = self.db.child("comment").get()
+        target_value={}
+        for com in comments.each():
+            value = com.val()
+            if value['맛집이름'] == name:
+                writer=value['img_path']
+                target_value[writer]=dict((list(value.items())))
+        print(target_value)
         return target_value
 
     #조건별 맛집 가져오기
