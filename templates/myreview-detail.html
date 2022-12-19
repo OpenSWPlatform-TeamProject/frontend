@@ -1,9 +1,9 @@
-{% extends "base.html" %} {% block title %}myreview-detail{% endblock %} {%
-block css %} <link href="/static/review-detail.css" rel="stylesheet" /> {%
-endblock %} {% block section %}
+{% extends "base.html" %} {% block title %}review-detail{% endblock %} {% block
+css %} <link href="/static/review-detail.css" rel="stylesheet" /> {% endblock %}
+{% block section %}
 <!-- 상단바 -->
 <section class="topbar">
-  <a href="/review/my" class="back-icon">
+  <a href="/review/list/{{data[1].맛집이름}}" class="back-icon">
     <i class="fa solid fa-arrow-left fa-lg"></i>
   </a>
 </section>
@@ -11,56 +11,80 @@ endblock %} {% block section %}
 <box class="box">
   <div class="reviewbox">
     <!-- 앞뒤 버튼 -->
-    <a href="" class="prevEnd">
+    {% if page == 0 %} {% else %}
+    <a
+      href="{{url_for('myreview_detail', restaurant=맛집이름, page=page-1)}}"
+      class="prevEnd"
+    >
       <i class="fa-solid fa-chevron-left fa-2x"></i>
     </a>
-
-    <a href="" class="nextEnd">
+    {% endif %} {% if page+1 == total %} {% else %}
+    <a
+      href="{{url_for('myreview_detail', restaurant=맛집이름, page=page+1)}}"
+      class="nextEnd"
+    >
       <i class="fa-solid fa-chevron-right fa-2x"></i>
     </a>
+    {% endif %}
     <!-- 리뷰 -->
+
     <div class="box-top">
-      <div class="nickname">닉네임</div>
+      <div class="nickname">{{data[1].작성자}}</div>
     </div>
 
     <div class="contents">
       <div class="left">
         <div class="review-pic">
-          <img class="pic" src="/static/치즈김치전.jpeg" alt="review picture" />
+          <img class="pic" src="{{data[1].img_path}}" alt="review picture" />
         </div>
         <div class="review-stars">
-          <img class="stars" src="/static/ratings_4.png" alt="review stars" />
+          {% if data[1].평점 == 0 %}
+          <img
+            class="star-pic"
+            src="/static/ratings_empty.png"
+            alt="review-star"
+          />
+          {% elif data[1].평점 == 1 %}
+          <img class="star-pic" src="/static/ratings_1.png" alt="review-star" />
+
+          {% elif data[1].평점 == 2 %}
+          <img class="star-pic" src="/static/ratings_2.png" alt="review-star" />
+
+          {% elif data[1].평점 == 3 %}
+          <img class="star-pic" src="/static/ratings_3.png" alt="review-star" />
+
+          {% elif data[1].평점 == 4 %}
+          <img class="star-pic" src="/static/ratings_4.png" alt="review-star" />
+          {% else %}
+          <img class="star-pic" src="/static/ratings_5.png" alt="review-star" />
+          {% endif %}
         </div>
       </div>
 
       <div class="right">
-        <div class="food">치즈김치전</div>
+        <div class="food">{{data[1].메뉴이름}}</div>
         <div class="information">
           <div class="time">
             <div class="ask">방문시간</div>
-            <div class="answer">저녁</div>
+            <div class="answer">{{data[1].timePeriod}}</div>
           </div>
           <div class="time">
             <div class="ask">대기시간</div>
-            <div class="answer">10분</div>
+            <div class="answer">{{data[1].waiting}}</div>
           </div>
         </div>
         <div class="detail">
-          <p class="description">
-            드디어 저도 치즈 김치전을 먹었습니다. 꺅! <br />
-            동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리 나라 만세
-            무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세 <br />
-            남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세
-            무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세
-          </p>
+          <p class="description">{{data[1].리뷰작성내용}}</p>
         </div>
         <div class="date">
-          <p class="day">2022. 11. 05</p>
+          <p class="day">{{data[1].timestamp}}</p>
         </div>
       </div>
     </div>
     <div class="bottom">
-      <a href="#" class="erase">삭제하기</a>
+      {% if session['id'] == data[1].writer %}
+      <a href="" class="erase">삭제하기</a>
+      {% else %} {% endif %}
     </div>
   </div>
 </box>
