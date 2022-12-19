@@ -62,6 +62,21 @@ class DBhandler:
             return True
         else : 
             return False
+    
+    #댓글등록
+    def add_comment(self, restaurant, data, id, nickname):
+        comment_info ={
+            "맛집이름":restaurant,
+            "댓글내용":data['comment'],
+            "writer":id,
+            "작성자":nickname,
+            "timestamp":datetime.now().strftime('%Y-%m-%d'),
+        } 
+        print(comment_info)
+        if self.db.child("comment").push(comment_info):
+            return True
+        else : 
+            return False
 
     #리뷰등록
     def add_review(self, name, data, id, nickname, img_path):

@@ -99,6 +99,20 @@ def restaurant_detail(restaurant):
     else :
         return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, data2=data2, leng=leng, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
 
+@application.route('/restaurant/comment/<string:restaurant>',methods=['POST', 'GET'])
+def restaurant_comment(restaurant):
+    if request.method == 'POST':
+        data=request.form
+        id=session['id']
+        nickname=session['nickname']
+        print(data)
+        if DB.add_comment(restaurant, data, id, nickname):
+            return redirect(url_for('restaurant_detail', restaurant=restaurant))
+        else :
+            return "Error!"
+    else :
+        return redirect(url_for('restaurant_detail', restaurant=restaurant))
+
 @application.route('/restaurant/my')
 def my_fav_list():
     id=session['id']
