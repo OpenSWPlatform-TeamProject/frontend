@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block title %}restaurant-list{% endblock %} {%
-block css %} <link href="/static/my-fav-list.css" rel="stylesheet" />  {%
+block css %} <link href="/static/my-fav-list.css" rel="stylesheet" />  <script src="/static/my-fav-list.js"></script>{%
 endblock %} {% block section %}
 <section>
     <div class="topbar">
@@ -158,14 +158,17 @@ endblock %} {% block section %}
         {% if total > 0 %} {% for data in datas %}
         <!-- 주소 "/restaurant/detail/{{datas[data]['맛집이름']}}" -->
         <div class="card" onclick="location.href='/restaurant/detail/{{datas[data]['맛집이름']}}'">
-            <button class="heart-button" onclick="toggleFavoritesImage(event)">
-            <img
-                alt="favorites"
-                src="/static/details.png"
-                style="object-position: 0 -30px"
-                class="favorites"
-            />
-            </button>
+            <a href="{{url_for('my_favo_list', restaurant=datas[data]['맛집이름'], location=location, foodtype=foodtype, sort=sort)}}">
+                <button class="heart-button" onclick="javascript: form.action='/restaurant/myfavlist/{{datas[data]['맛집이름']}}'" name="isFavorite" >
+                    <img
+                    alt="favorites"
+                    src="/static/details.png"
+                    style="object-position: 0 -30px"
+                    class="favorites"
+                    onclick="toggleFavoritesImage(event)"
+                    />
+                </button>
+            </a>
 
             {% if datas[data]['vegan']|length == 2 %}
             <div class="card-vegan">
