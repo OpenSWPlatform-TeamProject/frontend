@@ -262,6 +262,31 @@ class DBhandler:
                 self.db.child("user").child(key).child("isFavorite").push(name)
                 return True
 
+    #찜목록 가져오기
+    def get_my_fav_list(self, id, location, foodtype,):
+        users = self.db.child("user").get()
+        restaurants = self.db.child("restaurant").get()
+        target_value=[]
+        for use in users.each():
+            user = use.val()
+            if user['id']==id:
+                for favs in user['isFavorite']:
+                    print(favs)
+                    for res in restaurants.each():
+                        value = res.val()
+                        if value['맛집이름'] == favs:
+                            if value['location'] == location or location=="all" :
+                                if foodtype=="all":
+                                    target_value.append(value)
+                                else :
+                                    for food in value['음식종류']:
+                                        if food == foodtype :
+                                            target_value.append(value)
+        new_dict={}
+        for k,v in enumerate(target_value):
+            new_dict[k]=v
+        return new_dict
+
     #좋아요 수
     def like_num(self, name):
         restaurant = self.db.child("restaurant").get()

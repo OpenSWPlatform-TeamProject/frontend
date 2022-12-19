@@ -1,3 +1,4 @@
+
 function toggleFavoritesImage(event) {
   event.stopPropagation();
   const objectPosition = event.target.style.objectPosition;
@@ -6,3 +7,4 @@ function toggleFavoritesImage(event) {
   else
     event.target.style.objectPosition = "0 0";
 }
+

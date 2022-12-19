@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block title %}restaurant-list{% endblock %} {%
-block css %} <link href="/static/restaurant-list.css" rel="stylesheet" /> <script src="/static/restaurant-list.js"></script> {%
+block css %} <link href="/static/restaurant-list.css" rel="stylesheet" />  {%
 endblock %} {% block section %}
 <section>
   <div class="topbar">
@@ -133,13 +133,25 @@ endblock %} {% block section %}
 
     <!-- 리스트 -->
     <section class="list-container">
-      <div class="order-category">
+      <div id="order-category" class="order-category">
+        {% if sort=='newest' %}
         <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort='newest')}}">
-          <button class="order-category-button">최신순</button>
+          <button id="order-category-button-one" class="order-category-button-active">최신순</button>
         </a>
+        {% else %}
+        <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort='newest')}}">
+          <button id="order-category-button-one" class="order-category-button" >최신순</button>
+        </a>
+        {% endif %}
+        {% if sort=='best' %}
         <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort='best')}}">
-          <button class="order-category-button">별점순</button>
+          <button id="order-category-button-second" class="order-category-button-active">별점순</button>
         </a>
+        {% else %}
+        <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort='best')}}">
+          <button id="order-category-button-second" class="order-category-button">별점순</button>
+        </a>
+        {% endif %}
       </div>
 
       <div class="card-container">
@@ -272,4 +284,5 @@ endblock %} {% block section %}
     </section>
   </div>
 </section>
+<script src="/static/restaurant-list.js"></script>
 {% endblock %}
