@@ -277,7 +277,7 @@ def mypage():
     location = request.args.get("location", "all", type=str)
     foodtype = request.args.get("foodtype", "all", type=str)
     favlist=DB.get_my_fav_list(id, location, foodtype)
-    revlist=DB.get_myreviews(id, nickname)
+    revlist=DB.get_myreviews(id)
     favtot=len(favlist)
     revtot=len(revlist)
     return render_template("mypage.html", favlist=favlist, favtot=favtot, revlist=revlist, revtot=revtot) 

@@ -306,7 +306,8 @@ class DBhandler:
         for rev in reviews.each():
             value = rev.val()
             if value['writer'] == id:
-                target_value[id]=dict((list(value.items())))
+                key=value['리뷰작성내용']
+                target_value[key]=dict((list(value.items())))
         print(target_value)
         return target_value
 
