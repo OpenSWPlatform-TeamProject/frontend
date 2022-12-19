@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, session
 from database import DBhandler
 import hashlib
-import sys
 import math
 
 application = Flask(__name__)
@@ -143,7 +142,7 @@ def my_restaurant_list():
         heart={}
         for key, val in datas.items():
             heart.update({datas[key]['맛집이름']: False})
-            
+
     print(datas)
     return render_template("my-fav-list.html", datas=datas, heart=heart, location=location, foodtype=foodtype, sort=sort, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))
 

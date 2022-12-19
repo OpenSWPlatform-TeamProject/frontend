@@ -321,7 +321,6 @@ class DBhandler:
         for use in users.each():
             user = use.val()
             if user['id']==id:
-                key = use.key()
                 if "isFavorite" in user:
                     for favs in user['isFavorite']:
                         fav=user['isFavorite'][favs]
@@ -415,7 +414,6 @@ class DBhandler:
             value = res.val()
             key = res.key()
             if value['id'] == id and value['pw'] == pw:
-                #print(key)
                 self.db.child("user").child(key).remove()
                 return True
         return False
