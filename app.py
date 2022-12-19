@@ -191,15 +191,6 @@ def review_detail(restaurant):
     print(review)
     print(review[1])
     return render_template("review-detail.html", data=review, 맛집이름=restaurant, page=page, total=total)   
-    
-@application.route('/review/my')
-def myreview_list():
-    id=session['id']
-    return render_template("review-list.html")
-
-@application.route('/review/my/detail')
-def myreview_detail():
-    return render_template("myreview-detail.html")
 
 
 #메뉴 화면
@@ -334,13 +325,31 @@ def my_favorite_list(restaurant):
     else:
         return redirect(url_for('restaurant_detail', restaurant=restaurant))
 
-#내가 쓴 리뷰 
-@application.route('/review/my', methods=['POST', 'GET'])
-def my_review():
+#내가 쓴 리뷰 리스트
+@application.route('/review/my/list', methods=['POST', 'GET'])
+def myreview_list():
     id = session['id']
-    if DB.get_myreviews():
-        return redirect(url_for('myreview-list'))
+    page = request.args.get("page", 0, type=int)
+    limit = 6
+    start_idx=limit*page
+    end_idx=limit*(page+1)
+    data = DB.get_myreviews(id)
+    total = len(data)
+    datas=dict(list(data.items())[start_idx:end_idx])
+    return render_template("myreview-list.html", datas=datas, total=total, limit=limit, page=page, page_count=int((total/6)+1))
 
+
+#내가 쓴 리뷰 디테일
+@application.route('/review/my/detail', methods=['POST', 'GET'])
+def myreview_detail():
+    id = session['id']
+    page = request.args.get("page", 0, type=int)
+    limit = 1
+    idx=limit*page
+    data = DB.get_myreviews(id)
+    total = len(data)
+    review=list(data.items())[idx]
+    return render_template("myreview-detail.html", data=review, page=page, total=total)
 
 if __name__ == "__main__":
     application.secret_key = 'super secret key'
