@@ -298,8 +298,8 @@ class DBhandler:
                 if "isFavorite" in user:
                     for favs in user['isFavorite']:
                         fav=user['isFavorite'][favs]
-                        for i in range(n):
-                            restaurant=names[i]['맛집이름']
+                        for key, val in names.items():
+                            restaurant=names[key]['맛집이름']
                             if restaurant == fav:
                                 print(restaurant)
                                 target_value.update({fav: True})
@@ -309,8 +309,8 @@ class DBhandler:
                             target_value.update({names[i]['맛집이름']: False})
                     print(target_value)
                     return target_value
-        for i in range(n):
-            target_value.update({names[i]['맛집이름']: False})
+        for key, val in names.items():
+            target_value.update({names[key]['맛집이름']: False})
         print(target_value)
         return target_value
 
