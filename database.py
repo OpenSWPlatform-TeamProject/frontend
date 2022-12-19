@@ -377,8 +377,8 @@ class DBhandler:
         users = self.db.child("user").get()
         for res in users.each():
             value = res.val()
-        if value['id'] == id and value['pw'] == pw:
-            return value['nickname']
+            if value['id'] == id and value['pw'] == pw:
+                return value['nickname']
 
     #탈퇴하기
     def withdrawl(self, id, pw):
