@@ -296,7 +296,7 @@ class DBhandler:
                 num=int(value['likes'])+1
                 print(num)
                 self.db.child("restaurant").child(key).update({"likes": int(value['likes'])+1})
-            return True
+                return True
 
     #내가 쓴 리뷰 가져오기
     def get_myreviews(self, id, nickname):
