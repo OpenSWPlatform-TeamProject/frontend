@@ -259,7 +259,7 @@ class DBhandler:
             value=use.val()
             if value['id'] == id:
                 key = use.key()
-                if self.db.child("user").child(key).child("isFavorite"):
+                if "isFavorite" in value:
                     for favs in value['isFavorite']:
                         fav=value['isFavorite'][favs]
                         key = use.key()
@@ -270,8 +270,7 @@ class DBhandler:
                     self.db.child("user").child(key).child("isFavorite").push(name)
                     return True
                 else :
-                    self.db.child("user").child(key).set({"isFavorite"})
-                    self.db.child("user").child(key).child("isFavorite").push(name)
+                    self.db.child("user").child(key).update({"isFavorite":{"FirstZzim":name}})
                     return True
 
 
@@ -284,10 +283,11 @@ class DBhandler:
         for use in users.each():
             user = use.val()
             if user['id']==id:
-                for favs in user['isFavorite']:
-                    fav=user['isFavorite'][favs]
-                    if name == fav:
-                        return True
+                if "isFavorite" in user:
+                    for favs in user['isFavorite']:
+                        fav=user['isFavorite'][favs]
+                        if name == fav:
+                            return True
         return False
 
     #찜목록 가져오기
