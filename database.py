@@ -258,6 +258,12 @@ class DBhandler:
         for use in users.each():
             value=use.val()
             if value['id'] == id:
+                for favs in value['isFavorite']:
+                    fav=value['isFavorite'][favs]
+                    key = use.key()
+                    if name==fav:
+                        self.db.child("user").child(key).child("isFavorite").child(favs).remove()
+                        return True
                 key = use.key()
                 self.db.child("user").child(key).child("isFavorite").push(name)
                 return True
