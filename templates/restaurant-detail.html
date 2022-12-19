@@ -68,7 +68,7 @@
       </div>
       <div class="buttons-container">
         <form method="post" enctype="multipart/form-data">
-          <a href="/restaurant/my">
+          <a href="/restaurant/my/{{data.맛집이름}}">
             <button onclick="toggleFavoritesImage(event)" name="isFavorite" value="false">
               <img
                 alt="favorites"
@@ -78,7 +78,7 @@
               />
             </button>
           </a>
-          <a href="/restaurant/likes">
+          <a href="/restaurant/likes/{{data.맛집이름}}">
             <button onclick="toggleLikesImage(event)" class="like-button" name="isLiked" value="false">
               <img
                 alt="likes"
