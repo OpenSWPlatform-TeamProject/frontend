@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block title %}mypage{% endblock %} {% block css %}
-<link href="/static/mypage.css" rel="stylesheet" /> {% endblock %} {% block
+<link href="/static/mypage.css" rel="stylesheet" /> <script src="/static/mypage.js"></script>{% endblock %} {% block
 section %}
 <!-- 상단바 -->
 <section class="topbar">
@@ -120,6 +120,7 @@ section %}
             src="/static/details.png"
             style="object-position: 0 -30px"
             class="favorites"
+            onclick="toggleFavoritesImage(event)"
           />
         </button>
 
