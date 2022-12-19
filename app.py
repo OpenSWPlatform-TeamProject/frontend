@@ -284,7 +284,7 @@ def like_num():
 
 #찜 기능 
 @application.route('/restaurant/my', methods=['POST', 'GET'])
-def my_fav_list():
+def my_favorite_list():
     id = session['id']
     if DB.my_fav_list():
         return redirect(url_for('my-fav-list'))

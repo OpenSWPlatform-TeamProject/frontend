@@ -1,5 +1,6 @@
 function toggleFavoritesImage(event) {
   const objectPosition = event.target.style.objectPosition;
+  const form = document.form;
 
   if (objectPosition === "0px 0px") {
     event.target.style.objectPosition = "0 -30px";
@@ -9,11 +10,15 @@ function toggleFavoritesImage(event) {
     event.target.style.objectPosition = "0 0";
     event.currentTarget.value = false;
   }
+
+  form.action = "/restaurant/my"
+  form.submit();
 }
 
 function toggleLikesImage(event) {
   const objectPosition = event.target.style.objectPosition;
   const numberOfLikes = parseInt(document.getElementsByClassName("number-of-likes").innerText);
+  const form = document.form;
 
   if (objectPosition === "0px -60px") {
     event.target.style.objectPosition = "0 -90px";
@@ -30,6 +35,9 @@ function toggleLikesImage(event) {
     document.getElementsByClassName("number-of-likes").innerText = newLikes;
     document.getElementsByClassName("number-of-likes").value = newLikes;
   }
+
+  form.action = "/restaurant/likes"
+  form.submit();
 }
 
 function copyToClipboard() {
