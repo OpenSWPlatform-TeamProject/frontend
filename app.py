@@ -110,17 +110,17 @@ def restaurant_comment(restaurant):
     else :
         return redirect(url_for('restaurant_detail', restaurant=restaurant))
 
-@application.route('/restaurant/my')
-def my_fav_list():
-    id=session['id']
-    isFavorite=session['isFavorite']
-    data = DB.get_users(id, isFavorite)
-    print(data)
-    if(data):
-        tot_count=len(data)
-        return render_template("my-fav-list.html", data=data, total=tot_count)
-    else:
-        return "Error!"
+#@application.route('/restaurant/my')
+#def my_fav_list():
+#    id=session['id']
+#    isFavorite=session['isFavorite']
+#    data = DB.get_users(id, isFavorite)
+#    print(data)
+#    if(data):
+#        tot_count=len(data)
+#        return render_template("my-fav-list.html", data=data, total=tot_count)
+#    else:
+#        return "Error!"
 
 #리뷰 화면
 @application.route('/review/add/<string:restaurant>',methods=['POST', 'GET'])
@@ -287,18 +287,29 @@ def withdrawl():
     else :
         return render_template("withdrawl.html")
 
+#마이페이지
 #좋아요 수 
-@application.route('/restaurant/likes', methods=['POST', 'GET'])
-def like_num():
-    if DB.like_num():
-        return redirect(url_for('restaurant_detail'))
+@application.route('/restaurant/likes/<string:restaurant>', methods=['POST', 'GET'])
+def like_num(restaurant):
+    if DB.like_num(restaurant):
+        return redirect(url_for('restaurant_detail', restaurant=restaurant))
+    else :
+        return redirect(url_for('restaurant_detail', restaurant=restaurant))
 
 #찜 기능 
 @application.route('/restaurant/my', methods=['POST', 'GET'])
-def my_favorite_list():
+def my_favorite_list(restaurant):
     id = session['id']
-    if DB.my_fav_list():
+    if DB.my_fav_list(restaurant):
         return redirect(url_for('my-fav-list'))
+
+#내가 쓴 리뷰 
+@application.route('/review/my', methods=['POST', 'GET'])
+def my_review():
+    id = session['id']
+    if DB.get_myreviews():
+        return redirect(url_for('myreview-list'))
+
 
 if __name__ == "__main__":
     application.secret_key = 'super secret key'
