@@ -303,10 +303,9 @@ class DBhandler:
                             if restaurant == fav:
                                 print(restaurant)
                                 target_value.update({fav: True})
-                    for i in range(n):
-                        if (names[i]['맛집이름'] in target_value)==False:
-                            print(names[i]['맛집이름'])
-                            target_value.update({names[i]['맛집이름']: False})
+                    for key, val in names.items():
+                        if (names[key]['맛집이름'] in target_value)==False:
+                            target_value.update({names[key]['맛집이름']: False})
                     print(target_value)
                     return target_value
         for key, val in names.items():
