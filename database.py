@@ -51,6 +51,7 @@ class DBhandler:
 
             "평점":0,
             "likes":0,
+            "theme":0,
             "timestamp":datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
 
             "img_path":img_path
@@ -295,7 +296,7 @@ class DBhandler:
                 num=int(value['likes'])+1
                 print(num)
                 self.db.child("restaurant").child(key).update({"likes": int(value['likes'])+1})
-            return num
+            return True
 
     #내가 쓴 리뷰 가져오기
     def get_myreviews(self, id, nickname):
