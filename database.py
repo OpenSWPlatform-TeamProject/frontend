@@ -265,17 +265,6 @@ class DBhandler:
         print(target_value)
         return target_value
 
-    #찜목록 가져오기
-    #def get_users(self, id, isFavorite):
-    #    users = self.db.child("user").get()
-    #    target_value={}
-    #    for use in users.each():
-    #        value = use.val()
-    #        if value['id']==id and value['isFavorite'] == True:
-    #            target_value[users]=dict((list(value.items())))
-    #    print(target_value)
-    #    return target_value
-
     #찜 기능
     def my_fav_list(self, name, id):
         users = self.db.child("user").get()
@@ -285,6 +274,31 @@ class DBhandler:
                 key = use.key()
                 self.db.child("user").child(key).child("isFavorite").set({name:name})
                 return True
+
+    #찜목록 가져오기
+    def get_my_fav_list(self, id, location, foodtype,):
+        users = self.db.child("user").get()
+        restaurants = self.db.child("restaurant").get()
+        target_value=[]
+        for use in users.each():
+            user = use.val()
+            if user['id']==id:
+                for favs in user['isFavorite']:
+                    print(favs)
+                    for res in restaurants.each():
+                        value = res.val()
+                        if value['맛집이름'] == favs:
+                            if value['location'] == location or location=="all" :
+                                if foodtype=="all":
+                                    target_value.append(value)
+                                else :
+                                    for food in value['음식종류']:
+                                        if food == foodtype :
+                                            target_value.append(value)
+        new_dict={}
+        for k,v in enumerate(target_value):
+            new_dict[k]=v
+        return new_dict
 
     #좋아요 수
     def like_num(self, name):
@@ -305,7 +319,7 @@ class DBhandler:
         for rev in reviews.each():
             value = rev.val()
             if value['id'] == id and value['nickname'] == nickname:
-                target_value[reviews]=dict((list(value.items())))
+                target_value[nickname]=dict((list(value.items())))
         print(target_value)
         return target_value
 
