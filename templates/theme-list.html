@@ -134,26 +134,55 @@ endblock %} {% block section %}
     <!-- 리스트 -->
     <section class="list-container">
         <div class="order-category">
-        <a href="{{url_for('restaurant_list', theme=theme, location=location, foodtype=foodtype, sort='newest')}}">
-            <button class="order-category-button">최신순</button>
-        </a>
-        <a href="{{url_for('restaurant_list', theme=theme, location=location, foodtype=foodtype, sort='best')}}">
-            <button class="order-category-button">별점순</button>
-        </a>
+            {% if sort=='newest' %}
+            <a href="{{url_for('restaurant_list', theme=theme, location=location, foodtype=foodtype, sort='newest')}}">
+              <button id="order-category-button-one" class="order-category-button-active">최신순</button>
+            </a>
+            {% else %}
+            <a href="{{url_for('restaurant_list', theme=theme, location=location, foodtype=foodtype, sort='newest')}}">
+              <button id="order-category-button-one" class="order-category-button" >최신순</button>
+            </a>
+            {% endif %}
+            {% if sort=='best' %}
+            <a href="{{url_for('restaurant_list', theme=theme, location=location, foodtype=foodtype, sort='best')}}">
+              <button id="order-category-button-second" class="order-category-button-active">별점순</button>
+            </a>
+            {% else %}
+            <a href="{{url_for('restaurant_list', theme=theme, location=location, foodtype=foodtype, sort='best')}}">
+              <button id="order-category-button-second" class="order-category-button">별점순</button>
+            </a>
+            {% endif %}
         </div>
 
         <div class="card-container">
         {% if total > 0 %} {% for data in datas %}
         <!-- 주소 "/restaurant/detail/{{datas[data]['맛집이름']}}" -->
         <div class="card" onclick="location.href='/restaurant/detail/{{datas[data]['맛집이름']}}'">
-            <button class="heart-button" onclick="toggleFavoritesImage(event)">
-            <img
-                alt="favorites"
-                src="/static/details.png"
-                style="object-position: 0 0"
-                class="favorites"
-            />
-            </button>
+            {% if heart %}
+            <a href="{{url_for('my_favori_list', restaurant=datas[data]['맛집이름'], theme=theme, location=location, foodtype=foodtype, sort=sort)}}">
+                <button class="heart-button" onclick="javascript: form.action='/restaurant/mylist/{{datas[data]['맛집이름']}}'" name="isFavorite" >
+                <img
+                    alt="favorites"
+                    src="/static/details.png"
+                    style="object-position: 0 -30px"
+                    class="favorites"
+                    onclick="toggleFavoritesImage(event)"
+                />
+                </button>
+            </a>
+            {% else %}
+            <a href="{{url_for('my_favori_list', restaurant=datas[data]['맛집이름'], theme=theme, location=location, foodtype=foodtype, sort=sort)}}">
+                <button class="heart-button" onclick="javascript: form.action='/restaurant/mylist/{{datas[data]['맛집이름']}}'" name="isFavorite" >
+                <img
+                    alt="favorites"
+                    src="/static/details.png"
+                    style="object-position: 0 0"
+                    class="favorites"
+                    onclick="toggleFavoritesImage(event)"
+                />
+                </button>
+            </a>
+            {% endif %}
 
             {% if datas[data]['vegan']|length == 2 %}
             <div class="card-vegan">
