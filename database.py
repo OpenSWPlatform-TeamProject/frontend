@@ -276,15 +276,14 @@ class DBhandler:
     #    return target_value
 
     #찜목록 가져오기
-    def my_fav_list(self, name, data):
+    def my_fav_list(self, name):
         users = self.db.child("user").get()
         for use in users.each():
             value=use.val()
-            if value['isFavorite'] == True:
+            if value['id'] == id:
                 key = use.key()
-                data=DBhandler.get_users(self, name)
-                self.db.child("user").child(key).append()
-                return data
+                self.db.child("user").child(key).child("isFavorite").set(name)
+                return True
 
     #좋아요 수
     def like_num(self, name):
