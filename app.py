@@ -297,16 +297,18 @@ def withdrawl():
 
 #마이페이지
 #좋아요 수 
-@application.route('/restaurant/likes', methods=['POST', 'GET'])
-def like_num():
-    if DB.like_num():
-        return redirect(url_for('restaurant_detail'))
+@application.route('/restaurant/likes/<string:restaurant>', methods=['POST', 'GET'])
+def like_num(restaurant):
+    if DB.like_num(restaurant):
+        return redirect(url_for('restaurant_detail', restaurant=restaurant))
+    else :
+        return redirect(url_for('restaurant_detail', restaurant=restaurant))
 
 #찜 기능 
 @application.route('/restaurant/my', methods=['POST', 'GET'])
-def my_favorite_list():
+def my_favorite_list(restaurant):
     id = session['id']
-    if DB.my_fav_list():
+    if DB.my_fav_list(restaurant):
         return redirect(url_for('my-fav-list'))
 
 #내가 쓴 리뷰 

@@ -253,6 +253,18 @@ class DBhandler:
         print(target_value)
         return target_value
 
+    #유저 테이블 가져오기
+    def get_users(self, id):
+        users = self.db.child("user").get()
+        target_value={}
+        for use in users.each():
+            value = use.val()
+            if value['id'] == id:
+                user=value['nickname']
+                target_value[user]=dict((list(value.items())))
+        print(target_value)
+        return target_value
+
     #찜목록 가져오기
     #def get_users(self, id, isFavorite):
     #    users = self.db.child("user").get()
@@ -264,11 +276,12 @@ class DBhandler:
     #    print(target_value)
     #    return target_value
 
+    #찜목록 가져오기
     def my_fav_list(self, name, data):
         users = self.db.child("user").get()
         for use in users.each():
             value=use.val()
-            if value['맛집이름'] == name:
+            if value['isFavorite'] == True:
                 key = use.key()
                 data=DBhandler.get_users(self, name)
                 self.db.child("user").child(key).append()
@@ -281,10 +294,9 @@ class DBhandler:
             value=res.val()
             if value['맛집이름'] == name:
                 key = res.key()
-                data=DBhandler.get_restaurants(self, name)
-                num=int(data['likes'])+1
+                num=int(value['likes'])+1
                 print(num)
-                self.db.child("restaurant").child(key).update({"likes": int(data['likes'])+1})
+                self.db.child("restaurant").child(key).update({"likes": int(value['likes'])+1})
             return num
 
     #내가 쓴 리뷰 가져오기
@@ -294,8 +306,7 @@ class DBhandler:
         for rev in reviews.each():
             value = rev.val()
             if value['id'] == id and value['nickname'] == nickname:
-                writer=value['img_path']
-                target_value[writer]=dict((list(value.items())))
+                target_value[reviews]=dict((list(value.items())))
         print(target_value)
         return target_value
 
@@ -305,7 +316,7 @@ class DBhandler:
             "id":data['id'],
             "pw":pw,
             "nickname":data['nickname'],
-            "isFavorite":{}
+            "isFavorite":()
         }
         if self.user_duplicate_check(str(data['id'])):
             self.db.child("user").push(user_info)
