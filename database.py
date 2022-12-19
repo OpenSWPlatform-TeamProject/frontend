@@ -243,7 +243,7 @@ class DBhandler:
             if value['맛집이름'] == name:
                 key = use.key()
                 data=DBhandler.get_users(self, name)
-                self.db.child("user").child(key).update()
+                self.db.child("user").child(key).append()
                 return data
 
     #좋아요 수
@@ -259,14 +259,27 @@ class DBhandler:
                 self.db.child("restaurant").child(key).update({"likes": int(data['likes'])+1})
             return num
 
+    #마이페이지에 찜/리뷰 불러오기
+    def get_mypage(self, name, data):
+        mypage_info ={
+            "맛집이름":name,
+            "isFavorite":data['isFavorite'],
+            "myreview":data['myreview'] 
+        }
+        print(mypage_info)
+        if self.db.child("user").push(mypage_info):
+            return True
+        else : 
+            return False
+
     #회원가입
     def insert_user(self, data, pw):
         user_info={
             "id":data['id'],
             "pw":pw,
             "nickname":data['nickname'],
-            "isFavorite":data['isFavorite'],
-            "myreview":data['myreview']
+            #"isFavorite":data['isFavorite'],
+            #"myreview":data['myreview']
         }
         if self.user_duplicate_check(str(data['id'])):
             self.db.child("user").push(user_info)
