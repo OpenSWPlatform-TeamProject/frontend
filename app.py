@@ -335,12 +335,16 @@ def my_favorite_list(restaurant):
         return redirect(url_for('restaurant_detail', restaurant=restaurant))
 
 @application.route('/restaurant/mylist/<string:restaurant>', methods=['POST', 'GET'])
-def my_favorite_list(restaurant):
+def my_favori_list(restaurant):
     id = session['id']
+    location = request.args.get("location", "all", type=str)
+    foodtype = request.args.get("foodtype", "all", type=str)
+    sort = request.args.get("sort", "", type=str)
+    
     if DB.my_fav_list(restaurant, id):
-        return redirect(url_for('restaurant_list', restaurant=restaurant))
+        return redirect(url_for('restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort))
     else:
-        return redirect(url_for('restaurant_list', restaurant=restaurant))
+        return redirect(url_for('restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort))
 
 #내가 쓴 리뷰 리스트
 @application.route('/review/my/list', methods=['POST', 'GET'])

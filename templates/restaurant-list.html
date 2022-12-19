@@ -158,8 +158,8 @@ endblock %} {% block section %}
         {% if total > 0 %} {% for data in datas %}
         <!-- 주소 "/restaurant/detail/{{datas[data]['맛집이름']}}" -->
         <div class="card" onclick="location.href='/restaurant/detail/{{datas[data]['맛집이름']}}'">
-          <a href="/restaurant/my/list/{{datas[data]['맛집이름']}}">
-            <button onclick="javascript: form.action='/restaurant/my/list/{{datas[data]['맛집이름']}}'" name="isFavorite" >
+          <a href="{{url_for('my_favori_list', restaurant=datas[data]['맛집이름'], location=location, foodtype=foodtype, sort=sort)}}">
+            <button class="heart-button" onclick="javascript: form.action='/restaurant/mylist/{{datas[data]['맛집이름']}}'" name="isFavorite" >
               <img
                 alt="favorites"
                 src="/static/details.png"
