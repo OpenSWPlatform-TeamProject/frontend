@@ -158,14 +158,17 @@ endblock %} {% block section %}
         {% if total > 0 %} {% for data in datas %}
         <!-- 주소 "/restaurant/detail/{{datas[data]['맛집이름']}}" -->
         <div class="card" onclick="location.href='/restaurant/detail/{{datas[data]['맛집이름']}}'">
-          <button class="heart-button" onclick="toggleFavoritesImage(event)">
-            <img
-              alt="favorites"
-              src="/static/details.png"
-              style="object-position: 0 0"
-              class="favorites"
-            />
-          </button>
+          <a href="/restaurant/my/list/{{datas[data]['맛집이름']}}">
+            <button onclick="javascript: form.action='/restaurant/my/list/{{datas[data]['맛집이름']}}'" name="isFavorite" >
+              <img
+                alt="favorites"
+                src="/static/details.png"
+                style="object-position: 0 0"
+                class="favorites"
+                onclick="toggleFavoritesImage(event)"
+              />
+            </button>
+          </a>
 
           {% if datas[data]['vegan']|length == 2 %}
           <div class="card-vegan">
