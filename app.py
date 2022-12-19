@@ -371,9 +371,9 @@ def my_favori_list(restaurant):
     sort = request.args.get("sort", "", type=str)
 
     if DB.my_fav_list(restaurant, id):
-        return redirect(url_for('restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort, theme=theme))
+        return redirect(url_for('restaurant_list', location=location, foodtype=foodtype, sort=sort, theme=theme))
     else:
-        return redirect(url_for('restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort, theme=theme))
+        return redirect(url_for('restaurant_list', location=location, foodtype=foodtype, sort=sort, theme=theme))
 
 #찜 기능 for 마이페이지
 @application.route('/restaurant/mypagelist/<string:restaurant>', methods=['POST', 'GET'])
@@ -393,9 +393,9 @@ def my_favo_list(restaurant):
     sort = request.args.get("sort", "", type=str)
 
     if DB.my_fav_list(restaurant, id):
-        return redirect(url_for('my_restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort))
+        return redirect(url_for('my_restaurant_list', location=location, foodtype=foodtype, sort=sort))
     else:
-        return redirect(url_for('my_restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort))
+        return redirect(url_for('my_restaurant_list', location=location, foodtype=foodtype, sort=sort))
 
 #내가 쓴 리뷰 리스트
 @application.route('/review/my/list', methods=['POST', 'GET'])

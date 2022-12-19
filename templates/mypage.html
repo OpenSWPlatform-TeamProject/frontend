@@ -26,7 +26,7 @@ section %}
     <div class="subtitle-review">내가 쓴 리뷰</div>
 
     <!-- 리뷰 리스트 -->
-    <section class="container">
+    <div class="container">
       <div class="content">
         <ul class="reviews">
           {% if revtot > 0 %} {% for rev in revlist %}
@@ -94,18 +94,18 @@ section %}
             </button>
             </a>
           </li>
-          {% endfor %} {% else %}
-          <div class="menu">등록한 리뷰가 없습니다.</div>
-          {% endif %}
+          {% endfor %} 
         </ul>
       </div>
-    </section>
-
-    <!-- 더보기 -->
-    <a href="/review/my/list" class="boxMore">
-      <h7 class="more"> > 더보기 </h7>
-    </a>
-  </div>
+      </div>
+      <!-- 더보기 -->
+      <a href="/review/my/list" class="boxMore">
+        <h7 class="more"> > 더보기 </h7>
+      </a>
+      {% else %}
+      <div class="menu">등록한 리뷰가 없습니다.</div>
+      {% endif %}
+    </div>
 
   <!-- 나의 찜 목록-->
   <div class="mylike">
@@ -113,16 +113,18 @@ section %}
 
     <div class="card-container">
       {% if favtot > 0 %} {% for fav in favlist %}
-      <div class="card" onclick="location.href='/restaurant/detail/{{favlist[fav]['맛집이름']}}'">
-        <button class="heart-button">
-          <img
-            alt="favorites"
-            src="/static/details.png"
-            style="object-position: 0 -30px"
-            class="favorites"
-            onclick="toggleFavoritesImage(event)"
-          />
-        </button>
+      <div class="card" onclick="location.href='/restaurant/detail/{{favlist[fav]['맛집이름']}}'" name="isFavorite">
+        <a href="{{url_for('my_favor_list', restaurant=favlist[fav]['맛집이름'], location=location, foodtype=foodtype, sort=sort)}}">
+          <button class="heart-button" onclick="javascript: form.action='/restaurant/mypagelist/{{favlist[fav]['맛집이름']}}'" name="isFavorite" >
+              <img
+                alt="favorites"
+                src="/static/details.png"
+                style="object-position: 0 -30px"
+                class="favorites"
+                onclick="toggleFavoritesImage(event)"
+              />
+          </button>
+        </a>
 
         {% if favlist[fav]['vegan']|length == 2 %}
         <div class="card-vegan">
@@ -192,14 +194,17 @@ section %}
       </div>
       {% endfor %}
     </div>
-
-    {% else %}
-    <div class="card-container">찜한 맛집이 없습니다.</div>
-    {% endif %}
-
     <a href="/restaurant/my/list" class="boxMore">
       <h7 class="more"> > 더보기 </h7>
     </a>
+
+    {% else %}
+    <div class="card-container">
+      <div class="none">찜한 맛집이 없습니다.</div>
+    </div>
+    {% endif %}
+
+    
   </div>
 
   <!-- 탈퇴하기 -->
@@ -208,3 +213,4 @@ section %}
   </div>
 </section>
 {% endblock %}
+
