@@ -138,7 +138,7 @@ def restaurant_detail(restaurant):
     coms=DB.get_comments(restaurant)
     comtot=len(coms)
     
-    if session['id']:
+    if 'id' in session:
         id=session['id']
         heart=DB.check_my_fav_list(restaurant, id)
     else:
@@ -150,13 +150,16 @@ def restaurant_detail(restaurant):
 def restaurant_comment(restaurant):
     if request.method == 'POST':
         data=request.form
-        id=session['id']
-        nickname=session['nickname']
-        print(data)
-        if DB.add_comment(restaurant, data, id, nickname):
-            return redirect(url_for('restaurant_detail', restaurant=restaurant))
-        else :
-            return "Error!"
+        if 'id' in session:
+            id=session['id']
+            nickname=session['nickname']
+            print(data)
+            if DB.add_comment(restaurant, data, id, nickname):
+                return redirect(url_for('restaurant_detail', restaurant=restaurant))
+            else :
+                return "Error!"
+        else:
+            return redirect(url_for('login'))
     else :
         return redirect(url_for('restaurant_detail', restaurant=restaurant))
 
@@ -331,11 +334,14 @@ def like_num(restaurant):
 #찜 기능 
 @application.route('/restaurant/my/<string:restaurant>', methods=['POST', 'GET'])
 def my_favorite_list(restaurant):
-    id = session['id']
-    if DB.my_fav_list(restaurant, id):
-        return redirect(url_for('restaurant_detail', restaurant=restaurant))
+    if 'id' in session:
+        id = session['id']
+        if DB.my_fav_list(restaurant, id):
+            return redirect(url_for('restaurant_detail', restaurant=restaurant))
+        else:
+            return redirect(url_for('restaurant_detail', restaurant=restaurant))
     else:
-        return redirect(url_for('restaurant_detail', restaurant=restaurant))
+        return redirect(url_for('login'))
 
 @application.route('/restaurant/mylist/<string:restaurant>', methods=['POST', 'GET'])
 def my_favori_list(restaurant):
