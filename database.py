@@ -51,6 +51,7 @@ class DBhandler:
 
             "평점":0,
             "likes":0,
+            "theme":0,
             "timestamp":datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
 
             "img_path":img_path
