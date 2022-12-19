@@ -193,8 +193,22 @@ body {
   object-fit: cover;
 }
 
+.buttons-container form {
+  display: flex;
+}
+
 .share-button {
   position: relative;
+}
+
+.like-button {
+  position: relative;
+}
+
+.number-of-likes {
+  position: absolute;
+  top: 35px;
+  left: 50%;
 }
 
 .copy-to-clipboard-alert {

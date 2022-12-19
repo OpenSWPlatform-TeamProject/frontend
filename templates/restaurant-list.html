@@ -179,11 +179,46 @@ endblock %} {% block section %}
           </div>
           {% endif %}
           <div class="card-rating">
+            {% if 0 <= datas[data]['평점'] < 0.5 %}
+            <img
+              class="stars-pic"
+              src="/static/ratings_0.png"
+              alt="ratings"
+            />
+            {% elif 0.5 <= datas[data]['평점'] < 1.5 %}
+            <img
+              class="stars-pic"
+              src="/static/ratings_1.png"
+              alt="ratings"
+            />
+
+            {% elif 1.5 <= datas[data]['평점'] < 2.5 %}
+            <img
+              class="stars-pic"
+              src="/static/ratings_2.png"
+              alt="ratings"
+            />
+
+            {% elif 2.5 <= datas[data]['평점']< 3.5 %}
+            <img
+              class="stars-pic"
+              src="/static/ratings_3.png"
+              alt="ratings"
+            />
+
+            {% elif 3.5 <= datas[data]['평점'] < 4.5 %}
             <img
               class="stars-pic"
               src="/static/ratings_4.png"
-              alt="card-rating1"
+              alt="ratings"
             />
+            {% else %}
+            <img
+              class="stars-pic"
+              src="/static/ratings_5.png"
+              alt="ratings"
+            />
+            {% endif %}
           </div>
         </div>
         {% endfor %}
@@ -215,7 +250,7 @@ endblock %} {% block section %}
                >{{i+1}}</a
               >
               {% else %}
-              <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort=sort, page=i)}}" color="black"
+              <a href="{{url_for('restaurant_list', location=location, foodtype=foodtype, sort=sort, page=i)}}"
                 style="color:lightgrey;">{{i+1}}</a
               >
               {% endif %}
