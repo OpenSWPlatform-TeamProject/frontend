@@ -258,15 +258,22 @@ class DBhandler:
         for use in users.each():
             value=use.val()
             if value['id'] == id:
-                for favs in value['isFavorite']:
-                    fav=value['isFavorite'][favs]
+                if value['isFavorite']:
+                    for favs in value['isFavorite']:
+                        fav=value['isFavorite'][favs]
+                        key = use.key()
+                        if name==fav:
+                            self.db.child("user").child(key).child("isFavorite").child(favs).remove()
+                            return True
                     key = use.key()
-                    if name==fav:
-                        self.db.child("user").child(key).child("isFavorite").child(favs).remove()
-                        return True
-                key = use.key()
-                self.db.child("user").child(key).child("isFavorite").push(name)
-                return True
+                    self.db.child("user").child(key).child("isFavorite").push(name)
+                    return True
+                else :
+                    self.db.child("user").child(key).set({"isFavorite"})
+                    self.db.child("user").child(key).child("isFavorite").push(name)
+                    return True
+
+
     
     #찜 여부 확인하기
     def check_my_fav_list(self, name, id):
@@ -337,7 +344,6 @@ class DBhandler:
             "id":data['id'],
             "pw":pw,
             "nickname":data['nickname'],
-            "isFavorite":list()
         }
         if self.user_duplicate_check(str(data['id'])):
             self.db.child("user").push(user_info)
@@ -363,8 +369,8 @@ class DBhandler:
         users = self.db.child("user").get()
         for res in users.each():
             value = res.val()
-        if value['id'] == id and value['pw'] == pw:
-            return True
+            if value['id'] == id and value['pw'] == pw:
+                return True
         return False
 
     def get_nickname(self, id, pw):
