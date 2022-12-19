@@ -92,19 +92,9 @@ def restaurant_detail(restaurant):
     print(data)
     data2=DB.get_menus(restaurant)
     leng=len(data2)
-    if request.method == 'POST':
-        comment=request.form
-        if DB.add_comment(restaurant):
-            coms=DB.get_comments(restaurant)
-            print(coms)
-            comtot=len(coms)
-            return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, data2=data2, coms=coms, comtot=comtot, leng=leng, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
-        else:
-            return redirect(url_for('restaurant_detail', restaurant=restaurant))
-    else :
-        coms=DB.get_comments(restaurant)
-        comtot=len(coms)
-        return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, data2=data2, coms=coms, comtot=comtot, leng=leng, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
+    coms=DB.get_comments(restaurant)
+    comtot=len(coms)
+    return render_template("restaurant-detail.html", 맛집이름=restaurant, data=data, data2=data2, coms=coms, domtot=comtot, leng=leng, menulist_path="/menu/list/"+restaurant, reviewlist_path="/review/list/"+restaurant, addreview_path="/review/add/"+restaurant)
 
 @application.route('/restaurant/comment/<string:restaurant>',methods=['POST', 'GET'])
 def restaurant_comment(restaurant):
