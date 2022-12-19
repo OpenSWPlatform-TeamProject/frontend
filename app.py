@@ -295,7 +295,6 @@ def sign_up():
 @application.route('/mypage')
 def mypage(): 
     id=session['id']
-    nickname=session['nickname']
     location = request.args.get("location", "all", type=str)
     foodtype = request.args.get("foodtype", "all", type=str)
     favlist=DB.get_my_fav_list(id, location, foodtype)
@@ -377,9 +376,9 @@ def my_favor_list(restaurant):
     sort = request.args.get("sort", "", type=str)
 
     if DB.my_fav_list(restaurant, id):
-        return redirect(url_for('my_restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort, theme=theme))
+        return redirect(url_for('mypage', location=location, foodtype=foodtype))
     else:
-        return redirect(url_for('my_restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort, theme=theme))
+        return redirect(url_for('mypage', location=location, foodtype=foodtype))
 
 #찜 기능 for 마이 페브 레스토랑
 @application.route('/restaurant/myfavlist/<string:restaurant>', methods=['POST', 'GET'])
