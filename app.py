@@ -86,12 +86,15 @@ def restaurant_list():
         id=session['id']
         heart=DB.check_my_fav_lists(datas, id)
     else:
-        heart=False
+        heart={}
+        for i in range(len(datas)):
+            heart.update({datas[i]['맛집이름']: False})
 
     print(datas)
+    print(heart)
     if theme>0:
-        return render_template("theme-list.html", datas=datas, location=location, foodtype=foodtype, sort=sort, search=search, theme=theme, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))
-    return render_template("restaurant-list.html", datas=datas, location=location, foodtype=foodtype, sort=sort, search=search, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))
+        return render_template("theme-list.html", datas=datas, heart=heart, location=location, foodtype=foodtype, sort=sort, search=search, theme=theme, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))
+    return render_template("restaurant-list.html", datas=datas, heart=heart, location=location, foodtype=foodtype, sort=sort, search=search, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))
 
 @application.route('/restaurant/my/list')
 def my_restaurant_list():
