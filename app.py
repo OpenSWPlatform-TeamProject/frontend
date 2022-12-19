@@ -143,9 +143,9 @@ def my_restaurant_list():
         heart={}
         for i in range(len(datas)):
             heart.update({datas[i]['맛집이름']: False})
-            
+
     print(datas)
-    return render_template("my-fav-list.html", datas=datas, location=location, foodtype=foodtype, sort=sort, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))
+    return render_template("my-fav-list.html", datas=datas, heart=heart, location=location, foodtype=foodtype, sort=sort, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))
 
 
 @application.route('/restaurant/detail/<string:restaurant>',methods=['POST', 'GET'])
