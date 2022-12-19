@@ -79,7 +79,7 @@
             </button>
           </a>
           <a href="/restaurant/likes/{{data.맛집이름}}">
-            <button onclick="toggleLikesImage(event)" class="like-button" name="isLiked" value="false">
+            <button onclick="javascript: form.action='/restaurant/likes/{{data.맛집이름}}'" class="like-button" name="isLiked" value="false">
               <img
                 alt="likes"
                 src="/static/details.png"
