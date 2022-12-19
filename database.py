@@ -283,7 +283,7 @@ class DBhandler:
             value=use.val()
             if value['id'] == id:
                 key = use.key()
-                self.db.child("user").child(key).child("isFavorite").set({name:name})
+                self.db.child("user").child(key).child("isFavorite").push(name)
                 return True
 
     #좋아요 수
