@@ -1,6 +1,7 @@
 function toggleFavoritesImage(event) {
   const objectPosition = event.target.style.objectPosition;
-  const form = document.form;
+  const form = document.getElementsByTagName("form")[0];
+  console.log(form);
 
   if (objectPosition === "0px 0px") {
     event.target.style.objectPosition = "0 -30px";
@@ -18,7 +19,7 @@ function toggleFavoritesImage(event) {
 function toggleLikesImage(event) {
   const objectPosition = event.target.style.objectPosition;
   const numberOfLikes = parseInt(document.getElementsByClassName("number-of-likes").innerText);
-  const form = document.form;
+  const form = document.getElementsByTagName("form")[0];
 
   if (objectPosition === "0px -60px") {
     event.target.style.objectPosition = "0 -90px";
