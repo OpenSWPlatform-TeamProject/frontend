@@ -69,7 +69,6 @@ class DBhandler:
             "댓글내용":data['comment'],
             "writer":id,
             "작성자":nickname,
-            "timestamp":datetime.now().strftime('%Y-%m-%d'),
         } 
         print(comment_info)
         if self.db.child("comment").push(comment_info):
@@ -151,7 +150,7 @@ class DBhandler:
         for com in comments.each():
             value = com.val()
             if value['맛집이름'] == name:
-                writer=value['img_path']
+                writer=value['작성자']
                 target_value[writer]=dict((list(value.items())))
         print(target_value)
         return target_value
