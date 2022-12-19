@@ -297,11 +297,13 @@ def like_num(restaurant):
         return redirect(url_for('restaurant_detail', restaurant=restaurant))
 
 #찜 기능 
-@application.route('/restaurant/my', methods=['POST', 'GET'])
+@application.route('/restaurant/my/<string:restaurant>', methods=['POST', 'GET'])
 def my_favorite_list(restaurant):
     id = session['id']
-    if DB.my_fav_list(restaurant):
-        return redirect(url_for('my-fav-list'))
+    if DB.my_fav_list(restaurant, id):
+        return redirect(url_for('restaurant_detail', restaurant=restaurant))
+    else:
+        return redirect(url_for('restaurant_detail', restaurant=restaurant))
 
 #내가 쓴 리뷰 
 @application.route('/review/my', methods=['POST', 'GET'])

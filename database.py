@@ -276,14 +276,14 @@ class DBhandler:
     #    print(target_value)
     #    return target_value
 
-    #찜목록 가져오기
-    def my_fav_list(self, name):
+    #찜 기능
+    def my_fav_list(self, name, id):
         users = self.db.child("user").get()
         for use in users.each():
             value=use.val()
             if value['id'] == id:
                 key = use.key()
-                self.db.child("user").child(key).child("isFavorite").set(name)
+                self.db.child("user").child(key).child("isFavorite").set({name:name})
                 return True
 
     #좋아요 수
@@ -315,7 +315,7 @@ class DBhandler:
             "id":data['id'],
             "pw":pw,
             "nickname":data['nickname'],
-            "isFavorite":()
+            "isFavorite":list()
         }
         if self.user_duplicate_check(str(data['id'])):
             self.db.child("user").push(user_info)
