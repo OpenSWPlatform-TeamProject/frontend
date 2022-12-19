@@ -334,6 +334,14 @@ def my_favorite_list(restaurant):
     else:
         return redirect(url_for('restaurant_detail', restaurant=restaurant))
 
+@application.route('/restaurant/mylist/<string:restaurant>', methods=['POST', 'GET'])
+def my_favorite_list(restaurant):
+    id = session['id']
+    if DB.my_fav_list(restaurant, id):
+        return redirect(url_for('restaurant_list', restaurant=restaurant))
+    else:
+        return redirect(url_for('restaurant_list', restaurant=restaurant))
+
 #내가 쓴 리뷰 리스트
 @application.route('/review/my/list', methods=['POST', 'GET'])
 def myreview_list():
