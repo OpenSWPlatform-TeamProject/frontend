@@ -144,6 +144,18 @@ class DBhandler:
                 target_value=value
         return target_value
 
+    #댓글 테이블 가져오기
+    def get_comments(self, name):
+        comments = self.db.child("comment").get()
+        target_value={}
+        for com in comments.each():
+            value = com.val()
+            if value['맛집이름'] == name:
+                writer=value['img_path']
+                target_value[writer]=dict((list(value.items())))
+        print(target_value)
+        return target_value
+
     #조건별 맛집 가져오기
     def get_restaurants_bycondition(self, location, foodtype, search, theme):
         if search : #검색 기능
