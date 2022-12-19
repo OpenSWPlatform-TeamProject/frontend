@@ -276,6 +276,7 @@ def withdrawl():
     else :
         return render_template("withdrawl.html")
 
+#마이페이지
 #좋아요 수 
 @application.route('/restaurant/likes', methods=['POST', 'GET'])
 def like_num():
@@ -288,6 +289,14 @@ def my_favorite_list():
     id = session['id']
     if DB.my_fav_list():
         return redirect(url_for('my-fav-list'))
+
+#내가 쓴 리뷰 
+@application.route('/review/my', methods=['POST', 'GET'])
+def my_review():
+    id = session['id']
+    if DB.get_myreviews():
+        return redirect(url_for('myreview-list'))
+
 
 if __name__ == "__main__":
     application.secret_key = 'super secret key'

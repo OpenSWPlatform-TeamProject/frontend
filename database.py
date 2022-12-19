@@ -115,6 +115,19 @@ class DBhandler:
         else : 
             return False
 
+    #마이페이지에 내 리뷰 테이블
+    #def add_myreview(self, name, id, data):
+    #    myreview_info ={
+    #        "맛집이름":name,
+    #        "writer":id
+    #    }
+    #    print(myreview_info)
+    #    if self.db.child("myreview").push(myreview_info):
+    #        print(data)
+    #        return True
+    #    else : 
+    #        return False
+
     #레스토랑 테이블 가져오기
     def get_restaurants(self ):
         restaurants = self.db.child("restaurant").get().val()
@@ -201,18 +214,6 @@ class DBhandler:
         print(target_value)
         return target_value
 
-    #내가 쓴 리뷰 가져오기
-    def get_myreviews(self, id, nickname):
-        reviews = self.db.child("review").get()
-        target_value={}
-        for rev in reviews.each():
-            value = rev.val()
-            if value['id'] == id and value['nickname'] == nickname:
-                writer=value['img_path']
-                target_value[writer]=dict((list(value.items())))
-        print(target_value)
-        return target_value
-
     #메뉴 테이블 가져오기
     def get_menus(self, name):
         menus = self.db.child("menu").get()
@@ -259,18 +260,17 @@ class DBhandler:
                 self.db.child("restaurant").child(key).update({"likes": int(data['likes'])+1})
             return num
 
-    #마이페이지에 찜/리뷰 불러오기
-    def get_mypage(self, name, data):
-        mypage_info ={
-            "맛집이름":name,
-            "isFavorite":data['isFavorite'],
-            "myreview":data['myreview'] 
-        }
-        print(mypage_info)
-        if self.db.child("user").push(mypage_info):
-            return True
-        else : 
-            return False
+    #내가 쓴 리뷰 가져오기
+    def get_myreviews(self, id, nickname):
+        reviews = self.db.child("review").get()
+        target_value={}
+        for rev in reviews.each():
+            value = rev.val()
+            if value['id'] == id and value['nickname'] == nickname:
+                writer=value['img_path']
+                target_value[writer]=dict((list(value.items())))
+        print(target_value)
+        return target_value
 
     #회원가입
     def insert_user(self, data, pw):
@@ -278,8 +278,7 @@ class DBhandler:
             "id":data['id'],
             "pw":pw,
             "nickname":data['nickname'],
-            #"isFavorite":data['isFavorite'],
-            #"myreview":data['myreview']
+            "isFavorite":{}
         }
         if self.user_duplicate_check(str(data['id'])):
             self.db.child("user").push(user_info)
