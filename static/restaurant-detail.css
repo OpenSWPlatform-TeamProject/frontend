@@ -201,6 +201,10 @@ body {
   position: relative;
 }
 
+.favorites-active{
+  object-position: 0 30px;
+}
+
 .like-button {
   position: relative;
 }

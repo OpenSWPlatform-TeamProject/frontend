@@ -68,6 +68,7 @@
       </div>
       <div class="buttons-container">
         <form method="post" enctype="multipart/form-data">
+          {% if heart=False %}
           <a href="/restaurant/my/{{data.맛집이름}}">
             <button onclick="javascript: form.action='/restaurant/my/{{data.맛집이름}}'" name="isFavorite" >
               <img
@@ -79,6 +80,19 @@
               />
             </button>
           </a>
+          {% else %}
+          <a href="/restaurant/my/{{data.맛집이름}}">
+            <button onclick="javascript: form.action='/restaurant/my/{{data.맛집이름}}'" name="isFavorite" >
+              <img
+                alt="favorites"
+                src="/static/details.png"
+                style="object-position: 0 -30px"
+                class="favorites"
+                onclick="toggleFavoritesImage(event)"
+              />
+            </button>
+          </a>
+          {% endif %}
           <a href="/restaurant/likes/{{data.맛집이름}}">
             <button onclick="javascript: form.action='/restaurant/likes/{{data.맛집이름}}'" class="like-button" name="isLiked">
               <img
