@@ -287,7 +287,10 @@ def mypage():
     foodtype = request.args.get("foodtype", "all", type=str)
     favlist=DB.get_my_fav_list(id, location, foodtype)
     revlist=DB.get_myreviews(id)
-    favtot=len(favlist)
+    if favlist==False:
+        favtot=0
+    else:
+        favtot=len(favlist)
     revtot=len(revlist)
     return render_template("mypage.html", favlist=favlist, favtot=favtot, revlist=revlist, revtot=revtot) 
 
@@ -339,12 +342,13 @@ def my_favori_list(restaurant):
     id = session['id']
     location = request.args.get("location", "all", type=str)
     foodtype = request.args.get("foodtype", "all", type=str)
+    theme = request.args.get("theme", 0, type=int)
     sort = request.args.get("sort", "", type=str)
-    
+
     if DB.my_fav_list(restaurant, id):
-        return redirect(url_for('restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort))
+        return redirect(url_for('restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort, theme=theme))
     else:
-        return redirect(url_for('restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort))
+        return redirect(url_for('restaurant_list', restaurant=restaurant, location=location, foodtype=foodtype, sort=sort, theme=theme))
 
 #내가 쓴 리뷰 리스트
 @application.route('/review/my/list', methods=['POST', 'GET'])

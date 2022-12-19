@@ -258,7 +258,8 @@ class DBhandler:
         for use in users.each():
             value=use.val()
             if value['id'] == id:
-                if value['isFavorite']:
+                key = use.key()
+                if self.db.child("user").child(key).child("isFavorite"):
                     for favs in value['isFavorite']:
                         fav=value['isFavorite'][favs]
                         key = use.key()
@@ -297,18 +298,22 @@ class DBhandler:
         for use in users.each():
             user = use.val()
             if user['id']==id:
-                for favs in user['isFavorite']:
-                    fav=user['isFavorite'][favs]
-                    for res in restaurants.each():
-                        value = res.val()
-                        if value['맛집이름'] == fav:
-                            if value['location'] == location or location=="all" :
-                                if foodtype=="all":
-                                    target_value.append(value)
-                                else :
-                                    for food in value['음식종류']:
-                                        if food == foodtype :
-                                            target_value.append(value)
+                key = use.key()
+                if "isFavorite" in user:
+                    for favs in user['isFavorite']:
+                        fav=user['isFavorite'][favs]
+                        for res in restaurants.each():
+                            value = res.val()
+                            if value['맛집이름'] == fav:
+                                if value['location'] == location or location=="all" :
+                                    if foodtype=="all":
+                                        target_value.append(value)
+                                    else :
+                                        for food in value['음식종류']:
+                                            if food == foodtype :
+                                                target_value.append(value)
+                else:
+                    return False
         new_dict={}
         for k,v in enumerate(target_value):
             new_dict[k]=v
