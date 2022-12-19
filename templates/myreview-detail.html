@@ -3,7 +3,7 @@ css %} <link href="/static/review-detail.css" rel="stylesheet" /> {% endblock %}
 {% block section %}
 <!-- 상단바 -->
 <section class="topbar">
-  <a href="/review/list/{{data[1].맛집이름}}" class="back-icon">
+  <a href="/review/my/list" class="back-icon">
     <i class="fa solid fa-arrow-left fa-lg"></i>
   </a>
 </section>
@@ -81,11 +81,7 @@ css %} <link href="/static/review-detail.css" rel="stylesheet" /> {% endblock %}
         </div>
       </div>
     </div>
-    <div class="bottom">
-      {% if session['id'] == data[1].writer %}
-      <a href="" class="erase">삭제하기</a>
-      {% else %} {% endif %}
-    </div>
+
   </div>
 </box>
 {% endblock %} {% block footer %} {% endblock %}

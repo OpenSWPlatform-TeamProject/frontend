@@ -179,8 +179,17 @@ label{
     flex-wrap: wrap;
 }
 
-.order-category-button{
+.order-category-button-active{
     background-color: #FFF7BC;
+    border: none;
+    margin-left: 10px;
+    padding: 10px 25px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.order-category-button{
+    background-color: rgb(230, 230, 230);
     border: none;
     margin-left: 10px;
     padding: 10px 25px;
