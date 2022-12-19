@@ -376,9 +376,9 @@ def my_favor_list(restaurant):
     sort = request.args.get("sort", "", type=str)
 
     if DB.my_fav_list(restaurant, id):
-        return redirect(url_for('mypage', location=location, foodtype=foodtype))
+        return redirect(url_for('mypage'))
     else:
-        return redirect(url_for('mypage', location=location, foodtype=foodtype))
+        return redirect(url_for('mypage'))
 
 #찜 기능 for 마이 페브 레스토랑
 @application.route('/restaurant/myfavlist/<string:restaurant>', methods=['POST', 'GET'])
