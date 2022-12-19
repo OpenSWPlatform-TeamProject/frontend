@@ -273,13 +273,9 @@ class DBhandler:
                     self.db.child("user").child(key).update({"isFavorite":{"FirstZzim":name}})
                     return True
 
-
-    
     #찜 여부 확인하기
     def check_my_fav_list(self, name, id):
         users = self.db.child("user").get()
-        restaurants = self.db.child("restaurant").get()
-        target_value=[]
         for use in users.each():
             user = use.val()
             if user['id']==id:
@@ -289,6 +285,34 @@ class DBhandler:
                         if name == fav:
                             return True
         return False
+
+    def check_my_fav_lists(self, names, id):
+        users = self.db.child("user").get()
+        print(names)
+        n=len(names)
+        print(n)
+        target_value={}
+        for use in users.each():
+            user = use.val()
+            if user['id']==id:
+                if "isFavorite" in user:
+                    for favs in user['isFavorite']:
+                        fav=user['isFavorite'][favs]
+                        for i in range(n):
+                            restaurant=names[i]['맛집이름']
+                            if restaurant == fav:
+                                print(restaurant)
+                                target_value.update({fav: True})
+                    for i in range(n):
+                        if (names[i]['맛집이름'] in target_value)==False:
+                            print(names[i]['맛집이름'])
+                            target_value.update({names[i]['맛집이름']: False})
+                    print(target_value)
+                    return target_value
+        for i in range(n):
+            target_value.update({names[i]['맛집이름']: False})
+        print(target_value)
+        return target_value
 
     #찜목록 가져오기
     def get_my_fav_list(self, id, location, foodtype):

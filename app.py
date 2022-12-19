@@ -81,6 +81,13 @@ def restaurant_list():
         else : data = dict(sorted(data.items(), key=lambda x: x[1]['맛집이름'], reverse=False))
 
     datas=dict(list(data.items())[start_idx:end_idx])
+    
+    if 'id' in session:
+        id=session['id']
+        heart=DB.check_my_fav_lists(datas, id)
+    else:
+        heart=False
+
     print(datas)
     if theme>0:
         return render_template("theme-list.html", datas=datas, location=location, foodtype=foodtype, sort=sort, search=search, theme=theme, total=total, limit=limit, page=page, page_count=math.ceil(total/limit))
