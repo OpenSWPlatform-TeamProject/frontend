@@ -348,16 +348,14 @@ class DBhandler:
 
     def user_duplicate_check(self, id_string):
         users=self.db.child("user").get()
-
         print("users###", users.val())
         if str(users.val()) == "None":
             return True
         else:
             for res in users.each():
                 value=res.val()
-            
-            if value['id']==id_string:
-                return False
+                if value['id']==id_string:
+                    return False
             return True
 
     #로그인
