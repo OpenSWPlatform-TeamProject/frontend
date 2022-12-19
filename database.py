@@ -305,7 +305,7 @@ class DBhandler:
         for rev in reviews.each():
             value = rev.val()
             if value['id'] == id and value['nickname'] == nickname:
-                target_value[reviews]=dict((list(value.items())))
+                target_value[nickname]=dict((list(value.items())))
         print(target_value)
         return target_value
 
